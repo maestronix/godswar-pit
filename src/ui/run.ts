@@ -10,6 +10,7 @@ import { spendRunSkillPoint } from '../sim/expedition';
 import { hasFeature } from '../state/thrones';
 import { previewRarity } from '../state/automation';
 import type { Game } from '../game';
+import type { SimState } from '../sim/types';
 
 export function renderRunScreen(root: HTMLElement, game: Game): void {
   const state = game.state;
@@ -36,12 +37,24 @@ export function renderRunScreen(root: HTMLElement, game: Game): void {
 
   const hud = el('div', { class: 'hud' });
   const treeBox = el('div', { class: 'tree-box' });
+  const treeView = el('div', { class: 'tree-box__view' });
+  const treeDepth = el('span', { class: 'tree-box__depth', text: '' });
+  const treeHintKey = el('span', { class: 'tree-box__hint-key', text: '' });
+  const treeHintRest = el('span', { text: '' });
+  treeBox.append(
+    el('div', { class: 'tree-box__head' }, [
+      el('span', { class: 'tree-box__title', text: 'Pit tree' }),
+      treeDepth,
+    ]),
+    el('p', { class: 'tree-box__hint' }, [treeHintKey, treeHintRest]),
+    treeView,
+  );
   const sideBox = el('div', { class: 'run-side' });
 
   root.append(
     el('div', { class: 'run' }, [
       el('div', { class: 'run__main' }, [hud, el('div', { class: 'run__canvas' }, [canvas])]),
-      el('div', { class: 'run__side' }, [sideBox, treeBox]),
+      el('div', { class: 'run__side' }, [treeBox, sideBox]),
     ]),
   );
 
@@ -68,21 +81,44 @@ export function renderRunScreen(root: HTMLElement, game: Game): void {
 
   /* -------------------------------------------------------- tree panel */
 
-  renderTreePanel(treeBox, {
-    state,
-    onPick: (nodeId) => {
-      game.pickNode(nodeId);
-      refresh();
-    },
-    preview: hasFeature(game.save, 'throne_preview')
-      ? (nodeId) => {
-          const node = state.tree.nodes.find((n) => n.id === nodeId);
-          if (!node || node.type === 'HEALING' || node.type === 'EVENT') return null;
-          return previewRarity(node.contentSeed, state.zoneId, node.depth);
-        }
-      : undefined,
-  });
+  const renderTree = (): void => {
+    renderTreePanel(treeView, {
+      state,
+      onPick: (nodeId) => {
+        game.pickNode(nodeId);
+        refresh();
+      },
+      preview: hasFeature(game.save, 'throne_preview')
+        ? (nodeId) => {
+            const node = state.tree.nodes.find((n) => n.id === nodeId);
+            if (!node || node.type === 'HEALING' || node.type === 'EVENT') return null;
+            return previewRarity(node.contentSeed, state.zoneId, node.depth);
+          }
+        : undefined,
+    });
+  };
+
+  // The tree is redrawn only when the state of the run changed.
+  let treeSignature = '';
+  const refreshTree = (): void => {
+    const signature = [
+      state.currentNodeId ?? '-',
+      state.nextNodeIds.join(','),
+      state.visitedNodeIds.length,
+      state.phase,
+    ].join('|');
+    if (signature === treeSignature) return;
+    treeSignature = signature;
+    renderTree();
+    const [key, rest] = describeTreeHint(state);
+    treeHintKey.textContent = key;
+    treeHintRest.textContent = rest;
+    treeDepth.textContent = `Depth ${state.depth} / ${state.tree.layers.length - 1}`;
+  };
+
+  refreshTree();
   treeBox.append(renderTreeLegend());
+  treeBox.classList.toggle('tree-box--still', game.save.settings.reducedMotion);
 
   /* ------------------------------------------------------------ side */
 
@@ -198,6 +234,7 @@ export function renderRunScreen(root: HTMLElement, game: Game): void {
         reducedMotion: game.save.settings.reducedMotion,
       });
     }
+    refreshTree();
     renderSide();
   };
 
@@ -250,4 +287,27 @@ export function renderRunScreen(root: HTMLElement, game: Game): void {
 
   void NODE_LABELS;
   void bar;
+}
+
+/**
+ * What the player has to do right now. The first part is the action, the
+ * second part the explanation.
+ */
+function describeTreeHint(state: SimState): [string, string] {
+  switch (state.phase) {
+    case 'expedition':
+      return state.nextNodeIds.length > 0
+        ? ['Click a glowing room', ' to climb. The steward picks one for you after 3s.']
+        : ['Pick a room', ' to climb.'];
+    case 'battle':
+      return ['Fighting', ' - the next room opens when the fight ends.'];
+    case 'event':
+      return ['A choice is waiting', ' in the panel next to the tree.'];
+    case 'victory':
+      return ['The throne is claimed', '.'];
+    case 'dead':
+      return ['The run is over', '.'];
+    default:
+      return ['', ''];
+  }
 }

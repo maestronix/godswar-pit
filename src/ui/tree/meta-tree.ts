@@ -11,9 +11,9 @@ import { formatNumber } from '../../core/format';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const NODE_W = 150;
-const NODE_H = 44;
+const NODE_H = 54;
 const GAP_X = 180;
-const GAP_Y = 62;
+const GAP_Y = 72;
 
 function svg<K extends keyof SVGElementTagNameMap>(
   tag: K,
@@ -110,18 +110,18 @@ export function renderMetaTree(container: HTMLElement, options: MetaTreeOptions)
       }),
     );
     group.append(
-      svg('text', { x: 8, y: 18, fill: '#f4f4f4', 'font-size': 12, 'font-family': 'monospace' }, [node.name]),
+      svg('text', { x: 8, y: 17, fill: '#f4f4f4', 'font-size': 12, 'font-family': 'monospace' }, [node.name]),
     );
     const spec = ARCHETYPES[node.archetype];
     const blurb = spec ? spec.blurb(node) : '';
     group.append(
-      svg('text', { x: 8, y: 34, fill: '#8a8a8a', 'font-size': 9, 'font-family': 'monospace' }, [
-        blurb.length > 30 ? `${blurb.slice(0, 29)}...` : blurb,
+      svg('text', { x: 8, y: 32, fill: '#8a8a8a', 'font-size': 9, 'font-family': 'monospace' }, [
+        blurb.length > 26 ? `${blurb.slice(0, 25)}...` : blurb,
       ]),
     );
     group.append(
-      svg('text', { x: NODE_W - 8, y: 34, fill: '#e8c15a', 'font-size': 9, 'text-anchor': 'end', 'font-family': 'monospace' }, [
-        owned > 0 ? `${owned}/${node.maxRank}` : `${options.cost(node, owned)} ${options.currency}`,
+      svg('text', { x: 8, y: 47, fill: '#e8c15a', 'font-size': 9, 'font-family': 'monospace' }, [
+        owned > 0 ? `Rank ${owned}/${node.maxRank}` : `${options.cost(node, owned)} ${options.currency}`,
       ]),
     );
 

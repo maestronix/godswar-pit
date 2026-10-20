@@ -1,7 +1,7 @@
 {
   "name": "godswar-pit",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Godswar Pit - an idle roguelike for the browser. Climb to become a god.",
   "scripts": {

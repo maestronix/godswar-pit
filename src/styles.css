@@ -447,27 +447,120 @@ canvas.scene {
 .tree-box {
   background: var(--bg-panel);
   border: 1px solid var(--line);
-  padding: 0.4rem;
-  overflow: auto;
-  max-height: 560px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  /* The whole climb is always visible - the SVG scales itself into the box,
+     so the box needs a height it can rely on. */
+  height: clamp(420px, 68vh, 640px);
+  margin-bottom: 1rem;
+}
+
+.tree-box__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.tree-box__title {
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.tree-box__depth {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+}
+
+.tree-box__hint {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.tree-box__hint b {
+  color: var(--accent);
+  font-weight: normal;
+}
+
+.tree-box__hint-key {
+  color: var(--accent);
+}
+
+.tree-box__view {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .tree-svg {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tree-node {
+  transition: opacity 0.15s linear;
+}
+
+.tree-node--idle {
+  opacity: 0.55;
 }
 
 .tree-node--clickable {
   cursor: pointer;
 }
 
-.tree-node--clickable:hover rect {
+.tree-node--clickable:hover .tree-node__box {
   stroke: #f4f4f4;
 }
 
-.tree-node--current rect {
+.tree-node--clickable:focus {
+  outline: none;
+}
+
+.tree-node--clickable:focus-visible .tree-node__box {
+  stroke: #f4f4f4;
+  stroke-width: 3;
+}
+
+.tree-node--next {
+  filter: drop-shadow(0 0 5px rgba(232, 193, 90, 0.5));
+  animation: tree-pulse 1.6s ease-in-out infinite;
+}
+
+.tree-node--current {
   filter: drop-shadow(0 0 4px rgba(232, 193, 90, 0.8));
+}
+
+@keyframes tree-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.tree-box--still .tree-node--next {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-node--next {
+    animation: none;
+  }
 }
 
 .tree-legend {

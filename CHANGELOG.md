@@ -3,6 +3,35 @@
 All notable changes to Godswar Pit are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.1.1] - 2026-10-20
+
+### Fixed
+
+- **The pit tree is readable and complete again.** The layout used the column
+  position of a node in a different unit than the renderer expected, so the
+  left column of the tree was cut off and the whole tree was blown up to
+  three times its size - only four of twelve rooms were visible at a time.
+  The column is now the index of the room inside its layer, the viewBox is
+  built from the real bounds of the tree and the SVG scales itself into the
+  panel: every room of the climb is visible at once, at a readable size.
+- **The tree reacts to the run.** The panel was drawn once when the screen
+  opened and never updated, so after the first click the highlighted rooms
+  were stale and further clicks did nothing. The tree is now redrawn
+  whenever the state of the run changes.
+- **The skill tree nodes no longer overlap.** The effect of a node and its
+  price were drawn on the same line; both have their own line now.
+
+### Added
+
+- **The next rooms are unmistakable.** They glow gold, carry a `NEXT` marker
+  and the name of the room, and the panel tells the player what to do
+  ("Click a glowing room to climb. The steward picks one for you after 3s.").
+- **The rooms can be picked with the keyboard.** The clickable rooms are
+  focusable, announce themselves as buttons and react to Enter and Space.
+- **Regression test for the tree** (`tests/tree-panel.test.ts`): no room may
+  lie outside the viewBox and the clickable rooms must match the rooms the
+  player may enter.
+
 ## [0.1.0] - 2026-10-20
 
 The first playable version. Everything is static, runs in the browser and is
