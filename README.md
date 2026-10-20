@@ -41,6 +41,15 @@ Other commands:
 
 ## Publish it to GitHub Pages
 
+### The easy way
+
+Double click **`deploy.bat`** in the project folder. It asks two questions
+(your GitHub user name and the name of the new repository), walks you
+through creating the repository and pushes everything for you. At the end it
+prints the address of your game.
+
+### The manual way
+
 You only have to do this once:
 
 1. Create an **empty** GitHub repository (no README, no `.gitignore`).
