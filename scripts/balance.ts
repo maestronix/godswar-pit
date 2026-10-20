@@ -99,7 +99,7 @@ function simulateRun(save: SaveFile, seed: number, zone: number, policy: Manager
   const deathType =
     run.state.phase === 'victory'
       ? 'THRONE'
-      : (run.state.tree.nodes.find((n) => n.id === run.state.currentNodeId)?.type ?? 'UNKNOWN');
+      : (run.state.routes.nodes.find((n) => n.id === run.state.currentNodeId)?.type ?? 'UNKNOWN');
 
   return {
     victory: run.state.phase === 'victory',

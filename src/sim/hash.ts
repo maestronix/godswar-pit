@@ -57,6 +57,8 @@ export function serializeState(state: SimState): string {
       .map((e) => `${e.id}:${e.hp.toFixed(4)}:${e.x.toFixed(4)},${e.y.toFixed(4)}:${e.alive ? 1 : 0}:${e.statuses.map(statusKey).sort().join('/')}`)
       .join('|')}`,
     `nodes=${state.visitedNodeIds.join(',')}`,
+    `route=${state.routeId ?? '-'}`,
+    `routes=${state.routes.routes.map((r) => r.id).join(',')}`,
     `nodeState=${Object.keys(state.nodeState)
       .sort()
       .map((k) => `${k}=${state.nodeState[k]!.cleared ? 1 : 0}${state.nodeState[k]!.result ?? ''}`)

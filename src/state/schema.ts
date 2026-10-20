@@ -11,7 +11,7 @@
  */
 import type { ItemSlot, Rarity, StatKey } from '../data/types';
 
-export const SAVE_VERSION = 2;
+export const SAVE_VERSION = 3;
 export const SAVE_KEY = 'godswarpit.save.v1';
 
 /* -------------------------------------------------------------- item data */

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Content } from '../src/data/registry';
 import { createDefaultSave } from '../src/state/schema';
-import { anomaliesForSeries, createRun } from '../src/sim/expedition';
+import { anomaliesForSeries, createRun, pickRoute } from '../src/sim/expedition';
 import { step } from '../src/sim/engine';
 import { DEFAULT_POLICY } from '../src/sim/policy';
 import { ascend } from '../src/state/thrones';
@@ -21,6 +21,8 @@ function runWith(anomalyIds: string[], seed = 4242) {
     ascensions: 1,
     anomalyIds,
   });
+  // The player picks the path of the run - the entrance is entered at once.
+  pickRoute(run.state, run.ctx, run.state.routes.routes[0]!.id);
   return run;
 }
 
@@ -94,6 +96,8 @@ describe('ascension in the simulation', () => {
       runId: 'run_second',
       ascensions: 1,
     });
+    pickRoute(first.state, first.ctx, first.state.routes.routes[0]!.id);
+    pickRoute(second.state, second.ctx, second.state.routes.routes[0]!.id);
     step(first.state, first.ctx, 60, { policy: DEFAULT_POLICY });
     step(second.state, second.ctx, 60, { policy: DEFAULT_POLICY });
 

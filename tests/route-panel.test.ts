@@ -1,24 +1,29 @@
 /**
- * The pit tree panel.
+ * The path panel.
  *
- * The tree has to show every room of the climb - nothing may be cut off and
- * the rooms the player can enter right now have to be obvious.
+ * The panel has to show every path of the pit - nothing may be cut off, and
+ * while the choice is open every path has to be pickable.
  *
  * @vitest-environment jsdom
  */
 import { describe, expect, it } from 'vitest';
-import { generateTree } from '../src/sim/tree';
-import { renderTreePanel } from '../src/ui/tree/tree-panel';
+import { createDefaultSave } from '../src/state/schema';
+import { createRun } from '../src/sim/expedition';
+import { renderRoutePanel } from '../src/ui/route/route-panel';
 import type { SimState } from '../src/sim/types';
 
-function fakeState(zone: number, seed: number, next: string[], current: string | null): SimState {
-  const tree = generateTree({ zone, seed });
-  return {
-    tree,
-    currentNodeId: current,
-    nextNodeIds: next,
-    visitedNodeIds: current ? [current] : [],
-  } as unknown as SimState;
+function makeState(zone: number, seed: number): SimState {
+  const save = createDefaultSave();
+  const { state } = createRun({
+    player: save.player,
+    tree: save.tree,
+    unlocked: save.unlocked,
+    meta: save.meta,
+    seed,
+    zoneId: zone,
+    runId: `run_${seed}`,
+  });
+  return state;
 }
 
 function viewBoxOf(svg: SVGSVGElement): { width: number; height: number } {
@@ -32,12 +37,12 @@ function translateOf(group: Element): { x: number; y: number } {
   return { x: match ? Number(match[1]) : NaN, y: match ? Number(match[2]) : NaN };
 }
 
-describe('the pit tree panel', () => {
+describe('the path panel', () => {
   for (const zone of [1, 5, 9]) {
     it(`keeps every room of zone ${zone} inside the viewBox`, () => {
-      const state = fakeState(zone, 1234 + zone, [], null);
+      const state = makeState(zone, 1234 + zone);
       const container = document.createElement('div');
-      renderTreePanel(container, { state });
+      renderRoutePanel(container, { state });
 
       const svg = container.querySelector('svg');
       expect(svg).toBeTruthy();
@@ -46,7 +51,7 @@ describe('the pit tree panel', () => {
       expect(height).toBeGreaterThan(0);
 
       const groups = container.querySelectorAll('g.tree-node');
-      expect(groups.length).toBe(state.tree.nodes.length);
+      expect(groups.length).toBe(state.routes.nodes.length);
 
       for (const group of groups) {
         const box = group.querySelector('.tree-node__box');
@@ -62,44 +67,37 @@ describe('the pit tree panel', () => {
     });
   }
 
-  it('marks the rooms the player can enter and picks them on click', () => {
-    const state = fakeState(1, 99, [], null);
-    const next = state.tree.layers[2]!.slice(0, 2);
-    state.nextNodeIds = next;
-    state.currentNodeId = state.tree.layers[1]![0]!;
-    state.visitedNodeIds = [state.currentNodeId];
-
+  it('lets the player pick every path while the choice is open', () => {
+    const state = makeState(1, 99);
     const container = document.createElement('div');
     const picked: string[] = [];
-    renderTreePanel(container, {
+    renderRoutePanel(container, {
       state,
-      onPick: (nodeId) => picked.push(nodeId),
+      onPickRoute: (routeId) => picked.push(routeId),
     });
 
     const clickable = container.querySelectorAll('g.tree-node--clickable');
-    expect(clickable.length).toBe(next.length);
+    expect(clickable.length).toBe(state.routes.nodes.length);
 
-    // Every clickable room carries the marker and the keyboard role.
     for (const group of clickable) {
       expect(group.getAttribute('tabindex')).toBe('0');
       expect(group.getAttribute('role')).toBe('button');
       expect(group.getAttribute('aria-label')).toBeTruthy();
     }
-    const markers = Array.from(container.querySelectorAll('g.tree-node--next text')).filter(
-      (text) => text.textContent === 'NEXT',
-    );
-    expect(markers.length).toBe(next.length);
+
+    // The name of every path is clickable, too.
+    const heads = container.querySelectorAll('g.route-head--open');
+    expect(heads.length).toBe(state.routes.routes.length);
 
     (clickable[0] as SVGGElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    expect(picked).toEqual([next[0]]);
+    expect(picked).toEqual([state.routes.routes[0]!.id]);
   });
 
   it('shows the name of every room', () => {
-    const state = fakeState(1, 5, [], null);
+    const state = makeState(1, 5);
     const container = document.createElement('div');
-    renderTreePanel(container, { state, showLabels: true });
+    renderRoutePanel(container, { state, showLabels: true });
     const labels = container.querySelectorAll('g.tree-node text');
-    // The letter, the name of the room and (for the next rooms) the marker.
-    expect(labels.length).toBeGreaterThanOrEqual(state.tree.nodes.length * 2);
+    expect(labels.length).toBeGreaterThanOrEqual(state.routes.nodes.length * 2);
   });
 });

@@ -8,13 +8,13 @@
 
 Neues, komplett statisches Idle-Roguelike im Browser. Einzige harte Vorgabe des Users: **vollständig auf GitHub Pages host- und spielbar** — kein Backend, kein Login, keine Server-Kosten, kein Registrierungszwang.
 
-**Produktidee:** Ein Run = ein Leben. Der Held wird automatisch in den Göttergraben geschickt, kämpft sich einen Baum hoch, sammelt Loot und Seelen, stirbt oder erklimmt den Thron. Was bleibt, ist **Erbe**: Skills, Klassen, Verwalter-Funktionen und göttliche Ränge. Das Spielziel ist der **Aufstieg zum Gott** (10 Throne), danach endlose Inkarnationen.
+**Produktidee:** Ein Run = ein Leben. Der Held wird automatisch in den Göttergraben geschickt, wählt am Einstieg einen Pfad, kämpft sich diesen Pfad hoch, sammelt Loot und Seelen, stirbt oder erklimmt den Thron. Was bleibt, ist **Erbe**: Skills, Klassen, Verwalter-Funktionen und göttliche Ränge. Das Spielziel ist der **Aufstieg zum Gott** (10 Throne), danach endlose Inkarnationen.
 
 | | |
 |---|---|
 | Titel | **Godswar Pit** — Untertitel „Climb to become a god" |
 | Sprache | **Nur Englisch** (kein i18n) |
-| Genre | Idle-Roguelike / Auto-Battler mit Baum-Run-Struktur |
+| Genre | Idle-Roguelike / Auto-Battler mit Pfad-Run-Struktur |
 | Kamerasicht | **Top-down**, 4 Blickrichtungen, Räume als Kachelraster |
 | Plattform | Desktop-first, browserbasiert, responsiv (Tablet-Fit) |
 | Persistenz | localStorage (1 Slot) + Export/Import als Base64-Text |
@@ -41,36 +41,47 @@ Der User ist kein Entwickler. Der Agent richtet deshalb **alles** ein, was nur g
 ### 2.2 Kernschleife
 
 ```
-Hub (Ashvale)  →  Loadout bauen  →  Expedition starten  →  Baum hochklettern
+Hub (Ashvale)  →  Loadout bauen  →  Expedition starten  →  Pfad hochklettern
      ↑                                                            ↓
 Erbe sichern ← Tod / Thron ←─────────── automatischer Kampf ←─────┘
 ```
 
 1. **Vorbereitung:** Klasse wählen, 6 Item-Slots belegen, 3 Trank-Slots belegen, Skill-Baum-Knoten kaufen, Erbschaften einsetzen, Ziel-Zone wählen, Verwalter-Policy setzen.
-2. **Expedition:** Der Baum wird generiert (siehe 2.3). Der Held kämpft automatisch, Skills feuern nach Cooldown per Prioritätenliste.
-3. **Knotenwahl:** Der Spieler wählt den nächsten Knoten (Risiko/Belohnung). Das ist die **einzige** aktive Entscheidung im Run. Ohne Eingabe (offline) wählt der **Verwalter** nach Policy.
+2. **Expedition:** Die Pfade werden generiert (siehe 2.3). Der Held kämpft automatisch, Skills feuern nach Cooldown per Prioritätenliste.
+3. **Pfadwahl:** Der Spieler wählt am Einstieg **einen** Pfad (Risiko/Belohnung). Das ist die **einzige** aktive Entscheidung im Run — danach wird genau dieser Pfad gelaufen, es gibt keine zweite Wahl. Ohne Eingabe (offline) wählt der **Verwalter** nach Policy.
 4. **Ende:** Tod → Erbschaften sichern; oder Thron-Sieg → Rang + Mechanik freigeschaltet; oder freiwilliger Rückzug.
 5. **Erbe** bleibt: Seelen, Echo, Erbschaften, Throne, Erfolge, Codex, Statistiken, Verwalter-Mechaniken.
 
-### 2.3 Der Graben-Baum (Kernstück der Run-Struktur)
+### 2.3 Die Graben-Pfade (Kernstück der Run-Struktur)
 
-Der Run ist ein **aufsteigender Baum**: Start unten, Thron-Boss oben. Jeder Knoten ist ein Raumtyp.
+Der Run ist **ein Pfad**: Start unten, Thron-Boss oben, dazwischen eine feste Folge von Räumen. Der Spieler wählt am Einstieg einen von drei Pfaden — danach gibt es keine Verzweigung mehr. Jeder Raum ist ein Raumtyp.
 
 ```
-                 [BOSS · Throne]
-                 ╱            ╲
-          [TREASURE]        [ELITE]
-             ╱     ╲           ╲
-      [HEALING]  [FIGHT]     [EVENT]
-         ╱         ╲           ╲
-     [FIGHT]     [TRAP]      [TREASURE]
-        ╱           ╲           ╲
-   [FIGHT]       [FIGHT]      [FIGHT]
-       ╲           │           ╱
-             [START]
+   The Ash Road        The Shrine Way       The Gilded Road
+   [BOSS · Throne]     [BOSS · Throne]     [BOSS · Throne]
+        ↑                    ↑                    ↑
+   [ELITE]              [FIGHT]              [TREASURE]
+        ↑                    ↑                    ↑
+   [TREASURE]           [EVENT]              [ELITE]
+        ↑                    ↑                    ↑
+   [HEALING]            [HEALING]            [TRAP]
+        ↑                    ↑                    ↑
+   [FIGHT]              [TREASURE]           [HEALING]
+        ↑                    ↑                    ↑
+   [FIGHT]              [HEALING]            [TREASURE]
+        ↑                    ↑                    ↑
+   [START]              [START]              [START]
 ```
 
-**Sichtbarkeit:** Der **komplette Baum ist sichtbar** (eigene Screen-Oberfläche, aufsteigend gezeichnet). Knoten-**Typ** und **Risikostufe** sind überall bekannt. Der **Inhalt** (Gegnerliste, Loot-Klasse, Event-Variante) bleibt verborgen, bis der Knoten betreten wird. Tiefere Ebenen zeigen vorab Typ + Risiko, nicht die konkrete Verteilung.
+**Die drei Pfade** (Charakter fest, Räume pro Run gewürfelt):
+
+| Pfad | Shrines | Schätze | Gefahr |
+|---|---|---|---|
+| *The Ash Road* | 2 | 2 | normal |
+| *The Shrine Way* | 3 | 1 | geringer |
+| *The Gilded Road* | 1 | 3 | höher (mehr Elites) |
+
+**Sichtbarkeit:** Alle **Pfade sind sichtbar** (eigene Screen-Oberfläche, als Spalten gezeichnet). Raum-**Typ** und **Risikostufe** sind überall bekannt. Der **Inhalt** (Gegnerliste, Loot-Klasse, Event-Variante) bleibt verborgen, bis der Raum betreten wird.
 
 **Knoten-Typen**
 
@@ -85,14 +96,14 @@ Der Run ist ein **aufsteigender Baum**: Start unten, Thron-Boss oben. Jeder Knot
 | `BOSS` | Zonen-Boss | 5 | Thron-Fortschritt, Erbschaft |
 
 **Generator-Regeln**
-- Tiefe 12–16 Knoten, gewählter Pfad 8–12 Knoten. Verzweigung 2 (ab Zone 4 drei Optionen).
-- `BOSS` immer genau einer, auf der obersten Ebene.
-- `HEALING` max. 1–2 pro Zone, nie in Ebene 1–2.
-- `TRAP` erst ab Ebene 3. `ELITE` erst ab Ebene 2. `TREASURE` 1–2 pro Zone.
-- Risikostufe = f(Zone, Ebene, Knotentyp). Sie steigt monoton mit der Ebene.
-- **Inhalte** werden erst beim Betreten gewürfelt (Seed pro Knoten, deterministisch).
+- 12–16 Räume pro Pfad (Zone 1 → 12, Zone 10 → 15), Eingang und Thron immer dabei.
+- `BOSS` immer genau einer, am Ende jedes Pfades.
+- `HEALING` nie in Ebene 1–2, `TRAP` erst ab Ebene 3, `ELITE` erst ab Ebene 3.
+- Risikostufe = f(Zone, Ebene, Raumtyp). Sie steigt monoton mit der Ebene.
+- **Inhalte** werden erst beim Betreten gewürfelt (Seed pro Raum, deterministisch).
+- **Kein Auto-Heal zwischen den Räumen** — geheilt wird in `HEALING`-Räumen (und durch `hpRegen` im Kampf). Die Shrines auf dem Pfad sind deshalb der eigentliche Grund für die Pfadwahl.
 
-**Bedienung:** Tree-Panel (SVG/DOM) neben dem Kampf-Canvas. Aktueller Knoten markiert, wählbare Nachfolger anklickbar. Bleibt der Spieler 3 s ohne Klick, wählt der Verwalter automatisch (relevant fürs AFK-Verhalten im selben Tab).
+**Bedienung:** Pfad-Panel (SVG/DOM) neben dem Kampf-Canvas. Solange die Wahl offen ist, ist jeder Pfad anklickbar; danach läuft der Held den gewählten Pfad von selbst hoch. Bleibt der Spieler 15 s ohne Klick, wählt der Verwalter automatisch (relevant fürs AFK-Verhalten im selben Tab). Event-Dialoge bleiben 30 s offen, damit sie gelesen werden können.
 
 **Verwalter-Policy (Rang 5):** Presets `Safe` / `Balanced` / `Greedy` + Schieberegler (Heilungs-Bevorzugung, Schatz-Suche, Fallen-Vermeidung, Risiko-Toleranz). Keine Skriptsprache.
 
@@ -255,7 +266,7 @@ gottergraben/
 ├─ src/
 │  ├─ main.ts                  # Bootstrap, Screen-Router (Hub / Run / Trees / Inventory / Achievements)
 │  ├─ core/                    # rng.ts, events.ts, time.ts, math.ts, id.ts, format.ts
-│  ├─ sim/                     # engine.ts (Tick), combat.ts, status.ts, autocast.ts, loot.ts, tree.ts, expedition.ts, policy.ts
+│  ├─ sim/                     # engine.ts (Tick), combat.ts, status.ts, autocast.ts, loot.ts, routes.ts, expedition.ts, policy.ts
 │  ├─ state/                   # store.ts (localStorage), schema.ts, migrations.ts, offline.ts, contracts.ts
 │  ├─ data/                    # ALL CONTENT as data
 │  │  ├─ classes/*.json        # 6 classes
@@ -374,9 +385,9 @@ Alle Inhalte werden zur Laufzeit geladen und **gegen ein Schema validiert** (Vit
 6. `sim/engine.ts`: Tick-Engine, `SimState`, `step()`, Event-Queue.
 7. `sim/combat.ts` + `sim/status.ts`: Angriff, Reichweite, Krit, Cooldowns, DoT/Buff/Debuff, Ressourcen, Tod.
 8. `sim/autocast.ts`: Prioritätenliste → Skill-Auswahl; `sim/loot.ts`: Basis → Item-Level → Rarität → Affixes → Aspect; `data/items/*`.
-9. `sim/tree.ts` + `sim/expedition.ts`: Baum-Generator, Knoten-Wahl, Raum-Auflösung, Auto-Retry, Todesauflösung.
+9. `sim/routes.ts` + `sim/expedition.ts`: Pfad-Generator, Pfad-Wahl, Raum-Auflösung, Auto-Retry, Todesauflösung.
 10. `art/`: Sprite-Format + Renderer, Kachel-Schema, Palette, erste Helden-/Gegner-Sprites, FX-Partikel.
-11. `ui/`: Hub-Shell, Run-Screen (Canvas + Tree-Panel), Loadout, Rückkehr-/Todes-Report.
+11. `ui/`: Hub-Shell, Run-Screen (Canvas + Pfad-Panel), Loadout, Rückkehr-/Todes-Report.
 12. *Akzeptanz:* Ein Run läuft im Browser, Knoten sind wählbar, Tod erzeugt einen Report, Loot landet im Tresor, gleicher Seed ⇒ gleiches Ergebnis (Test).
 
 ### Phase 2 — Items, Skill-Bäume, Erbe
@@ -487,7 +498,7 @@ und `npm run build` sind grün.
 | Projekt, Tooling, CI | fertig | `package.json`, `.github/workflows/deploy.yml` |
 | Deterministische Engine | fertig | `src/core/rng.ts`, `src/sim/engine.ts`, `src/sim/hash.ts` |
 | Kampf, Status, Auto-Cast | fertig | `src/sim/combat.ts`, `src/sim/status.ts` |
-| Baum, Expedition, Verwalter | fertig | `src/sim/tree.ts`, `src/sim/expedition.ts`, `src/sim/policy.ts` |
+| Pfade, Expedition, Verwalter | fertig | `src/sim/routes.ts`, `src/sim/expedition.ts`, `src/sim/policy.ts` |
 | Item-System, Beute, Codex | fertig | `src/sim/loot.ts`, `src/ui/inventory/inventory.ts` |
 | 540 Knoten aus 12 Archetypen | fertig | `scripts/generate-trees.ts`, `src/data/nodes/trees/*.json` |
 | 6 Klassen, 30 Skills, 30 Runen | fertig | `src/data/classes`, `src/data/skills` |
@@ -506,13 +517,19 @@ und `npm run build` sind grün.
    vollständiger Run bei 2-4 Minuten, ein früh gescheiterter Run bei 1-2
    Minuten. Der Grund ist die Menge der Räume (12-16 Ebenen, davon rund 60 %
    Kampf) und die Kampfzeit von 5-12 Sekunden. Die Zahlen lassen sich mit
-   `BALANCE.enemyHpBase` und `treeDepthFor()` jederzeit anheben.
+   `BALANCE.enemyHpBase` und `routeLengthFor()` jederzeit anheben.
 2. **Klassen-Bäume** werden bei einer Inkarnation zurückgesetzt (Plan 2.10:
    "Baum-Nodes dieser Inkarnation"). Dauerhaft sind nur der Grace Mirror
    (Echo) und der Inheritance Tree (Inheritance).
 3. **Aspects** sind 26 Stück (4 je Klasse + 2 universelle) statt 20, damit
    jede Klasse eigene Legendär-Effekte hat.
-4. **Der Verwalter** (Steward) ist immer aktiv und übernimmt nach 3 Sekunden
-   ohne Klick. Der Throne-Rang 5 gibt dem Spieler die Policy-Regler.
+4. **Der Verwalter** (Steward) ist immer aktiv und übernimmt nach 15 Sekunden
+   ohne Klick (Pfadwahl) bzw. 30 Sekunden (Event). Der Throne-Rang 5 gibt dem
+   Spieler die Policy-Regler.
 5. **PNG-Art** bleibt offen - die Sprite-Schnittstelle erlaubt den Wechsel
    1:1, ohne Spiellogik anzufassen.
+6. **Run-Struktur (Runde 4):** Statt eines verzweigten Baums hat jeder Run
+   **einen Pfad**, den der Spieler am Einstieg wählt (Plan 2.3). Grund: ein
+   Run soll eine Entscheidung haben, nicht zwei. Das Auto-Heal zwischen den
+   Räumen ist dafür entfallen — geheilt wird in den `HEALING`-Räumen des
+   gewählten Pfades.

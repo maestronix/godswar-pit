@@ -102,35 +102,55 @@ describe('expedition', () => {
     const run = makeContext();
     step(run.state, run.ctx, 300, { policy: DEFAULT_POLICY });
     expect(run.state.visitedNodeIds.length).toBeGreaterThan(0);
-    expect(run.state.visitedNodeIds.length).toBeLessThanOrEqual(run.state.tree.nodes.length);
+    expect(run.state.visitedNodeIds.length).toBeLessThanOrEqual(run.state.routes.nodes.length);
   });
 
-  it('keeps the tree free of forbidden node types in the early layers', () => {
+  it('keeps the path free of forbidden node types in the early rooms', () => {
     const run = makeContext();
-    const early = run.state.tree.nodes.filter((n) => n.depth <= 1);
+    const early = run.state.routes.nodes.filter((n) => n.depth <= 1);
     for (const node of early) {
       expect(node.type).not.toBe('HEALING');
       expect(node.type).not.toBe('TRAP');
     }
   });
 
-  it('has exactly one boss node on the top layer', () => {
+  it('ends every path with exactly one throne', () => {
     const run = makeContext();
-    const top = run.state.tree.layers[run.state.tree.layers.length - 1]!;
-    expect(top).toHaveLength(1);
-    const boss = run.state.tree.nodes.find((n) => n.id === run.state.tree.bossId)!;
-    expect(boss.type).toBe('BOSS');
+    for (const route of run.state.routes.routes) {
+      const throne = route.nodes[route.nodes.length - 1]!;
+      expect(throne.type).toBe('BOSS');
+      expect(route.nodes.filter((n) => n.type === 'BOSS')).toHaveLength(1);
+      expect(route.nodes[0]!.type).toBe('FIGHT');
+    }
   });
 
   it('never decreases the risk with the depth', () => {
     const run = makeContext();
-    const layers = run.state.tree.layers;
-    for (let i = 1; i < layers.length; i++) {
-      const previous = layers[i - 1]!.map(
-        (id) => run.state.tree.nodes.find((n) => n.id === id)!.risk,
-      );
-      const current = layers[i]!.map((id) => run.state.tree.nodes.find((n) => n.id === id)!.risk);
-      expect(Math.min(...current)).toBeGreaterThanOrEqual(Math.min(...previous));
+    for (const route of run.state.routes.routes) {
+      for (let i = 1; i < route.nodes.length; i++) {
+        expect(route.nodes[i]!.risk).toBeGreaterThanOrEqual(route.nodes[i - 1]!.risk);
+      }
+    }
+  });
+
+  it('walks exactly one path and never offers a second one', () => {
+    const run = makeContext();
+    step(run.state, run.ctx, 400, { policy: DEFAULT_POLICY });
+    expect(run.state.routeId).not.toBeNull();
+    const route = run.state.routes.routes.find((r) => r.id === run.state.routeId)!;
+    expect(route).toBeTruthy();
+    // Every visited room belongs to the chosen path.
+    for (const id of run.state.visitedNodeIds) {
+      expect(route.nodes.some((node) => node.id === id)).toBe(true);
+    }
+    // And there is never more than one room to walk to.
+    expect(run.state.nextNodeIds.length).toBeLessThanOrEqual(1);
+  });
+
+  it('gives every path at least one healing room', () => {
+    const run = makeContext();
+    for (const route of run.state.routes.routes) {
+      expect(route.nodes.some((node) => node.type === 'HEALING')).toBe(true);
     }
   });
 });

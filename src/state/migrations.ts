@@ -75,8 +75,22 @@ function migrateV1toV2(raw: AnyRecord): AnyRecord {
   return next;
 }
 
+/**
+ * v2 -> v3
+ *  - The pit is not a branching tree any more: a run is a single path that
+ *    the player chooses at the entrance. The room layout of a saved run
+ *    cannot be used any more, so an interrupted run is dropped.
+ */
+function migrateV2toV3(raw: AnyRecord): AnyRecord {
+  const next: AnyRecord = { ...raw };
+  next.run = null;
+  next.version = 3;
+  return next;
+}
+
 const MIGRATIONS: Record<number, (raw: AnyRecord) => AnyRecord> = {
   1: migrateV1toV2,
+  2: migrateV2toV3,
 };
 
 export function migrateSave(raw: unknown): MigrationResult {

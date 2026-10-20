@@ -84,8 +84,13 @@ describe('application boot', () => {
     game.startRun(1);
     expect(game.state).toBeTruthy();
     expect(game.state!.phase).toBe('expedition');
+    expect(game.state!.routeId).toBeNull();
 
-    // The steward picks a room after the decision timeout.
+    // The player picks the path of the run.
+    game.pickRoute(game.state!.routes.routes[0]!.id);
+    expect(game.state!.routeId).toBe(game.state!.routes.routes[0]!.id);
+    expect(game.state!.visitedNodeIds.length).toBeGreaterThan(0);
+
     const { step } = await import('../src/sim/engine');
     const { DEFAULT_POLICY } = await import('../src/sim/policy');
     step(game.state!, game.ctx!, 120, { policy: DEFAULT_POLICY });

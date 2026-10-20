@@ -116,23 +116,26 @@ export interface Combatant {
 
 export interface SimTreeNode {
   id: string;
-  parent: string | null;
   depth: number;
   type: NodeType;
   risk: number;
-  /** Layout position for the tree screen. */
-  x: number;
-  y: number;
   /** Seed used to roll the content when the node is entered. */
   contentSeed: number;
 }
 
-export interface SimTree {
+/** One path of the pit: a straight line of rooms from the entrance to the throne. */
+export interface SimRoute {
+  id: string;
+  name: string;
+  /** The rooms of the path, from the entrance (depth 0) to the throne. */
   nodes: SimTreeNode[];
-  /** Node ids per depth layer, bottom (depth 1) first. */
-  layers: string[][];
-  bossId: string;
-  startId: string;
+}
+
+/** All the paths the player may choose from in a run. */
+export interface SimRoutes {
+  routes: SimRoute[];
+  /** Every room of every path, flat. */
+  nodes: SimTreeNode[];
 }
 
 export interface SimNodeState {
@@ -187,7 +190,10 @@ export interface SimState {
   runId: string;
   hero: HeroState;
   enemies: Combatant[];
-  tree: SimTree;
+  /** The paths of the pit. The player chooses one of them at the entrance. */
+  routes: SimRoutes;
+  /** The path the player chose - null as long as the choice is open. */
+  routeId: string | null;
   currentNodeId: string | null;
   /** Node ids the player may pick next. */
   nextNodeIds: string[];

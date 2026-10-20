@@ -3,6 +3,55 @@
 All notable changes to Godswar Pit are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.2.0] - 2026-10-20
+
+### Changed
+
+- **The pit is a path, not a tree.** At the entrance the player picks one of
+  three paths - *The Ash Road*, *The Shrine Way* or *The Gilded Road* - and the
+  hero walks exactly that path up to the throne. There is no second choice
+  after a cleared room any more: the path is the decision of a run. The type
+  and the risk of every room of every path are visible before the player
+  commits, the content of a room is only rolled when the hero enters it.
+- **Healing rooms instead of auto heal.** The hero does not regenerate life
+  between the rooms any more. The shrines on a path heal 40 % of the maximum
+  life and cost 10 % of the souls of the run - the Shrine Way carries three of
+  them, the Gilded Road only one. That is the trade of a run.
+- **The decisions of the player are worth making.** The event dialog stays
+  open for 30 seconds (it used to vanish after three), the path of the run
+  stays open for 15 seconds, and the dialog is not rebuilt every frame any
+  more - the click of the player is not swallowed between two frames.
+- **Every room has its own decision window again.** The timer of a decision no
+  longer runs through the fight of the room before, so the promised three
+  seconds are really three seconds.
+- The steward picks a path when the player does nothing. The policy sliders
+  decide which one: a wounded hero gets the shrines, a healthy one the loot.
+
+### Fixed
+
+- **A run could get stuck for ever.** The trap anomaly of the ascension
+  (*Loose Floor*) cleared the room it hit - and in the throne room that meant a
+  run without a way out: the hero stood there in the state "ascending" for
+  ever, without dying, without winning, without souls and without loot. The
+  trap only hurts the hero now, the room still has to be fought. A run that
+  ends up in a room without a way out ends as a death instead of hanging.
+- A fight that never ends (the regenerating dead of the pit) ends the run
+  instead of lasting for ever.
+- A choice that does not exist any more no longer leaves the run in a room
+  without a way out.
+- The report of a finished run is not blocked by an open event dialog any
+  more.
+- The magnitude of the trap anomaly is the chance that a room gives way now
+  (7 % in the first series) and not "every second room".
+- A trap can kill the hero again - the life was clamped to 1 before.
+
+### Save
+
+- The save format is version 3. A run that was interrupted when the update
+  happened is dropped, because the layout of the rooms changed. The permanent
+  progress (souls, echo, inheritance, thrones, achievements, gear) is not
+  affected.
+
 ## [0.1.1] - 2026-10-20
 
 ### Fixed

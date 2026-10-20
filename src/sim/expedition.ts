@@ -11,7 +11,7 @@ import type { ItemRecord, MetaState, PlayerState, TreeState, UnlockedState } fro
 import { resolveLoadout } from './stats';
 import { healHero } from './combat';
 import { lootCountFor, rollItem, shouldScrap } from './loot';
-import { generateTree, nextOptions } from './tree';
+import { generateRoutes, routeById, roomAfter } from './routes';
 import type { SimContext } from './context';
 import type { Combatant, SimEventSink, SimState, SimTreeNode } from './types';
 
@@ -37,7 +37,7 @@ export function createRun(params: CreateRunParams): { state: SimState; ctx: SimC
   const ctx: SimContext = { streams, mods };
 
   const zone = Content.zone(zoneId) ?? Content.zones[0]!;
-  const treeInstance = generateTree({ zone: zoneId, seed });
+  const routes = generateRoutes({ zone: zoneId, seed });
 
   const priority = buildSkillPriority(player, classDef.id, mods.availableSkills);
 
@@ -76,9 +76,10 @@ export function createRun(params: CreateRunParams): { state: SimState; ctx: SimC
     seed,    runId,
     hero,
     enemies: [],
-    tree: treeInstance,
+    routes,
+    routeId: null,
     currentNodeId: null,
-    nextNodeIds: [treeInstance.startId],
+    nextNodeIds: [],
     visitedNodeIds: [],
     nodeState: {},
     pendingEvent: null,
@@ -147,7 +148,32 @@ function anomalyMagnitude(state: SimState, kind: string): number {
 }
 
 export function nodeById(state: SimState, nodeId: string): SimTreeNode | undefined {
-  return state.tree.nodes.find((n) => n.id === nodeId);
+  return state.routes.nodes.find((n) => n.id === nodeId);
+}
+
+/**
+ * The player chooses the path of the run.
+ *
+ * From here on the hero walks exactly this path - there is no second choice
+ * after a cleared room. The first room (the entrance) is entered right away.
+ */
+export function pickRoute(state: SimState, ctx: SimContext, routeId: string, sink?: SimEventSink): boolean {
+  if (state.routeId) return false; // the path is already chosen
+  const route = routeById(state.routes, routeId);
+  if (!route) return false;
+  state.routeId = route.id;
+  const entrance = route.nodes[0];
+  if (!entrance) return false;
+  state.nextNodeIds = [];
+  enterNode(state, ctx, entrance.id, sink);
+  return true;
+}
+
+/** The room that comes next on the chosen path. */
+export function nextRoom(state: SimState): SimTreeNode | undefined {
+  const route = routeById(state.routes, state.routeId);
+  if (!route) return undefined;
+  return roomAfter(route, state.currentNodeId);
 }
 
 /** Enter a node: roll its content and start whatever it contains. */
@@ -163,6 +189,13 @@ export function enterNode(state: SimState, ctx: SimContext, nodeId: string, sink
   state.nextNodeIds = [];
 
   sink?.({ type: 'node', tick: state.tick, text: node.type, sourceId: nodeId });
+
+  // The floor of the room may give way (the anomaly of the ascension). The
+  // trap hurts the hero, but it never ends the room - otherwise a trap in
+  // the throne room would end the run in a room without a way out.
+  if (node.type !== 'TRAP' && triggerAnomalyTrap(state, ctx, node, sink)) {
+    return;
+  }
 
   switch (node.type) {
     case 'FIGHT':
@@ -190,20 +223,18 @@ export function enterNode(state: SimState, ctx: SimContext, nodeId: string, sink
       finishNode(state, ctx, node, sink);
       break;
   }
-
-  // The "every n-th room is a trap" anomaly.
-  const trapEvery = anomalyMagnitude(state, 'trap_every');
-  if (trapEvery > 0 && node.type !== 'TRAP' && state.visitedNodeIds.length % Math.max(2, Math.round(trapEvery)) === 0) {
-    resolveTrap(state, ctx, node, sink);
-  }
 }
 
-/** Called when the current node is done and the player may pick the next. */
+/** Called when the current node is done and the hero walks on. */
 export function finishNode(state: SimState, ctx: SimContext, node: SimTreeNode, sink?: SimEventSink): void {
   const entry = state.nodeState[node.id];
   if (entry) entry.cleared = true;
   state.phase = 'expedition';
-  state.nextNodeIds = nextOptions(state.tree, node.id);
+  const next = nextRoom(state);
+  state.nextNodeIds = next ? [next.id] : [];
+  // Every decision gets the full window again - the timer must not run
+  // through the fight of the room that is being left.
+  state.nodeTimer = 0;
   void ctx;
   void sink;
 }
@@ -430,19 +461,55 @@ function resolveHealing(state: SimState, ctx: SimContext, node: SimTreeNode, sin
 }
 
 function resolveTrap(state: SimState, ctx: SimContext, node: SimTreeNode, sink?: SimEventSink): void {
-  const rng = ctx.streams.get('event');
-  const fraction = trapDamage(node.risk, rng.nextFloat());
-  state.hero.hp = Math.max(1, state.hero.hp - state.hero.maxHp * fraction);
-  state.souls += Math.round(BALANCE.trapSoulsBase * (1 + node.risk * 0.5));
-  if (state.hero.hp <= 0) {
-    state.hero.alive = false;
-    state.phase = 'dead';
-    state.deathCause = 'Killed by a trap';
-    return;
-  }
+  if (!applyTrap(state, ctx, node, sink)) return;
   const entry = state.nodeState[node.id];
   if (entry) entry.result = 'Trap sprung';
   finishNode(state, ctx, node, sink);
+}
+
+/**
+ * The trap anomaly of the ascension.
+ *
+ * The magnitude is the chance that a room gives way (0.07 = 7 % of all
+ * rooms). The trap only hurts the hero - the room itself still has to be
+ * fought or solved, and the run never ends in a room without a way out.
+ *
+ * Returns true when the hero died.
+ */
+function triggerAnomalyTrap(
+  state: SimState,
+  ctx: SimContext,
+  node: SimTreeNode,
+  sink?: SimEventSink,
+): boolean {
+  const chance = anomalyMagnitude(state, 'trap_every');
+  if (chance <= 0) return false;
+  const rng = ctx.streams.get('event');
+  if (rng.nextFloat() >= chance) return false;
+  const entry = state.nodeState[node.id];
+  if (entry) entry.result = 'The floor gives way';
+  sink?.({ type: 'node', tick: state.tick, text: 'The floor gives way' });
+  return !applyTrap(state, ctx, node, sink);
+}
+
+/**
+ * The damage of a trap. The hero dies if the trap is lethal.
+ * Returns true when the hero is still alive.
+ */
+function applyTrap(state: SimState, ctx: SimContext, node: SimTreeNode, sink?: SimEventSink): boolean {
+  const rng = ctx.streams.get('event');
+  const fraction = trapDamage(node.risk, rng.nextFloat());
+  state.hero.hp -= state.hero.maxHp * fraction;
+  state.souls += Math.round(BALANCE.trapSoulsBase * (1 + node.risk * 0.5));
+  if (state.hero.hp <= 0) {
+    state.hero.hp = 0;
+    state.hero.alive = false;
+    state.phase = 'dead';
+    state.deathCause = 'Killed by a trap';
+    return false;
+  }
+  void sink;
+  return true;
 }
 
 function resolveEvent(state: SimState, ctx: SimContext, node: SimTreeNode, sink?: SimEventSink): void {
@@ -463,8 +530,11 @@ export function chooseEvent(state: SimState, ctx: SimContext, choiceId: string, 
   const choice = event?.choices.find((c) => c.id === choiceId);
   const node = nodeById(state, pending.nodeId);
   if (!choice || !node) {
+    // A choice that does not exist must not strand the run in a room
+    // without a way out - the room is simply cleared.
     state.pendingEvent = null;
-    state.phase = 'expedition';
+    if (node) finishNode(state, ctx, node, sink);
+    else state.phase = 'expedition';
     return;
   }
 

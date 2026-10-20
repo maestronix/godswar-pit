@@ -342,7 +342,7 @@ player.
 | Rank | Feature key | What the implementation does |
 |---|---|---|
 | 1 | `throne_automation` | The expedition restarts by itself after a death (auto retry). |
-| 2 | `throne_preview` | The tree panel shows the expected loot rarity of the next rooms. |
+| 2 | `throne_preview` | The path panel shows the expected loot rarity of the rooms. |
 | 3 | `throne_parallel_2` | A second expedition runs in the background and pays out. |
 | 4 | `throne_auto_equip` | The vault equips the better item of every slot automatically. |
 | 5 | `throne_manager` | The steward follows the policy of the player (before that it picks by risk). |
@@ -355,4 +355,30 @@ player.
 The parallel expeditions are real `SimState` objects that are stepped in the
 background by the game loop - they use the same engine, the same policy and
 the same death rules.
+
+### 7.9 A run is one path, not a tree
+
+The run structure was changed on 2026-10-20: a run is a **single path** that
+the player picks at the entrance, not a branching tree.
+
+- Three paths with a fixed character: *The Ash Road* (2 shrines, 2 treasures,
+  normal danger), *The Shrine Way* (3 shrines, 1 treasure, less danger) and
+  *The Gilded Road* (1 shrine, 3 treasures, more danger). The rooms of a path
+  are rolled per run, their type and their risk are visible before the player
+  commits.
+- The hero walks exactly the chosen path. There is no second choice after a
+  cleared room - the path is the decision of a run.
+- **No auto heal between the rooms.** The hero only regenerates life in a
+  `HEALING` room (and through `hpRegen` during a fight). The shrines of the
+  path are therefore the reason to plan the run, not a stat to stack.
+- The decision windows were widened so that a decision is worth making: the
+  path stays open for 15 s, an event dialog for 30 s. The steward takes over
+  when the player does nothing.
+- A run must always come to an end. The trap anomaly of the ascension used to
+  clear the throne room, which left the run in a room without a way out - the
+  hero stood there in the state "ascending" for ever. The trap only hurts the
+  hero now, and a run that ends up without a way out ends as a death.
+
+`SAVE_VERSION` 3 drops an interrupted run of the old layout. The permanent
+progress is not affected.
 

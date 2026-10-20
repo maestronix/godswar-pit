@@ -15,7 +15,7 @@ import { playSfx } from './audio/sfx';
 import { chip } from './audio/chip';
 import { music } from './audio/music';
 import { step } from './sim/engine';
-import { createRun, enterNode, chooseEvent, nodeById, sortRunLoot, anomaliesForSeries } from './sim/expedition';
+import { createRun, chooseEvent, pickRoute, sortRunLoot, anomaliesForSeries } from './sim/expedition';
 import { DEFAULT_POLICY, type ManagerPolicy } from './sim/policy';
 import { resolveLoadout } from './sim/stats';
 import { hashState } from './sim/hash';
@@ -163,6 +163,13 @@ export class Game {
     const save = this.save;
     const stored = save.run as SimState | null;
     if (!stored || typeof stored !== 'object' || !stored.hero) return false;
+    // A run of an older version has no path - it cannot be continued.
+    if (!stored.routes || !Array.isArray(stored.routes.routes) || stored.routes.routes.length === 0) {
+      this.store.update((s) => {
+        s.run = null;
+      });
+      return false;
+    }
     const streams = new RngStreams(stored.seed);
     streams.restore(stored.rng ?? {});
     const mods = resolveLoadout({
@@ -177,19 +184,19 @@ export class Game {
     return true;
   }
 
-  /** The player chooses the next node. */
-  pickNode(nodeId: string): void {
+  /**
+   * The player chooses the path of the run.
+   *
+   * From here on the hero walks exactly this path up to the throne - the run
+   * has no other branch.
+   */
+  pickRoute(routeId: string): void {
     if (!this.state || !this.ctx) return;
-    if (this.state.phase !== 'expedition') return;
-    const node = nodeById(this.state, nodeId);
-    if (!node) return;
-    if (!this.state.nextNodeIds.includes(nodeId)) return;
-    enterNode(this.state, this.ctx, nodeId, (event) => this.onEvent(event));
-    playSfx('node');
-    if ((this.state.phase as SimPhase) === 'event') {
-      this.pendingEventId = this.state.pendingEvent?.eventId ?? null;
+    if (this.state.routeId !== null) return;
+    if (pickRoute(this.state, this.ctx, routeId, (event) => this.onEvent(event))) {
+      playSfx('node');
+      this.persist();
     }
-    this.persist();
   }
 
   /** The player chooses an event option. */

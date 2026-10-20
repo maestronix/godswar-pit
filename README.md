@@ -3,7 +3,7 @@
 **Climb to become a god.**
 
 A browser based idle-roguelike. You are a champion of Ashvale who is thrown
-into the Godswar Pit, climbs a tree of rooms, fights everything that stands in
+into the Godswar Pit, walks a path of rooms, fights everything that stands in
 the way and either dies or takes a throne. Your gear survives your death, your
 loot does not, and your legacy (Inheritance) is forever.
 
@@ -98,14 +98,23 @@ Ashvale (hub)  ->  build your loadout  ->  descend into the pit
    legacy  <-  death / throne  <-  automatic combat  |
 ```
 
-* **The pit tree** - every run is an ascending tree of rooms. The type and the
-  risk of every room are visible, the content is not. Picking the next room
-  is the only active decision in a run. If you do nothing for three seconds,
-  the **steward** picks for you.
+* **The paths of the pit** - every run is a single path. At the entrance you
+  pick one of three paths - the Ash Road, the Shrine Way or the Gilded Road -
+  and the hero walks exactly that path up to the throne. The type and the risk
+  of every room are visible before you commit, the content is not. There is no
+  second choice after a cleared room: the path is the decision of a run.
+* **Healing rooms instead of a free ride** - the hero does not regenerate life
+  between the rooms any more. The shrines on the path heal 40 % of the maximum
+  life, but they cost 10 % of the souls of the run. The Shrine Way has three of
+  them, the Gilded Road only one - that is the trade.
+* **The steward** - if you do nothing, the steward decides for you: after 15
+  seconds it picks a path, after 30 seconds it answers an event. Both windows
+  are long enough to read the text first.
 * **Death rules** - your six equipped items stay with you, everything else you
   picked up in that run rots, and the skill points you earned are gone. The
   legacy (souls, divine echo, inheritance, thrones, achievements) is never
-  lost.
+  lost. The souls of a run are always paid out - the loot only survives a
+  claimed throne.
 * **Ascension** - after all ten thrones you can become a god. The pit gets
   harder, the enemies get stronger, and you keep 25% of your divine echo
   (plus 5% per inheritance you sacrifice).
@@ -120,7 +129,7 @@ open points.
 ```
 src/
   core/     rng, time, math, formatting, events
-  sim/      the deterministic simulation (engine, combat, loot, tree, policy)
+  sim/      the deterministic simulation (engine, combat, loot, routes, policy)
   state/    save schema, migrations, localStorage store, contracts, offline
   data/     ALL content as JSON + the node archetype system
   art/      procedural pixel art (sprites, tiles, palette, particles)
@@ -140,7 +149,9 @@ tool. `tests/determinism.test.ts` is the gate that keeps that true.
 
 ## Manual test checklist
 
-- [ ] Start a run, pick a room, fight, die - the report appears.
+- [ ] Start a run, pick a path, fight, die - the report appears.
+- [ ] The path of the run can only be picked once - the hero walks it to the end.
+- [ ] The life of the hero does not regenerate between the rooms - a shrine heals.
 - [ ] Your equipped items are still in your inventory after the death.
 - [ ] The loot of the run is gone, the souls are on your account.
 - [ ] Reload the page - the run continues where it left off.

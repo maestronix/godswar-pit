@@ -15,7 +15,7 @@ was der Implementierungs-Agent selbst entscheiden darf bzw. was später nachjust
 | Kernschleife | Auto-Expedition + persistenter Meta-Baum |
 | Setting | Godswar Pit (Ashvale / Göttergraben), Aufstieg zum Gott |
 | Held | Einzelheld mit Inheritance (Ascension-Runs) |
-| Run-Struktur | **Aufsteigender Baum**, Knotentypen wählbar, Inhalte verborgen |
+| Run-Struktur | **Ein Pfad pro Run** (3 Pfade zur Wahl am Einstieg), Räume sichtbar, Inhalte verborgen, kein Auto-Heal zwischen den Räumen |
 | Kamera | Top-down, 4 Blickrichtungen |
 | Gegnerzahl | 4–6 pro Kampf (Elite 6–8, Boss + Adds) |
 | Takt | Kampf 10–20 s · Run 4–6 min · Zone 3–5 min |
@@ -47,7 +47,7 @@ was der Implementierungs-Agent selbst entscheiden darf bzw. was später nachjust
 2. **Konkrete Item-, Skill- und Affix-Namen** — aus Präfix-/Suffix-Listen + Flavor-Text generieren.
    *Vorgabe:* keine Kollisionen, plausible Fantasy-Namen, Generator-Statistik-Test.
 3. **Anomalien-Serien je Inkarnation** — 5–7 Modifikatoren pro Serie,难度 steigend, keine_combinationen die den Run unspielbar machen.
-4. **Tree-UI-Details** — Zoomstufen, Mindestknotengröße, Panning per Touch, Highlighting des aktiven Pfades.
+4. **Pfad-UI-Details** — Zoomstufen, Mindestgröße, Panning per Touch, Highlighting des gewählten Pfades.
 5. **Musik-Theme pro Zone** — Tonart/Tempo/Instrumentierung der 10 Zonen-Loops.
 
 ---
@@ -69,15 +69,15 @@ Alle fünf offenen Punkte sind entschieden:
 | 1 | Balancing-Werte | Iterativ über `npm run balance` gemessen. Erste Messung: ein nackter Held gewann Zone 1 und starb an der ersten echten Wand in Zone 4. Die Werte stehen in `src/data/balance.ts`. |
 | 2 | Namen | 26 Aspects, 16 Affixes mit Präfix-/Suffix-Listen, 30 Skills mit eigenen Runen. Der Namensgenerator sitzt in `src/sim/loot.ts` (`buildItemName`), getestet in `tests/loot.test.ts`. |
 | 3 | Anomalien-Serien | 5 Serien mit je 5-7 Anomalien (`src/data/anomalies.json`). Serie 1 ist mild, Serie 5 hart. Die Anomalien greifen mechanisch (extra Elites, Gegnerhärte, Seelensteuer, heilende Gegner, verfluchte Räume). |
-| 4 | Tree-UI-Details | SVG-Baum, der sich in sein Panel einpasst (der ganze Aufstieg ist immer sichtbar), Spalten nach Tiefe, Raumnamen und `NEXT`-Marker auf den betretbaren Räumen, Tooltips mit Risiko und Wirkung, Tastaturbedienung (Enter/Leertaste). Ein Zoom ist weiterhin nicht drin - der Baum skaliert nur. |
+| 4 | Pfad-UI-Details | SVG-Pfad-Panel, das sich in sein Panel einpasst (alle drei Pfade sind immer sichtbar), Spalten je Pfad, Raumnamen und `NEXT`-Marker auf dem nächsten Raum, Tooltips mit Risiko und Wirkung, Tastaturbedienung (Enter/Leertaste). Ein Zoom ist weiterhin nicht drin - das Panel skaliert nur. |
 | 5 | Musik-Themes | 10 Zonen-Loops in `src/audio/music.ts` mit eigener Tonart, Skala und Tempo pro Zone, adaptiver Percussion. |
 
 **Noch offen für später:**
 
 - Der Skill-Baum hat kein Zoom/Pinch (nur Scrollen). Auf kleinen Touch-Geräten
   wäre ein Zwei-Finger-Zoom die bessere Lösung.
-- Der Pit-Baum hat ebenfalls keinen Zoom: Er passt sich in sein Panel ein und
-  zeigt damit immer den ganzen Aufstieg, aber nicht einen Ausschnitt davon.
+- Das Pit-Pfad-Panel hat ebenfalls keinen Zoom: Es passt sich in sein Panel ein und
+  zeigt damit immer alle Pfade, aber nicht einen Ausschnitt davon.
 - Die Gemischtsprache in diesem Dokument (Deutsch/Englisch) stammt aus der
   Planungsphase. Die Codebasis, die UI und die Item-Namen sind vollständig
   englisch.
