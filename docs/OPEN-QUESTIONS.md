@@ -57,3 +57,25 @@ was der Implementierungs-Agent selbst entscheiden darf bzw. was später nachjust
 - **PNG- statt prozedurale Art.** Die Sprite-Schnittstelle (`drawSprite`) erlaubt 1:1-Ersetzung; ein Wechsel ist ein Content-Thema, kein Architektur-Thema.
 - **Multiplayer / Cloud-Sync / Leaderboard-Server.** Ohne Backend bewusst draußen.
 - **Mobile-First.** Responsive Desktop-first; Touch wird unterstützt, aber nicht priorisiert.
+
+---
+
+## Stand der Umsetzung (2026-10-20)
+
+Alle fünf offenen Punkte sind entschieden:
+
+| # | Thema | Entscheidung der Implementierung |
+|---|---|---|
+| 1 | Balancing-Werte | Iterativ über `npm run balance` gemessen. Erste Messung: ein nackter Held gewann Zone 1 und starb an der ersten echten Wand in Zone 4. Die Werte stehen in `src/data/balance.ts`. |
+| 2 | Namen | 26 Aspects, 16 Affixes mit Präfix-/Suffix-Listen, 30 Skills mit eigenen Runen. Der Namensgenerator sitzt in `src/sim/loot.ts` (`buildItemName`), getestet in `tests/loot.test.ts`. |
+| 3 | Anomalien-Serien | 5 Serien mit je 5-7 Anomalien (`src/data/anomalies.json`). Serie 1 ist mild, Serie 5 hart. Die Anomalien greifen mechanisch (extra Elites, Gegnerhärte, Seelensteuer, heilende Gegner, verfluchte Räume). |
+| 4 | Tree-UI-Details | SVG-Baum mit Pan (die Ansicht ist scrollbar), Spalten nach Tiefe, Tooltips mit Kosten und Wirkung. Eine Zoomstufe ist offen - die Bäume sind bisher nur scrollbar. |
+| 5 | Musik-Themes | 10 Zonen-Loops in `src/audio/music.ts` mit eigener Tonart, Skala und Tempo pro Zone, adaptiver Percussion. |
+
+**Noch offen für später:**
+
+- Der Skill-Baum hat kein Zoom/Pinch (nur Scrollen). Auf kleinen Touch-Geräten
+  wäre ein Zwei-Finger-Zoom die bessere Lösung.
+- Die Gemischtsprache in diesem Dokument (Deutsch/Englisch) stammt aus der
+  Planungsphase. Die Codebasis, die UI und die Item-Namen sind vollständig
+  englisch.
