@@ -250,3 +250,109 @@ follows:
 
 Two flavours of the planned vocabulary (`holy`, `rage`) have no counterpart in the shipped
 skill data; they can be added later as new runes without touching the tree structure.
+
+---
+
+## 7. Architecture decisions (implementation)
+
+These are the decisions the implementation made where `PLAN.md` left room for
+interpretation. They are written down here because the next person who touches
+the save format or the skill trees has to know them.
+
+### 7.1 The three scopes of a save
+
+`PLAN.md` 2.8 defines three scopes. They are encoded in the *shape* of the
+save, not in ad-hoc bookkeeping:
+
+| Scope | Where it lives | Lost on death | Lost on ascension |
+|---|---|---|---|
+| Permanent | `unlocked.persistent`, `meta`, `stats`, `throneRank` | no | no |
+| Incarnation | `unlocked.currentInkarnation.activeSkills`, class tree ranks | no | **yes** |
+| Run | `run` (the whole `SimState`), `player.runSkillPoints` | **yes** | yes |
+
+- **Equipped items** live in `player.equipped` and survive a death.
+- **Vault items** live in `player.vault`. Every item carries `originRun`; the
+  items that were found during the current run are removed when the run ends
+  in death, and they are secured (the flag is cleared) when a throne is taken.
+  The decision therefore happens *when the loot is sorted in*, not when the
+  hero dies.
+- **Active skills** are unlocked in two places. A skill unlocked by the
+  Inheritance Tree is permanent (`unlocked.persistent.activeSkills`), a skill
+  unlocked by a class tree node belongs to the current ascension
+  (`unlocked.currentInkarnation.activeSkills`).
+- **Class tree ranks** are bought with souls and survive death, but they are
+  reset by an ascension - that is the "Baum-Nodes dieser Inkarnation" of
+  `PLAN.md` 2.10. The permanent counterweight is the Grace Mirror (echo) and
+  the Inheritance Tree (inheritance), which are never reset.
+
+### 7.2 Only state is saved
+
+The save contains no derived values. Damage, health, prices and drop tables
+are recomputed from the content at runtime, so rebalancing never invalidates
+an existing save. `schema.ts` is the only place that defines the format and
+`migrations.ts` is the only place that changes it.
+
+### 7.3 The run is part of the save
+
+The whole `SimState` is stored in `save.run`, including the state of the six
+RNG streams. Reloading the page therefore continues the expedition exactly
+where it stopped - and the offline simulation continues the same run. A
+`RngStreams` instance is rebuilt from `state.seed` and `state.rng`.
+
+### 7.4 The 540 nodes are generated
+
+`scripts/generate-trees.ts` composes the 18 class trees (30 nodes each) from
+the 12 archetypes and a themed name list. The generated JSON is committed, so
+the game never needs the script at runtime - but the script is the single
+source of truth for the shape of the trees and can be re-run with
+`npm run gen:trees`. The budget rules are enforced by
+`tests/node-budget.test.ts`, not by review discipline.
+
+### 7.5 The aspects are shared where it makes sense
+
+An aspect has a `classId`. An empty `classId` means "every class". The file
+holds 26 aspects: four exclusive ones per class plus two universal ones
+(`hunters_mark`, `fate_of_the_pit`). The class files list the four exclusive
+aspects plus `hunters_mark`.
+
+### 7.6 Classes are unlocked with inheritance
+
+The Envoy sells the class unlocks (2 inheritance per class, in the order of
+the class list) in addition to the Inheritance Tree. The tree itself only
+grants skills, runes and permanent boons.
+
+### 7.7 The balance is measured, not guessed
+
+`npm run balance` uses the *real* engine - never a second, "cleaner"
+balancing engine - and simulates complete runs: it plays, it dies, it keeps
+the loot only when a throne is taken, it equips the better items and it
+spends the souls on the class trees. The report shows the throne rate, the
+run length, the death heat map and the drop rates per rarity.
+
+First measurement (before the tuning of `balance.ts`): a naked hero died in
+the first room of zone 1 in 78% of the runs. After the tuning (enemy damage
+`4.5 -> 1.4`, health `34 -> 58`, elite multipliers `2.4/1.6 -> 1.9/1.3`,
+regeneration `0.6 -> 3%` of the maximum health per second) a naked hero
+wins zone 1, and the first real wall appears around zone 4 - which is exactly
+where the first tree points and the first gear are supposed to carry the
+player.
+
+### 7.8 The throne automations
+
+| Rank | Feature key | What the implementation does |
+|---|---|---|
+| 1 | `throne_automation` | The expedition restarts by itself after a death (auto retry). |
+| 2 | `throne_preview` | The tree panel shows the expected loot rarity of the next rooms. |
+| 3 | `throne_parallel_2` | A second expedition runs in the background and pays out. |
+| 4 | `throne_auto_equip` | The vault equips the better item of every slot automatically. |
+| 5 | `throne_manager` | The steward follows the policy of the player (before that it picks by risk). |
+| 6 | `throne_soul_counter` | Souls trickle in while no expedition runs. |
+| 7 | `throne_rune_binder` | New legendaries get a codex aspect automatically. |
+| 8 | `throne_shadowlord` | The steward rotates to the highest unlocked zone. |
+| 9 | `throne_divine_voice` | Three parallel expeditions and a higher idle income. |
+| 10 | `throne_regen` | The ascension becomes possible. |
+
+The parallel expeditions are real `SimState` objects that are stepped in the
+background by the game loop - they use the same engine, the same policy and
+the same death rules.
+

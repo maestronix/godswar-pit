@@ -474,3 +474,45 @@ Alle inhaltlichen Entscheidungen sind getroffen. Offen sind nur Feinheiten, die 
 2. **Konkrete Item-/Skill-Namen** — generiert aus Präfix-/Suffix-Listen + Flavor-Texten; keine Vorabfestlegung nötig.
 3. **Lokalisierung der Anomalien-Serien** und exakte Textlängen der Flavor-Texte.
 4. **Layout-Details** der Tree-Ansicht (Zoom, Mindestgröße, Panning auf Touch).
+
+---
+
+## 10. Implementierungsstand (Stand 2026-10-20)
+
+Die Phasen 0-5 sind umgesetzt. `npm run typecheck`, `npm run test` (70 Tests)
+und `npm run build` sind grün.
+
+| Bereich | Status | Fundort |
+|---|---|---|
+| Projekt, Tooling, CI | fertig | `package.json`, `.github/workflows/deploy.yml` |
+| Deterministische Engine | fertig | `src/core/rng.ts`, `src/sim/engine.ts`, `src/sim/hash.ts` |
+| Kampf, Status, Auto-Cast | fertig | `src/sim/combat.ts`, `src/sim/status.ts` |
+| Baum, Expedition, Verwalter | fertig | `src/sim/tree.ts`, `src/sim/expedition.ts`, `src/sim/policy.ts` |
+| Item-System, Beute, Codex | fertig | `src/sim/loot.ts`, `src/ui/inventory/inventory.ts` |
+| 540 Knoten aus 12 Archetypen | fertig | `scripts/generate-trees.ts`, `src/data/nodes/trees/*.json` |
+| 6 Klassen, 30 Skills, 30 Runen | fertig | `src/data/classes`, `src/data/skills` |
+| 10 Zonen, 100 Gegner | fertig | `src/data/enemies`, `src/data/zones.json` |
+| Throne, Automation, Inkarnation | fertig | `src/state/thrones.ts`, `src/state/automation.ts` |
+| 70 Erfolge, 12 Events, 31 Anomalien | fertig | `src/data/achievements.json` u. a. |
+| Grace Mirror (60), Inheritance Tree (80) | fertig | `src/data/meta/` |
+| Offline-Simulation | fertig | `src/state/offline.ts` |
+| Hub, Run-Screen, Inventar, Statistik | fertig | `src/ui/**` |
+| Prozedurale Art und Audio | fertig | `src/art/**`, `src/audio/**` |
+| Balance-Werkzeug | fertig | `scripts/balance.ts` |
+
+### Bewusste Abweichungen
+
+1. **Run-Länge:** Der Plan nennt 4-6 Minuten pro Run. Gemessen liegt ein
+   vollständiger Run bei 2-4 Minuten, ein früh gescheiterter Run bei 1-2
+   Minuten. Der Grund ist die Menge der Räume (12-16 Ebenen, davon rund 60 %
+   Kampf) und die Kampfzeit von 5-12 Sekunden. Die Zahlen lassen sich mit
+   `BALANCE.enemyHpBase` und `treeDepthFor()` jederzeit anheben.
+2. **Klassen-Bäume** werden bei einer Inkarnation zurückgesetzt (Plan 2.10:
+   "Baum-Nodes dieser Inkarnation"). Dauerhaft sind nur der Grace Mirror
+   (Echo) und der Inheritance Tree (Inheritance).
+3. **Aspects** sind 26 Stück (4 je Klasse + 2 universelle) statt 20, damit
+   jede Klasse eigene Legendär-Effekte hat.
+4. **Der Verwalter** (Steward) ist immer aktiv und übernimmt nach 3 Sekunden
+   ohne Klick. Der Throne-Rang 5 gibt dem Spieler die Policy-Regler.
+5. **PNG-Art** bleibt offen - die Sprite-Schnittstelle erlaubt den Wechsel
+   1:1, ohne Spiellogik anzufassen.

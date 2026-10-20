@@ -12,6 +12,7 @@ import { renderStats } from './ui/stats';
 import { renderSettings } from './ui/settings';
 import { renderOfflineReport } from './ui/offline-report/offline-report';
 import { el } from './ui/dom';
+import { showToast } from './ui/toast';
 import { evaluateAchievements } from './state/achievements';
 import { chip } from './audio/chip';
 
@@ -26,9 +27,6 @@ window.addEventListener('keydown', () => chip.ensure(), { once: true });
 
 const content = el('div', { class: 'content' });
 const nav = el('nav', { class: 'navbar' });
-
-/** The screen that is currently mounted. */
-let mounted: string | null = null;
 
 function renderNav(): void {
   nav.innerHTML = '';
@@ -54,10 +52,8 @@ function renderNav(): void {
 }
 
 function render(): void {
-  if (game.screen !== mounted) {
-    mounted = game.screen;
-    content.innerHTML = '';
-  }
+  content.innerHTML = '';
+  game.onRender = null;
 
   switch (game.screen) {
     case 'run':
@@ -89,6 +85,17 @@ function render(): void {
   }
 
   renderNav();
+  showAchievementToasts();
+}
+
+/** Toasts for the achievements that were unlocked in the last run. */
+function showAchievementToasts(): void {
+  const rewards = game.lastAchievements;
+  if (rewards.length === 0) return;
+  game.lastAchievements = [];
+  for (const reward of rewards) {
+    showToast(`Achievement: ${reward.name}`, `Reward: ${reward.reward}`);
+  }
 }
 
 /* ------------------------------------------------------------- startup */
@@ -98,7 +105,6 @@ game.onScreenChange = () => render();
 async function boot(): Promise<void> {
   root.innerHTML = '';
   root.append(nav, content);
-  mounted = null;
 
   const save = game.save;
   const elapsed = Date.now() - (save.savedAt || Date.now());

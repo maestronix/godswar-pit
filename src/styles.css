@@ -811,6 +811,55 @@ canvas.scene {
   margin-top: 0.4rem;
 }
 
+/* --------------------------------------------------------------- toasts */
+
+.toasts {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 80;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--accent);
+  border-left-width: 4px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+  animation: toast-in 0.25s ease-out;
+}
+
+.toast--out {
+  opacity: 0;
+  transition: opacity 0.35s ease-in;
+}
+
+.toast__title {
+  color: var(--accent);
+}
+
+.toast__text {
+  color: var(--text-dim);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (max-width: 900px) {
   .run {
     flex-direction: column;

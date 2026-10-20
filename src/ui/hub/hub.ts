@@ -179,12 +179,14 @@ export function renderHub(root: HTMLElement, game: Game): void {
 
   /* -------------------------------------------------------------- tabs */
 
-  const tabBar = el('nav', { class: 'tabs' });
+  const tabBar = el('nav', { class: 'tabs', role: 'tablist' });
   const tabBody = el('div', { class: 'tab-body' });
   for (const tab of TABS) {
     const node = el('button', {
       class: `tab${game.hubTab === tab.id ? ' tab--active' : ''}`,
       type: 'button',
+      role: 'tab',
+      'aria-selected': game.hubTab === tab.id ? 'true' : 'false',
     }, [tab.label]);
     node.addEventListener('click', () => {
       game.hubTab = tab.id;

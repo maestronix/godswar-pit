@@ -62,6 +62,15 @@ git push -u origin main
 If you have the GitHub CLI installed, the agent can create the repository for
 you: `gh repo create gottergraben --public --source . --push`.
 
+**Fallback without Actions:** build the game and push the result into a
+`gh-pages` branch - the repository settings then have to point Pages at that
+branch instead of at GitHub Actions:
+
+```bash
+npm run build
+git subtree push --prefix dist origin gh-pages
+```
+
 ---
 
 ## How the game works

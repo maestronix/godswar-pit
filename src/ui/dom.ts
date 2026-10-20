@@ -29,7 +29,16 @@ export function clear(node: Element): void {
 }
 
 export function button(label: string, onClick: () => void, className = ''): HTMLButtonElement {
-  const node = el('button', { class: `btn ${className}`.trim(), type: 'button' }, [label]);
+  const node = el(
+    'button',
+    {
+      class: `btn ${className}`.trim(),
+      type: 'button',
+      // The label is short enough to be used as the accessible name.
+      'aria-label': label.replace(/\s*\([^)]*\)\s*$/, '').trim() || label,
+    },
+    [label],
+  );
   node.addEventListener('click', (event) => {
     event.preventDefault();
     onClick();

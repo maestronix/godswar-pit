@@ -21,6 +21,34 @@ export function renderEnvoy(root: HTMLElement, game: Game): void {
   ]);
   root.append(panel);
 
+  // The classes are unlocked here as well.
+  const classes = el('div', { class: 'panel' }, [el('h2', { class: 'panel__title', text: 'Classes' })]);
+  for (const classDef of Content.classList) {
+    const unlocked = save.unlocked.persistent.classes.includes(classDef.id);
+    const cost = classUnlockCost(classDef.id);
+    const row = el('div', { class: 'equip-row' }, [
+      el('span', { class: 'equip-row__slot', text: classDef.name }),
+      el('span', { class: 'equip-row__item', text: unlocked ? 'Unlocked' : classDef.tagline }),
+    ]);
+    if (!unlocked) {
+      row.append(
+        button(`Unlock (${cost} inheritance)`, () => {
+          if (save.player.inheritance < cost) return;
+          game.store.update((s) => {
+            s.player.inheritance -= cost;
+            if (!s.unlocked.persistent.classes.includes(classDef.id)) {
+              s.unlocked.persistent.classes.push(classDef.id);
+            }
+          });
+          game.persist();
+          game.screen = 'hub';
+        }, 'btn--small'),
+      );
+    }
+    classes.append(row);
+  }
+  root.append(classes);
+
   const box = el('div', { class: 'meta-tree-box' });
   root.append(box);
 
@@ -41,6 +69,12 @@ export function renderEnvoy(root: HTMLElement, game: Game): void {
       game.screen = 'hub';
     },
   });
+}
+
+/** How much inheritance a class costs to unlock. */
+export function classUnlockCost(classId: string): number {
+  const order = Content.classList.findIndex((c) => c.id === classId);
+  return Math.max(1, order) * 2;
 }
 
 /** A bought node can grant permanent unlocks. */

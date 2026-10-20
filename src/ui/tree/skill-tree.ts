@@ -30,11 +30,13 @@ export function renderSkillTrees(root: HTMLElement, game: Game): void {
     ]),
   );
 
-  const tabs = el('nav', { class: 'tabs' });
+  const tabs = el('nav', { class: 'tabs', role: 'tablist' });
   trees.forEach((tree, index) => {
     const node = el('button', {
       class: `tab${selectedTree === index ? ' tab--active' : ''}`,
       type: 'button',
+      role: 'tab',
+      'aria-selected': selectedTree === index ? 'true' : 'false',
     }, [tree.name]);
     node.addEventListener('click', () => {
       selectedTree = index;
@@ -81,6 +83,87 @@ export function renderSkillTrees(root: HTMLElement, game: Game): void {
       game.screen = 'trees';
     },
   });
+
+  root.append(renderLoadoutPanel(game));
+}
+
+/**
+ * The loadout of the class: which runes are bound to which skill and in
+ * which order the skills fire.
+ */
+function renderLoadoutPanel(game: Game): HTMLElement {
+  const save = game.save;
+  const classDef = Content.class(save.player.classId) ?? Content.classList[0]!;
+  const panel = el('div', { class: 'panel' }, [
+    el('h2', { class: 'panel__title', text: 'Loadout' }),
+    el('p', { class: 'panel__text', text: 'Bind a rune to a skill and set the order in which the skills fire.' }),
+  ]);
+
+  const available = new Set<string>([
+    classDef.signature,
+    ...classDef.actives,
+    ...save.unlocked.persistent.activeSkills,
+    ...save.unlocked.currentInkarnation.activeSkills,
+  ]);
+  const skills = Content.skillsOfClass(classDef.id).filter((skill) => available.has(skill.id));
+
+  for (const skill of skills) {
+    const row = el('div', { class: 'skill-row' }, [
+      el('span', { class: 'skill-row__name', text: skill.name }),
+    ]);
+
+    // Rune selection - only runes the player has unlocked.
+    const select = el('select', { class: 'select' }) as HTMLSelectElement;
+    select.append(el('option', { value: '', text: 'No rune' }));
+    for (const rune of skill.runes) {
+      const unlocked = save.unlocked.persistent.runes.includes(rune.id);
+      const option = el('option', { value: rune.id, text: unlocked ? rune.name : `${rune.name} (locked)` });
+      if (!unlocked) option.setAttribute('disabled', 'disabled');
+      if (save.player.loadout.runes[skill.id] === rune.id) option.setAttribute('selected', 'selected');
+      select.append(option);
+    }
+    select.value = save.player.loadout.runes[skill.id] ?? '';
+    select.addEventListener('change', () => {
+      game.store.update((s) => {
+        if (select.value) s.player.loadout.runes[skill.id] = select.value;
+        else delete s.player.loadout.runes[skill.id];
+      });
+      game.persist();
+    });
+    row.append(select);
+
+    // Priority: move the skill up and down in the auto cast list.
+    row.append(
+      button('^', () => {
+        game.store.update((s) => {
+          const list = s.player.loadout.skillPriority.filter((id) => id !== skill.id);
+          const index = s.player.loadout.skillPriority.indexOf(skill.id);
+          list.splice(Math.max(0, index - 1), 0, skill.id);
+          s.player.loadout.skillPriority = list;
+        });
+        game.screen = 'trees';
+      }, 'btn--tiny'),
+      button('v', () => {
+        game.store.update((s) => {
+          const list = s.player.loadout.skillPriority.filter((id) => id !== skill.id);
+          const index = s.player.loadout.skillPriority.indexOf(skill.id);
+          list.splice(Math.min(list.length, index + 1), 0, skill.id);
+          s.player.loadout.skillPriority = list;
+        });
+        game.screen = 'trees';
+      }, 'btn--tiny'),
+    );
+    panel.append(row);
+  }
+
+  const order = save.player.loadout.skillPriority;
+  if (order.length > 0) {
+    panel.append(
+      el('p', { class: 'panel__text', text: `Auto cast order: ${order.join(' -> ')}` }),
+    );
+  }
+
+  return panel;
 }
 
 /** ACCESS nodes grant an active skill - for this ascension or forever. */

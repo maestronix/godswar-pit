@@ -28,6 +28,8 @@ export function renderRunScreen(root: HTMLElement, game: Game): void {
     class: 'scene',
     width: VIEW_WIDTH,
     height: VIEW_HEIGHT,
+    role: 'img',
+    'aria-label': `Battle scene in ${zone?.name ?? 'the pit'}`,
   }) as HTMLCanvasElement;
   const ctx = canvas.getContext('2d');
   if (ctx) ctx.imageSmoothingEnabled = false;
@@ -199,35 +201,52 @@ export function renderRunScreen(root: HTMLElement, game: Game): void {
     renderSide();
   };
 
+  /** The report of a finished run. */
+  const showSummary = (): void => {
+    const summary = game.summary;
+    if (!summary) return;
+    if (root.querySelector('.modal')) return;
+    root.append(
+      el('div', { class: 'modal' }, [
+        el('div', { class: 'modal__box' }, [
+          el('h2', { class: 'panel__title', text: summary.victory ? 'Throne claimed' : 'You died' }),
+          el('p', { text: summary.deathCause ?? '' }),
+          statLine('Depth', String(summary.depth)),
+          statLine('Kills', formatNumber(summary.kills)),
+          statLine('Souls', formatNumber(summary.souls)),
+          statLine('Items kept', String(summary.itemsKept)),
+          game.lastAchievements.length > 0
+            ? el('p', {
+                class: 'panel__text',
+                text: `Achievements: ${game.lastAchievements.map((a) => a.name).join(', ')}`,
+              })
+            : el('span'),
+          button(summary.victory ? 'Back to Ashvale' : 'Descend again', () => {
+            game.onRender = null;
+            game.summary = null;
+            if (!summary.victory && game.save.player.autoRetry) {
+              // The steward starts the next expedition right away.
+              game.autoRetry();
+              return;
+            }
+            game.screen = 'hub';
+          }, summary.victory ? '' : 'btn--primary'),
+        ]),
+      ]),
+    );
+  };
+
   refresh();
   game.onRender = () => {
     if (game.state !== state) {
+      // The run has ended - the report takes over.
       game.onRender = null;
+      showSummary();
       return;
     }
     refresh();
   };
-
-  // The summary is shown when the run ends.
-  if ((state.phase === 'dead' || state.phase === 'victory') && game.summary) {
-    root.append(
-      el('div', { class: 'modal' }, [
-        el('div', { class: 'modal__box' }, [
-          el('h2', { class: 'panel__title', text: game.summary.victory ? 'Throne claimed' : 'You died' }),
-          el('p', { text: game.summary.deathCause ?? '' }),
-          statLine('Depth', String(game.summary.depth)),
-          statLine('Kills', formatNumber(game.summary.kills)),
-          statLine('Souls', formatNumber(game.summary.souls)),
-          statLine('Items kept', String(game.summary.itemsKept)),
-          button('Back to Ashvale', () => {
-            game.onRender = null;
-            game.screen = 'hub';
-            game.summary = null;
-          }),
-        ]),
-      ]),
-    );
-  }
+  showSummary();
 
   void NODE_LABELS;
   void bar;

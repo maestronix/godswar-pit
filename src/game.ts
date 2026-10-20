@@ -31,6 +31,7 @@ import {
   updateContractProgress,
 } from './state/contracts';
 import { runOffline, type OfflineReport } from './state/offline';
+import { evaluateAchievements } from './state/achievements';
 import { ascend, hasFeature, idleSoulRate, parallelExpeditions, rotationZone } from './state/thrones';
 import { autoEquip, autoRerollAspects } from './state/automation';
 
@@ -81,6 +82,8 @@ export class Game {
   onScreenChange: (() => void) | null = null;
   /** Additional expeditions that run in the background (Throne 3 and 9). */
   shadowRuns: { state: SimState; ctx: SimContext; zoneId: number }[] = [];
+  /** The achievements that were unlocked in the last run. */
+  lastAchievements: { id: string; name: string; reward: string }[] = [];
   /** Last time the idle soul income was granted. */
   private lastIdleTick = Date.now();
 
@@ -465,6 +468,22 @@ export class Game {
     });
 
     updateContractProgress(save);
+
+    // The codex collects every aspect the hero finds.
+    this.store.update((s) => {
+      for (const item of state.loot) {
+        if (!item.aspectId) continue;
+        if (!s.unlocked.persistent.codex.includes(item.aspectId)) {
+          s.unlocked.persistent.codex.push(item.aspectId);
+        }
+      }
+    });
+
+    const achievements = evaluateAchievements(save);
+    if (achievements.unlocked.length > 0) {
+      this.lastAchievements = achievements.rewards;
+    }
+
     this.state = null;
     this.ctx = null;
 
