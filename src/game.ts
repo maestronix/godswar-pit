@@ -15,7 +15,7 @@ import { playSfx } from './audio/sfx';
 import { chip } from './audio/chip';
 import { music } from './audio/music';
 import { step } from './sim/engine';
-import { createRun, enterNode, chooseEvent, nodeById, sortRunLoot } from './sim/expedition';
+import { createRun, enterNode, chooseEvent, nodeById, sortRunLoot, anomaliesForSeries } from './sim/expedition';
 import { DEFAULT_POLICY, type ManagerPolicy } from './sim/policy';
 import { resolveLoadout } from './sim/stats';
 import { hashState } from './sim/hash';
@@ -143,6 +143,7 @@ export class Game {
       zoneId,
       runId,
       ascensions: save.player.incarnations,
+      anomalyIds: anomaliesForSeries(save.player.incarnations),
     });
     this.state = state;
     this.ctx = ctx;
@@ -312,6 +313,8 @@ export class Game {
         seed,
         zoneId: zone,
         runId: `shadow_${seed.toString(36)}`,
+        ascensions: this.save.player.incarnations,
+        anomalyIds: anomaliesForSeries(this.save.player.incarnations),
       });
       this.shadowRuns.push({ state, ctx, zoneId: zone });
     }

@@ -100,6 +100,8 @@ export interface Combatant {
   attackTimer: number;
   traits: string[];
   souls: number;
+  /** Health regeneration per tick (the anomaly of the ascension). */
+  regen?: number;
   onHit?: { status: string; chance: number; duration: number; stacks?: number }[];
   size: number;
   kind: 'normal' | 'elite' | 'boss';
@@ -207,6 +209,8 @@ export interface SimState {
   nodeTimer: number;
   /** Ascension counter (difficulty multiplier). */
   ascensions: number;
+  /** The anomalies of the current ascension. */
+  anomalies: string[];
   /** Runes bound to skills, resolved at run start. */
   runes: Record<string, string>;
   /** Items that were looted and auto-equipped during the run. */

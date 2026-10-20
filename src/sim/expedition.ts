@@ -73,8 +73,7 @@ export function createRun(params: CreateRunParams): { state: SimState; ctx: SimC
     phase: 'expedition',
     zoneId,
     classId: classDef.id,
-    seed,
-    runId,
+    seed,    runId,
     hero,
     enemies: [],
     tree: treeInstance,
@@ -93,6 +92,7 @@ export function createRun(params: CreateRunParams): { state: SimState; ctx: SimC
     bossDefeated: false,
     nodeTimer: 0,
     ascensions: params.ascensions ?? player.incarnations,
+    anomalies: params.anomalyIds ?? [],
     runes: { ...player.loadout.runes },
     equippedDuringRun: [],
     counters: {
@@ -130,6 +130,21 @@ export function buildSkillPriority(
 }
 
 /* ------------------------------------------------------------------ nodes */
+
+/** The anomalies of an ascension series. */
+export function anomaliesForSeries(series: number): string[] {
+  const index = Math.max(1, Math.min(5, series));
+  return [...Content.anomalies.values()].filter((a) => a.series === index).map((a) => a.id);
+}
+
+function anomalyMagnitude(state: SimState, kind: string): number {
+  let total = 0;
+  for (const id of state.anomalies) {
+    const anomaly = Content.anomaly(id);
+    if (anomaly && anomaly.kind === kind) total += anomaly.magnitude;
+  }
+  return total;
+}
 
 export function nodeById(state: SimState, nodeId: string): SimTreeNode | undefined {
   return state.tree.nodes.find((n) => n.id === nodeId);
@@ -174,6 +189,12 @@ export function enterNode(state: SimState, ctx: SimContext, nodeId: string, sink
     default:
       finishNode(state, ctx, node, sink);
       break;
+  }
+
+  // The "every n-th room is a trap" anomaly.
+  const trapEvery = anomalyMagnitude(state, 'trap_every');
+  if (trapEvery > 0 && node.type !== 'TRAP' && state.visitedNodeIds.length % Math.max(2, Math.round(trapEvery)) === 0) {
+    resolveTrap(state, ctx, node, sink);
   }
 }
 
@@ -268,10 +289,30 @@ export function spawnRoomEnemies(
   // Ascension difficulty.
   const hpMult = 1 + BALANCE.ascensionEnemyHpMult * state.ascensions;
   const dpsMult = 1 + BALANCE.ascensionEnemyDpsMult * state.ascensions;
+  // The anomalies of the ascension.
+  const anomalyHp = 1 + anomalyMagnitude(state, 'enemy_hp');
+  const anomalyDps = 1 + anomalyMagnitude(state, 'enemy_damage');
   for (const enemy of enemies) {
-    enemy.hp = Math.round(enemy.hp * hpMult);
+    enemy.hp = Math.round(enemy.hp * hpMult * anomalyHp);
     enemy.maxHp = enemy.hp;
-    enemy.dps = Math.round(enemy.dps * dpsMult * 100) / 100;
+    enemy.dps = Math.round(enemy.dps * dpsMult * anomalyDps * 100) / 100;
+    const regen = anomalyMagnitude(state, 'heal_enemies');
+    if (regen > 0) enemy.regen = regen;
+  }
+
+  // The extra elites of the ascension.
+  const extraElites = Math.round(anomalyMagnitude(state, 'extra_elite'));
+  const doubleElite = anomalyMagnitude(state, 'double_elite') > 0 && kind === 'elite';
+  for (let i = 0; i < extraElites; i++) {
+    const defId = zone.enemies[nodeRng.int(0, zone.enemies.length)]!;
+    const elite = makeEnemy(defId, 'elite', enemies.length);
+    enemies.push(elite);
+  }
+  if (doubleElite) {
+    for (const enemy of enemies) {
+      const twin = makeEnemy(enemy.defId, 'normal', enemies.length);
+      enemies.push(twin);
+    }
   }
 
   state.enemies = enemies;
@@ -285,7 +326,8 @@ export function spawnRoomEnemies(
 export function awardKill(state: SimState, ctx: SimContext, enemy: Combatant, sink?: SimEventSink): void {
   const hero = state.hero;
   const soulYield = 1 + hero.stats.soulYieldPct + hero.stats.flatSouls / 100;
-  const souls = Math.max(1, Math.round(enemy.souls * soulYield));
+  const tax = 1 - anomalyMagnitude(state, 'soul_tax');
+  const souls = Math.max(1, Math.round(enemy.souls * soulYield * tax));
   state.souls += souls;
   sink?.({ type: 'souls', tick: state.tick, amount: souls, x: enemy.x, y: enemy.y });
 

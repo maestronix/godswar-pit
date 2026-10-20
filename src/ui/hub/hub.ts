@@ -10,7 +10,7 @@ import { renderSmithy } from './smithy';
 import { renderEnvoy } from './envoy';
 import { renderGrace } from './grace';
 import { renderMarket } from './market';
-import { POLICY_PRESETS, type PolicyPreset } from '../../sim/policy';
+import { POLICY_PRESETS, type ManagerPolicy, type PolicyPreset } from '../../sim/policy';
 import { rotationZone } from '../../state/thrones';
 
 const TABS = [
@@ -95,20 +95,35 @@ export function renderHub(root: HTMLElement, game: Game): void {
   for (let slot = 0; slot < 3; slot++) {
     const select = el('select', { class: 'select' }) as HTMLSelectElement;
     select.append(el('option', { value: '', text: 'Empty' }));
-    for (const potion of Content.potions.values()) {
-      const option = el('option', { value: potion.id, text: potion.name });
-      if (save.player.loadout.potions[slot] === potion.id) option.setAttribute('selected', 'selected');
+    save.player.ownedPotions.forEach((owned, index) => {
+      const potion = Content.potion(owned.id);
+      if (!potion) return;
+      const tier = potion.tiers[owned.tier] ?? potion.tiers[0]!;
+      const option = el('option', { value: `${owned.id}:${owned.tier}`, text: `${potion.name} (${tier.name})` });
+      if (save.player.loadout.potions[slot] === `${owned.id}:${owned.tier}`) {
+        option.setAttribute('selected', 'selected');
+      }
       select.append(option);
-    }
+      void index;
+    });
     select.value = save.player.loadout.potions[slot] ?? '';
     select.addEventListener('change', () => {
       game.store.update((s) => {
         s.player.loadout.potions[slot] = select.value || null;
       });
+      game.persist();
     });
     potionRow.append(el('label', { class: 'field__label' }, [`Slot ${slot + 1}`, select]));
   }
-  expedition.append(el('div', { class: 'field' }, [el('span', { class: 'field__label', text: 'Potions' }), potionRow]));
+  expedition.append(
+    el('div', { class: 'field' }, [
+      el('span', { class: 'field__label', text: 'Potions' }),
+      potionRow,
+      save.player.ownedPotions.length === 0
+        ? el('span', { class: 'empty', text: 'No potions yet - buy some in the market.' })
+        : el('span'),
+    ]),
+  );
 
   // Manager policy.
   const policyRow = el('div', { class: 'row' });
@@ -124,6 +139,35 @@ export function renderHub(root: HTMLElement, game: Game): void {
     policyRow.append(node);
   }
   expedition.append(el('div', { class: 'field' }, [el('span', { class: 'field__label', text: 'Steward' }), policyRow]));
+
+  // The sliders of the policy.
+  const sliders: { key: keyof ManagerPolicy; label: string }[] = [
+    { key: 'healingPreference', label: 'Healing' },
+    { key: 'treasureHunt', label: 'Treasure' },
+    { key: 'trapAvoidance', label: 'Avoid traps' },
+    { key: 'riskTolerance', label: 'Risk' },
+  ];
+  for (const slider of sliders) {
+    const input = el('input', {
+      type: 'range',
+      min: '0',
+      max: '100',
+      value: String(Math.round(Number(game.policy[slider.key]) * 100)),
+    }) as HTMLInputElement;
+    const value = el('span', { class: 'field__value', text: `${Math.round(Number(game.policy[slider.key]) * 100)}%` });
+    input.addEventListener('input', () => {
+      const next = Number(input.value) / 100;
+      value.textContent = `${input.value}%`;
+      game.policy = { ...game.policy, [slider.key]: next, preset: 'balanced' };
+    });
+    expedition.append(
+      el('div', { class: 'field' }, [
+        el('span', { class: 'field__label', text: slider.label }),
+        input,
+        value,
+      ]),
+    );
+  }
 
   const autoRetry = el('input', { type: 'checkbox' }) as HTMLInputElement;
   autoRetry.checked = save.player.autoRetry;

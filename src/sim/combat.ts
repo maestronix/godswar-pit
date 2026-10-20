@@ -541,6 +541,12 @@ function stepEnemy(state: SimState, ctx: SimContext, enemy: Combatant, sink?: Si
   const slowed = statusMultiplier(enemy, 'moveSpeed');
   const frozen = enemy.statuses.some((s) => s.id === 'freeze' && s.remaining > 0);
 
+  // The "enemies regenerate" anomaly.
+  const regen = enemy.regen ?? 0;
+  if (regen > 0 && enemy.hp < enemy.maxHp) {
+    enemy.hp = Math.min(enemy.maxHp, enemy.hp + enemy.maxHp * regen * 0.1);
+  }
+
   if (d > enemy.range && !frozen && d > 0) {
     const speed = (enemy.speed * slowed) / 10;
     enemy.x += (dx / d) * speed;

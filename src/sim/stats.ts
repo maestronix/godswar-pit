@@ -204,11 +204,14 @@ export function resolveLoadout(input: ResolveInput): LoadoutModifiers {
   }
 
   /* potions ----------------------------------------------------------- */
-  for (const potion of player.loadout.potions) {
-    if (!potion) continue;
-    const def = Content.potion(potion);
+  for (const slot of player.loadout.potions) {
+    if (!slot) continue;
+    const [potionId, tierText] = slot.split(':');
+    if (!potionId) continue;
+    const def = Content.potion(potionId);
     if (!def) continue;
-    const tierMult = def.tiers[1]?.mult ?? 1;
+    const tierIndex = Math.max(0, Math.min(def.tiers.length - 1, Number(tierText ?? 1) || 0));
+    const tierMult = def.tiers[tierIndex]?.mult ?? 1;
     applyStat(acc.add, def.effect.stat, def.effect.value * tierMult);
   }
 

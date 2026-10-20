@@ -15,9 +15,10 @@ export function renderMarket(root: HTMLElement, game: Game): void {
   ]);
   const list = el('div', { class: 'item-list' });
   for (const potion of Content.potions.values()) {
+    const owned = save.player.ownedPotions.filter((p) => p.id === potion.id).length;
     const row = el('div', { class: 'item-row' }, [
       el('span', { class: 'item-row__name', text: potion.name }),
-      el('span', { class: 'item-row__meta', text: potion.description }),
+      el('span', { class: 'item-row__meta', text: `${potion.description}${owned > 0 ? ` (${owned} owned)` : ''}` }),
     ]);
     const tierRow = el('div', { class: 'row' });
     potion.tiers.forEach((tier, index) => {
@@ -27,7 +28,9 @@ export function renderMarket(root: HTMLElement, game: Game): void {
           if (save.player.souls < price) return;
           game.store.update((s) => {
             s.player.souls -= price;
+            s.player.ownedPotions.push({ id: potion.id, tier: index });
           });
+          game.persist();
           game.screen = 'hub';
         }, 'btn--small'),
       );

@@ -40,7 +40,7 @@ export interface ItemRecord {
 /* ----------------------------------------------------------------- player */
 
 export interface LoadoutState {
-  /** Potion slot 0..2, `null` = empty. */
+  /** Potion slot 0..2, `null` = empty, otherwise `potionId:tierIndex`. */
   potions: (string | null)[];
   /** Skill ids in auto-cast priority order. */
   skillPriority: string[];
@@ -73,6 +73,8 @@ export interface PlayerState {
   loadout: LoadoutState;
   /** Automatically start a new run after death. */
   autoRetry: boolean;
+  /** The potions that were bought in the market. */
+  ownedPotions: { id: string; tier: number }[];
   /** Unspent run skill points (lost on death). */
   runSkillPoints: number;
   /** Runes bound to a skill, resolved from the tree. */
@@ -280,6 +282,7 @@ export function createDefaultPlayer(): PlayerState {
       targetZone: 1,
     },
     autoRetry: true,
+    ownedPotions: [],
     runSkillPoints: 0,
     unlockedRunes: [],
   };
