@@ -41,12 +41,19 @@ Other commands:
 
 ## Publish it to GitHub Pages
 
+**Live:** <https://maestronix.github.io/godswar-pit/>
+
 ### The easy way
 
 Double click **`deploy.bat`** in the project folder. It asks two questions
-(your GitHub user name and the name of the new repository), walks you
-through creating the repository and pushes everything for you. At the end it
-prints the address of your game.
+(your GitHub user name and the name of the repository), walks you through
+creating the repository and pushes everything for you. At the end it prints
+the address of your game.
+
+To publish a new version later: run `npm run build`, commit and push (or
+just run `deploy.bat` again). The workflow on GitHub rebuilds and republishes
+the game automatically. If you only changed the content and want to publish
+without a new commit, run `npm run redeploy`.
 
 ### The manual way
 

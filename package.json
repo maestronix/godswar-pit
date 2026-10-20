@@ -12,6 +12,7 @@
     "test:watch": "vitest",
     "balance": "vite-node scripts/balance.ts",
     "gen:trees": "vite-node scripts/generate-trees.ts",
+    "redeploy": "node scripts/redeploy.mjs",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

@@ -88,8 +88,10 @@ if (-not $exists) {
 Kopf "Hochladen"
 
 $remote = "https://github.com/$user/$repo.git"
-$existing = git remote get-url origin 2>$null
-if ($existing) {
+# "git remote" ohne Argument listet nur die vorhandenen Remotes und wirft
+# deshalb keinen Fehler, wenn es noch keinen gibt.
+$remotes = @((git remote) | Where-Object { $_ })
+if ($remotes -contains "origin") {
     git remote set-url origin $remote
     Write-Host "Remote aktualisiert: $remote"
 } else {
