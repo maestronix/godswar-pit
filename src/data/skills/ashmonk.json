@@ -1,0 +1,190 @@
+[
+  {
+    "id": "am_signature",
+    "name": "Cyclone Rush",
+    "classId": "ashmonk",
+    "kind": "signature",
+    "description": "The Ashmonk storms through the pit in a spinning rush that scatters everything in the way.",
+    "cost": 30,
+    "cooldown": 150,
+    "castTime": 3,
+    "range": 4.0,
+    "targeting": "aoe",
+    "aoeRadius": 3.0,
+    "power": 2.2,
+    "scaling": [
+      { "stat": "aoePct", "mult": 0.7 },
+      { "stat": "damagePct", "mult": 0.4 }
+    ],
+    "effects": [
+      { "kind": "damage", "power": 2.2, "damageType": "physical", "text": "Cyclone Rush tramples every foe in the storm." },
+      { "kind": "dot", "status": "burn", "power": 0.06, "duration": 18, "stacks": 1, "text": "The rush leaves embers on the skin." },
+      { "kind": "resource", "power": 0.15, "text": "The breathing cycle returns a little Chi." }
+    ],
+    "tags": ["aoe", "ultimate"],
+    "icon": "cyclone_rush",
+    "runes": [
+      {
+        "id": "am_signature_tempest",
+        "name": "Tempest Cycle",
+        "description": "The rush spins wider and hits harder, but the breath takes longer to recover.",
+        "overrides": { "power": 2.8, "aoeRadius": 3.4, "cooldown": 170 }
+      },
+      {
+        "id": "am_signature_cinder",
+        "name": "Cinder Trail",
+        "description": "The rush leaves burning cinders that keep eating at the wounded.",
+        "overrides": { "power": 2.4, "cooldown": 160 },
+        "effectOverrides": { "kind": "dot", "status": "burn", "power": 0.1, "duration": 26, "stacks": 2 }
+      },
+      {
+        "id": "am_signature_serpent",
+        "name": "Serpent Coil",
+        "description": "A tight, quick rush that coils back to the centre instead of racing wide.",
+        "overrides": { "aoeRadius": 2.4, "power": 2.4, "cooldown": 130 }
+      }
+    ]
+  },
+  {
+    "id": "am_a1",
+    "name": "Palm Burst",
+    "classId": "ashmonk",
+    "kind": "active",
+    "description": "A focused palm strike that shoves every nearby enemy back off its feet.",
+    "cost": 14,
+    "cooldown": 70,
+    "castTime": 2,
+    "range": 2.0,
+    "targeting": "aoe",
+    "aoeRadius": 2.6,
+    "power": 1.5,
+    "scaling": [{ "stat": "aoePct", "mult": 0.6 }],
+    "effects": [
+      { "kind": "damage", "power": 1.5, "damageType": "physical", "text": "Palm Burst strikes all foes in range." },
+      { "kind": "debuff", "status": "slow", "amount": 0.25, "duration": 20, "stacks": 1, "text": "The shove knocks enemies off balance." }
+    ],
+    "tags": ["aoe"],
+    "icon": "palm_burst",
+    "runes": [
+      {
+        "id": "am_a1_quake",
+        "name": "Quake Palm",
+        "description": "A ground-shaking strike that rattles a wider circle of enemies.",
+        "overrides": { "aoeRadius": 3.2, "power": 1.8, "cooldown": 85 }
+      },
+      {
+        "id": "am_a1_emptiness",
+        "name": "Empty Hand",
+        "description": "A drained, light strike that costs almost no Chi.",
+        "overrides": { "power": 1.2, "cost": 8, "cooldown": 60 }
+      }
+    ]
+  },
+  {
+    "id": "am_a2",
+    "name": "Chi Surge",
+    "classId": "ashmonk",
+    "kind": "active",
+    "description": "The Ashmonk draws a deep breath and floods the body with rushing Chi.",
+    "cost": 8,
+    "cooldown": 100,
+    "castTime": 1,
+    "range": 1.2,
+    "targeting": "self",
+    "power": 0.8,
+    "effects": [
+      { "kind": "resource", "power": 0.5, "text": "Half of the Chi pool is restored at once." },
+      { "kind": "buff", "status": "haste", "amount": 0.25, "duration": 40, "stacks": 1, "text": "Haste: strikes fall faster." },
+      { "kind": "buff", "status": "focus", "amount": 0.2, "duration": 40, "stacks": 1, "text": "Focus: the eye sharpens." }
+    ],
+    "tags": ["buff"],
+    "icon": "chi_surge",
+    "runes": [
+      {
+        "id": "am_a2_rush",
+        "name": "Rushing Breath",
+        "description": "A quicker, lighter breath that restores Chi more often.",
+        "overrides": { "cooldown": 80, "cost": 6 },
+        "effectOverrides": { "kind": "resource", "power": 0.65 }
+      },
+      {
+        "id": "am_a2_stillpoint",
+        "name": "Still Point",
+        "description": "A long, perfect breath whose stillness outlasts the rush.",
+        "overrides": { "cooldown": 120 },
+        "effectOverrides": { "kind": "buff", "status": "haste", "amount": 0.35, "duration": 70 }
+      }
+    ]
+  },
+  {
+    "id": "am_a3",
+    "name": "Serpent Strike",
+    "classId": "ashmonk",
+    "kind": "active",
+    "description": "Two fast fangs of a strike that open a bleeding wound in the target.",
+    "cost": 18,
+    "cooldown": 80,
+    "castTime": 2,
+    "range": 1.6,
+    "targeting": "single",
+    "power": 1.2,
+    "scaling": [{ "stat": "attackSpeed", "mult": 0.3 }],
+    "effects": [
+      { "kind": "damage", "power": 1.2, "damageType": "physical", "text": "The first fang strikes the target." },
+      { "kind": "dot", "status": "bleed", "power": 0.06, "duration": 24, "stacks": 2, "text": "The second fang leaves a bleeding wound." }
+    ],
+    "tags": ["multi", "dot"],
+    "icon": "serpent_strike",
+    "runes": [
+      {
+        "id": "am_a3_venom",
+        "name": "Venom Fang",
+        "description": "The second fang is coated in venom instead of plain steel.",
+        "overrides": { "cost": 20 },
+        "effectOverrides": { "kind": "dot", "status": "poison", "power": 0.09, "duration": 30, "stacks": 2 }
+      },
+      {
+        "id": "am_a3_flurry",
+        "name": "Flurry of Fangs",
+        "description": "A faster flurry of strikes that chews through a single foe.",
+        "overrides": { "power": 1.6, "cooldown": 70 }
+      }
+    ]
+  },
+  {
+    "id": "am_a4",
+    "name": "Stillness",
+    "classId": "ashmonk",
+    "kind": "active",
+    "description": "Perfect stillness knits the body back together and hardens it against the next blow.",
+    "cost": 20,
+    "cooldown": 140,
+    "castTime": 3,
+    "range": 1.2,
+    "targeting": "self",
+    "power": 0.8,
+    "effects": [
+      { "kind": "heal", "power": 0.22, "text": "Stillness restores a fifth of the body's health." },
+      { "kind": "shield", "power": 0.1, "duration": 60, "text": "A skin of hardened Chi absorbs blows." },
+      { "kind": "buff", "status": "regen", "amount": 0.3, "duration": 40, "stacks": 1, "text": "Regeneration: wounds close faster." }
+    ],
+    "tags": ["heal", "buff"],
+    "icon": "stillness",
+    "runes": [
+      {
+        "id": "am_a4_zen",
+        "name": "Perfect Zen",
+        "description": "A deeper stillness that mends far more, but takes long to find again.",
+        "overrides": { "cooldown": 170 },
+        "effectOverrides": { "kind": "heal", "power": 0.32 }
+      },
+      {
+        "id": "am_a4_stone",
+        "name": "Stone Body",
+        "description": "The stillness hardens into rock, trading mending for a tougher shell.",
+        "overrides": { "cost": 24, "cooldown": 150 },
+        "effectOverrides": { "kind": "shield", "power": 0.18, "duration": 90 }
+      }
+    ]
+  }
+]

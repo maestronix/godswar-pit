@@ -1,0 +1,188 @@
+[
+  {
+    "id": "ps_signature",
+    "name": "Tempest Call",
+    "classId": "pitsorcer",
+    "kind": "signature",
+    "description": "The Pitsorcer calls down a storm that hammers a wide stretch of the pit.",
+    "cost": 38,
+    "cooldown": 170,
+    "castTime": 5,
+    "range": 6.0,
+    "targeting": "aoe",
+    "aoeRadius": 3.6,
+    "power": 2.4,
+    "scaling": [
+      { "stat": "aoePct", "mult": 0.8 },
+      { "stat": "damagePct", "mult": 0.5 }
+    ],
+    "effects": [
+      { "kind": "damage", "power": 2.4, "damageType": "lightning", "text": "Tempest Call strikes every foe caught in the storm." },
+      { "kind": "chain", "power": 1.4, "count": 2, "damageType": "lightning", "text": "Lightning arcs to two more foes." }
+    ],
+    "tags": ["aoe", "ultimate"],
+    "icon": "tempest_call",
+    "runes": [
+      {
+        "id": "ps_signature_eye",
+        "name": "Eye of the Storm",
+        "description": "The storm spreads wider and longer, but its heart is less violent.",
+        "overrides": { "aoeRadius": 4.0, "power": 2.0, "cooldown": 180 }
+      },
+      {
+        "id": "ps_signature_surge",
+        "name": "Surge",
+        "description": "The whole storm is condensed into one violent overload.",
+        "overrides": { "power": 3.2, "cost": 30, "aoeRadius": 3.2 }
+      },
+      {
+        "id": "ps_signature_veil",
+        "name": "Veiled Storm",
+        "description": "A quieter storm that costs a fortune of Arcane but comes back sooner.",
+        "overrides": { "cost": 40, "cooldown": 150, "power": 2.8 }
+      }
+    ]
+  },
+  {
+    "id": "ps_a1",
+    "name": "Frost Nova",
+    "classId": "pitsorcer",
+    "kind": "active",
+    "description": "A ring of killing cold erupts outward and locks every enemy in place.",
+    "cost": 22,
+    "cooldown": 110,
+    "castTime": 3,
+    "range": 4.5,
+    "targeting": "aoe",
+    "aoeRadius": 3.0,
+    "power": 1.5,
+    "scaling": [{ "stat": "aoePct", "mult": 0.7 }],
+    "effects": [
+      { "kind": "damage", "power": 1.5, "damageType": "frost", "text": "Frost Nova freezes every foe in the ring." },
+      { "kind": "debuff", "status": "freeze", "duration": 18, "stacks": 1, "text": "Frozen foes cannot move." },
+      { "kind": "debuff", "status": "chill", "duration": 25, "stacks": 1, "text": "Chill slows whatever thaws." }
+    ],
+    "tags": ["aoe", "control"],
+    "icon": "frost_nova",
+    "runes": [
+      {
+        "id": "ps_a1_deepfreeze",
+        "name": "Deep Freeze",
+        "description": "A deeper frost that reaches further and holds its victims longer.",
+        "overrides": { "aoeRadius": 3.4, "power": 1.7, "cooldown": 120 },
+        "effectOverrides": { "kind": "debuff", "status": "freeze", "duration": 26, "stacks": 1 }
+      },
+      {
+        "id": "ps_a1_shatter",
+        "name": "Shatter",
+        "description": "The nova is aimed to break frozen bodies rather than merely still them.",
+        "overrides": { "power": 2.2, "cooldown": 100 }
+      }
+    ]
+  },
+  {
+    "id": "ps_a2",
+    "name": "Chain Lightning",
+    "classId": "pitsorcer",
+    "kind": "active",
+    "description": "A bolt of lightning leaps from foe to foe through the whole pit room.",
+    "cost": 20,
+    "cooldown": 90,
+    "castTime": 2,
+    "range": 5.5,
+    "targeting": "single",
+    "power": 1.8,
+    "scaling": [{ "stat": "damagePct", "mult": 0.4 }],
+    "effects": [
+      { "kind": "damage", "power": 1.8, "damageType": "lightning", "text": "The bolt strikes the chosen foe." },
+      { "kind": "chain", "power": 1.1, "count": 3, "damageType": "lightning", "text": "The bolt leaps to three more foes." }
+    ],
+    "tags": ["chain"],
+    "icon": "chain_lightning",
+    "runes": [
+      {
+        "id": "ps_a2_overload",
+        "name": "Overload",
+        "description": "The bolt is charged past its limit and burns through far more Arcane.",
+        "overrides": { "power": 2.4, "cost": 28 }
+      },
+      {
+        "id": "ps_a2_spark",
+        "name": "Spark",
+        "description": "A lighter bolt that snaps back into the caster's hand almost at once.",
+        "overrides": { "power": 1.6, "cooldown": 70 }
+      }
+    ]
+  },
+  {
+    "id": "ps_a3",
+    "name": "Arcane Blink",
+    "classId": "pitsorcer",
+    "kind": "active",
+    "description": "The Pitsorcer steps through the veil and reappears with sharpened focus.",
+    "cost": 12,
+    "cooldown": 60,
+    "castTime": 0,
+    "range": 1.2,
+    "targeting": "self",
+    "power": 0.8,
+    "effects": [
+      { "kind": "resource", "power": 0.35, "text": "A third of the Arcane pool returns with the spell." },
+      { "kind": "buff", "status": "haste", "amount": 0.2, "duration": 30, "stacks": 1, "text": "Haste: casting comes faster." },
+      { "kind": "buff", "status": "focus", "amount": 0.25, "duration": 30, "stacks": 1, "text": "Focus: critical strikes land more often." }
+    ],
+    "tags": ["buff"],
+    "icon": "arcane_blink",
+    "runes": [
+      {
+        "id": "ps_a3_phase",
+        "name": "Phase Step",
+        "description": "A shorter step through the veil that returns even more Arcane.",
+        "overrides": { "cooldown": 45 },
+        "effectOverrides": { "kind": "resource", "power": 0.5 }
+      },
+      {
+        "id": "ps_a3_veil",
+        "name": "Veil of Focus",
+        "description": "A longer step that leaves the Pitsorcer perfectly focused for longer.",
+        "overrides": { "cooldown": 75 },
+        "effectOverrides": { "kind": "buff", "status": "focus", "amount": 0.35, "duration": 45 }
+      }
+    ]
+  },
+  {
+    "id": "ps_a4",
+    "name": "Sunder",
+    "classId": "pitsorcer",
+    "kind": "active",
+    "description": "A splitting ray that tears the armour of a single foe apart.",
+    "cost": 24,
+    "cooldown": 100,
+    "castTime": 3,
+    "range": 5.0,
+    "targeting": "single",
+    "power": 2.2,
+    "scaling": [{ "stat": "damagePct", "mult": 0.6 }],
+    "effects": [
+      { "kind": "damage", "power": 2.2, "damageType": "physical", "text": "Sunder splits the target's guard." },
+      { "kind": "debuff", "status": "weaken", "amount": 0.25, "duration": 30, "stacks": 1, "text": "The wounded foe strikes far weaker." }
+    ],
+    "tags": ["single"],
+    "icon": "sunder",
+    "runes": [
+      {
+        "id": "ps_a4_rift",
+        "name": "Rift",
+        "description": "A deeper split that opens the target up at a heavy cost of Arcane.",
+        "overrides": { "power": 2.8, "cost": 32 }
+      },
+      {
+        "id": "ps_a4_fracture",
+        "name": "Fracture",
+        "description": "A quicker split whose wound keeps the target weakened far longer.",
+        "overrides": { "power": 2.4, "cooldown": 80 },
+        "effectOverrides": { "kind": "debuff", "status": "weaken", "amount": 0.25, "duration": 50, "stacks": 1 }
+      }
+    ]
+  }
+]

@@ -1,0 +1,1031 @@
+{
+  "id": "grace_mirror",
+  "classId": "",
+  "name": "Grace Mirror",
+  "description": "The reflection of the divine echo: permanent blessings bought with Echo, split into three branches - Might, Vigor and Fortune.",
+  "nodes": [
+    {
+      "id": "gm_001",
+      "treeId": "grace_mirror",
+      "parent": null,
+      "depth": 1,
+      "name": "Grace Mirror",
+      "description": "+1% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.01
+      },
+      "icon": "mirror"
+    },
+    {
+      "id": "gm_002",
+      "treeId": "grace_mirror",
+      "parent": "gm_001",
+      "depth": 2,
+      "name": "Wrath Ascendant",
+      "description": "+3% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "wrath"
+    },
+    {
+      "id": "gm_003",
+      "treeId": "grace_mirror",
+      "parent": "gm_001",
+      "depth": 2,
+      "name": "Stoneskin Pact",
+      "description": "+4% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.04
+      },
+      "icon": "hide"
+    },
+    {
+      "id": "gm_004",
+      "treeId": "grace_mirror",
+      "parent": "gm_001",
+      "depth": 2,
+      "name": "Lucky Hollow",
+      "description": "+3% soul yield per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.03
+      },
+      "icon": "coin"
+    },
+    {
+      "id": "gm_005",
+      "treeId": "grace_mirror",
+      "parent": "gm_002",
+      "depth": 3,
+      "name": "Honed Edge",
+      "description": "+1% critical chance per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.01
+      },
+      "icon": "crit"
+    },
+    {
+      "id": "gm_006",
+      "treeId": "grace_mirror",
+      "parent": "gm_002",
+      "depth": 3,
+      "name": "Heavy Impact",
+      "description": "+4% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04
+      },
+      "icon": "damage"
+    },
+    {
+      "id": "gm_007",
+      "treeId": "grace_mirror",
+      "parent": "gm_003",
+      "depth": 3,
+      "name": "Deep Reserve",
+      "description": "+4% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.04
+      },
+      "icon": "health"
+    },
+    {
+      "id": "gm_008",
+      "treeId": "grace_mirror",
+      "parent": "gm_003",
+      "depth": 3,
+      "name": "Second Skin",
+      "description": "+3% armor per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "armor"
+    },
+    {
+      "id": "gm_009",
+      "treeId": "grace_mirror",
+      "parent": "gm_004",
+      "depth": 3,
+      "name": "Quickened Hands",
+      "description": "+3% attack speed per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "haste"
+    },
+    {
+      "id": "gm_010",
+      "treeId": "grace_mirror",
+      "parent": "gm_004",
+      "depth": 3,
+      "name": "Shortened Breath",
+      "description": "+2% cooldown reduction per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.02
+      },
+      "icon": "cooldown"
+    },
+    {
+      "id": "gm_011",
+      "treeId": "grace_mirror",
+      "parent": "gm_005",
+      "depth": 4,
+      "name": "Cruel Intent",
+      "description": "+5% critical damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.05
+      },
+      "icon": "crit"
+    },
+    {
+      "id": "gm_012",
+      "treeId": "grace_mirror",
+      "parent": "gm_006",
+      "depth": 4,
+      "name": "Executioner's Mark",
+      "description": "+5% execute threshold per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "executeThreshold",
+        "value": 0.05
+      },
+      "icon": "execute"
+    },
+    {
+      "id": "gm_013",
+      "treeId": "grace_mirror",
+      "parent": "gm_006",
+      "depth": 4,
+      "name": "Sundering",
+      "description": "+3% area damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.03
+      },
+      "icon": "aoe"
+    },
+    {
+      "id": "gm_014",
+      "treeId": "grace_mirror",
+      "parent": "gm_007",
+      "depth": 4,
+      "name": "Boneward",
+      "description": "+4% armor per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.04
+      },
+      "icon": "armor"
+    },
+    {
+      "id": "gm_015",
+      "treeId": "grace_mirror",
+      "parent": "gm_008",
+      "depth": 4,
+      "name": "Ghost Step",
+      "description": "+2% dodge chance per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "dodge",
+        "value": 0.02
+      },
+      "icon": "dodge"
+    },
+    {
+      "id": "gm_016",
+      "treeId": "grace_mirror",
+      "parent": "gm_008",
+      "depth": 4,
+      "name": "Thick Hide",
+      "description": "+5% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.05
+      },
+      "icon": "health"
+    },
+    {
+      "id": "gm_017",
+      "treeId": "grace_mirror",
+      "parent": "gm_009",
+      "depth": 4,
+      "name": "Soul Siphon",
+      "description": "+4% soul yield per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.04
+      },
+      "icon": "souls"
+    },
+    {
+      "id": "gm_018",
+      "treeId": "grace_mirror",
+      "parent": "gm_010",
+      "depth": 4,
+      "name": "Swift Descent",
+      "description": "+4% movement speed per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.04
+      },
+      "icon": "speed"
+    },
+    {
+      "id": "gm_019",
+      "treeId": "grace_mirror",
+      "parent": "gm_010",
+      "depth": 4,
+      "name": "Deep Well",
+      "description": "+5% resource regeneration per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.4,
+      "maxRank": 5,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.05
+      },
+      "icon": "resource"
+    },
+    {
+      "id": "gm_020",
+      "treeId": "grace_mirror",
+      "parent": "gm_011",
+      "depth": 5,
+      "name": "Brutality",
+      "description": "+5% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.05
+      },
+      "icon": "damage"
+    },
+    {
+      "id": "gm_021",
+      "treeId": "grace_mirror",
+      "parent": "gm_012",
+      "depth": 5,
+      "name": "Perfect Strike",
+      "description": "+1.5% critical chance per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "critChance",
+        "value": 0.015
+      },
+      "icon": "crit"
+    },
+    {
+      "id": "gm_022",
+      "treeId": "grace_mirror",
+      "parent": "gm_013",
+      "depth": 5,
+      "name": "Bloodrush",
+      "description": "+3% life on hit per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.03
+      },
+      "icon": "leech"
+    },
+    {
+      "id": "gm_023",
+      "treeId": "grace_mirror",
+      "parent": "gm_013",
+      "depth": 5,
+      "name": "Searing Edge",
+      "description": "+5% damage over time per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.05
+      },
+      "icon": "dot"
+    },
+    {
+      "id": "gm_024",
+      "treeId": "grace_mirror",
+      "parent": "gm_014",
+      "depth": 5,
+      "name": "Titan Blood",
+      "description": "+5% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.05
+      },
+      "icon": "health"
+    },
+    {
+      "id": "gm_025",
+      "treeId": "grace_mirror",
+      "parent": "gm_015",
+      "depth": 5,
+      "name": "Tempered Plate",
+      "description": "+5% armor per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.05
+      },
+      "icon": "armor"
+    },
+    {
+      "id": "gm_026",
+      "treeId": "grace_mirror",
+      "parent": "gm_016",
+      "depth": 5,
+      "name": "Nimble Reflex",
+      "description": "+2.5% dodge chance per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "dodge",
+        "value": 0.025
+      },
+      "icon": "dodge"
+    },
+    {
+      "id": "gm_027",
+      "treeId": "grace_mirror",
+      "parent": "gm_016",
+      "depth": 5,
+      "name": "Unbreaking",
+      "description": "+5% status resistance per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "statusResist",
+        "value": 0.05
+      },
+      "icon": "resist"
+    },
+    {
+      "id": "gm_028",
+      "treeId": "grace_mirror",
+      "parent": "gm_017",
+      "depth": 5,
+      "name": "Gold Rush",
+      "description": "+5% soul yield per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.05
+      },
+      "icon": "souls"
+    },
+    {
+      "id": "gm_029",
+      "treeId": "grace_mirror",
+      "parent": "gm_018",
+      "depth": 5,
+      "name": "Haste",
+      "description": "+4% attack speed per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.04
+      },
+      "icon": "haste"
+    },
+    {
+      "id": "gm_030",
+      "treeId": "grace_mirror",
+      "parent": "gm_019",
+      "depth": 5,
+      "name": "Swift Casting",
+      "description": "+2.5% cooldown reduction per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.025
+      },
+      "icon": "cooldown"
+    },
+    {
+      "id": "gm_031",
+      "treeId": "grace_mirror",
+      "parent": "gm_019",
+      "depth": 5,
+      "name": "Endless March",
+      "description": "+5% movement speed per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.05
+      },
+      "icon": "speed"
+    },
+    {
+      "id": "gm_032",
+      "treeId": "grace_mirror",
+      "parent": "gm_020",
+      "depth": 6,
+      "name": "Wrath Echo",
+      "description": "+6% damage per stack, up to 3 stacks.",
+      "archetype": "MULTIPLIER",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.06,
+        "cap": 3
+      },
+      "icon": "echo"
+    },
+    {
+      "id": "gm_033",
+      "treeId": "grace_mirror",
+      "parent": "gm_021",
+      "depth": 6,
+      "name": "Reaver's Focus",
+      "description": "+6% critical damage per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.06
+      },
+      "icon": "crit"
+    },
+    {
+      "id": "gm_034",
+      "treeId": "grace_mirror",
+      "parent": "gm_022",
+      "depth": 6,
+      "name": "Wide Ruin",
+      "description": "+4% area damage per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.04
+      },
+      "icon": "aoe"
+    },
+    {
+      "id": "gm_035",
+      "treeId": "grace_mirror",
+      "parent": "gm_023",
+      "depth": 6,
+      "name": "Killing Rhythm",
+      "description": "+3% attack speed per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "haste"
+    },
+    {
+      "id": "gm_036",
+      "treeId": "grace_mirror",
+      "parent": "gm_024",
+      "depth": 6,
+      "name": "Vital Echo",
+      "description": "+6% maximum health per stack, up to 3 stacks.",
+      "archetype": "MULTIPLIER",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "maxHpPct",
+        "mult": 1.06,
+        "cap": 3
+      },
+      "icon": "echo"
+    },
+    {
+      "id": "gm_037",
+      "treeId": "grace_mirror",
+      "parent": "gm_025",
+      "depth": 6,
+      "name": "Flesh of Iron",
+      "description": "+6% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.06
+      },
+      "icon": "health"
+    },
+    {
+      "id": "gm_038",
+      "treeId": "grace_mirror",
+      "parent": "gm_026",
+      "depth": 6,
+      "name": "Bonesetter",
+      "description": "+4% life on hit per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.04
+      },
+      "icon": "leech"
+    },
+    {
+      "id": "gm_039",
+      "treeId": "grace_mirror",
+      "parent": "gm_027",
+      "depth": 6,
+      "name": "Mirror Skin",
+      "description": "+3% dodge chance per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "dodge",
+        "value": 0.03
+      },
+      "icon": "dodge"
+    },
+    {
+      "id": "gm_040",
+      "treeId": "grace_mirror",
+      "parent": "gm_028",
+      "depth": 6,
+      "name": "Fortune Echo",
+      "description": "+6% soul yield per stack, up to 3 stacks.",
+      "archetype": "MULTIPLIER",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "soulYieldPct",
+        "mult": 1.06,
+        "cap": 3
+      },
+      "icon": "echo"
+    },
+    {
+      "id": "gm_041",
+      "treeId": "grace_mirror",
+      "parent": "gm_029",
+      "depth": 6,
+      "name": "Rich Vein",
+      "description": "+6% soul yield per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.06
+      },
+      "icon": "souls"
+    },
+    {
+      "id": "gm_042",
+      "treeId": "grace_mirror",
+      "parent": "gm_030",
+      "depth": 6,
+      "name": "Quickened Soul",
+      "description": "+6% resource regeneration per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.06
+      },
+      "icon": "resource"
+    },
+    {
+      "id": "gm_043",
+      "treeId": "grace_mirror",
+      "parent": "gm_031",
+      "depth": 6,
+      "name": "Falling Star",
+      "description": "+5% movement speed per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 4,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.05
+      },
+      "icon": "speed"
+    },
+    {
+      "id": "gm_044",
+      "treeId": "grace_mirror",
+      "parent": "gm_032",
+      "depth": 7,
+      "name": "Ruin",
+      "description": "+6% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.06
+      },
+      "icon": "damage"
+    },
+    {
+      "id": "gm_045",
+      "treeId": "grace_mirror",
+      "parent": "gm_033",
+      "depth": 7,
+      "name": "Perfect Storm",
+      "description": "+2% critical chance per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "value": 0.02
+      },
+      "icon": "crit"
+    },
+    {
+      "id": "gm_046",
+      "treeId": "grace_mirror",
+      "parent": "gm_034",
+      "depth": 7,
+      "name": "Grinding Blade",
+      "description": "+6% damage over time per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.06
+      },
+      "icon": "dot"
+    },
+    {
+      "id": "gm_047",
+      "treeId": "grace_mirror",
+      "parent": "gm_036",
+      "depth": 7,
+      "name": "Unbroken",
+      "description": "+7% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.07
+      },
+      "icon": "health"
+    },
+    {
+      "id": "gm_048",
+      "treeId": "grace_mirror",
+      "parent": "gm_037",
+      "depth": 7,
+      "name": "Aegis",
+      "description": "+6% armor per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.06
+      },
+      "icon": "armor"
+    },
+    {
+      "id": "gm_049",
+      "treeId": "grace_mirror",
+      "parent": "gm_038",
+      "depth": 7,
+      "name": "Mercy",
+      "description": "+5% life on hit per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.05
+      },
+      "icon": "leech"
+    },
+    {
+      "id": "gm_050",
+      "treeId": "grace_mirror",
+      "parent": "gm_040",
+      "depth": 7,
+      "name": "Soul Harvest",
+      "description": "+7% soul yield per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.07
+      },
+      "icon": "souls"
+    },
+    {
+      "id": "gm_051",
+      "treeId": "grace_mirror",
+      "parent": "gm_041",
+      "depth": 7,
+      "name": "Ceaseless",
+      "description": "+3% cooldown reduction per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.03
+      },
+      "icon": "cooldown"
+    },
+    {
+      "id": "gm_052",
+      "treeId": "grace_mirror",
+      "parent": "gm_042",
+      "depth": 7,
+      "name": "Swift",
+      "description": "+5% attack speed per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.05
+      },
+      "icon": "haste"
+    },
+    {
+      "id": "gm_053",
+      "treeId": "grace_mirror",
+      "parent": "gm_044",
+      "depth": 8,
+      "name": "Godslayer",
+      "description": "+8% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.08
+      },
+      "icon": "god"
+    },
+    {
+      "id": "gm_054",
+      "treeId": "grace_mirror",
+      "parent": "gm_045",
+      "depth": 8,
+      "name": "Perfect",
+      "description": "+8% critical damage per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.08
+      },
+      "icon": "crit"
+    },
+    {
+      "id": "gm_055",
+      "treeId": "grace_mirror",
+      "parent": "gm_046",
+      "depth": 8,
+      "name": "Cataclysm",
+      "description": "+6% area damage per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.06
+      },
+      "icon": "aoe"
+    },
+    {
+      "id": "gm_056",
+      "treeId": "grace_mirror",
+      "parent": "gm_047",
+      "depth": 8,
+      "name": "Divine Hide",
+      "description": "+8% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.08
+      },
+      "icon": "health"
+    },
+    {
+      "id": "gm_057",
+      "treeId": "grace_mirror",
+      "parent": "gm_048",
+      "depth": 8,
+      "name": "Iron Will",
+      "description": "+7% armor per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.07
+      },
+      "icon": "armor"
+    },
+    {
+      "id": "gm_058",
+      "treeId": "grace_mirror",
+      "parent": "gm_049",
+      "depth": 8,
+      "name": "Adamant Will",
+      "description": "+5% status resistance per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "statusResist",
+        "value": 0.05
+      },
+      "icon": "resist"
+    },
+    {
+      "id": "gm_059",
+      "treeId": "grace_mirror",
+      "parent": "gm_050",
+      "depth": 8,
+      "name": "Endless Harvest",
+      "description": "+8% soul yield per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.08
+      },
+      "icon": "souls"
+    },
+    {
+      "id": "gm_060",
+      "treeId": "grace_mirror",
+      "parent": "gm_051",
+      "depth": 8,
+      "name": "Eternal Flame",
+      "description": "+8% resource regeneration per rank.",
+      "archetype": "VALUE",
+      "cost": 3,
+      "costGrowth": 1.4,
+      "maxRank": 3,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.08
+      },
+      "icon": "resource"
+    }
+  ]
+}

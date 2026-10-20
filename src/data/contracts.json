@@ -1,0 +1,256 @@
+[
+  {
+    "id": "contract_kill_sweep",
+    "metric": "kill_count",
+    "description": "Slay {count} reavers in zone {zone}.",
+    "params": {
+      "zone": 1,
+      "count": 40
+    },
+    "reward": {
+      "souls": 500,
+      "inheritance": 0
+    },
+    "rolling": true
+  },
+  {
+    "id": "contract_kill_swarm",
+    "metric": "kill_count",
+    "description": "Cut down {count} enemies in zone {zone} before the pit closes on you.",
+    "params": {
+      "zone": 4,
+      "count": 150
+    },
+    "reward": {
+      "souls": 2000,
+      "inheritance": 0,
+      "potion": "wrath_elixir"
+    },
+    "rolling": true
+  },
+  {
+    "id": "contract_depth_reach",
+    "metric": "reach_depth",
+    "description": "Reach depth {depth} inside zone {zone}.",
+    "params": {
+      "zone": 3,
+      "depth": 10
+    },
+    "reward": {
+      "souls": 1500,
+      "inheritance": 0
+    },
+    "rolling": true
+  },
+  {
+    "id": "contract_rarity_rare",
+    "metric": "find_rarity",
+    "description": "Find {count} {rarity} relics in zone {zone}.",
+    "params": {
+      "zone": 2,
+      "rarity": "rare",
+      "count": 3
+    },
+    "reward": {
+      "souls": 2500,
+      "inheritance": 0,
+      "potion": "ironroot"
+    },
+    "rolling": true
+  },
+  {
+    "id": "contract_rarity_legend",
+    "metric": "find_rarity",
+    "description": "Find {count} {rarity} relic in zone {zone}.",
+    "params": {
+      "zone": 5,
+      "rarity": "legendary",
+      "count": 1
+    },
+    "reward": {
+      "souls": 6000,
+      "inheritance": 1,
+      "echo": 1
+    },
+    "rolling": true
+  },
+  {
+    "id": "contract_soul_shift",
+    "metric": "earn_souls",
+    "description": "Earn {souls} souls within {minutes} minutes.",
+    "params": {
+      "souls": 5000,
+      "minutes": 30
+    },
+    "reward": {
+      "souls": 800,
+      "inheritance": 0,
+      "potion": "soulfog"
+    },
+    "rolling": true
+  },
+  {
+    "id": "contract_survive_deep",
+    "metric": "survive_runs",
+    "description": "Survive {runs} runs without surrendering.",
+    "params": {
+      "runs": 5
+    },
+    "reward": {
+      "souls": 3500,
+      "inheritance": 0,
+      "potion": "blood_price"
+    },
+    "rolling": true
+  },
+  {
+    "id": "contract_ascend_trial",
+    "metric": "ascend",
+    "description": "Ascend and claim the throne of zone {zone}.",
+    "params": {
+      "zone": 3
+    },
+    "reward": {
+      "souls": 3000,
+      "inheritance": 1,
+      "potion": "second_wind"
+    },
+    "rolling": true
+  },
+  {
+    "id": "story_chapter_1",
+    "metric": "ascend",
+    "description": "Chapter 1: climb to the first throne in zone {zone} and claim it.",
+    "params": {
+      "zone": 1
+    },
+    "reward": {
+      "souls": 1000,
+      "inheritance": 1
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_2",
+    "metric": "ascend",
+    "description": "Chapter 2: claim the ash throne in zone {zone}.",
+    "params": {
+      "zone": 2
+    },
+    "reward": {
+      "souls": 2000,
+      "inheritance": 1
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_3",
+    "metric": "ascend",
+    "description": "Chapter 3: take the twin throne in zone {zone}.",
+    "params": {
+      "zone": 3
+    },
+    "reward": {
+      "souls": 3500,
+      "inheritance": 1,
+      "potion": "blade_oil"
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_4",
+    "metric": "ascend",
+    "description": "Chapter 4: claim the iron throne in zone {zone}.",
+    "params": {
+      "zone": 4
+    },
+    "reward": {
+      "souls": 5000,
+      "inheritance": 1
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_5",
+    "metric": "ascend",
+    "description": "Chapter 5: take the servant throne in zone {zone}.",
+    "params": {
+      "zone": 5
+    },
+    "reward": {
+      "souls": 7000,
+      "inheritance": 1,
+      "potion": "ironroot"
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_6",
+    "metric": "ascend",
+    "description": "Chapter 6: claim the soul throne in zone {zone}.",
+    "params": {
+      "zone": 6
+    },
+    "reward": {
+      "souls": 9000,
+      "inheritance": 1
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_7",
+    "metric": "ascend",
+    "description": "Chapter 7: bind the runes of zone {zone}.",
+    "params": {
+      "zone": 7
+    },
+    "reward": {
+      "souls": 12000,
+      "inheritance": 1,
+      "potion": "soulfog"
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_8",
+    "metric": "ascend",
+    "description": "Chapter 8: seize the shadow throne in zone {zone}.",
+    "params": {
+      "zone": 8
+    },
+    "reward": {
+      "souls": 16000,
+      "inheritance": 1
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_9",
+    "metric": "ascend",
+    "description": "Chapter 9: answer the divine voice of zone {zone}.",
+    "params": {
+      "zone": 9
+    },
+    "reward": {
+      "souls": 20000,
+      "inheritance": 1,
+      "echo": 1
+    },
+    "rolling": false
+  },
+  {
+    "id": "story_chapter_10",
+    "metric": "ascend",
+    "description": "Chapter 10: sit on the hollow throne in zone {zone} and become a god.",
+    "params": {
+      "zone": 10
+    },
+    "reward": {
+      "souls": 25000,
+      "inheritance": 1,
+      "echo": 3,
+      "potion": "second_wind"
+    },
+    "rolling": false
+  }
+]

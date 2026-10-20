@@ -1,0 +1,537 @@
+{
+  "id": "soulbinder_shadow",
+  "classId": "soulbinder",
+  "name": "Shadow",
+  "description": "Let something else take the first hit.",
+  "nodes": [
+    {
+      "id": "soulbinder_shadow_n00",
+      "treeId": "soulbinder_shadow",
+      "parent": null,
+      "depth": 1,
+      "name": "First Shadow",
+      "description": "First Shadow - +10% dodge (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_shadow"
+    },
+    {
+      "id": "soulbinder_shadow_n01",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n00",
+      "depth": 2,
+      "name": "Umbra",
+      "description": "Umbra - +3% dodge.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dodge",
+        "value": 0.03
+      },
+      "icon": "umbra"
+    },
+    {
+      "id": "soulbinder_shadow_n02",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n00",
+      "depth": 2,
+      "name": "Dark Pact",
+      "description": "Dark Pact - While your resource is below half: +4% dodge.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "your resource is below half"
+      },
+      "icon": "dark_pact"
+    },
+    {
+      "id": "soulbinder_shadow_n03",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n01",
+      "depth": 3,
+      "name": "Gloom",
+      "description": "Gloom - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "gloom"
+    },
+    {
+      "id": "soulbinder_shadow_n04",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n01",
+      "depth": 3,
+      "name": "Night Eye",
+      "description": "Night Eye - +10% dodge (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "night_eye"
+    },
+    {
+      "id": "soulbinder_shadow_n05",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n02",
+      "depth": 3,
+      "name": "Shadow Bolt",
+      "description": "Shadow Bolt - Passive \"sb_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p7",
+        "rank": 1
+      },
+      "icon": "shadow_bolt"
+    },
+    {
+      "id": "soulbinder_shadow_n06",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n02",
+      "depth": 3,
+      "name": "Shade",
+      "description": "Shade - While a boss stands before you: +4% dodge.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "shade"
+    },
+    {
+      "id": "soulbinder_shadow_n07",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n03",
+      "depth": 4,
+      "name": "Veil",
+      "description": "Veil - sb_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a1",
+        "ticks": -5
+      },
+      "icon": "veil"
+    },
+    {
+      "id": "soulbinder_shadow_n08",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n03",
+      "depth": 4,
+      "name": "Dread",
+      "description": "Dread - sb_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a3",
+        "delta": -3
+      },
+      "icon": "dread"
+    },
+    {
+      "id": "soulbinder_shadow_n09",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n04",
+      "depth": 4,
+      "name": "Umbral Bond",
+      "description": "Umbral Bond - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "umbral_bond"
+    },
+    {
+      "id": "soulbinder_shadow_n10",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n05",
+      "depth": 4,
+      "name": "Whisper",
+      "description": "Whisper - +3% dodge.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dodge",
+        "value": 0.03
+      },
+      "icon": "whisper"
+    },
+    {
+      "id": "soulbinder_shadow_n11",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n05",
+      "depth": 4,
+      "name": "Hollow",
+      "description": "Hollow - sb_a3: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a3",
+        "count": 1
+      },
+      "icon": "hollow"
+    },
+    {
+      "id": "soulbinder_shadow_n12",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n06",
+      "depth": 4,
+      "name": "Void Shade",
+      "description": "Void Shade - Passive \"sb_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p3",
+        "rank": 1
+      },
+      "icon": "void_shade"
+    },
+    {
+      "id": "soulbinder_shadow_n13",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n07",
+      "depth": 5,
+      "name": "Shadow Dance",
+      "description": "Shadow Dance - sb_a3: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a3",
+        "flag": "chain"
+      },
+      "icon": "shadow_dance"
+    },
+    {
+      "id": "soulbinder_shadow_n14",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n07",
+      "depth": 5,
+      "name": "Shroud",
+      "description": "Shroud - sb_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a1",
+        "count": 1
+      },
+      "icon": "shroud"
+    },
+    {
+      "id": "soulbinder_shadow_n15",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n08",
+      "depth": 5,
+      "name": "Scent of Death",
+      "description": "Scent of Death - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "scent_of_death"
+    },
+    {
+      "id": "soulbinder_shadow_n16",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n09",
+      "depth": 5,
+      "name": "Grave Wind",
+      "description": "Grave Wind - Unlocks rune \"sb_a1_swarm\" for sb_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a1",
+        "rune": "sb_a1_swarm"
+      },
+      "icon": "grave_wind"
+    },
+    {
+      "id": "soulbinder_shadow_n17",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n10",
+      "depth": 5,
+      "name": "Pale Rider",
+      "description": "Pale Rider - +10% dodge (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "pale_rider"
+    },
+    {
+      "id": "soulbinder_shadow_n18",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n10",
+      "depth": 5,
+      "name": "Black Shroud",
+      "description": "Black Shroud - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "black_shroud"
+    },
+    {
+      "id": "soulbinder_shadow_n19",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n11",
+      "depth": 5,
+      "name": "Deadlight",
+      "description": "Deadlight - sb_a3: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a3",
+        "ticks": -5
+      },
+      "icon": "deadlight"
+    },
+    {
+      "id": "soulbinder_shadow_n20",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n12",
+      "depth": 5,
+      "name": "Shadow Sentinel",
+      "description": "Shadow Sentinel - sb_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a3",
+        "delta": -3
+      },
+      "icon": "shadow_sentinel"
+    },
+    {
+      "id": "soulbinder_shadow_n21",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n13",
+      "depth": 6,
+      "name": "Nightfall Echo",
+      "description": "Nightfall Echo - Unlocks the skill \"sb_a1\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a1",
+        "permanent": false
+      },
+      "icon": "nightfall_echo"
+    },
+    {
+      "id": "soulbinder_shadow_n22",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n13",
+      "depth": 6,
+      "name": "Umbra Crown",
+      "description": "Umbra Crown - Unlocks rune \"sb_a3_rot\" for sb_a3.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a3",
+        "rune": "sb_a3_rot"
+      },
+      "icon": "umbra_crown"
+    },
+    {
+      "id": "soulbinder_shadow_n23",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n14",
+      "depth": 6,
+      "name": "Shadow Domain",
+      "description": "Shadow Domain - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "shadow_domain"
+    },
+    {
+      "id": "soulbinder_shadow_n24",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n15",
+      "depth": 6,
+      "name": "Soulbind",
+      "description": "Soulbind - +10% dodge (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "soulbind"
+    },
+    {
+      "id": "soulbinder_shadow_n25",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n16",
+      "depth": 6,
+      "name": "The Long Dark",
+      "description": "The Long Dark - Passive \"sb_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p5",
+        "rank": 1
+      },
+      "icon": "the_long_dark"
+    },
+    {
+      "id": "soulbinder_shadow_n26",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n17",
+      "depth": 6,
+      "name": "Shade Walker",
+      "description": "Shade Walker - While fewer than three enemies stand: +4% dodge.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "shade_walker"
+    },
+    {
+      "id": "soulbinder_shadow_n27",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n18",
+      "depth": 6,
+      "name": "Dread Sovereign",
+      "description": "Dread Sovereign - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "dread_sovereign"
+    },
+    {
+      "id": "soulbinder_shadow_n28",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n19",
+      "depth": 6,
+      "name": "Gravebound",
+      "description": "Gravebound - sb_a3: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a3",
+        "flag": "chain"
+      },
+      "icon": "gravebound"
+    },
+    {
+      "id": "soulbinder_shadow_n29",
+      "treeId": "soulbinder_shadow",
+      "parent": "soulbinder_shadow_n20",
+      "depth": 6,
+      "name": "Shadow Sovereign",
+      "description": "Shadow Sovereign - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "shadow_sovereign"
+    }
+  ]
+}

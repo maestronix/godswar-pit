@@ -1,0 +1,537 @@
+{
+  "id": "ashmonk_flow",
+  "classId": "ashmonk",
+  "name": "Flow",
+  "description": "Water does not fight the rock. It becomes the rock.",
+  "nodes": [
+    {
+      "id": "ashmonk_flow_n00",
+      "treeId": "ashmonk_flow",
+      "parent": null,
+      "depth": 1,
+      "name": "First Breath",
+      "description": "First Breath - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_breath"
+    },
+    {
+      "id": "ashmonk_flow_n01",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n00",
+      "depth": 2,
+      "name": "Empty Mind",
+      "description": "Empty Mind - +3% attackSpeed.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "empty_mind"
+    },
+    {
+      "id": "ashmonk_flow_n02",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n00",
+      "depth": 2,
+      "name": "Palm of Air",
+      "description": "Palm of Air - While you are below half health: +4% attackSpeed.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "palm_of_air"
+    },
+    {
+      "id": "ashmonk_flow_n03",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n01",
+      "depth": 3,
+      "name": "Ripple",
+      "description": "Ripple - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "ripple"
+    },
+    {
+      "id": "ashmonk_flow_n04",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n01",
+      "depth": 3,
+      "name": "Water Step",
+      "description": "Water Step - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "water_step"
+    },
+    {
+      "id": "ashmonk_flow_n05",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n02",
+      "depth": 3,
+      "name": "Soft Landing",
+      "description": "Soft Landing - Passive \"am_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p5",
+        "rank": 1
+      },
+      "icon": "soft_landing"
+    },
+    {
+      "id": "ashmonk_flow_n06",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n02",
+      "depth": 3,
+      "name": "Breath of Grass",
+      "description": "Breath of Grass - While fewer than three enemies stand: +4% attackSpeed.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "breath_of_grass"
+    },
+    {
+      "id": "ashmonk_flow_n07",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n03",
+      "depth": 4,
+      "name": "Formless",
+      "description": "Formless - am_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a1",
+        "ticks": -5
+      },
+      "icon": "formless"
+    },
+    {
+      "id": "ashmonk_flow_n08",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n03",
+      "depth": 4,
+      "name": "Sixfold Strike",
+      "description": "Sixfold Strike - am_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a3",
+        "delta": -3
+      },
+      "icon": "sixfold_strike"
+    },
+    {
+      "id": "ashmonk_flow_n09",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n04",
+      "depth": 4,
+      "name": "Echoing Palm",
+      "description": "Echoing Palm - burn: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "burn",
+        "ticks": 10
+      },
+      "icon": "echoing_palm"
+    },
+    {
+      "id": "ashmonk_flow_n10",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n05",
+      "depth": 4,
+      "name": "Still Water",
+      "description": "Still Water - +3% attackSpeed.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "still_water"
+    },
+    {
+      "id": "ashmonk_flow_n11",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n05",
+      "depth": 4,
+      "name": "Flowing Guard",
+      "description": "Flowing Guard - am_a3: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a3",
+        "count": 1
+      },
+      "icon": "flowing_guard"
+    },
+    {
+      "id": "ashmonk_flow_n12",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n06",
+      "depth": 4,
+      "name": "Windwheel",
+      "description": "Windwheel - Passive \"am_p1\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p1",
+        "rank": 1
+      },
+      "icon": "windwheel"
+    },
+    {
+      "id": "ashmonk_flow_n13",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n07",
+      "depth": 5,
+      "name": "Sutra of Motion",
+      "description": "Sutra of Motion - am_a3: single.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a3",
+        "flag": "single"
+      },
+      "icon": "sutra_of_motion"
+    },
+    {
+      "id": "ashmonk_flow_n14",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n07",
+      "depth": 5,
+      "name": "Gracious Step",
+      "description": "Gracious Step - am_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a1",
+        "count": 1
+      },
+      "icon": "gracious_step"
+    },
+    {
+      "id": "ashmonk_flow_n15",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n08",
+      "depth": 5,
+      "name": "Tornado Palm",
+      "description": "Tornado Palm - rage: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "rage",
+        "ticks": 10
+      },
+      "icon": "tornado_palm"
+    },
+    {
+      "id": "ashmonk_flow_n16",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n09",
+      "depth": 5,
+      "name": "Serpent's Coil",
+      "description": "Serpent's Coil - Unlocks rune \"am_a1_quake\" for am_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a1",
+        "rune": "am_a1_quake"
+      },
+      "icon": "serpent_s_coil"
+    },
+    {
+      "id": "ashmonk_flow_n17",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n10",
+      "depth": 5,
+      "name": "Momentum",
+      "description": "Momentum - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "momentum"
+    },
+    {
+      "id": "ashmonk_flow_n18",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n10",
+      "depth": 5,
+      "name": "Breath Control",
+      "description": "Breath Control - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "breath_control"
+    },
+    {
+      "id": "ashmonk_flow_n19",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n11",
+      "depth": 5,
+      "name": "Whirlwind Sutra",
+      "description": "Whirlwind Sutra - am_a3: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a3",
+        "ticks": -5
+      },
+      "icon": "whirlwind_sutra"
+    },
+    {
+      "id": "ashmonk_flow_n20",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n12",
+      "depth": 5,
+      "name": "Open Gate",
+      "description": "Open Gate - am_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a3",
+        "delta": -3
+      },
+      "icon": "open_gate"
+    },
+    {
+      "id": "ashmonk_flow_n21",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n13",
+      "depth": 6,
+      "name": "Perfect Form",
+      "description": "Perfect Form - Unlocks the skill \"am_a1\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a1",
+        "permanent": false
+      },
+      "icon": "perfect_form"
+    },
+    {
+      "id": "ashmonk_flow_n22",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n13",
+      "depth": 6,
+      "name": "Sevenfold Echo",
+      "description": "Sevenfold Echo - Unlocks rune \"am_a3_flurry\" for am_a3.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a3",
+        "rune": "am_a3_flurry"
+      },
+      "icon": "sevenfold_echo"
+    },
+    {
+      "id": "ashmonk_flow_n23",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n14",
+      "depth": 6,
+      "name": "Rising Tide",
+      "description": "Rising Tide - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "rising_tide"
+    },
+    {
+      "id": "ashmonk_flow_n24",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n15",
+      "depth": 6,
+      "name": "Breath of the Void",
+      "description": "Breath of the Void - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "breath_of_the_void"
+    },
+    {
+      "id": "ashmonk_flow_n25",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n16",
+      "depth": 6,
+      "name": "Unbroken",
+      "description": "Unbroken - Passive \"am_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p3",
+        "rank": 1
+      },
+      "icon": "unbroken"
+    },
+    {
+      "id": "ashmonk_flow_n26",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n17",
+      "depth": 6,
+      "name": "Ceaseless",
+      "description": "Ceaseless - While your resource is full: +4% attackSpeed.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "ceaseless"
+    },
+    {
+      "id": "ashmonk_flow_n27",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n18",
+      "depth": 6,
+      "name": "Flowing Steel",
+      "description": "Flowing Steel - shield: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "shield",
+        "ticks": 10
+      },
+      "icon": "flowing_steel"
+    },
+    {
+      "id": "ashmonk_flow_n28",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n19",
+      "depth": 6,
+      "name": "The Long Breath",
+      "description": "The Long Breath - am_a3: single.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a3",
+        "flag": "single"
+      },
+      "icon": "the_long_breath"
+    },
+    {
+      "id": "ashmonk_flow_n29",
+      "treeId": "ashmonk_flow",
+      "parent": "ashmonk_flow_n20",
+      "depth": 6,
+      "name": "Endless Form",
+      "description": "Endless Form - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "endless_form"
+    }
+  ]
+}

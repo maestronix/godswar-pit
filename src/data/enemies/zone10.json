@@ -1,0 +1,254 @@
+[
+  {
+    "id": "z10_god_fragment",
+    "name": "God Fragment",
+    "hp": 1469,
+    "dps": 97.27,
+    "speed": 2.5,
+    "range": 1.3,
+    "tier": 4,
+    "sprite": "fragment",
+    "traits": [
+      "undead",
+      "flying"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.2,
+        "duration": 30,
+        "stacks": 1
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.4,
+    "size": 0.9
+  },
+  {
+    "id": "z10_halo_wretch",
+    "name": "Halo Wretch",
+    "hp": 1469,
+    "dps": 97.27,
+    "speed": 2.8,
+    "range": 1.2,
+    "tier": 4,
+    "sprite": "wretch",
+    "traits": [
+      "undead",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.25,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.4,
+    "size": 0.9
+  },
+  {
+    "id": "z10_gilded_devotee",
+    "name": "Gilded Devotee",
+    "hp": 1469,
+    "dps": 97.27,
+    "speed": 1.9,
+    "range": 1.3,
+    "tier": 4,
+    "sprite": "devotee",
+    "traits": [
+      "undead",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.2,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.4,
+    "size": 1.1
+  },
+  {
+    "id": "z10_seraph_shard",
+    "name": "Seraph Shard",
+    "hp": 1469,
+    "dps": 97.27,
+    "speed": 2.6,
+    "range": 1.4,
+    "tier": 4,
+    "sprite": "seraph",
+    "traits": [
+      "flying",
+      "shielded"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.2,
+        "duration": 30,
+        "stacks": 1
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.4,
+    "size": 0.9
+  },
+  {
+    "id": "z10_voice_of_the_void",
+    "name": "Voice of the Void",
+    "hp": 1692,
+    "dps": 110.16,
+    "speed": 1.7,
+    "range": 2.5,
+    "tier": 5,
+    "sprite": "voice",
+    "traits": [
+      "caster",
+      "undead"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.3,
+        "duration": 35,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.6,
+    "size": 1
+  },
+  {
+    "id": "z10_divine_hound",
+    "name": "Divine Hound",
+    "hp": 1692,
+    "dps": 110.16,
+    "speed": 3,
+    "range": 1.1,
+    "tier": 5,
+    "sprite": "hound",
+    "traits": [
+      "beast",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.3,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.5,
+    "size": 1
+  },
+  {
+    "id": "z10_star_eater",
+    "name": "Star Eater",
+    "hp": 1692,
+    "dps": 110.16,
+    "speed": 1.9,
+    "range": 1.2,
+    "tier": 5,
+    "sprite": "stareater",
+    "traits": [
+      "undead",
+      "explosive"
+    ],
+    "onHit": [
+      {
+        "status": "decay",
+        "chance": 0.25,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.6,
+    "size": 1.2
+  },
+  {
+    "id": "z10_prayer_construct",
+    "name": "Prayer Construct",
+    "hp": 1692,
+    "dps": 110.16,
+    "speed": 1.5,
+    "range": 1.4,
+    "tier": 5,
+    "sprite": "construct",
+    "traits": [
+      "armored",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.25,
+        "duration": 35,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.6,
+    "size": 1.3
+  },
+  {
+    "id": "z10_elite_fallen_archangel",
+    "name": "Fallen Archangel",
+    "hp": 4061,
+    "dps": 176.26,
+    "speed": 2.3,
+    "range": 1.5,
+    "tier": 5,
+    "sprite": "fallen_archangel",
+    "traits": [
+      "elite",
+      "flying",
+      "shielded"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.3,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.9,
+    "size": 1.4
+  },
+  {
+    "id": "z10_boss_the_hollow_god",
+    "name": "The Unmade God",
+    "hp": 15228,
+    "dps": 242.36,
+    "speed": 1.5,
+    "range": 1.6,
+    "tier": 5,
+    "sprite": "hollow_god",
+    "traits": [
+      "boss",
+      "undead",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.35,
+        "duration": 40,
+        "stacks": 3
+      }
+    ],
+    "souls": 6,
+    "lootBonus": 2,
+    "size": 1.4
+  }
+]

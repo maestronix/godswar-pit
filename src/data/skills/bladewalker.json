@@ -1,0 +1,208 @@
+[
+  {
+    "id": "bw_signature",
+    "name": "Cleaving Arc",
+    "classId": "bladewalker",
+    "kind": "signature",
+    "description": "A wide, wrath-fed swing that carves through every foe caught in the arc.",
+    "cost": 35,
+    "cooldown": 150,
+    "castTime": 4,
+    "range": 2.8,
+    "targeting": "aoe",
+    "aoeRadius": 3.2,
+    "power": 2.6,
+    "scaling": [
+      { "stat": "aoePct", "mult": 0.8 },
+      { "stat": "damagePct", "mult": 0.4 }
+    ],
+    "effects": [
+      { "kind": "damage", "power": 2.6, "damageType": "physical", "text": "Cleaving Arc hits every foe in the arc." },
+      { "kind": "resource", "power": 0.12, "text": "Some of the spent Wrath returns." }
+    ],
+    "tags": ["aoe", "ultimate"],
+    "icon": "cleaving_arc",
+    "runes": [
+      {
+        "id": "bw_signature_flood",
+        "name": "Flooding Blade",
+        "description": "The arc widens into a full circle of steel, but each strike bites shallower.",
+        "overrides": { "aoeRadius": 4.0, "power": 2.1, "cooldown": 160 }
+      },
+      {
+        "id": "bw_signature_blood",
+        "name": "Bloodied Edge",
+        "description": "A heavier, slower cut that drinks less Wrath and gives some back.",
+        "overrides": { "power": 3.2, "cost": 28, "cooldown": 170 },
+        "effectOverrides": { "kind": "resource", "power": 0.25 }
+      },
+      {
+        "id": "bw_signature_toll",
+        "name": "Toll of the Pit",
+        "description": "The arc demands a heavy tribute of Wrath and takes a heavy toll of flesh.",
+        "overrides": { "cost": 40, "power": 3.4, "cooldown": 180 }
+      }
+    ]
+  },
+  {
+    "id": "bw_a1",
+    "name": "Whirlwind",
+    "classId": "bladewalker",
+    "kind": "active",
+    "description": "The Bladewalker spins through the ring of enemies, dragging them off their feet.",
+    "cost": 18,
+    "cooldown": 90,
+    "castTime": 3,
+    "range": 1.2,
+    "targeting": "aoe",
+    "aoeRadius": 2.9,
+    "power": 1.6,
+    "scaling": [{ "stat": "aoePct", "mult": 0.9 }],
+    "effects": [
+      { "kind": "damage", "power": 1.6, "damageType": "physical", "text": "Whirlwind strikes all nearby foes." },
+      { "kind": "debuff", "status": "slow", "amount": 0.2, "duration": 18, "stacks": 1, "text": "The spin drags enemies footing." },
+      { "kind": "resource", "power": 0.1, "text": "The spin gathers a little Wrath back." }
+    ],
+    "tags": ["aoe"],
+    "icon": "whirlwind",
+    "runes": [
+      {
+        "id": "bw_a1_storm",
+        "name": "Storm of Blades",
+        "description": "The spin widens into a full gale of steel at the price of a slower recovery.",
+        "overrides": { "aoeRadius": 3.4, "power": 1.9, "cooldown": 100 }
+      },
+      {
+        "id": "bw_a1_reap",
+        "name": "Reaping Sweep",
+        "description": "A hungrier cut that tears Wrath from the fallen and returns it to the blade.",
+        "overrides": { "power": 2.2, "cooldown": 110 },
+        "effectOverrides": { "kind": "resource", "power": 0.3 }
+      }
+    ]
+  },
+  {
+    "id": "bw_a2",
+    "name": "Riposte",
+    "classId": "bladewalker",
+    "kind": "active",
+    "description": "The Bladewalker braces behind a raised guard and counters the next blow.",
+    "cost": 16,
+    "cooldown": 70,
+    "castTime": 1,
+    "range": 1.6,
+    "targeting": "single",
+    "power": 1.3,
+    "effects": [
+      { "kind": "shield", "power": 0.14, "duration": 40, "text": "A guard of steel absorbs incoming blows." },
+      { "kind": "damage", "power": 1.3, "damageType": "physical", "text": "The counter cuts deep into the attacker." }
+    ],
+    "tags": ["buff", "defense"],
+    "icon": "riposte",
+    "runes": [
+      {
+        "id": "bw_a2_bulwark",
+        "name": "Iron Riposte",
+        "description": "A heavier guard that holds far longer, but the counter is blunted.",
+        "overrides": { "power": 1.0, "cooldown": 60 },
+        "effectOverrides": { "kind": "shield", "power": 0.22, "duration": 60 }
+      },
+      {
+        "id": "bw_a2_thorn",
+        "name": "Thorned Return",
+        "description": "A savage counter that trades part of the guard for raw damage.",
+        "overrides": { "power": 1.9, "cooldown": 85, "cost": 12 }
+      },
+      {
+        "id": "bw_a2_bloodguard",
+        "name": "Blood Guard",
+        "description": "The guard drinks Wrath instead of health and lingers well past the fight.",
+        "overrides": { "cost": 18 },
+        "effectOverrides": { "kind": "shield", "power": 0.1, "duration": 120 }
+      }
+    ]
+  },
+  {
+    "id": "bw_a3",
+    "name": "War Cry",
+    "classId": "bladewalker",
+    "kind": "active",
+    "description": "A battle shout that sharpens every swing and stirs the blood of the pit.",
+    "cost": 12,
+    "cooldown": 120,
+    "castTime": 2,
+    "range": 1.2,
+    "targeting": "self",
+    "power": 0.8,
+    "effects": [
+      { "kind": "buff", "status": "rage", "amount": 0.35, "duration": 50, "stacks": 1, "text": "Rage: +35% damage for 5 seconds." },
+      { "kind": "resource", "power": 0.25, "text": "The shout restores a quarter of the Wrath pool." }
+    ],
+    "tags": ["buff"],
+    "icon": "war_cry",
+    "runes": [
+      {
+        "id": "bw_a3_banner",
+        "name": "Banner of Ruin",
+        "description": "The shout carries far and longer, but it cannot be repeated as often.",
+        "overrides": { "cooldown": 140 },
+        "effectOverrides": { "kind": "buff", "status": "rage", "amount": 0.45, "duration": 80 }
+      },
+      {
+        "id": "bw_a3_surge",
+        "name": "Surge of Wrath",
+        "description": "A shorter, sharper shout that floods the blade with fury at once.",
+        "overrides": { "cooldown": 100, "cost": 8 },
+        "effectOverrides": { "kind": "resource", "power": 0.4 }
+      },
+      {
+        "id": "bw_a3_berserk",
+        "name": "Berserker Roar",
+        "description": "The loudest shout in the pit, paid for in blood and Wrath alike.",
+        "overrides": { "cost": 18, "cooldown": 130 },
+        "effectOverrides": { "kind": "buff", "status": "rage", "amount": 0.5, "duration": 50 }
+      }
+    ]
+  },
+  {
+    "id": "bw_a4",
+    "name": "Executioner",
+    "classId": "bladewalker",
+    "kind": "active",
+    "description": "A committed overhead cut meant to end a wounded enemy where it stands.",
+    "cost": 24,
+    "cooldown": 100,
+    "castTime": 3,
+    "range": 1.8,
+    "targeting": "single",
+    "power": 3.0,
+    "scaling": [{ "stat": "damagePct", "mult": 0.5 }],
+    "effects": [
+      { "kind": "damage", "power": 3.0, "damageType": "physical", "text": "Executioner drives the blade through the target." },
+      { "kind": "execute", "power": 1.5, "text": "Wounded foes fall all the faster." }
+    ],
+    "tags": ["single", "execute"],
+    "icon": "executioner",
+    "runes": [
+      {
+        "id": "bw_a4_ruin",
+        "name": "Ruin",
+        "description": "The cut is thrown with all remaining strength, Wrath and flesh alike.",
+        "overrides": { "power": 3.6, "cost": 30 }
+      },
+      {
+        "id": "bw_a4_blood",
+        "name": "Blood Tithe",
+        "description": "A cheap, relentless cut that finishes anything already bleeding.",
+        "overrides": { "cost": 18, "cooldown": 90 },
+        "effectOverrides": { "kind": "execute", "power": 2.4 }
+      },
+      {
+        "id": "bw_a4_gravecleave",
+        "name": "Grave Cleave",
+        "description": "A faster, narrower cut made for draining foes before they can close.",
+        "overrides": { "power": 2.6, "cooldown": 80, "cost": 20 }
+      }
+    ]
+  }
+]

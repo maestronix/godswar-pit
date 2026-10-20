@@ -1,0 +1,62 @@
+{
+  "id": "ashmonk",
+  "name": "Ashmonk",
+  "tagline": "A cycle of breath and blade that never stops turning.",
+  "resource": "Chi",
+  "resourceMax": 120,
+  "resourcePerHit": 6,
+  "resourceRegen": 6,
+  "base": {
+    "hp": 135,
+    "armor": 8,
+    "damage": 11,
+    "attackSpeed": 1.85,
+    "critChance": 0.05,
+    "critDamage": 1.5
+  },
+  "weaponBases": [
+    "dagger",
+    "sword",
+    "spear",
+    "scythe",
+    "gauntlets",
+    "axe"
+  ],
+  "aspects": [
+    "serpent_fangs",
+    "cinder_walk",
+    "bloodmoon",
+    "thunderheart",
+    "hunters_mark"
+  ],
+  "trees": [
+    "ashmonk_flow",
+    "ashmonk_breath",
+    "ashmonk_iron"
+  ],
+  "signature": "am_signature",
+  "actives": [
+    "am_a1",
+    "am_a2",
+    "am_a3",
+    "am_a4"
+  ],
+  "passives": [
+    "am_p1",
+    "am_p2",
+    "am_p3",
+    "am_p4",
+    "am_p5",
+    "am_p6",
+    "am_p7",
+    "am_p8"
+  ],
+  "palette": {
+    "skin": "#d9a878",
+    "hair": "#2f2a26",
+    "cloth": "#c8642a",
+    "metal": "#caa25c",
+    "accent": "#f2d16b",
+    "aura": "#7fd4c1"
+  }
+}

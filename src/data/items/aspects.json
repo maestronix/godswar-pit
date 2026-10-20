@@ -1,0 +1,290 @@
+[
+  {
+    "id": "flamebrand",
+    "name": "Flamebrand",
+    "classId": "bladewalker",
+    "description": "Your blade drinks the pit's blood, dealing 15% more damage and adding 5% critical chance.",
+    "params": {
+      "damagePct": 0.15,
+      "critChance": 0.05
+    },
+    "icon": "flamebrand"
+  },
+  {
+    "id": "hollow_step",
+    "name": "Hollow Step",
+    "classId": "bladewalker",
+    "description": "You move through the pit's dark untouched, gaining 8% movement speed and 5% dodge.",
+    "params": {
+      "moveSpeed": 0.08,
+      "dodge": 0.05
+    },
+    "icon": "hollow_step"
+  },
+  {
+    "id": "crimson_pact",
+    "name": "Crimson Pact",
+    "classId": "bladewalker",
+    "description": "Every wound you open pays you back, restoring 2 life per hit and adding 12% damage.",
+    "params": {
+      "lifeOnHit": 2,
+      "damagePct": 0.12
+    },
+    "icon": "crimson_pact"
+  },
+  {
+    "id": "ashen_edge",
+    "name": "Ashen Edge",
+    "classId": "bladewalker",
+    "description": "Your attacks leave cinders that burn longer, adding 10% damage and 15% damage over time.",
+    "params": {
+      "damagePct": 0.1,
+      "dotPct": 0.15
+    },
+    "icon": "ashen_edge"
+  },
+  {
+    "id": "serpent_fangs",
+    "name": "Serpent Fangs",
+    "classId": "ashmonk",
+    "description": "Your strikes find the gap between scales, adding 6% critical chance, 6% damage and 5% attack speed.",
+    "params": {
+      "critChance": 0.06,
+      "damagePct": 0.06,
+      "attackSpeed": 0.05
+    },
+    "icon": "serpent_fangs"
+  },
+  {
+    "id": "cinder_walk",
+    "name": "Cinder Walk",
+    "classId": "ashmonk",
+    "description": "You leave a trail of embers, gaining 10% movement speed and 10% longer burning.",
+    "params": {
+      "moveSpeed": 0.1,
+      "dotPct": 0.1
+    },
+    "icon": "cinder_walk"
+  },
+  {
+    "id": "bloodmoon",
+    "name": "Bloodmoon",
+    "classId": "ashmonk",
+    "description": "The blood moon feeds you, restoring 3 life per hit and speeding up health regeneration by 20%.",
+    "params": {
+      "lifeOnHit": 3,
+      "hpRegen": 0.2
+    },
+    "icon": "bloodmoon"
+  },
+  {
+    "id": "thunderheart",
+    "name": "Thunderheart",
+    "classId": "ashmonk",
+    "description": "Your heartbeat carries thunder, adding 12% damage and 10% area damage.",
+    "params": {
+      "damagePct": 0.12,
+      "aoePct": 0.1
+    },
+    "icon": "thunderheart"
+  },
+  {
+    "id": "frostbite",
+    "name": "Frostbite",
+    "classId": "pitsorcer",
+    "description": "Your frost creeps into the bone, adding 20% damage over time and 5% direct damage.",
+    "params": {
+      "dotPct": 0.2,
+      "damagePct": 0.05
+    },
+    "icon": "frostbite"
+  },
+  {
+    "id": "stormcall",
+    "name": "Stormcall",
+    "classId": "pitsorcer",
+    "description": "You call the storm down early, adding 18% area damage and removing 6% from cooldowns.",
+    "params": {
+      "aoePct": 0.18,
+      "cooldownReduction": 0.06
+    },
+    "icon": "stormcall"
+  },
+  {
+    "id": "void_touch",
+    "name": "Void Touch",
+    "classId": "pitsorcer",
+    "description": "The void drinks your spells, adding 14% damage and 6% critical chance.",
+    "params": {
+      "damagePct": 0.14,
+      "critChance": 0.06
+    },
+    "icon": "void_touch"
+  },
+  {
+    "id": "gilded_ward",
+    "name": "Gilded Ward",
+    "classId": "pitsorcer",
+    "description": "A gilded shell of faith surrounds you, adding 20% armor and 10% maximum health.",
+    "params": {
+      "armorPct": 0.2,
+      "maxHpPct": 0.1
+    },
+    "icon": "gilded_ward"
+  },
+  {
+    "id": "venom_lord",
+    "name": "Venom Lord",
+    "classId": "plagueborn",
+    "description": "Your toxins rule the pit, adding 22% damage over time and 8% direct damage.",
+    "params": {
+      "dotPct": 0.22,
+      "damagePct": 0.08
+    },
+    "icon": "venom_lord"
+  },
+  {
+    "id": "corpse_bloom",
+    "name": "Corpse Bloom",
+    "classId": "plagueborn",
+    "description": "The dead bloom where you walk, restoring 2 life per hit and healing 25% faster.",
+    "params": {
+      "lifeOnHit": 2,
+      "hpRegen": 0.25
+    },
+    "icon": "corpse_bloom"
+  },
+  {
+    "id": "soulthirst",
+    "name": "Soulthirst",
+    "classId": "plagueborn",
+    "description": "Every soul you take feeds you, yielding 20% more souls and 6% more damage.",
+    "params": {
+      "soulYieldPct": 0.2,
+      "damagePct": 0.06
+    },
+    "icon": "soulthirst"
+  },
+  {
+    "id": "iron_resolve",
+    "name": "Iron Resolve",
+    "classId": "plagueborn",
+    "description": "Your skin hardens like cooling slag, adding 25% armor and 15% maximum health.",
+    "params": {
+      "armorPct": 0.25,
+      "maxHpPct": 0.15
+    },
+    "icon": "iron_resolve"
+  },
+  {
+    "id": "soul_reaper",
+    "name": "Soul Reaper",
+    "classId": "soulbinder",
+    "description": "You harvest the fallen, gaining 25% more souls and 5% critical chance.",
+    "params": {
+      "soulYieldPct": 0.25,
+      "critChance": 0.05
+    },
+    "icon": "soul_reaper"
+  },
+  {
+    "id": "gravedigger",
+    "name": "Gravedigger",
+    "classId": "soulbinder",
+    "description": "You dig up what the pit buried, adding 16% damage and restoring 4 life per kill.",
+    "params": {
+      "damagePct": 0.16,
+      "lifeOnHit": 4
+    },
+    "icon": "gravedigger"
+  },
+  {
+    "id": "echo_of_thorns",
+    "name": "Echo of Thorns",
+    "classId": "soulbinder",
+    "description": "Thorned echoes lash out around you, adding 12% area damage and 8% faster resource regeneration.",
+    "params": {
+      "aoePct": 0.12,
+      "resourceRegen": 0.08
+    },
+    "icon": "echo_of_thorns"
+  },
+  {
+    "id": "moonlit_grace",
+    "name": "Moonlit Grace",
+    "classId": "soulbinder",
+    "description": "Moonlight shields you, adding 12% maximum health, 20% faster regeneration and 5% dodge.",
+    "params": {
+      "maxHpPct": 0.12,
+      "hpRegen": 0.2,
+      "dodge": 0.05
+    },
+    "icon": "moonlit_grace"
+  },
+  {
+    "id": "dawnward",
+    "name": "Dawnward",
+    "classId": "ironpriest",
+    "description": "Your shield burns with the first light of the pit: 20% more armor and 10% more health.",
+    "params": {
+      "armorPct": 0.2,
+      "maxHpPct": 0.1
+    },
+    "icon": "dawnward"
+  },
+  {
+    "id": "consecration",
+    "name": "Consecration",
+    "classId": "ironpriest",
+    "description": "Blessed steel: 15% more damage and 10% cooldown reduction.",
+    "params": {
+      "damagePct": 0.15,
+      "cooldownReduction": 0.1
+    },
+    "icon": "consecration"
+  },
+  {
+    "id": "martyrdom",
+    "name": "Martyrdom",
+    "classId": "ironpriest",
+    "description": "You do not bleed out: 25% more max health and 0.2 life on hit.",
+    "params": {
+      "maxHpPct": 0.25,
+      "lifeOnHit": 0.2
+    },
+    "icon": "martyrdom"
+  },
+  {
+    "id": "iron_prayer",
+    "name": "Iron Prayer",
+    "classId": "ironpriest",
+    "description": "The prayer holds: 12% more attack speed and 8% more damage.",
+    "params": {
+      "attackSpeed": 0.12,
+      "damagePct": 0.08
+    },
+    "icon": "iron_prayer"
+  },
+  {
+    "id": "hunters_mark",
+    "name": "Hunter's Mark",
+    "classId": "",
+    "description": "Marked prey: 6% more crit chance and 6% more crit damage.",
+    "params": {
+      "critChance": 0.06,
+      "critDamage": 0.06
+    },
+    "icon": "hunters_mark"
+  },
+  {
+    "id": "fate_of_the_pit",
+    "name": "Fate of the Pit",
+    "classId": "",
+    "description": "The pit decides: 8% more damage and 10% more soul yield.",
+    "params": {
+      "damagePct": 0.08,
+      "soulYieldPct": 0.1
+    },
+    "icon": "fate_of_the_pit"
+  }
+]

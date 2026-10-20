@@ -1,0 +1,252 @@
+[
+  {
+    "id": "z1_reaver",
+    "name": "Pit Reaver",
+    "hp": 34,
+    "dps": 4.5,
+    "speed": 2.2,
+    "range": 1.1,
+    "tier": 1,
+    "sprite": "reaver",
+    "traits": [
+      "undead"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.2,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 1,
+    "lootBonus": 1,
+    "size": 1
+  },
+  {
+    "id": "z1_bone_priest",
+    "name": "Bone Priest",
+    "hp": 34,
+    "dps": 4.5,
+    "speed": 1.8,
+    "range": 2.4,
+    "tier": 1,
+    "sprite": "bone_priest",
+    "traits": [
+      "undead",
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.15,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.1,
+    "size": 1
+  },
+  {
+    "id": "z1_crawler",
+    "name": "Pit Crawler",
+    "hp": 34,
+    "dps": 4.5,
+    "speed": 3,
+    "range": 0.9,
+    "tier": 1,
+    "sprite": "crawler",
+    "traits": [
+      "beast",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "poison",
+        "chance": 0.12,
+        "duration": 15,
+        "stacks": 1
+      }
+    ],
+    "souls": 1,
+    "lootBonus": 1,
+    "size": 0.8
+  },
+  {
+    "id": "z1_scuttle_hound",
+    "name": "Scuttle Hound",
+    "hp": 44,
+    "dps": 5.49,
+    "speed": 3.1,
+    "range": 1,
+    "tier": 2,
+    "sprite": "hound",
+    "traits": [
+      "beast",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.18,
+        "duration": 18,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1,
+    "size": 0.9
+  },
+  {
+    "id": "z1_gutter_scavenger",
+    "name": "Gutter Scavenger",
+    "hp": 44,
+    "dps": 5.49,
+    "speed": 2.4,
+    "range": 1.2,
+    "tier": 2,
+    "sprite": "scavenger",
+    "traits": [
+      "beast"
+    ],
+    "onHit": [
+      {
+        "status": "poison",
+        "chance": 0.1,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.2,
+    "size": 0.9
+  },
+  {
+    "id": "z1_grasping_hand",
+    "name": "Grasping Hand",
+    "hp": 44,
+    "dps": 5.49,
+    "speed": 2.9,
+    "range": 1,
+    "tier": 2,
+    "sprite": "hand",
+    "traits": [
+      "undead",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "slow",
+        "chance": 0.25,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 1,
+    "lootBonus": 1,
+    "size": 0.8
+  },
+  {
+    "id": "z1_pit_shrivel",
+    "name": "Pit Shrivel",
+    "hp": 53,
+    "dps": 6.48,
+    "speed": 1.9,
+    "range": 1.3,
+    "tier": 3,
+    "sprite": "shrivel",
+    "traits": [
+      "undead",
+      "regenerating"
+    ],
+    "onHit": [
+      {
+        "status": "decay",
+        "chance": 0.12,
+        "duration": 30,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.3,
+    "size": 0.9
+  },
+  {
+    "id": "z1_pall_bearer",
+    "name": "Pall Bearer",
+    "hp": 53,
+    "dps": 6.48,
+    "speed": 1.6,
+    "range": 1.4,
+    "tier": 3,
+    "sprite": "pallbearer",
+    "traits": [
+      "undead",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.15,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1.2
+  },
+  {
+    "id": "z1_elite_bonebreaker",
+    "name": "Bonebreaker",
+    "hp": 127,
+    "dps": 10.37,
+    "speed": 1.8,
+    "range": 1.5,
+    "tier": 3,
+    "sprite": "bonebreaker",
+    "traits": [
+      "elite",
+      "undead",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.25,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.6,
+    "size": 1.3
+  },
+  {
+    "id": "z1_boss_gravewarden",
+    "name": "Gravewarden",
+    "hp": 563,
+    "dps": 16.43,
+    "speed": 1.5,
+    "range": 1.6,
+    "tier": 4,
+    "sprite": "gravewarden",
+    "traits": [
+      "boss",
+      "undead",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.2,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 6,
+    "lootBonus": 2,
+    "size": 1.4
+  }
+]

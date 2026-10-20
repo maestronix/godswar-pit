@@ -1,0 +1,249 @@
+[
+  {
+    "id": "z3_whisperer",
+    "name": "Whisperer",
+    "hp": 69,
+    "dps": 7.96,
+    "speed": 1.9,
+    "range": 2.4,
+    "tier": 1,
+    "sprite": "whisperer",
+    "traits": [
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.15,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 1,
+    "lootBonus": 1,
+    "size": 0.9
+  },
+  {
+    "id": "z3_ink_acolyte",
+    "name": "Ink Acolyte",
+    "hp": 88,
+    "dps": 9.71,
+    "speed": 1.8,
+    "range": 2.2,
+    "tier": 2,
+    "sprite": "acolyte",
+    "traits": [
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.15,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.1,
+    "size": 0.9
+  },
+  {
+    "id": "z3_grave_chanter",
+    "name": "Grave Chanter",
+    "hp": 88,
+    "dps": 9.71,
+    "speed": 1.7,
+    "range": 2.3,
+    "tier": 2,
+    "sprite": "chanter",
+    "traits": [
+      "caster",
+      "undead"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.18,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.1,
+    "size": 1
+  },
+  {
+    "id": "z3_pale_adept",
+    "name": "Pale Adept",
+    "hp": 88,
+    "dps": 9.71,
+    "speed": 1.8,
+    "range": 2.4,
+    "tier": 2,
+    "sprite": "adept",
+    "traits": [
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.2,
+        "duration": 30,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.2,
+    "size": 0.9
+  },
+  {
+    "id": "z3_hollow_oracle",
+    "name": "Hollow Oracle",
+    "hp": 107,
+    "dps": 11.46,
+    "speed": 1.6,
+    "range": 2.5,
+    "tier": 3,
+    "sprite": "oracle",
+    "traits": [
+      "caster",
+      "undead"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.25,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1
+  },
+  {
+    "id": "z3_spellwright",
+    "name": "Spellwright",
+    "hp": 107,
+    "dps": 11.46,
+    "speed": 2.2,
+    "range": 2.2,
+    "tier": 3,
+    "sprite": "spellwright",
+    "traits": [
+      "caster",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.12,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 0.9
+  },
+  {
+    "id": "z3_umbral_scribe",
+    "name": "Umbral Scribe",
+    "hp": 107,
+    "dps": 11.46,
+    "speed": 1.7,
+    "range": 2.4,
+    "tier": 3,
+    "sprite": "scribe",
+    "traits": [
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.22,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.2,
+    "size": 0.9
+  },
+  {
+    "id": "z3_tomb_hermit",
+    "name": "Tomb Hermit",
+    "hp": 126,
+    "dps": 13.21,
+    "speed": 1.5,
+    "range": 2.5,
+    "tier": 4,
+    "sprite": "hermit",
+    "traits": [
+      "caster",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "decay",
+        "chance": 0.2,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.4,
+    "size": 1
+  },
+  {
+    "id": "z3_elite_silver_tongue",
+    "name": "Silver Tongue",
+    "hp": 303,
+    "dps": 21.14,
+    "speed": 2,
+    "range": 2.3,
+    "tier": 4,
+    "sprite": "silver_tongue",
+    "traits": [
+      "elite",
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.3,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.7,
+    "size": 1.1
+  },
+  {
+    "id": "z3_boss_the_quiet_choir",
+    "name": "The Quiet Choir",
+    "hp": 1135,
+    "dps": 29.07,
+    "speed": 1.5,
+    "range": 2.6,
+    "tier": 4,
+    "sprite": "quiet_choir",
+    "traits": [
+      "boss",
+      "caster",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.3,
+        "duration": 35,
+        "stacks": 3
+      }
+    ],
+    "souls": 6,
+    "lootBonus": 2,
+    "size": 1.4
+  }
+]

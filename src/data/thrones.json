@@ -1,0 +1,122 @@
+[
+  {
+    "rank": 1,
+    "name": "Pitling",
+    "description": "A cracked seat in the mud of the pit, and the first thing the darkness calls you.",
+    "feature": "throne_automation",
+    "bonus": {
+      "stat": "damagePct",
+      "value": 0.03
+    },
+    "inheritance": 1,
+    "zone": 1
+  },
+  {
+    "rank": 2,
+    "name": "Ash-Seer",
+    "description": "Grey dust settles on your shoulders and shows you what the next fights will bring.",
+    "feature": "throne_preview",
+    "bonus": {
+      "stat": "critChance",
+      "value": 0.01
+    },
+    "inheritance": 0,
+    "zone": 2
+  },
+  {
+    "rank": 3,
+    "name": "Twin-Diggers",
+    "description": "Two shafts, two shovels, and twice the work carved out of the same grave.",
+    "feature": "throne_parallel_2",
+    "bonus": {
+      "stat": "soulYieldPct",
+      "value": 0.03
+    },
+    "inheritance": 0,
+    "zone": 3
+  },
+  {
+    "rank": 4,
+    "name": "Ironfist",
+    "description": "Your grip tightens on every relic you find and the vault sorts itself without you.",
+    "feature": "throne_auto_equip",
+    "bonus": {
+      "stat": "maxHpPct",
+      "value": 0.04
+    },
+    "inheritance": 1,
+    "zone": 4
+  },
+  {
+    "rank": 5,
+    "name": "Godservant",
+    "description": "A voice inside the walls passes your orders to the manager that walks the tree.",
+    "feature": "throne_manager",
+    "bonus": {
+      "stat": "cooldownReduction",
+      "value": 0.02
+    },
+    "inheritance": 0,
+    "zone": 5
+  },
+  {
+    "rank": 6,
+    "name": "Soulcounter",
+    "description": "The pit counts the souls it takes and keeps a running total in your name.",
+    "feature": "throne_soul_counter",
+    "bonus": {
+      "stat": "soulYieldPct",
+      "value": 0.04
+    },
+    "inheritance": 0,
+    "zone": 6
+  },
+  {
+    "rank": 7,
+    "name": "Runebinder",
+    "description": "You carve binding runes into every relic and the forge rerolls them for you.",
+    "feature": "throne_rune_binder",
+    "bonus": {
+      "stat": "armorPct",
+      "value": 0.03
+    },
+    "inheritance": 1,
+    "zone": 7
+  },
+  {
+    "rank": 8,
+    "name": "Shadowlord",
+    "description": "Your shadow leaves the throne and scouts the deeper halls on its own.",
+    "feature": "throne_shadowlord",
+    "bonus": {
+      "stat": "aoePct",
+      "value": 0.03
+    },
+    "inheritance": 0,
+    "zone": 8
+  },
+  {
+    "rank": 9,
+    "name": "Divine Voice",
+    "description": "Three expeditions answer your call at once and the dead pay their souls in real time.",
+    "feature": "throne_divine_voice",
+    "bonus": {
+      "stat": "critChance",
+      "value": 0.02
+    },
+    "inheritance": 0,
+    "zone": 9
+  },
+  {
+    "rank": 10,
+    "name": "The New God",
+    "description": "The hollow throne accepts you and the pit becomes a temple that never closes.",
+    "feature": "throne_regen",
+    "bonus": {
+      "stat": "damagePct",
+      "value": 0.05
+    },
+    "inheritance": 1,
+    "zone": 10
+  }
+]

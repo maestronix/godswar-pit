@@ -1,0 +1,253 @@
+[
+  {
+    "id": "z6_slag_walker",
+    "name": "Slag Walker",
+    "hp": 251,
+    "dps": 22.85,
+    "speed": 1.8,
+    "range": 1.2,
+    "tier": 2,
+    "sprite": "walker",
+    "traits": [
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.15,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.1,
+    "size": 1
+  },
+  {
+    "id": "z6_arc_sprite",
+    "name": "Arc Sprite",
+    "hp": 306,
+    "dps": 26.97,
+    "speed": 2.9,
+    "range": 2.1,
+    "tier": 3,
+    "sprite": "sprite",
+    "traits": [
+      "flying",
+      "fast",
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.15,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.2,
+    "size": 0.8
+  },
+  {
+    "id": "z6_iron_mite",
+    "name": "Iron Mite",
+    "hp": 306,
+    "dps": 26.97,
+    "speed": 3.1,
+    "range": 0.9,
+    "tier": 3,
+    "sprite": "mite",
+    "traits": [
+      "fast",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.12,
+        "duration": 15,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.2,
+    "size": 0.8
+  },
+  {
+    "id": "z6_static_hound",
+    "name": "Static Hound",
+    "hp": 306,
+    "dps": 26.97,
+    "speed": 3.1,
+    "range": 1,
+    "tier": 3,
+    "sprite": "hound",
+    "traits": [
+      "beast",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.2,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.1,
+    "size": 0.9
+  },
+  {
+    "id": "z6_magma_drake",
+    "name": "Magma Drake",
+    "hp": 361,
+    "dps": 31.09,
+    "speed": 2.3,
+    "range": 1.3,
+    "tier": 4,
+    "sprite": "drake",
+    "traits": [
+      "flying",
+      "beast"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.25,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1.2
+  },
+  {
+    "id": "z6_emberwright",
+    "name": "Emberwright",
+    "hp": 361,
+    "dps": 31.09,
+    "speed": 1.7,
+    "range": 2.3,
+    "tier": 4,
+    "sprite": "wright",
+    "traits": [
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.25,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1
+  },
+  {
+    "id": "z6_ashen_golem",
+    "name": "Ashen Golem",
+    "hp": 361,
+    "dps": 31.09,
+    "speed": 1.5,
+    "range": 1.2,
+    "tier": 4,
+    "sprite": "golem",
+    "traits": [
+      "armored",
+      "regenerating"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.18,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.4,
+    "size": 1.3
+  },
+  {
+    "id": "z6_stormcaller",
+    "name": "Stormcaller",
+    "hp": 416,
+    "dps": 35.21,
+    "speed": 1.6,
+    "range": 2.5,
+    "tier": 5,
+    "sprite": "caller",
+    "traits": [
+      "caster",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.25,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.5,
+    "size": 1
+  },
+  {
+    "id": "z6_elite_arc_reacher",
+    "name": "Arc Reacher",
+    "hp": 999,
+    "dps": 56.33,
+    "speed": 2.9,
+    "range": 1.1,
+    "tier": 5,
+    "sprite": "arc_reacher",
+    "traits": [
+      "elite",
+      "fast",
+      "explosive"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.3,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.7,
+    "size": 1.2
+  },
+  {
+    "id": "z6_boss_thunder_engine",
+    "name": "Thunder Engine",
+    "hp": 3745,
+    "dps": 77.46,
+    "speed": 1.5,
+    "range": 1.5,
+    "tier": 5,
+    "sprite": "thunder_engine",
+    "traits": [
+      "boss",
+      "armored",
+      "explosive"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.3,
+        "duration": 40,
+        "stacks": 3
+      }
+    ],
+    "souls": 6,
+    "lootBonus": 2,
+    "size": 1.4
+  }
+]

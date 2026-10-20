@@ -1,0 +1,537 @@
+{
+  "id": "pitsorcer_frost",
+  "classId": "pitsorcer",
+  "name": "Frost",
+  "description": "Cold is patience. The pit freezes everything eventually.",
+  "nodes": [
+    {
+      "id": "pitsorcer_frost_n00",
+      "treeId": "pitsorcer_frost",
+      "parent": null,
+      "depth": 1,
+      "name": "First Frost",
+      "description": "First Frost - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_frost"
+    },
+    {
+      "id": "pitsorcer_frost_n01",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n00",
+      "depth": 2,
+      "name": "Cold Touch",
+      "description": "Cold Touch - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "cold_touch"
+    },
+    {
+      "id": "pitsorcer_frost_n02",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n00",
+      "depth": 2,
+      "name": "Chilling Wind",
+      "description": "Chilling Wind - While your resource is below half: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is below half"
+      },
+      "icon": "chilling_wind"
+    },
+    {
+      "id": "pitsorcer_frost_n03",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n01",
+      "depth": 3,
+      "name": "Rime",
+      "description": "Rime - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "rime"
+    },
+    {
+      "id": "pitsorcer_frost_n04",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n01",
+      "depth": 3,
+      "name": "Frozen Edge",
+      "description": "Frozen Edge - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "frozen_edge"
+    },
+    {
+      "id": "pitsorcer_frost_n05",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n02",
+      "depth": 3,
+      "name": "Deep Chill",
+      "description": "Deep Chill - Passive \"ps_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p7",
+        "rank": 1
+      },
+      "icon": "deep_chill"
+    },
+    {
+      "id": "pitsorcer_frost_n06",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n02",
+      "depth": 3,
+      "name": "Ice Shards",
+      "description": "Ice Shards - While a boss stands before you: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "ice_shards"
+    },
+    {
+      "id": "pitsorcer_frost_n07",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n03",
+      "depth": 4,
+      "name": "Glacial Skin",
+      "description": "Glacial Skin - ps_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a1",
+        "ticks": -5
+      },
+      "icon": "glacial_skin"
+    },
+    {
+      "id": "pitsorcer_frost_n08",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n03",
+      "depth": 4,
+      "name": "Permafrost",
+      "description": "Permafrost - ps_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a4",
+        "delta": -3
+      },
+      "icon": "permafrost"
+    },
+    {
+      "id": "pitsorcer_frost_n09",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n04",
+      "depth": 4,
+      "name": "Snowveil",
+      "description": "Snowveil - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "snowveil"
+    },
+    {
+      "id": "pitsorcer_frost_n10",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n05",
+      "depth": 4,
+      "name": "Frostbite",
+      "description": "Frostbite - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "frostbite"
+    },
+    {
+      "id": "pitsorcer_frost_n11",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n05",
+      "depth": 4,
+      "name": "Winter's Edge",
+      "description": "Winter's Edge - ps_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a4",
+        "count": 1
+      },
+      "icon": "winter_s_edge"
+    },
+    {
+      "id": "pitsorcer_frost_n12",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n06",
+      "depth": 4,
+      "name": "Cryostasis",
+      "description": "Cryostasis - Passive \"ps_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p3",
+        "rank": 1
+      },
+      "icon": "cryostasis"
+    },
+    {
+      "id": "pitsorcer_frost_n13",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n07",
+      "depth": 5,
+      "name": "Frozen Heart",
+      "description": "Frozen Heart - ps_a4: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a4",
+        "flag": "chain"
+      },
+      "icon": "frozen_heart"
+    },
+    {
+      "id": "pitsorcer_frost_n14",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n07",
+      "depth": 5,
+      "name": "Cold Snap",
+      "description": "Cold Snap - ps_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a1",
+        "count": 1
+      },
+      "icon": "cold_snap"
+    },
+    {
+      "id": "pitsorcer_frost_n15",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n08",
+      "depth": 5,
+      "name": "Hypothermia",
+      "description": "Hypothermia - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "hypothermia"
+    },
+    {
+      "id": "pitsorcer_frost_n16",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n09",
+      "depth": 5,
+      "name": "Frost Nova Echo",
+      "description": "Frost Nova Echo - Unlocks rune \"ps_a1_deepfreeze\" for ps_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a1",
+        "rune": "ps_a1_deepfreeze"
+      },
+      "icon": "frost_nova_echo"
+    },
+    {
+      "id": "pitsorcer_frost_n17",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n10",
+      "depth": 5,
+      "name": "Icicle Barrage",
+      "description": "Icicle Barrage - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "icicle_barrage"
+    },
+    {
+      "id": "pitsorcer_frost_n18",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n10",
+      "depth": 5,
+      "name": "Avalanche",
+      "description": "Avalanche - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "avalanche"
+    },
+    {
+      "id": "pitsorcer_frost_n19",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n11",
+      "depth": 5,
+      "name": "Winter's Nail",
+      "description": "Winter's Nail - ps_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a4",
+        "ticks": -5
+      },
+      "icon": "winter_s_nail"
+    },
+    {
+      "id": "pitsorcer_frost_n20",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n12",
+      "depth": 5,
+      "name": "Absolute Zero",
+      "description": "Absolute Zero - ps_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a4",
+        "delta": -3
+      },
+      "icon": "absolute_zero"
+    },
+    {
+      "id": "pitsorcer_frost_n21",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n13",
+      "depth": 6,
+      "name": "Shatter Ice",
+      "description": "Shatter Ice - Unlocks the skill \"ps_a1\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a1",
+        "permanent": false
+      },
+      "icon": "shatter_ice"
+    },
+    {
+      "id": "pitsorcer_frost_n22",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n13",
+      "depth": 6,
+      "name": "Glacier Skin",
+      "description": "Glacier Skin - Unlocks rune \"ps_a4_fracture\" for ps_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a4",
+        "rune": "ps_a4_fracture"
+      },
+      "icon": "glacier_skin"
+    },
+    {
+      "id": "pitsorcer_frost_n23",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n14",
+      "depth": 6,
+      "name": "Frostbound",
+      "description": "Frostbound - +3% cooldownReduction.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.03
+      },
+      "icon": "frostbound"
+    },
+    {
+      "id": "pitsorcer_frost_n24",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n15",
+      "depth": 6,
+      "name": "Heart of Winter",
+      "description": "Heart of Winter - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "heart_of_winter"
+    },
+    {
+      "id": "pitsorcer_frost_n25",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n16",
+      "depth": 6,
+      "name": "Cold Sovereign",
+      "description": "Cold Sovereign - Passive \"ps_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p5",
+        "rank": 1
+      },
+      "icon": "cold_sovereign"
+    },
+    {
+      "id": "pitsorcer_frost_n26",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n17",
+      "depth": 6,
+      "name": "Permafrost Soul",
+      "description": "Permafrost Soul - While fewer than three enemies stand: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "permafrost_soul"
+    },
+    {
+      "id": "pitsorcer_frost_n27",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n18",
+      "depth": 6,
+      "name": "Snowgrave",
+      "description": "Snowgrave - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "snowgrave"
+    },
+    {
+      "id": "pitsorcer_frost_n28",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n19",
+      "depth": 6,
+      "name": "Winter's Domain",
+      "description": "Winter's Domain - ps_a4: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a4",
+        "flag": "chain"
+      },
+      "icon": "winter_s_domain"
+    },
+    {
+      "id": "pitsorcer_frost_n29",
+      "treeId": "pitsorcer_frost",
+      "parent": "pitsorcer_frost_n20",
+      "depth": 6,
+      "name": "Eternal Frost",
+      "description": "Eternal Frost - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "eternal_frost"
+    }
+  ]
+}

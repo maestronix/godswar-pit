@@ -1,0 +1,537 @@
+{
+  "id": "ironpriest_shield",
+  "classId": "ironpriest",
+  "name": "Shield",
+  "description": "A wall is only a promise that the world will not move.",
+  "nodes": [
+    {
+      "id": "ironpriest_shield_n00",
+      "treeId": "ironpriest_shield",
+      "parent": null,
+      "depth": 1,
+      "name": "First Bulwark",
+      "description": "First Bulwark - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_bulwark"
+    },
+    {
+      "id": "ironpriest_shield_n01",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n00",
+      "depth": 2,
+      "name": "Iron Wall",
+      "description": "Iron Wall - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "iron_wall"
+    },
+    {
+      "id": "ironpriest_shield_n02",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n00",
+      "depth": 2,
+      "name": "Grounded",
+      "description": "Grounded - While your resource is below half: +4% armorPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "your resource is below half"
+      },
+      "icon": "grounded"
+    },
+    {
+      "id": "ironpriest_shield_n03",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n01",
+      "depth": 3,
+      "name": "Shield Bash",
+      "description": "Shield Bash - +3% soulYieldPct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.03
+      },
+      "icon": "shield_bash"
+    },
+    {
+      "id": "ironpriest_shield_n04",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n01",
+      "depth": 3,
+      "name": "Bastion",
+      "description": "Bastion - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "bastion"
+    },
+    {
+      "id": "ironpriest_shield_n05",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n02",
+      "depth": 3,
+      "name": "Deflector",
+      "description": "Deflector - Passive \"ip_p6\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p6",
+        "rank": 1
+      },
+      "icon": "deflector"
+    },
+    {
+      "id": "ironpriest_shield_n06",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n02",
+      "depth": 3,
+      "name": "Tower",
+      "description": "Tower - While a boss stands before you: +4% armorPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "tower"
+    },
+    {
+      "id": "ironpriest_shield_n07",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n03",
+      "depth": 4,
+      "name": "Stonewall",
+      "description": "Stonewall - ip_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a2",
+        "ticks": -5
+      },
+      "icon": "stonewall"
+    },
+    {
+      "id": "ironpriest_shield_n08",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n03",
+      "depth": 4,
+      "name": "Aegis",
+      "description": "Aegis - ip_a1: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a1",
+        "delta": -3
+      },
+      "icon": "aegis"
+    },
+    {
+      "id": "ironpriest_shield_n09",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n04",
+      "depth": 4,
+      "name": "Resolve",
+      "description": "Resolve - poison: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "poison",
+        "ticks": 10
+      },
+      "icon": "resolve"
+    },
+    {
+      "id": "ironpriest_shield_n10",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n05",
+      "depth": 4,
+      "name": "Wall of Will",
+      "description": "Wall of Will - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "wall_of_will"
+    },
+    {
+      "id": "ironpriest_shield_n11",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n05",
+      "depth": 4,
+      "name": "Guard",
+      "description": "Guard - ip_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a1",
+        "count": 1
+      },
+      "icon": "guard"
+    },
+    {
+      "id": "ironpriest_shield_n12",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n06",
+      "depth": 4,
+      "name": "Riposte Guard",
+      "description": "Riposte Guard - Passive \"ip_p2\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p2",
+        "rank": 1
+      },
+      "icon": "riposte_guard"
+    },
+    {
+      "id": "ironpriest_shield_n13",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n07",
+      "depth": 5,
+      "name": "Unbroken Wall",
+      "description": "Unbroken Wall - ip_a1: pierce.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a1",
+        "flag": "pierce"
+      },
+      "icon": "unbroken_wall"
+    },
+    {
+      "id": "ironpriest_shield_n14",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n07",
+      "depth": 5,
+      "name": "Sanctuary Wall",
+      "description": "Sanctuary Wall - ip_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a2",
+        "count": 1
+      },
+      "icon": "sanctuary_wall"
+    },
+    {
+      "id": "ironpriest_shield_n15",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n08",
+      "depth": 5,
+      "name": "Bulwark Master",
+      "description": "Bulwark Master - shield: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "shield",
+        "ticks": 10
+      },
+      "icon": "bulwark_master"
+    },
+    {
+      "id": "ironpriest_shield_n16",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n09",
+      "depth": 5,
+      "name": "Iron Oath",
+      "description": "Iron Oath - Unlocks rune \"ip_a2_devotion\" for ip_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a2",
+        "rune": "ip_a2_devotion"
+      },
+      "icon": "iron_oath"
+    },
+    {
+      "id": "ironpriest_shield_n17",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n10",
+      "depth": 5,
+      "name": "Reflect",
+      "description": "Reflect - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "reflect"
+    },
+    {
+      "id": "ironpriest_shield_n18",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n10",
+      "depth": 5,
+      "name": "Shield Song",
+      "description": "Shield Song - +3% attackSpeed.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "shield_song"
+    },
+    {
+      "id": "ironpriest_shield_n19",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n11",
+      "depth": 5,
+      "name": "Vanguard",
+      "description": "Vanguard - ip_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a1",
+        "ticks": -5
+      },
+      "icon": "vanguard"
+    },
+    {
+      "id": "ironpriest_shield_n20",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n12",
+      "depth": 5,
+      "name": "Defiant",
+      "description": "Defiant - ip_a1: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a1",
+        "delta": -3
+      },
+      "icon": "defiant"
+    },
+    {
+      "id": "ironpriest_shield_n21",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n13",
+      "depth": 6,
+      "name": "The Wall",
+      "description": "The Wall - Unlocks the skill \"ip_a2\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a2",
+        "permanent": false
+      },
+      "icon": "the_wall"
+    },
+    {
+      "id": "ironpriest_shield_n22",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n13",
+      "depth": 6,
+      "name": "Bastion Lord",
+      "description": "Bastion Lord - Unlocks rune \"ip_a1_bastion\" for ip_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a1",
+        "rune": "ip_a1_bastion"
+      },
+      "icon": "bastion_lord"
+    },
+    {
+      "id": "ironpriest_shield_n23",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n14",
+      "depth": 6,
+      "name": "Aegis Bearer",
+      "description": "Aegis Bearer - +3% maxHpPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.03
+      },
+      "icon": "aegis_bearer"
+    },
+    {
+      "id": "ironpriest_shield_n24",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n15",
+      "depth": 6,
+      "name": "Immovable Guard",
+      "description": "Immovable Guard - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "immovable_guard"
+    },
+    {
+      "id": "ironpriest_shield_n25",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n16",
+      "depth": 6,
+      "name": "Guardian",
+      "description": "Guardian - Passive \"ip_p4\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p4",
+        "rank": 1
+      },
+      "icon": "guardian"
+    },
+    {
+      "id": "ironpriest_shield_n26",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n17",
+      "depth": 6,
+      "name": "Shield Eternal",
+      "description": "Shield Eternal - While fewer than three enemies stand: +4% armorPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "shield_eternal"
+    },
+    {
+      "id": "ironpriest_shield_n27",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n18",
+      "depth": 6,
+      "name": "Stoneguard",
+      "description": "Stoneguard - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "stoneguard"
+    },
+    {
+      "id": "ironpriest_shield_n28",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n19",
+      "depth": 6,
+      "name": "Fortress",
+      "description": "Fortress - ip_a1: pierce.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a1",
+        "flag": "pierce"
+      },
+      "icon": "fortress"
+    },
+    {
+      "id": "ironpriest_shield_n29",
+      "treeId": "ironpriest_shield",
+      "parent": "ironpriest_shield_n20",
+      "depth": 6,
+      "name": "Aegis Sovereign",
+      "description": "Aegis Sovereign - +3% aoePct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.03
+      },
+      "icon": "aegis_sovereign"
+    }
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "id": "bladewalker_might",
+  "classId": "bladewalker",
+  "name": "Might",
+  "description": "Raw physical force. Every point of this tree is another body that will not stop you.",
+  "nodes": [
+    {
+      "id": "bladewalker_might_n00",
+      "treeId": "bladewalker_might",
+      "parent": null,
+      "depth": 1,
+      "name": "Iron Will",
+      "description": "Iron Will - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "iron_will"
+    },
+    {
+      "id": "bladewalker_might_n01",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n00",
+      "depth": 2,
+      "name": "Harsh Lesson",
+      "description": "Harsh Lesson - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "harsh_lesson"
+    },
+    {
+      "id": "bladewalker_might_n02",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n00",
+      "depth": 2,
+      "name": "Bracing Stance",
+      "description": "Bracing Stance - While a boss stands before you: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "bracing_stance"
+    },
+    {
+      "id": "bladewalker_might_n03",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n01",
+      "depth": 3,
+      "name": "Wrist of Steel",
+      "description": "Wrist of Steel - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "wrist_of_steel"
+    },
+    {
+      "id": "bladewalker_might_n04",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n01",
+      "depth": 3,
+      "name": "Cleaving Habit",
+      "description": "Cleaving Habit - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "cleaving_habit"
+    },
+    {
+      "id": "bladewalker_might_n05",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n02",
+      "depth": 3,
+      "name": "Grounded Feet",
+      "description": "Grounded Feet - Passive \"bw_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p3",
+        "rank": 1
+      },
+      "icon": "grounded_feet"
+    },
+    {
+      "id": "bladewalker_might_n06",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n02",
+      "depth": 3,
+      "name": "Weight of Iron",
+      "description": "Weight of Iron - While your resource is full: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "weight_of_iron"
+    },
+    {
+      "id": "bladewalker_might_n07",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n03",
+      "depth": 4,
+      "name": "Colossus Frame",
+      "description": "Colossus Frame - bw_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a4",
+        "ticks": -5
+      },
+      "icon": "colossus_frame"
+    },
+    {
+      "id": "bladewalker_might_n08",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n03",
+      "depth": 4,
+      "name": "Unyielding",
+      "description": "Unyielding - bw_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a2",
+        "delta": -3
+      },
+      "icon": "unyielding"
+    },
+    {
+      "id": "bladewalker_might_n09",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n04",
+      "depth": 4,
+      "name": "Reckless Swing",
+      "description": "Reckless Swing - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "reckless_swing"
+    },
+    {
+      "id": "bladewalker_might_n10",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n05",
+      "depth": 4,
+      "name": "Shield Wall",
+      "description": "Shield Wall - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "shield_wall"
+    },
+    {
+      "id": "bladewalker_might_n11",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n05",
+      "depth": 4,
+      "name": "Bonebreaker",
+      "description": "Bonebreaker - bw_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a2",
+        "count": 1
+      },
+      "icon": "bonebreaker"
+    },
+    {
+      "id": "bladewalker_might_n12",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n06",
+      "depth": 4,
+      "name": "Savage Momentum",
+      "description": "Savage Momentum - Passive \"bw_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p7",
+        "rank": 1
+      },
+      "icon": "savage_momentum"
+    },
+    {
+      "id": "bladewalker_might_n13",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n07",
+      "depth": 5,
+      "name": "Threshold",
+      "description": "Threshold - bw_a2: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a2",
+        "flag": "chain"
+      },
+      "icon": "threshold"
+    },
+    {
+      "id": "bladewalker_might_n14",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n07",
+      "depth": 5,
+      "name": "Executioner's Toll",
+      "description": "Executioner's Toll - bw_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a4",
+        "count": 1
+      },
+      "icon": "executioner_s_toll"
+    },
+    {
+      "id": "bladewalker_might_n15",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n08",
+      "depth": 5,
+      "name": "Shatterpoint",
+      "description": "Shatterpoint - poison: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "poison",
+        "ticks": 10
+      },
+      "icon": "shatterpoint"
+    },
+    {
+      "id": "bladewalker_might_n16",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n09",
+      "depth": 5,
+      "name": "Brute Force",
+      "description": "Brute Force - Unlocks rune \"bw_a4_blood\" for bw_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a4",
+        "rune": "bw_a4_blood"
+      },
+      "icon": "brute_force"
+    },
+    {
+      "id": "bladewalker_might_n17",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n10",
+      "depth": 5,
+      "name": "Relentless",
+      "description": "Relentless - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "relentless"
+    },
+    {
+      "id": "bladewalker_might_n18",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n10",
+      "depth": 5,
+      "name": "Hammer of Flesh",
+      "description": "Hammer of Flesh - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "hammer_of_flesh"
+    },
+    {
+      "id": "bladewalker_might_n19",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n11",
+      "depth": 5,
+      "name": "Vow of Ruin",
+      "description": "Vow of Ruin - bw_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a2",
+        "ticks": -5
+      },
+      "icon": "vow_of_ruin"
+    },
+    {
+      "id": "bladewalker_might_n20",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n12",
+      "depth": 5,
+      "name": "Adamant Heart",
+      "description": "Adamant Heart - bw_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a2",
+        "delta": -3
+      },
+      "icon": "adamant_heart"
+    },
+    {
+      "id": "bladewalker_might_n21",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n13",
+      "depth": 6,
+      "name": "Mountains Split",
+      "description": "Mountains Split - Unlocks the skill \"bw_a4\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a4",
+        "permanent": false
+      },
+      "icon": "mountains_split"
+    },
+    {
+      "id": "bladewalker_might_n22",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n13",
+      "depth": 6,
+      "name": "Tempered Wrath",
+      "description": "Tempered Wrath - Unlocks rune \"bw_a2_thorn\" for bw_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a2",
+        "rune": "bw_a2_thorn"
+      },
+      "icon": "tempered_wrath"
+    },
+    {
+      "id": "bladewalker_might_n23",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n14",
+      "depth": 6,
+      "name": "Brace for Impact",
+      "description": "Brace for Impact - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "brace_for_impact"
+    },
+    {
+      "id": "bladewalker_might_n24",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n15",
+      "depth": 6,
+      "name": "Final Swing",
+      "description": "Final Swing - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "final_swing"
+    },
+    {
+      "id": "bladewalker_might_n25",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n16",
+      "depth": 6,
+      "name": "Oath of Steel",
+      "description": "Oath of Steel - Passive \"bw_p1\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p1",
+        "rank": 1
+      },
+      "icon": "oath_of_steel"
+    },
+    {
+      "id": "bladewalker_might_n26",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n17",
+      "depth": 6,
+      "name": "Bulwark of Sinew",
+      "description": "Bulwark of Sinew - While your resource is below half: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is below half"
+      },
+      "icon": "bulwark_of_sinew"
+    },
+    {
+      "id": "bladewalker_might_n27",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n18",
+      "depth": 6,
+      "name": "Siegebreaker",
+      "description": "Siegebreaker - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "siegebreaker"
+    },
+    {
+      "id": "bladewalker_might_n28",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n19",
+      "depth": 6,
+      "name": "Reckoning",
+      "description": "Reckoning - bw_a2: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a2",
+        "flag": "chain"
+      },
+      "icon": "reckoning"
+    },
+    {
+      "id": "bladewalker_might_n29",
+      "treeId": "bladewalker_might",
+      "parent": "bladewalker_might_n20",
+      "depth": 6,
+      "name": "Avatar of Wrath",
+      "description": "Avatar of Wrath - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "avatar_of_wrath"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "sb_signature",
+    "name": "Soul Harvest",
+    "classId": "soulbinder",
+    "kind": "signature",
+    "description": "The Soulbinder opens a rift that drinks the souls of every foe caught in it.",
+    "cost": 34,
+    "cooldown": 170,
+    "castTime": 5,
+    "range": 4.0,
+    "targeting": "aoe",
+    "aoeRadius": 3.4,
+    "power": 2.0,
+    "scaling": [
+      { "stat": "aoePct", "mult": 0.8 },
+      { "stat": "dotPct", "mult": 0.6 }
+    ],
+    "effects": [
+      { "kind": "damage", "power": 2.0, "damageType": "shadow", "text": "The rift tears at every soul in range." },
+      { "kind": "dot", "status": "decay", "power": 0.06, "duration": 36, "stacks": 2, "text": "The harvested souls rot from within." },
+      { "kind": "heal", "power": 0.08, "text": "A fraction of the harvest returns to the Soulbinder." }
+    ],
+    "tags": ["aoe", "ultimate", "dot"],
+    "icon": "soul_harvest",
+    "runes": [
+      {
+        "id": "sb_signature_reaper",
+        "name": "Reaper",
+        "description": "The rift is opened wider and deeper, drinking every soul it can reach.",
+        "overrides": { "power": 2.6, "cost": 28, "cooldown": 180 }
+      },
+      {
+        "id": "sb_signature_grave",
+        "name": "Grave Harvest",
+        "description": "The rift stays open over a broad stretch of ground, but harvests less at once.",
+        "overrides": { "aoeRadius": 4.0, "power": 1.7, "cooldown": 170 }
+      },
+      {
+        "id": "sb_signature_echo",
+        "name": "Echo of the Harvest",
+        "description": "The harvested souls keep screaming long after the rift closes.",
+        "overrides": { "cost": 30 },
+        "effectOverrides": { "kind": "dot", "status": "decay", "power": 0.1, "duration": 48, "stacks": 3 }
+      }
+    ]
+  },
+  {
+    "id": "sb_a1",
+    "name": "Shadow Wisp",
+    "classId": "soulbinder",
+    "kind": "active",
+    "description": "The Soulbinder tears two wisps of shadow from the grave to fight for her.",
+    "cost": 22,
+    "cooldown": 120,
+    "castTime": 2,
+    "range": 1.2,
+    "targeting": "self",
+    "power": 0.8,
+    "effects": [
+      { "kind": "summon", "count": 2, "text": "Two shadow wisps rise to fight at the Soulbinder's side." },
+      { "kind": "resource", "power": 0.12, "text": "The summoning draws a little Souls back." }
+    ],
+    "tags": ["summon"],
+    "icon": "shadow_wisp",
+    "runes": [
+      {
+        "id": "sb_a1_swarm",
+        "name": "Swarm of Wisps",
+        "description": "Three wisps claw out of the grave instead of two.",
+        "overrides": { "cost": 26, "cooldown": 100 },
+        "effectOverrides": { "kind": "summon", "count": 3 }
+      },
+      {
+        "id": "sb_a1_bind",
+        "name": "Binding Rite",
+        "description": "A cheaper rite that also feeds the Soulbinder's well of Souls.",
+        "overrides": { "cost": 16, "cooldown": 130 },
+        "effectOverrides": { "kind": "resource", "power": 0.3 }
+      }
+    ]
+  },
+  {
+    "id": "sb_a2",
+    "name": "Life Drain",
+    "classId": "soulbinder",
+    "kind": "active",
+    "description": "The Soulbinder drinks the life out of a single foe and takes it for herself.",
+    "cost": 16,
+    "cooldown": 70,
+    "castTime": 2,
+    "range": 2.5,
+    "targeting": "single",
+    "power": 1.6,
+    "scaling": [{ "stat": "damagePct", "mult": 0.3 }],
+    "effects": [
+      { "kind": "damage", "power": 1.6, "damageType": "shadow", "text": "The drain siphons the target's life away." },
+      { "kind": "heal", "power": 0.06, "amount": 8, "text": "The stolen life mends the Soulbinder." }
+    ],
+    "tags": ["single", "leech"],
+    "icon": "life_drain",
+    "runes": [
+      {
+        "id": "sb_a2_siphon",
+        "name": "Deep Siphon",
+        "description": "The drain pulls harder and mends the Soulbinder faster.",
+        "overrides": { "power": 2.0, "cooldown": 60 },
+        "effectOverrides": { "kind": "heal", "power": 0.09, "amount": 8 }
+      },
+      {
+        "id": "sb_a2_wither",
+        "name": "Withering Touch",
+        "description": "A gentler drain that steals less life but takes only a moment to cast.",
+        "overrides": { "power": 1.5, "cost": 12, "cooldown": 55 },
+        "effectOverrides": { "kind": "heal", "power": 0.03, "amount": 14 }
+      }
+    ]
+  },
+  {
+    "id": "sb_a3",
+    "name": "Cursed Bolt",
+    "classId": "soulbinder",
+    "kind": "active",
+    "description": "A bolt of cursed shadow that buries itself in the target's flesh.",
+    "cost": 14,
+    "cooldown": 60,
+    "castTime": 2,
+    "range": 5.5,
+    "targeting": "single",
+    "power": 1.4,
+    "scaling": [{ "stat": "damagePct", "mult": 0.3 }],
+    "effects": [
+      { "kind": "damage", "power": 1.4, "damageType": "shadow", "text": "The bolt strikes the target." },
+      { "kind": "dot", "status": "decay", "power": 0.05, "duration": 24, "stacks": 2, "text": "The curse rots the wound from within." }
+    ],
+    "tags": ["single", "dot"],
+    "icon": "cursed_bolt",
+    "runes": [
+      {
+        "id": "sb_a3_hex",
+        "name": "Hex",
+        "description": "A heavier bolt that hits harder and asks more of the Soulbinder's well.",
+        "overrides": { "power": 1.9, "cost": 18 }
+      },
+      {
+        "id": "sb_a3_rot",
+        "name": "Rotting Hex",
+        "description": "The curse inside the wound never stops eating.",
+        "overrides": { "cost": 16 },
+        "effectOverrides": { "kind": "dot", "status": "decay", "power": 0.09, "duration": 36, "stacks": 3 }
+      }
+    ]
+  },
+  {
+    "id": "sb_a4",
+    "name": "Grave Call",
+    "classId": "soulbinder",
+    "kind": "active",
+    "description": "The Soulbinder calls the grave itself up over a wide stretch of the pit.",
+    "cost": 26,
+    "cooldown": 130,
+    "castTime": 4,
+    "range": 4.0,
+    "targeting": "aoe",
+    "aoeRadius": 3.2,
+    "power": 1.5,
+    "scaling": [
+      { "stat": "aoePct", "mult": 0.7 },
+      { "stat": "dotPct", "mult": 0.5 }
+    ],
+    "effects": [
+      { "kind": "damage", "power": 1.5, "damageType": "shadow", "text": "The grave tears at every foe in the ground." },
+      { "kind": "dot", "status": "decay", "power": 0.05, "duration": 30, "stacks": 2, "text": "The called dead rot the living." },
+      { "kind": "debuff", "status": "curse", "amount": 0.2, "duration": 30, "stacks": 1, "text": "Cursed foes lose the strength to build their resource." }
+    ],
+    "tags": ["aoe", "dot"],
+    "icon": "grave_call",
+    "runes": [
+      {
+        "id": "sb_a4_nether",
+        "name": "Nether Grave",
+        "description": "The grave opens far wider and takes a much longer to close again.",
+        "overrides": { "aoeRadius": 3.8, "power": 1.8, "cooldown": 140 }
+      },
+      {
+        "id": "sb_a4_curse",
+        "name": "Deep Curse",
+        "description": "The curse laid on the dead takes hold and never lifts.",
+        "overrides": { "power": 1.7, "cooldown": 110 },
+        "effectOverrides": { "kind": "debuff", "status": "curse", "amount": 0.2, "duration": 60, "stacks": 1 }
+      }
+    ]
+  }
+]

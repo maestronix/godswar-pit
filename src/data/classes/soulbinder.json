@@ -1,0 +1,62 @@
+{
+  "id": "soulbinder",
+  "name": "Soulbinder",
+  "tagline": "She keeps the ledger, and the ledger keeps its due.",
+  "resource": "Souls",
+  "resourceMax": 130,
+  "resourcePerHit": 6,
+  "resourceRegen": 3.5,
+  "base": {
+    "hp": 118,
+    "armor": 7,
+    "damage": 12,
+    "attackSpeed": 1.45,
+    "critChance": 0.07,
+    "critDamage": 1.55
+  },
+  "weaponBases": [
+    "scythe",
+    "dagger",
+    "staff",
+    "wand",
+    "sword",
+    "greatsword"
+  ],
+  "aspects": [
+    "soul_reaper",
+    "gravedigger",
+    "echo_of_thorns",
+    "moonlit_grace",
+    "hunters_mark"
+  ],
+  "trees": [
+    "soulbinder_shadow",
+    "soulbinder_blood",
+    "soulbinder_doom"
+  ],
+  "signature": "sb_signature",
+  "actives": [
+    "sb_a1",
+    "sb_a2",
+    "sb_a3",
+    "sb_a4"
+  ],
+  "passives": [
+    "sb_p1",
+    "sb_p2",
+    "sb_p3",
+    "sb_p4",
+    "sb_p5",
+    "sb_p6",
+    "sb_p7",
+    "sb_p8"
+  ],
+  "palette": {
+    "skin": "#b9a7c9",
+    "hair": "#221a2e",
+    "cloth": "#3a2a4d",
+    "metal": "#7a6a92",
+    "accent": "#b06cff",
+    "glow": "#7fe9d8"
+  }
+}

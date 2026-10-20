@@ -1,0 +1,537 @@
+{
+  "id": "soulbinder_doom",
+  "classId": "soulbinder",
+  "name": "Doom",
+  "description": "The dead are the only ones who kept their oaths.",
+  "nodes": [
+    {
+      "id": "soulbinder_doom_n00",
+      "treeId": "soulbinder_doom",
+      "parent": null,
+      "depth": 1,
+      "name": "First Omen",
+      "description": "First Omen - +10% critDamage (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_omen"
+    },
+    {
+      "id": "soulbinder_doom_n01",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n00",
+      "depth": 2,
+      "name": "Doom",
+      "description": "Doom - +3% attackSpeed.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "doom"
+    },
+    {
+      "id": "soulbinder_doom_n02",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n00",
+      "depth": 2,
+      "name": "Grave Call",
+      "description": "Grave Call - While you are below half health: +4% critDamage.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "grave_call"
+    },
+    {
+      "id": "soulbinder_doom_n03",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n01",
+      "depth": 3,
+      "name": "Soul Taint",
+      "description": "Soul Taint - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "soul_taint"
+    },
+    {
+      "id": "soulbinder_doom_n04",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n01",
+      "depth": 3,
+      "name": "Whispers",
+      "description": "Whispers - +10% critDamage (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "whispers"
+    },
+    {
+      "id": "soulbinder_doom_n05",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n02",
+      "depth": 3,
+      "name": "Death Mark",
+      "description": "Death Mark - Passive \"sb_p8\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p8",
+        "rank": 1
+      },
+      "icon": "death_mark"
+    },
+    {
+      "id": "soulbinder_doom_n06",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n02",
+      "depth": 3,
+      "name": "Reaper",
+      "description": "Reaper - While fewer than three enemies stand: +4% critDamage.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "reaper"
+    },
+    {
+      "id": "soulbinder_doom_n07",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n03",
+      "depth": 4,
+      "name": "Hollow Call",
+      "description": "Hollow Call - sb_signature: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_signature",
+        "ticks": -5
+      },
+      "icon": "hollow_call"
+    },
+    {
+      "id": "soulbinder_doom_n08",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n03",
+      "depth": 4,
+      "name": "Bone Echo",
+      "description": "Bone Echo - sb_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "delta": -3
+      },
+      "icon": "bone_echo"
+    },
+    {
+      "id": "soulbinder_doom_n09",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n04",
+      "depth": 4,
+      "name": "Undying",
+      "description": "Undying - rage: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "rage",
+        "ticks": 10
+      },
+      "icon": "undying"
+    },
+    {
+      "id": "soulbinder_doom_n10",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n05",
+      "depth": 4,
+      "name": "Mourning",
+      "description": "Mourning - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "mourning"
+    },
+    {
+      "id": "soulbinder_doom_n11",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n05",
+      "depth": 4,
+      "name": "Grim Harvest",
+      "description": "Grim Harvest - sb_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "count": 1
+      },
+      "icon": "grim_harvest"
+    },
+    {
+      "id": "soulbinder_doom_n12",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n06",
+      "depth": 4,
+      "name": "Deathrattle",
+      "description": "Deathrattle - Passive \"sb_p4\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p4",
+        "rank": 1
+      },
+      "icon": "deathrattle"
+    },
+    {
+      "id": "soulbinder_doom_n13",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n07",
+      "depth": 5,
+      "name": "Soul Storm",
+      "description": "Soul Storm - sb_a4: aoe.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a4",
+        "flag": "aoe"
+      },
+      "icon": "soul_storm"
+    },
+    {
+      "id": "soulbinder_doom_n14",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n07",
+      "depth": 5,
+      "name": "Last Breath",
+      "description": "Last Breath - sb_signature: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_signature",
+        "count": 1
+      },
+      "icon": "last_breath"
+    },
+    {
+      "id": "soulbinder_doom_n15",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n08",
+      "depth": 5,
+      "name": "Pallor",
+      "description": "Pallor - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "pallor"
+    },
+    {
+      "id": "soulbinder_doom_n16",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n09",
+      "depth": 5,
+      "name": "Cairn",
+      "description": "Cairn - Unlocks rune \"sb_signature_echo\" for sb_signature.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_signature",
+        "rune": "sb_signature_echo"
+      },
+      "icon": "cairn"
+    },
+    {
+      "id": "soulbinder_doom_n17",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n10",
+      "depth": 5,
+      "name": "Wailing",
+      "description": "Wailing - +10% critDamage (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "wailing"
+    },
+    {
+      "id": "soulbinder_doom_n18",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n10",
+      "depth": 5,
+      "name": "The Reaping",
+      "description": "The Reaping - +3% statusResist.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "statusResist",
+        "value": 0.03
+      },
+      "icon": "the_reaping"
+    },
+    {
+      "id": "soulbinder_doom_n19",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n11",
+      "depth": 5,
+      "name": "Undying Rites",
+      "description": "Undying Rites - sb_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "ticks": -5
+      },
+      "icon": "undying_rites"
+    },
+    {
+      "id": "soulbinder_doom_n20",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n12",
+      "depth": 5,
+      "name": "Grave Bane",
+      "description": "Grave Bane - sb_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "delta": -3
+      },
+      "icon": "grave_bane"
+    },
+    {
+      "id": "soulbinder_doom_n21",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n13",
+      "depth": 6,
+      "name": "Deathblow",
+      "description": "Deathblow - Unlocks the skill \"sb_signature\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_signature",
+        "permanent": false
+      },
+      "icon": "deathblow"
+    },
+    {
+      "id": "soulbinder_doom_n22",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n13",
+      "depth": 6,
+      "name": "Mourning Bell",
+      "description": "Mourning Bell - Unlocks rune \"sb_a4_nether\" for sb_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a4",
+        "rune": "sb_a4_nether"
+      },
+      "icon": "mourning_bell"
+    },
+    {
+      "id": "soulbinder_doom_n23",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n14",
+      "depth": 6,
+      "name": "Gloom Herald",
+      "description": "Gloom Herald - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "gloom_herald"
+    },
+    {
+      "id": "soulbinder_doom_n24",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n15",
+      "depth": 6,
+      "name": "Death's Door",
+      "description": "Death's Door - +10% critDamage (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "death_s_door"
+    },
+    {
+      "id": "soulbinder_doom_n25",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n16",
+      "depth": 6,
+      "name": "Soul Eater",
+      "description": "Soul Eater - Passive \"sb_p6\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p6",
+        "rank": 1
+      },
+      "icon": "soul_eater"
+    },
+    {
+      "id": "soulbinder_doom_n26",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n17",
+      "depth": 6,
+      "name": "Grim Sovereign",
+      "description": "Grim Sovereign - While your resource is full: +4% critDamage.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "grim_sovereign"
+    },
+    {
+      "id": "soulbinder_doom_n27",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n18",
+      "depth": 6,
+      "name": "The Long Dusk",
+      "description": "The Long Dusk - aura: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "aura",
+        "ticks": 10
+      },
+      "icon": "the_long_dusk"
+    },
+    {
+      "id": "soulbinder_doom_n28",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n19",
+      "depth": 6,
+      "name": "Grave Sovereign",
+      "description": "Grave Sovereign - sb_a4: aoe.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a4",
+        "flag": "aoe"
+      },
+      "icon": "grave_sovereign"
+    },
+    {
+      "id": "soulbinder_doom_n29",
+      "treeId": "soulbinder_doom",
+      "parent": "soulbinder_doom_n20",
+      "depth": 6,
+      "name": "Doom Sovereign",
+      "description": "Doom Sovereign - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "doom_sovereign"
+    }
+  ]
+}

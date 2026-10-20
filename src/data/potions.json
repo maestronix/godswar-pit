@@ -1,0 +1,91 @@
+[
+  {
+    "id": "wrath_elixir",
+    "name": "Wrath Elixir",
+    "description": "A vial of fury that sharpens every blow by 30% for the whole run.",
+    "effect": { "stat": "damagePct", "value": 0.3 },
+    "tiers": [
+      { "id": "wrath_elixir_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "wrath_elixir_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "wrath_elixir_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ]
+  },
+  {
+    "id": "ironroot",
+    "name": "Ironroot",
+    "description": "Bitter root that hardens the blood, granting 40% more maximum health for the whole run.",
+    "effect": { "stat": "maxHpPct", "value": 0.4 },
+    "tiers": [
+      { "id": "ironroot_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "ironroot_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "ironroot_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ]
+  },
+  {
+    "id": "blade_oil",
+    "name": "Blade Oil",
+    "description": "Slick oil that quickens your reflexes, removing 15% from every cooldown for the whole run.",
+    "effect": { "stat": "cooldownReduction", "value": 0.15 },
+    "tiers": [
+      { "id": "blade_oil_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "blade_oil_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "blade_oil_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ]
+  },
+  {
+    "id": "soulfog",
+    "name": "Soulfog",
+    "description": "Chill mist that draws the departed closer, yielding 25% more souls for the whole run.",
+    "effect": { "stat": "soulYieldPct", "value": 0.25 },
+    "tiers": [
+      { "id": "soulfog_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "soulfog_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "soulfog_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ]
+  },
+  {
+    "id": "blood_price",
+    "name": "Blood Price",
+    "description": "Healing costs half of the health it restores, because every mended wound is paid for in blood.",
+    "effect": { "stat": "hpRegen", "value": -0.5 },
+    "tiers": [
+      { "id": "blood_price_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "blood_price_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "blood_price_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ]
+  },
+  {
+    "id": "second_wind",
+    "name": "Second Wind",
+    "description": "Grants one revival per run: you return once from death with 15% more maximum health and half of that health restored.",
+    "effect": { "stat": "maxHpPct", "value": 0.15 },
+    "tiers": [
+      { "id": "second_wind_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "second_wind_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "second_wind_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ]
+  },
+  {
+    "id": "ash_draught",
+    "name": "Ash Draught",
+    "description": "Ash-choked brew of the pit, refilling your class resource 30% faster for the whole run.",
+    "effect": { "stat": "resourceRegen", "value": 0.3 },
+    "tiers": [
+      { "id": "ash_draught_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "ash_draught_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "ash_draught_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ],
+    "classId": "ashmonk"
+  },
+  {
+    "id": "godsblood",
+    "name": "Godsblood",
+    "description": "Blood of a god, knitting your wounds 60% faster for the whole run.",
+    "effect": { "stat": "hpRegen", "value": 0.6 },
+    "tiers": [
+      { "id": "godsblood_weak", "name": "Weak", "mult": 0.5, "price": 1 },
+      { "id": "godsblood_strong", "name": "Strong", "mult": 1, "price": 3 },
+      { "id": "godsblood_grim", "name": "Grim", "mult": 1.5, "price": 8 }
+    ]
+  }
+]

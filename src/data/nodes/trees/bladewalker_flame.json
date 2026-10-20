@@ -1,0 +1,537 @@
+{
+  "id": "bladewalker_flame",
+  "classId": "bladewalker",
+  "name": "Flame",
+  "description": "Set your steel alight and let the pit do the rest.",
+  "nodes": [
+    {
+      "id": "bladewalker_flame_n00",
+      "treeId": "bladewalker_flame",
+      "parent": null,
+      "depth": 1,
+      "name": "First Spark",
+      "description": "First Spark - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_spark"
+    },
+    {
+      "id": "bladewalker_flame_n01",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n00",
+      "depth": 2,
+      "name": "Ember",
+      "description": "Ember - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "ember"
+    },
+    {
+      "id": "bladewalker_flame_n02",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n00",
+      "depth": 2,
+      "name": "Kindling",
+      "description": "Kindling - While fewer than three enemies stand: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "kindling"
+    },
+    {
+      "id": "bladewalker_flame_n03",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n01",
+      "depth": 3,
+      "name": "Catch the Wind",
+      "description": "Catch the Wind - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "catch_the_wind"
+    },
+    {
+      "id": "bladewalker_flame_n04",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n01",
+      "depth": 3,
+      "name": "Coal Heart",
+      "description": "Coal Heart - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "coal_heart"
+    },
+    {
+      "id": "bladewalker_flame_n05",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n02",
+      "depth": 3,
+      "name": "Ashen Trail",
+      "description": "Ashen Trail - Passive \"bw_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p7",
+        "rank": 1
+      },
+      "icon": "ashen_trail"
+    },
+    {
+      "id": "bladewalker_flame_n06",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n02",
+      "depth": 3,
+      "name": "Burning Edge",
+      "description": "Burning Edge - While your resource is below half: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is below half"
+      },
+      "icon": "burning_edge"
+    },
+    {
+      "id": "bladewalker_flame_n07",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n03",
+      "depth": 4,
+      "name": "Pyre",
+      "description": "Pyre - bw_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a1",
+        "ticks": -5
+      },
+      "icon": "pyre"
+    },
+    {
+      "id": "bladewalker_flame_n08",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n03",
+      "depth": 4,
+      "name": "Firebrand",
+      "description": "Firebrand - bw_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a3",
+        "delta": -3
+      },
+      "icon": "firebrand"
+    },
+    {
+      "id": "bladewalker_flame_n09",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n04",
+      "depth": 4,
+      "name": "Scorched Earth",
+      "description": "Scorched Earth - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "scorched_earth"
+    },
+    {
+      "id": "bladewalker_flame_n10",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n05",
+      "depth": 4,
+      "name": "Kindle",
+      "description": "Kindle - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "kindle"
+    },
+    {
+      "id": "bladewalker_flame_n11",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n05",
+      "depth": 4,
+      "name": "Chain of Fire",
+      "description": "Chain of Fire - bw_a3: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a3",
+        "count": 1
+      },
+      "icon": "chain_of_fire"
+    },
+    {
+      "id": "bladewalker_flame_n12",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n06",
+      "depth": 4,
+      "name": "Wildfire",
+      "description": "Wildfire - Passive \"bw_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p3",
+        "rank": 1
+      },
+      "icon": "wildfire"
+    },
+    {
+      "id": "bladewalker_flame_n13",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n07",
+      "depth": 5,
+      "name": "Furnace",
+      "description": "Furnace - bw_a3: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a3",
+        "flag": "chain"
+      },
+      "icon": "furnace"
+    },
+    {
+      "id": "bladewalker_flame_n14",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n07",
+      "depth": 5,
+      "name": "Red Hymn",
+      "description": "Red Hymn - bw_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a1",
+        "count": 1
+      },
+      "icon": "red_hymn"
+    },
+    {
+      "id": "bladewalker_flame_n15",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n08",
+      "depth": 5,
+      "name": "Searing Word",
+      "description": "Searing Word - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "searing_word"
+    },
+    {
+      "id": "bladewalker_flame_n16",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n09",
+      "depth": 5,
+      "name": "Flameborn",
+      "description": "Flameborn - Unlocks rune \"bw_a1_storm\" for bw_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a1",
+        "rune": "bw_a1_storm"
+      },
+      "icon": "flameborn"
+    },
+    {
+      "id": "bladewalker_flame_n17",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n10",
+      "depth": 5,
+      "name": "Smoulder",
+      "description": "Smoulder - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "smoulder"
+    },
+    {
+      "id": "bladewalker_flame_n18",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n10",
+      "depth": 5,
+      "name": "Pyroclasm",
+      "description": "Pyroclasm - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "pyroclasm"
+    },
+    {
+      "id": "bladewalker_flame_n19",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n11",
+      "depth": 5,
+      "name": "Ember Storm",
+      "description": "Ember Storm - bw_a3: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a3",
+        "ticks": -5
+      },
+      "icon": "ember_storm"
+    },
+    {
+      "id": "bladewalker_flame_n20",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n12",
+      "depth": 5,
+      "name": "Sunscar",
+      "description": "Sunscar - bw_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a3",
+        "delta": -3
+      },
+      "icon": "sunscar"
+    },
+    {
+      "id": "bladewalker_flame_n21",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n13",
+      "depth": 6,
+      "name": "Living Coal",
+      "description": "Living Coal - Unlocks the skill \"bw_a1\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a1",
+        "permanent": false
+      },
+      "icon": "living_coal"
+    },
+    {
+      "id": "bladewalker_flame_n22",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n13",
+      "depth": 6,
+      "name": "Ignite",
+      "description": "Ignite - Unlocks rune \"bw_a3_banner\" for bw_a3.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a3",
+        "rune": "bw_a3_banner"
+      },
+      "icon": "ignite"
+    },
+    {
+      "id": "bladewalker_flame_n23",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n14",
+      "depth": 6,
+      "name": "Overheat",
+      "description": "Overheat - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "overheat"
+    },
+    {
+      "id": "bladewalker_flame_n24",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n15",
+      "depth": 6,
+      "name": "Blazing Oath",
+      "description": "Blazing Oath - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "blazing_oath"
+    },
+    {
+      "id": "bladewalker_flame_n25",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n16",
+      "depth": 6,
+      "name": "Cinder Storm",
+      "description": "Cinder Storm - Passive \"bw_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p5",
+        "rank": 1
+      },
+      "icon": "cinder_storm"
+    },
+    {
+      "id": "bladewalker_flame_n26",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n17",
+      "depth": 6,
+      "name": "Immolate",
+      "description": "Immolate - While you are below half health: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "immolate"
+    },
+    {
+      "id": "bladewalker_flame_n27",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n18",
+      "depth": 6,
+      "name": "The Long Burn",
+      "description": "The Long Burn - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "the_long_burn"
+    },
+    {
+      "id": "bladewalker_flame_n28",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n19",
+      "depth": 6,
+      "name": "Firestorm",
+      "description": "Firestorm - bw_a3: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a3",
+        "flag": "chain"
+      },
+      "icon": "firestorm"
+    },
+    {
+      "id": "bladewalker_flame_n29",
+      "treeId": "bladewalker_flame",
+      "parent": "bladewalker_flame_n20",
+      "depth": 6,
+      "name": "Flame of the Pit",
+      "description": "Flame of the Pit - +3% cooldownReduction.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.03
+      },
+      "icon": "flame_of_the_pit"
+    }
+  ]
+}

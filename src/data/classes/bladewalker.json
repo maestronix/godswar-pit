@@ -1,0 +1,62 @@
+{
+  "id": "bladewalker",
+  "name": "Bladewalker",
+  "tagline": "Wrath-carved arcs that split the pit in two.",
+  "resource": "Wrath",
+  "resourceMax": 100,
+  "resourcePerHit": 8,
+  "resourceRegen": 3,
+  "base": {
+    "hp": 150,
+    "armor": 10,
+    "damage": 13,
+    "attackSpeed": 1.65,
+    "critChance": 0.06,
+    "critDamage": 1.5
+  },
+  "weaponBases": [
+    "sword",
+    "greatsword",
+    "axe",
+    "spear",
+    "dagger",
+    "hammer"
+  ],
+  "aspects": [
+    "flamebrand",
+    "hollow_step",
+    "crimson_pact",
+    "ashen_edge",
+    "hunters_mark"
+  ],
+  "trees": [
+    "bladewalker_might",
+    "bladewalker_flame",
+    "bladewalker_blood"
+  ],
+  "signature": "bw_signature",
+  "actives": [
+    "bw_a1",
+    "bw_a2",
+    "bw_a3",
+    "bw_a4"
+  ],
+  "passives": [
+    "bw_p1",
+    "bw_p2",
+    "bw_p3",
+    "bw_p4",
+    "bw_p5",
+    "bw_p6",
+    "bw_p7",
+    "bw_p8"
+  ],
+  "palette": {
+    "skin": "#e8b98a",
+    "hair": "#4a2c1a",
+    "cloth": "#8f2b2b",
+    "metal": "#b7bcc7",
+    "blade": "#e4ecf5",
+    "accent": "#ffb347"
+  }
+}

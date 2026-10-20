@@ -1,0 +1,62 @@
+{
+  "id": "pitsorcer",
+  "name": "Pitsorcer",
+  "tagline": "Frost and storm, spoken from the edge of the abyss.",
+  "resource": "Arcane",
+  "resourceMax": 150,
+  "resourcePerHit": 5,
+  "resourceRegen": 4,
+  "base": {
+    "hp": 115,
+    "armor": 6,
+    "damage": 15,
+    "attackSpeed": 1.35,
+    "critChance": 0.08,
+    "critDamage": 1.6
+  },
+  "weaponBases": [
+    "staff",
+    "wand",
+    "dagger",
+    "spear",
+    "scythe",
+    "sword"
+  ],
+  "aspects": [
+    "frostbite",
+    "stormcall",
+    "void_touch",
+    "gilded_ward",
+    "hunters_mark"
+  ],
+  "trees": [
+    "pitsorcer_storm",
+    "pitsorcer_frost",
+    "pitsorcer_void"
+  ],
+  "signature": "ps_signature",
+  "actives": [
+    "ps_a1",
+    "ps_a2",
+    "ps_a3",
+    "ps_a4"
+  ],
+  "passives": [
+    "ps_p1",
+    "ps_p2",
+    "ps_p3",
+    "ps_p4",
+    "ps_p5",
+    "ps_p6",
+    "ps_p7",
+    "ps_p8"
+  ],
+  "palette": {
+    "skin": "#c9a2d8",
+    "hair": "#2b2140",
+    "cloth": "#3b2f63",
+    "metal": "#8f86c4",
+    "accent": "#66e0ff",
+    "glow": "#c08bff"
+  }
+}

@@ -1,0 +1,250 @@
+[
+  {
+    "id": "anom_s1_ashfall",
+    "name": "Ashfall",
+    "description": "A constant grey drizzle hides the far walls of every chamber.",
+    "kind": "fog",
+    "magnitude": 0.05,
+    "series": 1
+  },
+  {
+    "id": "anom_s1_leaning_elite",
+    "name": "Leaning Elite",
+    "description": "Rare elites slip into the rosters of the reavers.",
+    "kind": "extra_elite",
+    "magnitude": 0.08,
+    "series": 1
+  },
+  {
+    "id": "anom_s1_scraps",
+    "name": "Scraps",
+    "description": "The pit keeps a tithe of every soul you harvest.",
+    "kind": "soul_tax",
+    "magnitude": 0.05,
+    "series": 1
+  },
+  {
+    "id": "anom_s1_bruised_reavers",
+    "name": "Bruised Reavers",
+    "description": "The reavers hit a little harder than they used to.",
+    "kind": "enemy_damage",
+    "magnitude": 0.06,
+    "series": 1
+  },
+  {
+    "id": "anom_s1_loose_floor",
+    "name": "Loose Floor",
+    "description": "A few floorboards give way and turn a walk into a fight.",
+    "kind": "trap_every",
+    "magnitude": 0.07,
+    "series": 1
+  },
+  {
+    "id": "anom_s2_mending_ash",
+    "name": "Mending Ash",
+    "description": "Ash creeps back into wounds and the fallen rise again.",
+    "kind": "heal_enemies",
+    "magnitude": 0.12,
+    "series": 2
+  },
+  {
+    "id": "anom_s2_thick_bones",
+    "name": "Thick Bones",
+    "description": "The dead of the pit grow denser and harder to break.",
+    "kind": "enemy_hp",
+    "magnitude": 0.15,
+    "series": 2
+  },
+  {
+    "id": "anom_s2_crowned_reavers",
+    "name": "Crowned Reavers",
+    "description": "More of the reavers wear crowns of bone and rime.",
+    "kind": "extra_elite",
+    "magnitude": 0.18,
+    "series": 2
+  },
+  {
+    "id": "anom_s2_sharper_edges",
+    "name": "Sharper Edges",
+    "description": "Everything in the pit is filed to a killing edge.",
+    "kind": "enemy_damage",
+    "magnitude": 0.14,
+    "series": 2
+  },
+  {
+    "id": "anom_s2_harsh_tithe",
+    "name": "Harsh Tithe",
+    "description": "The pit demands a fifth of every soul you pull free.",
+    "kind": "soul_tax",
+    "magnitude": 0.2,
+    "series": 2
+  },
+  {
+    "id": "anom_s2_sinking_floor",
+    "name": "Sinking Floor",
+    "description": "Whole stretches of the pit collapse into traps.",
+    "kind": "trap_every",
+    "magnitude": 0.16,
+    "series": 2
+  },
+  {
+    "id": "anom_s3_twin_crowns",
+    "name": "Twin Crowns",
+    "description": "Elites arrive in pairs and hunt you together.",
+    "kind": "double_elite",
+    "magnitude": 0.22,
+    "series": 3
+  },
+  {
+    "id": "anom_s3_unbroken",
+    "name": "Unbroken",
+    "description": "The dead of the pit refuse to stay down.",
+    "kind": "heal_enemies",
+    "magnitude": 0.3,
+    "series": 3
+  },
+  {
+    "id": "anom_s3_broken_gods",
+    "name": "Broken Gods",
+    "description": "Shards of the dead gods fell into the lower halls and cut deep.",
+    "kind": "enemy_damage",
+    "magnitude": 0.25,
+    "series": 3
+  },
+  {
+    "id": "anom_s3_stone_skin",
+    "name": "Stone Skin",
+    "description": "The stone itself hardens around the reavers.",
+    "kind": "enemy_hp",
+    "magnitude": 0.28,
+    "series": 3
+  },
+  {
+    "id": "anom_s3_eternal_dusk",
+    "name": "Eternal Dusk",
+    "description": "The lamps of the pit burn down to a permanent gloom.",
+    "kind": "fog",
+    "magnitude": 0.32,
+    "series": 3
+  },
+  {
+    "id": "anom_s3_grasping_tithe",
+    "name": "Grasping Tithe",
+    "description": "The pit grabs a quarter of everything you earn.",
+    "kind": "soul_tax",
+    "magnitude": 0.24,
+    "series": 3
+  },
+  {
+    "id": "anom_s4_gods_wrath",
+    "name": "Gods' Wrath",
+    "description": "The curse of the dead gods settles on your shoulders.",
+    "kind": "cursed",
+    "magnitude": 0.3,
+    "series": 4
+  },
+  {
+    "id": "anom_s4_shattered_crowns",
+    "name": "Shattered Crowns",
+    "description": "Crowned elites split in two and come apart on you.",
+    "kind": "double_elite",
+    "magnitude": 0.35,
+    "series": 4
+  },
+  {
+    "id": "anom_s4_fevered_ash",
+    "name": "Fevered Ash",
+    "description": "The ash burns inside the wounds of the dead.",
+    "kind": "heal_enemies",
+    "magnitude": 0.38,
+    "series": 4
+  },
+  {
+    "id": "anom_s4_wall_of_bones",
+    "name": "Wall of Bones",
+    "description": "Bone walls choke the paths and turn every room into a trap.",
+    "kind": "trap_every",
+    "magnitude": 0.4,
+    "series": 4
+  },
+  {
+    "id": "anom_s4_razor_liturgy",
+    "name": "Razor Liturgy",
+    "description": "The cult of the pit sings sharper prayers.",
+    "kind": "enemy_damage",
+    "magnitude": 0.36,
+    "series": 4
+  },
+  {
+    "id": "anom_s4_mountain_bones",
+    "name": "Mountain Bones",
+    "description": "The dead of the pit wear the weight of the mountain.",
+    "kind": "enemy_hp",
+    "magnitude": 0.42,
+    "series": 4
+  },
+  {
+    "id": "anom_s4_gilded_tithe",
+    "name": "Gilded Tithe",
+    "description": "The pit taxes you in gold as well as souls.",
+    "kind": "soul_tax",
+    "magnitude": 0.28,
+    "series": 4
+  },
+  {
+    "id": "anom_s5_hollow_curse",
+    "name": "Hollow Curse",
+    "description": "The hollow throne breathes on you and takes half of everything.",
+    "kind": "cursed",
+    "magnitude": 0.5,
+    "series": 5
+  },
+  {
+    "id": "anom_s5_twin_gods",
+    "name": "Twin Gods",
+    "description": "Every elite walks with its twin and they strike as one.",
+    "kind": "double_elite",
+    "magnitude": 0.55,
+    "series": 5
+  },
+  {
+    "id": "anom_s5_undying_ash",
+    "name": "Undying Ash",
+    "description": "Nothing in the pit stays dead for long.",
+    "kind": "heal_enemies",
+    "magnitude": 0.45,
+    "series": 5
+  },
+  {
+    "id": "anom_s5_mountain_of_teeth",
+    "name": "Mountain of Teeth",
+    "description": "The floors are paved with teeth that snap shut underfoot.",
+    "kind": "trap_every",
+    "magnitude": 0.6,
+    "series": 5
+  },
+  {
+    "id": "anom_s5_final_verdict",
+    "name": "Final Verdict",
+    "description": "The dead gods judge every blow and punish every mistake.",
+    "kind": "enemy_damage",
+    "magnitude": 0.52,
+    "series": 5
+  },
+  {
+    "id": "anom_s5_bulk_of_the_dead",
+    "name": "Bulk of the Dead",
+    "description": "The corpses of a thousand years pile up and refuse to yield.",
+    "kind": "enemy_hp",
+    "magnitude": 0.58,
+    "series": 5
+  },
+  {
+    "id": "anom_s5_gluttons_tithe",
+    "name": "Glutton's Tithe",
+    "description": "The pit swallows a third of every soul you earn.",
+    "kind": "soul_tax",
+    "magnitude": 0.3,
+    "series": 5
+  }
+]

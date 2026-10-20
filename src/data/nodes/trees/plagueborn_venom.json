@@ -1,0 +1,537 @@
+{
+  "id": "plagueborn_venom",
+  "classId": "plagueborn",
+  "name": "Venom",
+  "description": "The slow poison. The one that gets the last word.",
+  "nodes": [
+    {
+      "id": "plagueborn_venom_n00",
+      "treeId": "plagueborn_venom",
+      "parent": null,
+      "depth": 1,
+      "name": "First Venom",
+      "description": "First Venom - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_venom"
+    },
+    {
+      "id": "plagueborn_venom_n01",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n00",
+      "depth": 2,
+      "name": "Toxic Touch",
+      "description": "Toxic Touch - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "toxic_touch"
+    },
+    {
+      "id": "plagueborn_venom_n02",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n00",
+      "depth": 2,
+      "name": "Blight",
+      "description": "Blight - While you are below half health: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "blight"
+    },
+    {
+      "id": "plagueborn_venom_n03",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n01",
+      "depth": 3,
+      "name": "Serpent's Gift",
+      "description": "Serpent's Gift - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "serpent_s_gift"
+    },
+    {
+      "id": "plagueborn_venom_n04",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n01",
+      "depth": 3,
+      "name": "Corrosion",
+      "description": "Corrosion - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "corrosion"
+    },
+    {
+      "id": "plagueborn_venom_n05",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n02",
+      "depth": 3,
+      "name": "Poisoned Edge",
+      "description": "Poisoned Edge - Passive \"pb_p6\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "pb_p6",
+        "rank": 1
+      },
+      "icon": "poisoned_edge"
+    },
+    {
+      "id": "plagueborn_venom_n06",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n02",
+      "depth": 3,
+      "name": "Virulence",
+      "description": "Virulence - While fewer than three enemies stand: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "virulence"
+    },
+    {
+      "id": "plagueborn_venom_n07",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n03",
+      "depth": 4,
+      "name": "Toxin",
+      "description": "Toxin - pb_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a4",
+        "ticks": -5
+      },
+      "icon": "toxin"
+    },
+    {
+      "id": "plagueborn_venom_n08",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n03",
+      "depth": 4,
+      "name": "Numbing",
+      "description": "Numbing - pb_a1: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a1",
+        "delta": -3
+      },
+      "icon": "numbing"
+    },
+    {
+      "id": "plagueborn_venom_n09",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n04",
+      "depth": 4,
+      "name": "Sickness",
+      "description": "Sickness - poison: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "poison",
+        "ticks": 10
+      },
+      "icon": "sickness"
+    },
+    {
+      "id": "plagueborn_venom_n10",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n05",
+      "depth": 4,
+      "name": "Toxic Aura",
+      "description": "Toxic Aura - +3% aoePct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.03
+      },
+      "icon": "toxic_aura"
+    },
+    {
+      "id": "plagueborn_venom_n11",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n05",
+      "depth": 4,
+      "name": "Contagion",
+      "description": "Contagion - pb_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a1",
+        "count": 1
+      },
+      "icon": "contagion"
+    },
+    {
+      "id": "plagueborn_venom_n12",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n06",
+      "depth": 4,
+      "name": "Venomous",
+      "description": "Venomous - Passive \"pb_p2\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "pb_p2",
+        "rank": 1
+      },
+      "icon": "venomous"
+    },
+    {
+      "id": "plagueborn_venom_n13",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n07",
+      "depth": 5,
+      "name": "Wither",
+      "description": "Wither - pb_a1: pierce.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a1",
+        "flag": "pierce"
+      },
+      "icon": "wither"
+    },
+    {
+      "id": "plagueborn_venom_n14",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n07",
+      "depth": 5,
+      "name": "Antidote",
+      "description": "Antidote - pb_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a4",
+        "count": 1
+      },
+      "icon": "antidote"
+    },
+    {
+      "id": "plagueborn_venom_n15",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n08",
+      "depth": 5,
+      "name": "Ichor",
+      "description": "Ichor - shield: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "shield",
+        "ticks": 10
+      },
+      "icon": "ichor"
+    },
+    {
+      "id": "plagueborn_venom_n16",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n09",
+      "depth": 5,
+      "name": "Blight Touch",
+      "description": "Blight Touch - Unlocks rune \"pb_a4_rust\" for pb_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a4",
+        "rune": "pb_a4_rust"
+      },
+      "icon": "blight_touch"
+    },
+    {
+      "id": "plagueborn_venom_n17",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n10",
+      "depth": 5,
+      "name": "Toxic Burst",
+      "description": "Toxic Burst - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "toxic_burst"
+    },
+    {
+      "id": "plagueborn_venom_n18",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n10",
+      "depth": 5,
+      "name": "Plague",
+      "description": "Plague - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "plague"
+    },
+    {
+      "id": "plagueborn_venom_n19",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n11",
+      "depth": 5,
+      "name": "Miasma",
+      "description": "Miasma - pb_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a1",
+        "ticks": -5
+      },
+      "icon": "miasma"
+    },
+    {
+      "id": "plagueborn_venom_n20",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n12",
+      "depth": 5,
+      "name": "Venom Lord",
+      "description": "Venom Lord - pb_a1: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a1",
+        "delta": -3
+      },
+      "icon": "venom_lord"
+    },
+    {
+      "id": "plagueborn_venom_n21",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n13",
+      "depth": 6,
+      "name": "Hex",
+      "description": "Hex - Unlocks the skill \"pb_a4\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a4",
+        "permanent": false
+      },
+      "icon": "hex"
+    },
+    {
+      "id": "plagueborn_venom_n22",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n13",
+      "depth": 6,
+      "name": "Corpse Rot",
+      "description": "Corpse Rot - Unlocks rune \"pb_a1_rain\" for pb_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a1",
+        "rune": "pb_a1_rain"
+      },
+      "icon": "corpse_rot"
+    },
+    {
+      "id": "plagueborn_venom_n23",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n14",
+      "depth": 6,
+      "name": "Septic",
+      "description": "Septic - +3% statusResist.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "statusResist",
+        "value": 0.03
+      },
+      "icon": "septic"
+    },
+    {
+      "id": "plagueborn_venom_n24",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n15",
+      "depth": 6,
+      "name": "Bubonic",
+      "description": "Bubonic - +10% dotPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "bubonic"
+    },
+    {
+      "id": "plagueborn_venom_n25",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n16",
+      "depth": 6,
+      "name": "Serpent's Kiss",
+      "description": "Serpent's Kiss - Passive \"pb_p4\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "pb_p4",
+        "rank": 1
+      },
+      "icon": "serpent_s_kiss"
+    },
+    {
+      "id": "plagueborn_venom_n26",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n17",
+      "depth": 6,
+      "name": "Toxic Cloud",
+      "description": "Toxic Cloud - While your resource is full: +4% dotPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "toxic_cloud"
+    },
+    {
+      "id": "plagueborn_venom_n27",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n18",
+      "depth": 6,
+      "name": "Hollow Venom",
+      "description": "Hollow Venom - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "hollow_venom"
+    },
+    {
+      "id": "plagueborn_venom_n28",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n19",
+      "depth": 6,
+      "name": "Pestilence",
+      "description": "Pestilence - pb_a1: pierce.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a1",
+        "flag": "pierce"
+      },
+      "icon": "pestilence"
+    },
+    {
+      "id": "plagueborn_venom_n29",
+      "treeId": "plagueborn_venom",
+      "parent": "plagueborn_venom_n20",
+      "depth": 6,
+      "name": "Venom Sovereign",
+      "description": "Venom Sovereign - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "venom_sovereign"
+    }
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "id": "pitsorcer_void",
+  "classId": "pitsorcer",
+  "name": "Void",
+  "description": "The pit has a bottom. You have found it.",
+  "nodes": [
+    {
+      "id": "pitsorcer_void_n00",
+      "treeId": "pitsorcer_void",
+      "parent": null,
+      "depth": 1,
+      "name": "First Rift",
+      "description": "First Rift - +10% critChance (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_rift"
+    },
+    {
+      "id": "pitsorcer_void_n01",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n00",
+      "depth": 2,
+      "name": "Void Touch",
+      "description": "Void Touch - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "void_touch"
+    },
+    {
+      "id": "pitsorcer_void_n02",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n00",
+      "depth": 2,
+      "name": "Umbral Step",
+      "description": "Umbral Step - While fewer than three enemies stand: +4% critChance.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "umbral_step"
+    },
+    {
+      "id": "pitsorcer_void_n03",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n01",
+      "depth": 3,
+      "name": "Null Field",
+      "description": "Null Field - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "null_field"
+    },
+    {
+      "id": "pitsorcer_void_n04",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n01",
+      "depth": 3,
+      "name": "Hollow Sight",
+      "description": "Hollow Sight - +10% critChance (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "hollow_sight"
+    },
+    {
+      "id": "pitsorcer_void_n05",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n02",
+      "depth": 3,
+      "name": "Unmake",
+      "description": "Unmake - Passive \"ps_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p3",
+        "rank": 1
+      },
+      "icon": "unmake"
+    },
+    {
+      "id": "pitsorcer_void_n06",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n02",
+      "depth": 3,
+      "name": "Dimensional Tear",
+      "description": "Dimensional Tear - While your resource is below half: +4% critChance.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "your resource is below half"
+      },
+      "icon": "dimensional_tear"
+    },
+    {
+      "id": "pitsorcer_void_n07",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n03",
+      "depth": 4,
+      "name": "Void Bolt",
+      "description": "Void Bolt - ps_a3: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a3",
+        "ticks": -5
+      },
+      "icon": "void_bolt"
+    },
+    {
+      "id": "pitsorcer_void_n08",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n03",
+      "depth": 4,
+      "name": "Silent Step",
+      "description": "Silent Step - ps_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "delta": -3
+      },
+      "icon": "silent_step"
+    },
+    {
+      "id": "pitsorcer_void_n09",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n04",
+      "depth": 4,
+      "name": "Between",
+      "description": "Between - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "between"
+    },
+    {
+      "id": "pitsorcer_void_n10",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n05",
+      "depth": 4,
+      "name": "Rift Walk",
+      "description": "Rift Walk - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "rift_walk"
+    },
+    {
+      "id": "pitsorcer_void_n11",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n05",
+      "depth": 4,
+      "name": "Devour",
+      "description": "Devour - ps_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "count": 1
+      },
+      "icon": "devour"
+    },
+    {
+      "id": "pitsorcer_void_n12",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n06",
+      "depth": 4,
+      "name": "Black Pulse",
+      "description": "Black Pulse - Passive \"ps_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p7",
+        "rank": 1
+      },
+      "icon": "black_pulse"
+    },
+    {
+      "id": "pitsorcer_void_n13",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n07",
+      "depth": 5,
+      "name": "Event Horizon",
+      "description": "Event Horizon - ps_a2: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a2",
+        "flag": "chain"
+      },
+      "icon": "event_horizon"
+    },
+    {
+      "id": "pitsorcer_void_n14",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n07",
+      "depth": 5,
+      "name": "Void Shield",
+      "description": "Void Shield - ps_a3: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a3",
+        "count": 1
+      },
+      "icon": "void_shield"
+    },
+    {
+      "id": "pitsorcer_void_n15",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n08",
+      "depth": 5,
+      "name": "Unseen",
+      "description": "Unseen - poison: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "poison",
+        "ticks": 10
+      },
+      "icon": "unseen"
+    },
+    {
+      "id": "pitsorcer_void_n16",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n09",
+      "depth": 5,
+      "name": "Graviton",
+      "description": "Graviton - Unlocks rune \"ps_a3_phase\" for ps_a3.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a3",
+        "rune": "ps_a3_phase"
+      },
+      "icon": "graviton"
+    },
+    {
+      "id": "pitsorcer_void_n17",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n10",
+      "depth": 5,
+      "name": "Void Grasp",
+      "description": "Void Grasp - +10% critChance (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "void_grasp"
+    },
+    {
+      "id": "pitsorcer_void_n18",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n10",
+      "depth": 5,
+      "name": "Rift Storm",
+      "description": "Rift Storm - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "rift_storm"
+    },
+    {
+      "id": "pitsorcer_void_n19",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n11",
+      "depth": 5,
+      "name": "Nightfall",
+      "description": "Nightfall - ps_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "ticks": -5
+      },
+      "icon": "nightfall"
+    },
+    {
+      "id": "pitsorcer_void_n20",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n12",
+      "depth": 5,
+      "name": "Siphon Void",
+      "description": "Siphon Void - ps_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "delta": -3
+      },
+      "icon": "siphon_void"
+    },
+    {
+      "id": "pitsorcer_void_n21",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n13",
+      "depth": 6,
+      "name": "Umbral Call",
+      "description": "Umbral Call - Unlocks the skill \"ps_a3\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a3",
+        "permanent": false
+      },
+      "icon": "umbral_call"
+    },
+    {
+      "id": "pitsorcer_void_n22",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n13",
+      "depth": 6,
+      "name": "Eventide",
+      "description": "Eventide - Unlocks rune \"ps_a2_spark\" for ps_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a2",
+        "rune": "ps_a2_spark"
+      },
+      "icon": "eventide"
+    },
+    {
+      "id": "pitsorcer_void_n23",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n14",
+      "depth": 6,
+      "name": "Void Crown",
+      "description": "Void Crown - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "void_crown"
+    },
+    {
+      "id": "pitsorcer_void_n24",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n15",
+      "depth": 6,
+      "name": "Null Domain",
+      "description": "Null Domain - +10% critChance (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "null_domain"
+    },
+    {
+      "id": "pitsorcer_void_n25",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n16",
+      "depth": 6,
+      "name": "Space Thief",
+      "description": "Space Thief - Passive \"ps_p1\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p1",
+        "rank": 1
+      },
+      "icon": "space_thief"
+    },
+    {
+      "id": "pitsorcer_void_n26",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n17",
+      "depth": 6,
+      "name": "Rift Herald",
+      "description": "Rift Herald - While you are below half health: +4% critChance.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "critChance",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "rift_herald"
+    },
+    {
+      "id": "pitsorcer_void_n27",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n18",
+      "depth": 6,
+      "name": "The Hollow",
+      "description": "The Hollow - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "the_hollow"
+    },
+    {
+      "id": "pitsorcer_void_n28",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n19",
+      "depth": 6,
+      "name": "Void Sovereign",
+      "description": "Void Sovereign - ps_a2: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a2",
+        "flag": "chain"
+      },
+      "icon": "void_sovereign"
+    },
+    {
+      "id": "pitsorcer_void_n29",
+      "treeId": "pitsorcer_void",
+      "parent": "pitsorcer_void_n20",
+      "depth": 6,
+      "name": "Unmade",
+      "description": "Unmade - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "unmade"
+    }
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "id": "ashmonk_breath",
+  "classId": "ashmonk",
+  "name": "Breath",
+  "description": "The breath is the weapon. Everything else is decoration.",
+  "nodes": [
+    {
+      "id": "ashmonk_breath_n00",
+      "treeId": "ashmonk_breath",
+      "parent": null,
+      "depth": 1,
+      "name": "First Inhale",
+      "description": "First Inhale - +10% hpRegen (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "hpRegen",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_inhale"
+    },
+    {
+      "id": "ashmonk_breath_n01",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n00",
+      "depth": 2,
+      "name": "Steady Lung",
+      "description": "Steady Lung - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "steady_lung"
+    },
+    {
+      "id": "ashmonk_breath_n02",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n00",
+      "depth": 2,
+      "name": "Iron Ribs",
+      "description": "Iron Ribs - While you are below half health: +4% hpRegen.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "iron_ribs"
+    },
+    {
+      "id": "ashmonk_breath_n03",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n01",
+      "depth": 3,
+      "name": "Deep Draw",
+      "description": "Deep Draw - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "deep_draw"
+    },
+    {
+      "id": "ashmonk_breath_n04",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n01",
+      "depth": 3,
+      "name": "Purifying Breath",
+      "description": "Purifying Breath - +10% hpRegen (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "hpRegen",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "purifying_breath"
+    },
+    {
+      "id": "ashmonk_breath_n05",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n02",
+      "depth": 3,
+      "name": "Short Breath",
+      "description": "Short Breath - Passive \"am_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p7",
+        "rank": 1
+      },
+      "icon": "short_breath"
+    },
+    {
+      "id": "ashmonk_breath_n06",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n02",
+      "depth": 3,
+      "name": "Ascent",
+      "description": "Ascent - While fewer than three enemies stand: +4% hpRegen.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "ascent"
+    },
+    {
+      "id": "ashmonk_breath_n07",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n03",
+      "depth": 4,
+      "name": "Renewed Draw",
+      "description": "Renewed Draw - am_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a4",
+        "ticks": -5
+      },
+      "icon": "renewed_draw"
+    },
+    {
+      "id": "ashmonk_breath_n08",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n03",
+      "depth": 4,
+      "name": "Sustained",
+      "description": "Sustained - am_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a2",
+        "delta": -3
+      },
+      "icon": "sustained"
+    },
+    {
+      "id": "ashmonk_breath_n09",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n04",
+      "depth": 4,
+      "name": "Calm Mind",
+      "description": "Calm Mind - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "calm_mind"
+    },
+    {
+      "id": "ashmonk_breath_n10",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n05",
+      "depth": 4,
+      "name": "Fast Exhale",
+      "description": "Fast Exhale - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "fast_exhale"
+    },
+    {
+      "id": "ashmonk_breath_n11",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n05",
+      "depth": 4,
+      "name": "Burning Lung",
+      "description": "Burning Lung - am_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a2",
+        "count": 1
+      },
+      "icon": "burning_lung"
+    },
+    {
+      "id": "ashmonk_breath_n12",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n06",
+      "depth": 4,
+      "name": "Windpipe",
+      "description": "Windpipe - Passive \"am_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p3",
+        "rank": 1
+      },
+      "icon": "windpipe"
+    },
+    {
+      "id": "ashmonk_breath_n13",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n07",
+      "depth": 5,
+      "name": "Recovers",
+      "description": "Recovers - am_a2: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a2",
+        "flag": "chain"
+      },
+      "icon": "recovers"
+    },
+    {
+      "id": "ashmonk_breath_n14",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n07",
+      "depth": 5,
+      "name": "Counted Breath",
+      "description": "Counted Breath - am_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a4",
+        "count": 1
+      },
+      "icon": "counted_breath"
+    },
+    {
+      "id": "ashmonk_breath_n15",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n08",
+      "depth": 5,
+      "name": "The Slow Exhale",
+      "description": "The Slow Exhale - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "the_slow_exhale"
+    },
+    {
+      "id": "ashmonk_breath_n16",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n09",
+      "depth": 5,
+      "name": "Vitality",
+      "description": "Vitality - Unlocks rune \"am_a4_zen\" for am_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a4",
+        "rune": "am_a4_zen"
+      },
+      "icon": "vitality"
+    },
+    {
+      "id": "ashmonk_breath_n17",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n10",
+      "depth": 5,
+      "name": "Ancestral Air",
+      "description": "Ancestral Air - +10% hpRegen (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "hpRegen",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "ancestral_air"
+    },
+    {
+      "id": "ashmonk_breath_n18",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n10",
+      "depth": 5,
+      "name": "Chi of the Mountain",
+      "description": "Chi of the Mountain - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "chi_of_the_mountain"
+    },
+    {
+      "id": "ashmonk_breath_n19",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n11",
+      "depth": 5,
+      "name": "Pressed Breath",
+      "description": "Pressed Breath - am_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a2",
+        "ticks": -5
+      },
+      "icon": "pressed_breath"
+    },
+    {
+      "id": "ashmonk_breath_n20",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n12",
+      "depth": 5,
+      "name": "Vital Spark",
+      "description": "Vital Spark - am_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a2",
+        "delta": -3
+      },
+      "icon": "vital_spark"
+    },
+    {
+      "id": "ashmonk_breath_n21",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n13",
+      "depth": 6,
+      "name": "Lung of Stone",
+      "description": "Lung of Stone - Unlocks the skill \"am_a4\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a4",
+        "permanent": false
+      },
+      "icon": "lung_of_stone"
+    },
+    {
+      "id": "ashmonk_breath_n22",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n13",
+      "depth": 6,
+      "name": "Braced Core",
+      "description": "Braced Core - Unlocks rune \"am_a2_stillpoint\" for am_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a2",
+        "rune": "am_a2_stillpoint"
+      },
+      "icon": "braced_core"
+    },
+    {
+      "id": "ashmonk_breath_n23",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n14",
+      "depth": 6,
+      "name": "Neverending Draw",
+      "description": "Neverending Draw - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "neverending_draw"
+    },
+    {
+      "id": "ashmonk_breath_n24",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n15",
+      "depth": 6,
+      "name": "Perfect Breath",
+      "description": "Perfect Breath - +10% hpRegen (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "hpRegen",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "perfect_breath"
+    },
+    {
+      "id": "ashmonk_breath_n25",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n16",
+      "depth": 6,
+      "name": "Dragon's Breath",
+      "description": "Dragon's Breath - Passive \"am_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p5",
+        "rank": 1
+      },
+      "icon": "dragon_s_breath"
+    },
+    {
+      "id": "ashmonk_breath_n26",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n17",
+      "depth": 6,
+      "name": "Hollow Lung",
+      "description": "Hollow Lung - While your resource is full: +4% hpRegen.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "hollow_lung"
+    },
+    {
+      "id": "ashmonk_breath_n27",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n18",
+      "depth": 6,
+      "name": "Breath of Life",
+      "description": "Breath of Life - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "breath_of_life"
+    },
+    {
+      "id": "ashmonk_breath_n28",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n19",
+      "depth": 6,
+      "name": "The Final Breath",
+      "description": "The Final Breath - am_a2: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a2",
+        "flag": "chain"
+      },
+      "icon": "the_final_breath"
+    },
+    {
+      "id": "ashmonk_breath_n29",
+      "treeId": "ashmonk_breath",
+      "parent": "ashmonk_breath_n20",
+      "depth": 6,
+      "name": "Second Wind",
+      "description": "Second Wind - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "second_wind"
+    }
+  ]
+}

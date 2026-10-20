@@ -1,0 +1,184 @@
+[
+  {
+    "id": "ip_signature",
+    "name": "Judgment",
+    "classId": "ironpriest",
+    "kind": "signature",
+    "description": "The Ironpriest calls down a sentence of light that crushes a single heretic.",
+    "cost": 32,
+    "cooldown": 160,
+    "castTime": 4,
+    "range": 3.0,
+    "targeting": "single",
+    "power": 3.2,
+    "scaling": [{ "stat": "damagePct", "mult": 0.6 }],
+    "effects": [
+      { "kind": "damage", "power": 3.2, "damageType": "holy", "text": "Judgment falls upon the target." },
+      { "kind": "debuff", "status": "weaken", "amount": 0.2, "duration": 30, "stacks": 1, "text": "The sentence weakens the condemned." }
+    ],
+    "tags": ["ultimate"],
+    "icon": "judgment",
+    "runes": [
+      {
+        "id": "ip_signature_verdict",
+        "name": "Final Verdict",
+        "description": "The sentence is harsher and cheaper, sparing the Ironpriest's faith.",
+        "overrides": { "power": 4.0, "cost": 28, "cooldown": 170 }
+      },
+      {
+        "id": "ip_signature_pyre",
+        "name": "Pyre of Light",
+        "description": "The light falls as burning judgement rather than a clean blow.",
+        "overrides": { "power": 3.4, "cooldown": 175 }
+      },
+      {
+        "id": "ip_signature_mercy",
+        "name": "Mercy",
+        "description": "A lighter sentence that condemns the target for much longer.",
+        "overrides": { "power": 2.6, "cooldown": 120 },
+        "effectOverrides": { "kind": "debuff", "status": "weaken", "amount": 0.2, "duration": 45, "stacks": 1 }
+      }
+    ]
+  },
+  {
+    "id": "ip_a1",
+    "name": "Bulwark",
+    "classId": "ironpriest",
+    "kind": "active",
+    "description": "Faith hardens into a shield of light around the Ironpriest's body.",
+    "cost": 18,
+    "cooldown": 80,
+    "castTime": 1,
+    "range": 1.2,
+    "targeting": "self",
+    "power": 0.8,
+    "effects": [
+      { "kind": "shield", "power": 0.22, "duration": 80, "text": "A wall of light absorbs incoming blows." },
+      { "kind": "buff", "status": "aura", "amount": 0.25, "duration": 60, "stacks": 1, "text": "Aura: the Ironpriest's armour is reinforced." }
+    ],
+    "tags": ["buff", "defense"],
+    "icon": "bulwark",
+    "runes": [
+      {
+        "id": "ip_a1_bastion",
+        "name": "Bastion",
+        "description": "A fortress of light that holds for far longer.",
+        "overrides": { "cost": 24, "cooldown": 95 },
+        "effectOverrides": { "kind": "shield", "power": 0.3, "duration": 130 }
+      },
+      {
+        "id": "ip_a1_reprisal",
+        "name": "Reprisal",
+        "description": "A shorter, cheaper guard that answers every blow with faith.",
+        "overrides": { "cost": 14, "cooldown": 65 }
+      }
+    ]
+  },
+  {
+    "id": "ip_a2",
+    "name": "Radiant Aura",
+    "classId": "ironpriest",
+    "kind": "active",
+    "description": "A ring of golden light burns the unwy around the Ironpriest.",
+    "cost": 16,
+    "cooldown": 100,
+    "castTime": 2,
+    "range": 3.0,
+    "targeting": "aoe",
+    "aoeRadius": 3.0,
+    "power": 1.2,
+    "scaling": [{ "stat": "aoePct", "mult": 0.6 }],
+    "effects": [
+      { "kind": "damage", "power": 1.2, "damageType": "holy", "text": "Radiant Aura burns every foe that closes in." },
+      { "kind": "buff", "status": "aura", "amount": 0.3, "duration": 100, "stacks": 1, "text": "Aura: the Ironpriest's armour is reinforced." }
+    ],
+    "tags": ["aoe", "buff"],
+    "icon": "radiant_aura",
+    "runes": [
+      {
+        "id": "ip_a2_dawn",
+        "name": "Dawn",
+        "description": "The light floods a far wider circle of the pit.",
+        "overrides": { "aoeRadius": 3.6, "power": 1.5, "cooldown": 110 }
+      },
+      {
+        "id": "ip_a2_devotion",
+        "name": "Devotion",
+        "description": "A shorter prayer that keeps the Ironpriest's guard raised for longer.",
+        "overrides": { "cooldown": 85 },
+        "effectOverrides": { "kind": "buff", "status": "aura", "amount": 0.3, "duration": 150, "stacks": 1 }
+      }
+    ]
+  },
+  {
+    "id": "ip_a3",
+    "name": "Consecrated Blade",
+    "classId": "ironpriest",
+    "kind": "active",
+    "description": "The Ironpriest's weapon is blessed with burning light for a single mighty swing.",
+    "cost": 14,
+    "cooldown": 70,
+    "castTime": 2,
+    "range": 1.8,
+    "targeting": "single",
+    "power": 2.0,
+    "scaling": [{ "stat": "damagePct", "mult": 0.4 }],
+    "effects": [
+      { "kind": "damage", "power": 2.0, "damageType": "holy", "text": "The blessed swing smites the target." },
+      { "kind": "dot", "status": "burn", "power": 0.06, "duration": 24, "stacks": 2, "text": "Holy fire keeps burning the wound." }
+    ],
+    "tags": ["single", "dot"],
+    "icon": "consecrated_blade",
+    "runes": [
+      {
+        "id": "ip_a3_relic",
+        "name": "Warden Relic",
+        "description": "A heavier blow from an old relic, paid for in a longer prayer.",
+        "overrides": { "power": 2.6, "cooldown": 85 }
+      },
+      {
+        "id": "ip_a3_pyre",
+        "name": "Pyre Edge",
+        "description": "The blessing burns far hotter on the blade.",
+        "overrides": { "cost": 16 },
+        "effectOverrides": { "kind": "dot", "status": "burn", "power": 0.1, "duration": 32, "stacks": 2 }
+      }
+    ]
+  },
+  {
+    "id": "ip_a4",
+    "name": "Sanctuary",
+    "classId": "ironpriest",
+    "kind": "active",
+    "description": "A brief sanctuary of golden light mends the Ironpriest's wounds.",
+    "cost": 26,
+    "cooldown": 150,
+    "castTime": 4,
+    "range": 1.2,
+    "targeting": "self",
+    "power": 0.8,
+    "effects": [
+      { "kind": "heal", "power": 0.3, "text": "Sanctuary restores nearly a third of the Ironpriest's health." },
+      { "kind": "buff", "status": "regen", "amount": 0.35, "duration": 60, "stacks": 1, "text": "Regeneration: wounds close faster." },
+      { "kind": "resource", "power": 0.15, "text": "The prayer returns a measure of Faith." }
+    ],
+    "tags": ["heal", "buff"],
+    "icon": "sanctuary",
+    "runes": [
+      {
+        "id": "ip_a4_grace",
+        "name": "Grace",
+        "description": "A deeper sanctuary that mends far more but must be earned again slowly.",
+        "overrides": { "cooldown": 180 },
+        "effectOverrides": { "kind": "heal", "power": 0.42 }
+      },
+      {
+        "id": "ip_a4_ward",
+        "name": "Sanctuary Ward",
+        "description": "A quicker sanctuary that keeps mending the Ironpriest long after the light fades.",
+        "overrides": { "cooldown": 120, "cost": 22 },
+        "effectOverrides": { "kind": "buff", "status": "regen", "amount": 0.35, "duration": 90, "stacks": 1 }
+      }
+    ]
+  }
+]

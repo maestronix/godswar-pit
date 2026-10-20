@@ -1,0 +1,537 @@
+{
+  "id": "bladewalker_blood",
+  "classId": "bladewalker",
+  "name": "Blood",
+  "description": "Pay in blood now, bleed the enemy later.",
+  "nodes": [
+    {
+      "id": "bladewalker_blood_n00",
+      "treeId": "bladewalker_blood",
+      "parent": null,
+      "depth": 1,
+      "name": "Open Wound",
+      "description": "Open Wound - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "open_wound"
+    },
+    {
+      "id": "bladewalker_blood_n01",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n00",
+      "depth": 2,
+      "name": "Red Pact",
+      "description": "Red Pact - +3% resourceRegen.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.03
+      },
+      "icon": "red_pact"
+    },
+    {
+      "id": "bladewalker_blood_n02",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n00",
+      "depth": 2,
+      "name": "Crimson Price",
+      "description": "Crimson Price - While your resource is full: +4% lifeOnHit.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "crimson_price"
+    },
+    {
+      "id": "bladewalker_blood_n03",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n01",
+      "depth": 3,
+      "name": "Thirst",
+      "description": "Thirst - +3% lifeOnHit.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.03
+      },
+      "icon": "thirst"
+    },
+    {
+      "id": "bladewalker_blood_n04",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n01",
+      "depth": 3,
+      "name": "Sanguine Edge",
+      "description": "Sanguine Edge - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "sanguine_edge"
+    },
+    {
+      "id": "bladewalker_blood_n05",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n02",
+      "depth": 3,
+      "name": "Hemorrhage",
+      "description": "Hemorrhage - Passive \"bw_p6\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p6",
+        "rank": 1
+      },
+      "icon": "hemorrhage"
+    },
+    {
+      "id": "bladewalker_blood_n06",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n02",
+      "depth": 3,
+      "name": "Bloodletting",
+      "description": "Bloodletting - While you are below half health: +4% lifeOnHit.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "bloodletting"
+    },
+    {
+      "id": "bladewalker_blood_n07",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n03",
+      "depth": 4,
+      "name": "Red Second Wind",
+      "description": "Red Second Wind - bw_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a1",
+        "ticks": -5
+      },
+      "icon": "red_second_wind"
+    },
+    {
+      "id": "bladewalker_blood_n08",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n03",
+      "depth": 4,
+      "name": "Iron Blood",
+      "description": "Iron Blood - bw_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a4",
+        "delta": -3
+      },
+      "icon": "iron_blood"
+    },
+    {
+      "id": "bladewalker_blood_n09",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n04",
+      "depth": 4,
+      "name": "Sanguine Rage",
+      "description": "Sanguine Rage - poison: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "poison",
+        "ticks": 10
+      },
+      "icon": "sanguine_rage"
+    },
+    {
+      "id": "bladewalker_blood_n10",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n05",
+      "depth": 4,
+      "name": "Venom of the Self",
+      "description": "Venom of the Self - +3% statusResist.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "statusResist",
+        "value": 0.03
+      },
+      "icon": "venom_of_the_self"
+    },
+    {
+      "id": "bladewalker_blood_n11",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n05",
+      "depth": 4,
+      "name": "Tainted Cut",
+      "description": "Tainted Cut - bw_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a4",
+        "count": 1
+      },
+      "icon": "tainted_cut"
+    },
+    {
+      "id": "bladewalker_blood_n12",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n06",
+      "depth": 4,
+      "name": "Bleeding Deep",
+      "description": "Bleeding Deep - Passive \"bw_p2\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p2",
+        "rank": 1
+      },
+      "icon": "bleeding_deep"
+    },
+    {
+      "id": "bladewalker_blood_n13",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n07",
+      "depth": 5,
+      "name": "Siphon",
+      "description": "Siphon - bw_a4: pierce.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a4",
+        "flag": "pierce"
+      },
+      "icon": "siphon"
+    },
+    {
+      "id": "bladewalker_blood_n14",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n07",
+      "depth": 5,
+      "name": "Life Debt",
+      "description": "Life Debt - bw_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a1",
+        "count": 1
+      },
+      "icon": "life_debt"
+    },
+    {
+      "id": "bladewalker_blood_n15",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n08",
+      "depth": 5,
+      "name": "Mortify",
+      "description": "Mortify - shield: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "shield",
+        "ticks": 10
+      },
+      "icon": "mortify"
+    },
+    {
+      "id": "bladewalker_blood_n16",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n09",
+      "depth": 5,
+      "name": "Blood Echo",
+      "description": "Blood Echo - Unlocks rune \"bw_a1_reap\" for bw_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a1",
+        "rune": "bw_a1_reap"
+      },
+      "icon": "blood_echo"
+    },
+    {
+      "id": "bladewalker_blood_n17",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n10",
+      "depth": 5,
+      "name": "Crimson Hunger",
+      "description": "Crimson Hunger - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "crimson_hunger"
+    },
+    {
+      "id": "bladewalker_blood_n18",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n10",
+      "depth": 5,
+      "name": "Wound Echo",
+      "description": "Wound Echo - +3% lifeOnHit.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.03
+      },
+      "icon": "wound_echo"
+    },
+    {
+      "id": "bladewalker_blood_n19",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n11",
+      "depth": 5,
+      "name": "Scarlet Vow",
+      "description": "Scarlet Vow - bw_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a4",
+        "ticks": -5
+      },
+      "icon": "scarlet_vow"
+    },
+    {
+      "id": "bladewalker_blood_n20",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n12",
+      "depth": 5,
+      "name": "The Red Hour",
+      "description": "The Red Hour - bw_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "bw_a4",
+        "delta": -3
+      },
+      "icon": "the_red_hour"
+    },
+    {
+      "id": "bladewalker_blood_n21",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n13",
+      "depth": 6,
+      "name": "Hemolock",
+      "description": "Hemolock - Unlocks the skill \"bw_a1\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a1",
+        "permanent": false
+      },
+      "icon": "hemolock"
+    },
+    {
+      "id": "bladewalker_blood_n22",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n13",
+      "depth": 6,
+      "name": "Pact Renewal",
+      "description": "Pact Renewal - Unlocks rune \"bw_a4_blood\" for bw_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a4",
+        "rune": "bw_a4_blood"
+      },
+      "icon": "pact_renewal"
+    },
+    {
+      "id": "bladewalker_blood_n23",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n14",
+      "depth": 6,
+      "name": "Drain",
+      "description": "Drain - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "drain"
+    },
+    {
+      "id": "bladewalker_blood_n24",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n15",
+      "depth": 6,
+      "name": "Vital Ruin",
+      "description": "Vital Ruin - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "vital_ruin"
+    },
+    {
+      "id": "bladewalker_blood_n25",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n16",
+      "depth": 6,
+      "name": "Sanguine Crown",
+      "description": "Sanguine Crown - Passive \"bw_p4\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "bw_p4",
+        "rank": 1
+      },
+      "icon": "sanguine_crown"
+    },
+    {
+      "id": "bladewalker_blood_n26",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n17",
+      "depth": 6,
+      "name": "Crimson Engine",
+      "description": "Crimson Engine - While a boss stands before you: +4% lifeOnHit.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "crimson_engine"
+    },
+    {
+      "id": "bladewalker_blood_n27",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n18",
+      "depth": 6,
+      "name": "Last Drop",
+      "description": "Last Drop - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "last_drop"
+    },
+    {
+      "id": "bladewalker_blood_n28",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n19",
+      "depth": 6,
+      "name": "Hemorrhage Ritual",
+      "description": "Hemorrhage Ritual - bw_a4: pierce.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a4",
+        "flag": "pierce"
+      },
+      "icon": "hemorrhage_ritual"
+    },
+    {
+      "id": "bladewalker_blood_n29",
+      "treeId": "bladewalker_blood",
+      "parent": "bladewalker_blood_n20",
+      "depth": 6,
+      "name": "Blood God",
+      "description": "Blood God - +3% resourceRegen.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.03
+      },
+      "icon": "blood_god"
+    }
+  ]
+}

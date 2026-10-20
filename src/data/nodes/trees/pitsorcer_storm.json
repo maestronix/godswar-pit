@@ -1,0 +1,537 @@
+{
+  "id": "pitsorcer_storm",
+  "classId": "pitsorcer",
+  "name": "Storm",
+  "description": "Call the sky down. It is the only god that still answers.",
+  "nodes": [
+    {
+      "id": "pitsorcer_storm_n00",
+      "treeId": "pitsorcer_storm",
+      "parent": null,
+      "depth": 1,
+      "name": "Static Field",
+      "description": "Static Field - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "static_field"
+    },
+    {
+      "id": "pitsorcer_storm_n01",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n00",
+      "depth": 2,
+      "name": "Arc Bolt",
+      "description": "Arc Bolt - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "arc_bolt"
+    },
+    {
+      "id": "pitsorcer_storm_n02",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n00",
+      "depth": 2,
+      "name": "Charged Air",
+      "description": "Charged Air - While your resource is full: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "charged_air"
+    },
+    {
+      "id": "pitsorcer_storm_n03",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n01",
+      "depth": 3,
+      "name": "Thunderclap",
+      "description": "Thunderclap - +3% resourceRegen.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.03
+      },
+      "icon": "thunderclap"
+    },
+    {
+      "id": "pitsorcer_storm_n04",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n01",
+      "depth": 3,
+      "name": "Overcharge",
+      "description": "Overcharge - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "overcharge"
+    },
+    {
+      "id": "pitsorcer_storm_n05",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n02",
+      "depth": 3,
+      "name": "Storm Caller",
+      "description": "Storm Caller - Passive \"ps_p4\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p4",
+        "rank": 1
+      },
+      "icon": "storm_caller"
+    },
+    {
+      "id": "pitsorcer_storm_n06",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n02",
+      "depth": 3,
+      "name": "Ball Lightning",
+      "description": "Ball Lightning - While you are below half health: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "ball_lightning"
+    },
+    {
+      "id": "pitsorcer_storm_n07",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n03",
+      "depth": 4,
+      "name": "Chain Reaction",
+      "description": "Chain Reaction - ps_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a1",
+        "ticks": -5
+      },
+      "icon": "chain_reaction"
+    },
+    {
+      "id": "pitsorcer_storm_n08",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n03",
+      "depth": 4,
+      "name": "High Voltage",
+      "description": "High Voltage - ps_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "delta": -3
+      },
+      "icon": "high_voltage"
+    },
+    {
+      "id": "pitsorcer_storm_n09",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n04",
+      "depth": 4,
+      "name": "Tempest Weapon",
+      "description": "Tempest Weapon - aura: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "aura",
+        "ticks": 10
+      },
+      "icon": "tempest_weapon"
+    },
+    {
+      "id": "pitsorcer_storm_n10",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n05",
+      "depth": 4,
+      "name": "Forked Lightning",
+      "description": "Forked Lightning - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "forked_lightning"
+    },
+    {
+      "id": "pitsorcer_storm_n11",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n05",
+      "depth": 4,
+      "name": "Storm Front",
+      "description": "Storm Front - ps_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "count": 1
+      },
+      "icon": "storm_front"
+    },
+    {
+      "id": "pitsorcer_storm_n12",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n06",
+      "depth": 4,
+      "name": "Conduction",
+      "description": "Conduction - Passive \"ps_p8\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p8",
+        "rank": 1
+      },
+      "icon": "conduction"
+    },
+    {
+      "id": "pitsorcer_storm_n13",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n07",
+      "depth": 5,
+      "name": "Electrical Skin",
+      "description": "Electrical Skin - ps_a2: aoe.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a2",
+        "flag": "aoe"
+      },
+      "icon": "electrical_skin"
+    },
+    {
+      "id": "pitsorcer_storm_n14",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n07",
+      "depth": 5,
+      "name": "Rapid Discharge",
+      "description": "Rapid Discharge - ps_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a1",
+        "count": 1
+      },
+      "icon": "rapid_discharge"
+    },
+    {
+      "id": "pitsorcer_storm_n15",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n08",
+      "depth": 5,
+      "name": "Storm Crown",
+      "description": "Storm Crown - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "storm_crown"
+    },
+    {
+      "id": "pitsorcer_storm_n16",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n09",
+      "depth": 5,
+      "name": "Discharge",
+      "description": "Discharge - Unlocks rune \"ps_a1_shatter\" for ps_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a1",
+        "rune": "ps_a1_shatter"
+      },
+      "icon": "discharge"
+    },
+    {
+      "id": "pitsorcer_storm_n17",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n10",
+      "depth": 5,
+      "name": "The Gathering Sky",
+      "description": "The Gathering Sky - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "the_gathering_sky"
+    },
+    {
+      "id": "pitsorcer_storm_n18",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n10",
+      "depth": 5,
+      "name": "Thunderbolt",
+      "description": "Thunderbolt - +3% critDamage.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "thunderbolt"
+    },
+    {
+      "id": "pitsorcer_storm_n19",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n11",
+      "depth": 5,
+      "name": "Voltage",
+      "description": "Voltage - ps_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "ticks": -5
+      },
+      "icon": "voltage"
+    },
+    {
+      "id": "pitsorcer_storm_n20",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n12",
+      "depth": 5,
+      "name": "Skyfall",
+      "description": "Skyfall - ps_a2: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ps_a2",
+        "delta": -3
+      },
+      "icon": "skyfall"
+    },
+    {
+      "id": "pitsorcer_storm_n21",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n13",
+      "depth": 6,
+      "name": "Storm Herald",
+      "description": "Storm Herald - Unlocks the skill \"ps_a1\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a1",
+        "permanent": false
+      },
+      "icon": "storm_herald"
+    },
+    {
+      "id": "pitsorcer_storm_n22",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n13",
+      "depth": 6,
+      "name": "Voltaic Wrath",
+      "description": "Voltaic Wrath - Unlocks rune \"ps_a2_overload\" for ps_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a2",
+        "rune": "ps_a2_overload"
+      },
+      "icon": "voltaic_wrath"
+    },
+    {
+      "id": "pitsorcer_storm_n23",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n14",
+      "depth": 6,
+      "name": "Eye of the Storm",
+      "description": "Eye of the Storm - +3% attackSpeed.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "eye_of_the_storm"
+    },
+    {
+      "id": "pitsorcer_storm_n24",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n15",
+      "depth": 6,
+      "name": "Tempest Heart",
+      "description": "Tempest Heart - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "tempest_heart"
+    },
+    {
+      "id": "pitsorcer_storm_n25",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n16",
+      "depth": 6,
+      "name": "Thunder Sovereign",
+      "description": "Thunder Sovereign - Passive \"ps_p2\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ps_p2",
+        "rank": 1
+      },
+      "icon": "thunder_sovereign"
+    },
+    {
+      "id": "pitsorcer_storm_n26",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n17",
+      "depth": 6,
+      "name": "Stormcaller's Crown",
+      "description": "Stormcaller's Crown - While a boss stands before you: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "stormcaller_s_crown"
+    },
+    {
+      "id": "pitsorcer_storm_n27",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n18",
+      "depth": 6,
+      "name": "Lightning Domain",
+      "description": "Lightning Domain - rage: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "rage",
+        "ticks": 10
+      },
+      "icon": "lightning_domain"
+    },
+    {
+      "id": "pitsorcer_storm_n28",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n19",
+      "depth": 6,
+      "name": "Sky's Wrath",
+      "description": "Sky's Wrath - ps_a2: aoe.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a2",
+        "flag": "aoe"
+      },
+      "icon": "sky_s_wrath"
+    },
+    {
+      "id": "pitsorcer_storm_n29",
+      "treeId": "pitsorcer_storm",
+      "parent": "pitsorcer_storm_n20",
+      "depth": 6,
+      "name": "Thunderhead",
+      "description": "Thunderhead - +3% soulYieldPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.03
+      },
+      "icon": "thunderhead"
+    }
+  ]
+}

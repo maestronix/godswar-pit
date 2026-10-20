@@ -1,0 +1,62 @@
+{
+  "id": "ironpriest",
+  "name": "Ironpriest",
+  "tagline": "Faith is heavy, and the pit breaks against it.",
+  "resource": "Faith",
+  "resourceMax": 100,
+  "resourcePerHit": 4,
+  "resourceRegen": 5,
+  "base": {
+    "hp": 175,
+    "armor": 16,
+    "damage": 11,
+    "attackSpeed": 1.25,
+    "critChance": 0.05,
+    "critDamage": 1.5
+  },
+  "weaponBases": [
+    "hammer",
+    "greatsword",
+    "sword",
+    "spear",
+    "gauntlets",
+    "axe"
+  ],
+  "aspects": [
+    "dawnward",
+    "consecration",
+    "martyrdom",
+    "iron_prayer",
+    "hunters_mark"
+  ],
+  "trees": [
+    "ironpriest_faith",
+    "ironpriest_shield",
+    "ironpriest_light"
+  ],
+  "signature": "ip_signature",
+  "actives": [
+    "ip_a1",
+    "ip_a2",
+    "ip_a3",
+    "ip_a4"
+  ],
+  "passives": [
+    "ip_p1",
+    "ip_p2",
+    "ip_p3",
+    "ip_p4",
+    "ip_p5",
+    "ip_p6",
+    "ip_p7",
+    "ip_p8"
+  ],
+  "palette": {
+    "skin": "#e6c9a3",
+    "hair": "#d8c46a",
+    "cloth": "#d8d2c0",
+    "metal": "#c9ced8",
+    "accent": "#ffd76a",
+    "glow": "#fff3c4"
+  }
+}

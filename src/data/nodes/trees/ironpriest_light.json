@@ -1,0 +1,537 @@
+{
+  "id": "ironpriest_light",
+  "classId": "ironpriest",
+  "name": "Light",
+  "description": "The pit swallowed two gods. Their afterglow still burns.",
+  "nodes": [
+    {
+      "id": "ironpriest_light_n00",
+      "treeId": "ironpriest_light",
+      "parent": null,
+      "depth": 1,
+      "name": "First Light",
+      "description": "First Light - +10% aoePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_light"
+    },
+    {
+      "id": "ironpriest_light_n01",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n00",
+      "depth": 2,
+      "name": "Radiance",
+      "description": "Radiance - +3% aoePct.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.03
+      },
+      "icon": "radiance"
+    },
+    {
+      "id": "ironpriest_light_n02",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n00",
+      "depth": 2,
+      "name": "Beam",
+      "description": "Beam - While your resource is full: +4% aoePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "beam"
+    },
+    {
+      "id": "ironpriest_light_n03",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n01",
+      "depth": 3,
+      "name": "Lumen",
+      "description": "Lumen - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "lumen"
+    },
+    {
+      "id": "ironpriest_light_n04",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n01",
+      "depth": 3,
+      "name": "Illumination",
+      "description": "Illumination - +10% aoePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "illumination"
+    },
+    {
+      "id": "ironpriest_light_n05",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n02",
+      "depth": 3,
+      "name": "Dawnfire",
+      "description": "Dawnfire - Passive \"ip_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p3",
+        "rank": 1
+      },
+      "icon": "dawnfire"
+    },
+    {
+      "id": "ironpriest_light_n06",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n02",
+      "depth": 3,
+      "name": "Haste of Light",
+      "description": "Haste of Light - While you are below half health: +4% aoePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "haste_of_light"
+    },
+    {
+      "id": "ironpriest_light_n07",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n03",
+      "depth": 4,
+      "name": "Prism",
+      "description": "Prism - ip_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a2",
+        "ticks": -5
+      },
+      "icon": "prism"
+    },
+    {
+      "id": "ironpriest_light_n08",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n03",
+      "depth": 4,
+      "name": "Sunburst",
+      "description": "Sunburst - ip_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "delta": -3
+      },
+      "icon": "sunburst"
+    },
+    {
+      "id": "ironpriest_light_n09",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n04",
+      "depth": 4,
+      "name": "Clarity",
+      "description": "Clarity - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "clarity"
+    },
+    {
+      "id": "ironpriest_light_n10",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n05",
+      "depth": 4,
+      "name": "Burning Radiance",
+      "description": "Burning Radiance - +3% aoePct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.03
+      },
+      "icon": "burning_radiance"
+    },
+    {
+      "id": "ironpriest_light_n11",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n05",
+      "depth": 4,
+      "name": "Light's Edge",
+      "description": "Light's Edge - ip_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "count": 1
+      },
+      "icon": "light_s_edge"
+    },
+    {
+      "id": "ironpriest_light_n12",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n06",
+      "depth": 4,
+      "name": "Consecrated Fire",
+      "description": "Consecrated Fire - Passive \"ip_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p7",
+        "rank": 1
+      },
+      "icon": "consecrated_fire"
+    },
+    {
+      "id": "ironpriest_light_n13",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n07",
+      "depth": 5,
+      "name": "Holy Fire",
+      "description": "Holy Fire - ip_a4: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a4",
+        "flag": "chain"
+      },
+      "icon": "holy_fire"
+    },
+    {
+      "id": "ironpriest_light_n14",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n07",
+      "depth": 5,
+      "name": "Revelation",
+      "description": "Revelation - ip_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a2",
+        "count": 1
+      },
+      "icon": "revelation"
+    },
+    {
+      "id": "ironpriest_light_n15",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n08",
+      "depth": 5,
+      "name": "Beacon",
+      "description": "Beacon - poison: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "poison",
+        "ticks": 10
+      },
+      "icon": "beacon"
+    },
+    {
+      "id": "ironpriest_light_n16",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n09",
+      "depth": 5,
+      "name": "Flash",
+      "description": "Flash - Unlocks rune \"ip_a2_dawn\" for ip_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a2",
+        "rune": "ip_a2_dawn"
+      },
+      "icon": "flash"
+    },
+    {
+      "id": "ironpriest_light_n17",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n10",
+      "depth": 5,
+      "name": "Solar Flare",
+      "description": "Solar Flare - +10% aoePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "solar_flare"
+    },
+    {
+      "id": "ironpriest_light_n18",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n10",
+      "depth": 5,
+      "name": "Warding Light",
+      "description": "Warding Light - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "warding_light"
+    },
+    {
+      "id": "ironpriest_light_n19",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n11",
+      "depth": 5,
+      "name": "Purity",
+      "description": "Purity - ip_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "ticks": -5
+      },
+      "icon": "purity"
+    },
+    {
+      "id": "ironpriest_light_n20",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n12",
+      "depth": 5,
+      "name": "Lamp of the Pit",
+      "description": "Lamp of the Pit - ip_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "delta": -3
+      },
+      "icon": "lamp_of_the_pit"
+    },
+    {
+      "id": "ironpriest_light_n21",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n13",
+      "depth": 6,
+      "name": "Brilliance",
+      "description": "Brilliance - Unlocks the skill \"ip_a2\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a2",
+        "permanent": false
+      },
+      "icon": "brilliance"
+    },
+    {
+      "id": "ironpriest_light_n22",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n13",
+      "depth": 6,
+      "name": "Scintillation",
+      "description": "Scintillation - Unlocks rune \"ip_a4_ward\" for ip_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a4",
+        "rune": "ip_a4_ward"
+      },
+      "icon": "scintillation"
+    },
+    {
+      "id": "ironpriest_light_n23",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n14",
+      "depth": 6,
+      "name": "Solar Crown",
+      "description": "Solar Crown - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "solar_crown"
+    },
+    {
+      "id": "ironpriest_light_n24",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n15",
+      "depth": 6,
+      "name": "The Radiant",
+      "description": "The Radiant - +10% aoePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "the_radiant"
+    },
+    {
+      "id": "ironpriest_light_n25",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n16",
+      "depth": 6,
+      "name": "Lumen Domain",
+      "description": "Lumen Domain - Passive \"ip_p1\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p1",
+        "rank": 1
+      },
+      "icon": "lumen_domain"
+    },
+    {
+      "id": "ironpriest_light_n26",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n17",
+      "depth": 6,
+      "name": "Starfire",
+      "description": "Starfire - While a boss stands before you: +4% aoePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "starfire"
+    },
+    {
+      "id": "ironpriest_light_n27",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n18",
+      "depth": 6,
+      "name": "Sacred Flame",
+      "description": "Sacred Flame - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "sacred_flame"
+    },
+    {
+      "id": "ironpriest_light_n28",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n19",
+      "depth": 6,
+      "name": "Radiant Sovereign",
+      "description": "Radiant Sovereign - ip_a4: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a4",
+        "flag": "chain"
+      },
+      "icon": "radiant_sovereign"
+    },
+    {
+      "id": "ironpriest_light_n29",
+      "treeId": "ironpriest_light",
+      "parent": "ironpriest_light_n20",
+      "depth": 6,
+      "name": "The Second Sun",
+      "description": "The Second Sun - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "the_second_sun"
+    }
+  ]
+}

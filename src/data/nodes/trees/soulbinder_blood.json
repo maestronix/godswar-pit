@@ -1,0 +1,537 @@
+{
+  "id": "soulbinder_blood",
+  "classId": "soulbinder",
+  "name": "Blood",
+  "description": "Every soul is a coin. Spend it carefully.",
+  "nodes": [
+    {
+      "id": "soulbinder_blood_n00",
+      "treeId": "soulbinder_blood",
+      "parent": null,
+      "depth": 1,
+      "name": "First Drain",
+      "description": "First Drain - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_drain"
+    },
+    {
+      "id": "soulbinder_blood_n01",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n00",
+      "depth": 2,
+      "name": "Crimson Feast",
+      "description": "Crimson Feast - +3% lifeOnHit.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.03
+      },
+      "icon": "crimson_feast"
+    },
+    {
+      "id": "soulbinder_blood_n02",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n00",
+      "depth": 2,
+      "name": "Blood Pact",
+      "description": "Blood Pact - While fewer than three enemies stand: +4% lifeOnHit.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "blood_pact"
+    },
+    {
+      "id": "soulbinder_blood_n03",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n01",
+      "depth": 3,
+      "name": "Thirst",
+      "description": "Thirst - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "thirst"
+    },
+    {
+      "id": "soulbinder_blood_n04",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n01",
+      "depth": 3,
+      "name": "Leech",
+      "description": "Leech - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "leech"
+    },
+    {
+      "id": "soulbinder_blood_n05",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n02",
+      "depth": 3,
+      "name": "Red Wound",
+      "description": "Red Wound - Passive \"sb_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p5",
+        "rank": 1
+      },
+      "icon": "red_wound"
+    },
+    {
+      "id": "soulbinder_blood_n06",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n02",
+      "depth": 3,
+      "name": "Sanguine Bond",
+      "description": "Sanguine Bond - While your resource is below half: +4% lifeOnHit.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is below half"
+      },
+      "icon": "sanguine_bond"
+    },
+    {
+      "id": "soulbinder_blood_n07",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n03",
+      "depth": 4,
+      "name": "Hemoglobin",
+      "description": "Hemoglobin - sb_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a2",
+        "ticks": -5
+      },
+      "icon": "hemoglobin"
+    },
+    {
+      "id": "soulbinder_blood_n08",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n03",
+      "depth": 4,
+      "name": "Vitality Drain",
+      "description": "Vitality Drain - sb_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "delta": -3
+      },
+      "icon": "vitality_drain"
+    },
+    {
+      "id": "soulbinder_blood_n09",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n04",
+      "depth": 4,
+      "name": "Vein Open",
+      "description": "Vein Open - burn: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "burn",
+        "ticks": 10
+      },
+      "icon": "vein_open"
+    },
+    {
+      "id": "soulbinder_blood_n10",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n05",
+      "depth": 4,
+      "name": "Bloodmark",
+      "description": "Bloodmark - +3% lifeOnHit.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.03
+      },
+      "icon": "bloodmark"
+    },
+    {
+      "id": "soulbinder_blood_n11",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n05",
+      "depth": 4,
+      "name": "Crimson Echo",
+      "description": "Crimson Echo - sb_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "count": 1
+      },
+      "icon": "crimson_echo"
+    },
+    {
+      "id": "soulbinder_blood_n12",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n06",
+      "depth": 4,
+      "name": "Sanguine Sight",
+      "description": "Sanguine Sight - Passive \"sb_p1\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p1",
+        "rank": 1
+      },
+      "icon": "sanguine_sight"
+    },
+    {
+      "id": "soulbinder_blood_n13",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n07",
+      "depth": 5,
+      "name": "Scarlet Feast",
+      "description": "Scarlet Feast - sb_a4: single.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a4",
+        "flag": "single"
+      },
+      "icon": "scarlet_feast"
+    },
+    {
+      "id": "soulbinder_blood_n14",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n07",
+      "depth": 5,
+      "name": "Hemomancy",
+      "description": "Hemomancy - sb_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a2",
+        "count": 1
+      },
+      "icon": "hemomancy"
+    },
+    {
+      "id": "soulbinder_blood_n15",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n08",
+      "depth": 5,
+      "name": "Red Shroud",
+      "description": "Red Shroud - rage: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "rage",
+        "ticks": 10
+      },
+      "icon": "red_shroud"
+    },
+    {
+      "id": "soulbinder_blood_n16",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n09",
+      "depth": 5,
+      "name": "Bleed Ward",
+      "description": "Bleed Ward - Unlocks rune \"sb_a2_siphon\" for sb_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a2",
+        "rune": "sb_a2_siphon"
+      },
+      "icon": "bleed_ward"
+    },
+    {
+      "id": "soulbinder_blood_n17",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n10",
+      "depth": 5,
+      "name": "The Red Hour",
+      "description": "The Red Hour - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "the_red_hour"
+    },
+    {
+      "id": "soulbinder_blood_n18",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n10",
+      "depth": 5,
+      "name": "Blood Sorcery",
+      "description": "Blood Sorcery - +3% cooldownReduction.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.03
+      },
+      "icon": "blood_sorcery"
+    },
+    {
+      "id": "soulbinder_blood_n19",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n11",
+      "depth": 5,
+      "name": "Arterial Cut",
+      "description": "Arterial Cut - sb_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "ticks": -5
+      },
+      "icon": "arterial_cut"
+    },
+    {
+      "id": "soulbinder_blood_n20",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n12",
+      "depth": 5,
+      "name": "Gout",
+      "description": "Gout - sb_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "sb_a4",
+        "delta": -3
+      },
+      "icon": "gout"
+    },
+    {
+      "id": "soulbinder_blood_n21",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n13",
+      "depth": 6,
+      "name": "Ruby Wound",
+      "description": "Ruby Wound - Unlocks the skill \"sb_a2\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a2",
+        "permanent": false
+      },
+      "icon": "ruby_wound"
+    },
+    {
+      "id": "soulbinder_blood_n22",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n13",
+      "depth": 6,
+      "name": "Vital Hunger",
+      "description": "Vital Hunger - Unlocks rune \"sb_a4_curse\" for sb_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a4",
+        "rune": "sb_a4_curse"
+      },
+      "icon": "vital_hunger"
+    },
+    {
+      "id": "soulbinder_blood_n23",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n14",
+      "depth": 6,
+      "name": "Crimson Crown",
+      "description": "Crimson Crown - +1.2% critChance.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.012
+      },
+      "icon": "crimson_crown"
+    },
+    {
+      "id": "soulbinder_blood_n24",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n15",
+      "depth": 6,
+      "name": "Sanguine Edge",
+      "description": "Sanguine Edge - +10% lifeOnHit (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "sanguine_edge"
+    },
+    {
+      "id": "soulbinder_blood_n25",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n16",
+      "depth": 6,
+      "name": "Second Pact",
+      "description": "Second Pact - Passive \"sb_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "sb_p3",
+        "rank": 1
+      },
+      "icon": "second_pact"
+    },
+    {
+      "id": "soulbinder_blood_n26",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n17",
+      "depth": 6,
+      "name": "Hemolock",
+      "description": "Hemolock - While you are below half health: +4% lifeOnHit.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "hemolock"
+    },
+    {
+      "id": "soulbinder_blood_n27",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n18",
+      "depth": 6,
+      "name": "Rune of Blood",
+      "description": "Rune of Blood - shield: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "shield",
+        "ticks": 10
+      },
+      "icon": "rune_of_blood"
+    },
+    {
+      "id": "soulbinder_blood_n28",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n19",
+      "depth": 6,
+      "name": "Blood Sovereign",
+      "description": "Blood Sovereign - sb_a4: single.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a4",
+        "flag": "single"
+      },
+      "icon": "blood_sovereign"
+    },
+    {
+      "id": "soulbinder_blood_n29",
+      "treeId": "soulbinder_blood",
+      "parent": "soulbinder_blood_n20",
+      "depth": 6,
+      "name": "Sanguine Feast",
+      "description": "Sanguine Feast - +3% moveSpeed.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "sanguine_feast"
+    }
+  ]
+}

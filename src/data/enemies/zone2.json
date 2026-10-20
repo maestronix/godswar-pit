@@ -1,0 +1,252 @@
+[
+  {
+    "id": "z2_warrensnout",
+    "name": "Warren Snout",
+    "hp": 48,
+    "dps": 5.99,
+    "speed": 2.8,
+    "range": 1,
+    "tier": 1,
+    "sprite": "snout",
+    "traits": [
+      "beast",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.15,
+        "duration": 15,
+        "stacks": 1
+      }
+    ],
+    "souls": 1,
+    "lootBonus": 1,
+    "size": 0.9
+  },
+  {
+    "id": "z2_pale_stalker",
+    "name": "Pale Stalker",
+    "hp": 48,
+    "dps": 5.99,
+    "speed": 2.6,
+    "range": 1.1,
+    "tier": 1,
+    "sprite": "stalker",
+    "traits": [
+      "beast"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.2,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1,
+    "size": 1
+  },
+  {
+    "id": "z2_spore_crawler",
+    "name": "Spore Crawler",
+    "hp": 62,
+    "dps": 7.3,
+    "speed": 2.2,
+    "range": 1.1,
+    "tier": 2,
+    "sprite": "crawler",
+    "traits": [
+      "beast"
+    ],
+    "onHit": [
+      {
+        "status": "poison",
+        "chance": 0.25,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.1,
+    "size": 0.9
+  },
+  {
+    "id": "z2_mire_hound",
+    "name": "Mire Hound",
+    "hp": 62,
+    "dps": 7.3,
+    "speed": 3,
+    "range": 1,
+    "tier": 2,
+    "sprite": "hound",
+    "traits": [
+      "beast",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "poison",
+        "chance": 0.18,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1,
+    "size": 0.9
+  },
+  {
+    "id": "z2_rot_bloater",
+    "name": "Rot Bloater",
+    "hp": 62,
+    "dps": 7.3,
+    "speed": 1.7,
+    "range": 1,
+    "tier": 2,
+    "sprite": "bloater",
+    "traits": [
+      "beast",
+      "explosive"
+    ],
+    "onHit": [
+      {
+        "status": "poison",
+        "chance": 0.3,
+        "duration": 20,
+        "stacks": 2
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.3,
+    "size": 1.1
+  },
+  {
+    "id": "z2_thorn_antler",
+    "name": "Thorn Antler",
+    "hp": 75,
+    "dps": 8.62,
+    "speed": 1.9,
+    "range": 1.4,
+    "tier": 3,
+    "sprite": "antler",
+    "traits": [
+      "beast",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.2,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1.2
+  },
+  {
+    "id": "z2_mother_larva",
+    "name": "Mother Larva",
+    "hp": 75,
+    "dps": 8.62,
+    "speed": 1.6,
+    "range": 1.2,
+    "tier": 3,
+    "sprite": "larva",
+    "traits": [
+      "beast",
+      "regenerating"
+    ],
+    "onHit": [
+      {
+        "status": "poison",
+        "chance": 0.22,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.2,
+    "size": 1.1
+  },
+  {
+    "id": "z2_howler_shrub",
+    "name": "Howler Shrub",
+    "hp": 75,
+    "dps": 8.62,
+    "speed": 1.5,
+    "range": 2.3,
+    "tier": 3,
+    "sprite": "shrub",
+    "traits": [
+      "beast",
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.2,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1
+  },
+  {
+    "id": "z2_elite_goreback",
+    "name": "Goreback",
+    "hp": 181,
+    "dps": 13.79,
+    "speed": 2,
+    "range": 1.3,
+    "tier": 3,
+    "sprite": "goreback",
+    "traits": [
+      "elite",
+      "beast",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.3,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.6,
+    "size": 1.3
+  },
+  {
+    "id": "z2_boss_mire_mother",
+    "name": "Mire Mother",
+    "hp": 800,
+    "dps": 21.86,
+    "speed": 1.4,
+    "range": 1.5,
+    "tier": 4,
+    "sprite": "mire_mother",
+    "traits": [
+      "boss",
+      "beast",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "poison",
+        "chance": 0.3,
+        "duration": 35,
+        "stacks": 3
+      }
+    ],
+    "souls": 6,
+    "lootBonus": 2,
+    "size": 1.4
+  }
+]

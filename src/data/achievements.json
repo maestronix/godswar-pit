@@ -1,0 +1,926 @@
+[
+  {
+    "id": "ach_first_blood",
+    "category": "COMBAT",
+    "name": "First Blood",
+    "description": "Kill your first reaver in the pit.",
+    "metric": "kills",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 100
+    },
+    "icon": "blood"
+  },
+  {
+    "id": "ach_ruthless",
+    "category": "COMBAT",
+    "name": "Ruthless",
+    "description": "Cut down 500 enemies without showing mercy.",
+    "metric": "kills",
+    "threshold": 500,
+    "reward": {
+      "kind": "souls",
+      "amount": 1500
+    },
+    "icon": "blade"
+  },
+  {
+    "id": "ach_thousand_cuts",
+    "category": "COMBAT",
+    "name": "Thousand Cuts",
+    "description": "Kill 1,000 enemies across every run.",
+    "metric": "kills",
+    "threshold": 1000,
+    "reward": {
+      "kind": "souls",
+      "amount": 3000
+    },
+    "icon": "sword"
+  },
+  {
+    "id": "ach_pit_slaughterer",
+    "category": "COMBAT",
+    "name": "Pit Slaughterer",
+    "description": "Kill 10,000 enemies and make the pit remember your name.",
+    "metric": "kills",
+    "threshold": 10000,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 1
+    },
+    "icon": "skull"
+  },
+  {
+    "id": "ach_reaver",
+    "category": "COMBAT",
+    "name": "Reaver",
+    "description": "Slay 10 bosses in the pit.",
+    "metric": "boss_kills",
+    "threshold": 10,
+    "reward": {
+      "kind": "souls",
+      "amount": 2500
+    },
+    "icon": "crown"
+  },
+  {
+    "id": "ach_throne_breaker",
+    "category": "COMBAT",
+    "name": "Throne Breaker",
+    "description": "Defeat 100 bosses and their guards.",
+    "metric": "boss_kills",
+    "threshold": 100,
+    "reward": {
+      "kind": "souls",
+      "amount": 12000
+    },
+    "icon": "throne"
+  },
+  {
+    "id": "ach_bonepicker",
+    "category": "COMBAT",
+    "name": "Bonepicker",
+    "description": "Defeat 500 bosses.",
+    "metric": "boss_kills",
+    "threshold": 500,
+    "reward": {
+      "kind": "souls",
+      "amount": 30000
+    },
+    "icon": "bone"
+  },
+  {
+    "id": "ach_no_quarter",
+    "category": "COMBAT",
+    "name": "No Quarter",
+    "description": "Survive a full run without drinking a single potion.",
+    "metric": "runs_survived",
+    "threshold": 1,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 1
+    },
+    "icon": "chalice"
+  },
+  {
+    "id": "ach_undying",
+    "category": "COMBAT",
+    "name": "Undying",
+    "description": "Survive 50 runs in the pit.",
+    "metric": "runs_survived",
+    "threshold": 50,
+    "reward": {
+      "kind": "souls",
+      "amount": 20000
+    },
+    "icon": "heart"
+  },
+  {
+    "id": "ach_godswar_veteran",
+    "category": "COMBAT",
+    "name": "Godswar Veteran",
+    "description": "Defeat 1,000 bosses and outlive every one of them.",
+    "metric": "boss_kills",
+    "threshold": 1000,
+    "reward": {
+      "kind": "echo",
+      "amount": 3
+    },
+    "icon": "star"
+  },
+  {
+    "id": "ach_descent",
+    "category": "DEPTH",
+    "name": "Descent",
+    "description": "Reach depth 8 of the pit in a single run.",
+    "metric": "deepest_run",
+    "threshold": 8,
+    "reward": {
+      "kind": "souls",
+      "amount": 800
+    },
+    "icon": "ladder"
+  },
+  {
+    "id": "ach_deep_shaft",
+    "category": "DEPTH",
+    "name": "Deep Shaft",
+    "description": "Reach depth 14 in a single run.",
+    "metric": "deepest_run",
+    "threshold": 14,
+    "reward": {
+      "kind": "souls",
+      "amount": 4000
+    },
+    "icon": "rope"
+  },
+  {
+    "id": "ach_hollow_descent",
+    "category": "DEPTH",
+    "name": "Hollow Descent",
+    "description": "Reach depth 20 in a single run.",
+    "metric": "deepest_run",
+    "threshold": 20,
+    "reward": {
+      "kind": "souls",
+      "amount": 12000
+    },
+    "icon": "well"
+  },
+  {
+    "id": "ach_abyss_walker",
+    "category": "DEPTH",
+    "name": "Abyss Walker",
+    "description": "Reach depth 28, where the lamps stop working.",
+    "metric": "deepest_run",
+    "threshold": 28,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 1
+    },
+    "icon": "abyss"
+  },
+  {
+    "id": "ach_rootless",
+    "category": "DEPTH",
+    "name": "Rootless",
+    "description": "Visit 200 nodes of the pit.",
+    "metric": "nodes_visited",
+    "threshold": 200,
+    "reward": {
+      "kind": "souls",
+      "amount": 5000
+    },
+    "icon": "map"
+  },
+  {
+    "id": "ach_pathfinder",
+    "category": "DEPTH",
+    "name": "Pathfinder",
+    "description": "Visit 1,000 nodes of the pit.",
+    "metric": "nodes_visited",
+    "threshold": 1000,
+    "reward": {
+      "kind": "souls",
+      "amount": 20000
+    },
+    "icon": "compass"
+  },
+  {
+    "id": "ach_cartographer",
+    "category": "DEPTH",
+    "name": "Cartographer",
+    "description": "Visit 5,000 nodes of the pit.",
+    "metric": "nodes_visited",
+    "threshold": 5000,
+    "reward": {
+      "kind": "souls",
+      "amount": 60000
+    },
+    "icon": "globe"
+  },
+  {
+    "id": "ach_void_cartographer",
+    "category": "DEPTH",
+    "name": "Void Cartographer",
+    "description": "Visit 20,000 nodes and draw the whole pit.",
+    "metric": "nodes_visited",
+    "threshold": 20000,
+    "reward": {
+      "kind": "echo",
+      "amount": 3
+    },
+    "icon": "void"
+  },
+  {
+    "id": "ach_bottomless",
+    "category": "DEPTH",
+    "name": "Bottomless",
+    "description": "Reach depth 40, where the throne rooms begin.",
+    "metric": "deepest_run",
+    "threshold": 40,
+    "reward": {
+      "kind": "souls",
+      "amount": 200000
+    },
+    "icon": "crown"
+  },
+  {
+    "id": "ach_first_spoils",
+    "category": "LOOT",
+    "name": "First Spoils",
+    "description": "Bring your first relic out of the pit.",
+    "metric": "items_found",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 50
+    },
+    "icon": "chest"
+  },
+  {
+    "id": "ach_gatherer",
+    "category": "LOOT",
+    "name": "Gatherer",
+    "description": "Collect 100 relics.",
+    "metric": "items_found",
+    "threshold": 100,
+    "reward": {
+      "kind": "souls",
+      "amount": 1500
+    },
+    "icon": "bag"
+  },
+  {
+    "id": "ach_hoarder",
+    "category": "LOOT",
+    "name": "Hoarder",
+    "description": "Collect 1,000 relics.",
+    "metric": "items_found",
+    "threshold": 1000,
+    "reward": {
+      "kind": "souls",
+      "amount": 8000
+    },
+    "icon": "pile"
+  },
+  {
+    "id": "ach_vault_keeper",
+    "category": "LOOT",
+    "name": "Vault Keeper",
+    "description": "Collect 5,000 relics and keep them out of the vault.",
+    "metric": "items_found",
+    "threshold": 5000,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 1
+    },
+    "icon": "vault"
+  },
+  {
+    "id": "ach_rare_find",
+    "category": "LOOT",
+    "name": "Rare Find",
+    "description": "Find your first legendary relic.",
+    "metric": "legendary_found",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 3000
+    },
+    "icon": "gem"
+  },
+  {
+    "id": "ach_legend_hunter",
+    "category": "LOOT",
+    "name": "Legend Hunter",
+    "description": "Find 25 legendary relics.",
+    "metric": "legendary_found",
+    "threshold": 25,
+    "reward": {
+      "kind": "souls",
+      "amount": 20000
+    },
+    "icon": "hunt"
+  },
+  {
+    "id": "ach_mythic_touch",
+    "category": "LOOT",
+    "name": "Mythic Touch",
+    "description": "Find 100 legendary relics.",
+    "metric": "legendary_found",
+    "threshold": 100,
+    "reward": {
+      "kind": "souls",
+      "amount": 80000
+    },
+    "icon": "relic"
+  },
+  {
+    "id": "ach_relic_bearer",
+    "category": "LOOT",
+    "name": "Relic Bearer",
+    "description": "Find 500 legendary relics and wear one as a title.",
+    "metric": "legendary_found",
+    "threshold": 500,
+    "reward": {
+      "kind": "title",
+      "amount": 1,
+      "id": "title_relic_bearer"
+    },
+    "icon": "crown"
+  },
+  {
+    "id": "ach_fortune_favors",
+    "category": "LOOT",
+    "name": "Fortune Favors",
+    "description": "Find 2,000 legendary relics.",
+    "metric": "legendary_found",
+    "threshold": 2000,
+    "reward": {
+      "kind": "echo",
+      "amount": 3
+    },
+    "icon": "coin"
+  },
+  {
+    "id": "ach_first_throne",
+    "category": "META",
+    "name": "First Throne",
+    "description": "Claim your first throne in the pit.",
+    "metric": "thrones_claimed",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 1000
+    },
+    "icon": "throne"
+  },
+  {
+    "id": "ach_throne_keeper",
+    "category": "META",
+    "name": "Throne Keeper",
+    "description": "Claim five thrones.",
+    "metric": "thrones_claimed",
+    "threshold": 5,
+    "reward": {
+      "kind": "souls",
+      "amount": 8000
+    },
+    "icon": "throne"
+  },
+  {
+    "id": "ach_ascendant",
+    "category": "META",
+    "name": "Ascendant",
+    "description": "Claim all ten thrones of the pit.",
+    "metric": "thrones_claimed",
+    "threshold": 10,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 1
+    },
+    "icon": "ascend"
+  },
+  {
+    "id": "ach_grace_keeper",
+    "category": "META",
+    "name": "Grace Keeper",
+    "description": "Earn 100,000 souls in total.",
+    "metric": "souls_earned",
+    "threshold": 100000,
+    "reward": {
+      "kind": "echo",
+      "amount": 3
+    },
+    "icon": "mirror"
+  },
+  {
+    "id": "ach_divine_accumulator",
+    "category": "META",
+    "name": "Divine Accumulator",
+    "description": "Earn 1,000,000 souls in total.",
+    "metric": "souls_earned",
+    "threshold": 1000000,
+    "reward": {
+      "kind": "souls",
+      "amount": 40000
+    },
+    "icon": "coin"
+  },
+  {
+    "id": "ach_soul_magnate",
+    "category": "META",
+    "name": "Soul Magnate",
+    "description": "Earn 10,000,000 souls in total.",
+    "metric": "souls_earned",
+    "threshold": 10000000,
+    "reward": {
+      "kind": "souls",
+      "amount": 150000
+    },
+    "icon": "coffin"
+  },
+  {
+    "id": "ach_seal_bearer",
+    "category": "META",
+    "name": "Seal Bearer",
+    "description": "Claim 25 thrones across every incarnation.",
+    "metric": "thrones_claimed",
+    "threshold": 25,
+    "reward": {
+      "kind": "souls",
+      "amount": 60000
+    },
+    "icon": "seal"
+  },
+  {
+    "id": "ach_godslayer",
+    "category": "META",
+    "name": "Godslayer",
+    "description": "Complete your first ascension and take a god's name.",
+    "metric": "seasons_ascended",
+    "threshold": 1,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 2
+    },
+    "icon": "god"
+  },
+  {
+    "id": "ach_eternal_god",
+    "category": "META",
+    "name": "Eternal God",
+    "description": "Ascend ten times and outlive the gods themselves.",
+    "metric": "seasons_ascended",
+    "threshold": 10,
+    "reward": {
+      "kind": "echo",
+      "amount": 10
+    },
+    "icon": "infinity"
+  },
+  {
+    "id": "ach_idle_hand",
+    "category": "IDLE",
+    "name": "Idle Hand",
+    "description": "Let the pit run for a minute without you.",
+    "metric": "offline_seconds",
+    "threshold": 60,
+    "reward": {
+      "kind": "souls",
+      "amount": 150
+    },
+    "icon": "hourglass"
+  },
+  {
+    "id": "ach_short_rest",
+    "category": "IDLE",
+    "name": "Short Rest",
+    "description": "Stay away for ten minutes and come back paid.",
+    "metric": "offline_seconds",
+    "threshold": 600,
+    "reward": {
+      "kind": "souls",
+      "amount": 1200
+    },
+    "icon": "rest"
+  },
+  {
+    "id": "ach_drifter",
+    "category": "IDLE",
+    "name": "Drifter",
+    "description": "Stay away for half an hour while the pit works.",
+    "metric": "offline_seconds",
+    "threshold": 1800,
+    "reward": {
+      "kind": "souls",
+      "amount": 5000
+    },
+    "icon": "drift"
+  },
+  {
+    "id": "ach_offline_pilot",
+    "category": "IDLE",
+    "name": "Offline Pilot",
+    "description": "Stay away for a full hour while the pit works.",
+    "metric": "offline_seconds",
+    "threshold": 3600,
+    "reward": {
+      "kind": "echo",
+      "amount": 1
+    },
+    "icon": "pilot"
+  },
+  {
+    "id": "ach_long_watch",
+    "category": "IDLE",
+    "name": "Long Watch",
+    "description": "Stay away for six hours.",
+    "metric": "offline_seconds",
+    "threshold": 21600,
+    "reward": {
+      "kind": "souls",
+      "amount": 15000
+    },
+    "icon": "watch"
+  },
+  {
+    "id": "ach_night_shift",
+    "category": "IDLE",
+    "name": "Night Shift",
+    "description": "Stay away for a whole day.",
+    "metric": "offline_seconds",
+    "threshold": 86400,
+    "reward": {
+      "kind": "souls",
+      "amount": 50000
+    },
+    "icon": "moon"
+  },
+  {
+    "id": "ach_ever_watchful",
+    "category": "IDLE",
+    "name": "Ever-Watchful",
+    "description": "Stay away for a whole week and still be paid.",
+    "metric": "offline_seconds",
+    "threshold": 604800,
+    "reward": {
+      "kind": "title",
+      "amount": 1,
+      "id": "title_ever_watchful"
+    },
+    "icon": "owl"
+  },
+  {
+    "id": "ach_idle_god",
+    "category": "IDLE",
+    "name": "Idle God",
+    "description": "Stay away for a whole month; the pit never stops.",
+    "metric": "offline_seconds",
+    "threshold": 2592000,
+    "reward": {
+      "kind": "echo",
+      "amount": 5
+    },
+    "icon": "sun"
+  },
+  {
+    "id": "ach_aspect_finder",
+    "category": "COLLECTION",
+    "name": "Aspect Finder",
+    "description": "Record your first aspect in the codex.",
+    "metric": "aspects_collected",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 500
+    },
+    "icon": "book"
+  },
+  {
+    "id": "ach_codex_keeper",
+    "category": "COLLECTION",
+    "name": "Codex Keeper",
+    "description": "Record five aspects in the codex.",
+    "metric": "aspects_collected",
+    "threshold": 5,
+    "reward": {
+      "kind": "souls",
+      "amount": 2500
+    },
+    "icon": "book"
+  },
+  {
+    "id": "ach_collector",
+    "category": "COLLECTION",
+    "name": "Collector",
+    "description": "Record twenty aspects in the codex.",
+    "metric": "aspects_collected",
+    "threshold": 20,
+    "reward": {
+      "kind": "souls",
+      "amount": 10000
+    },
+    "icon": "atlas"
+  },
+  {
+    "id": "ach_aspect_archivist",
+    "category": "COLLECTION",
+    "name": "Aspect Archivist",
+    "description": "Record every known aspect in the codex.",
+    "metric": "aspects_collected",
+    "threshold": 26,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 1
+    },
+    "icon": "archive"
+  },
+  {
+    "id": "ach_rune_scribe",
+    "category": "COLLECTION",
+    "name": "Rune Scribe",
+    "description": "Bind your first rune to a skill.",
+    "metric": "runes_unlocked",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 3000
+    },
+    "icon": "rune"
+  },
+  {
+    "id": "ach_rune_master",
+    "category": "COLLECTION",
+    "name": "Rune Master",
+    "description": "Bind fifteen runes to your skills.",
+    "metric": "runes_unlocked",
+    "threshold": 15,
+    "reward": {
+      "kind": "souls",
+      "amount": 20000
+    },
+    "icon": "runes"
+  },
+  {
+    "id": "ach_runebinder",
+    "category": "COLLECTION",
+    "name": "Runebinder",
+    "description": "Bind thirty-five runes to your skills.",
+    "metric": "runes_unlocked",
+    "threshold": 35,
+    "reward": {
+      "kind": "souls",
+      "amount": 60000
+    },
+    "icon": "anvil"
+  },
+  {
+    "id": "ach_bound_in_every_rune",
+    "category": "COLLECTION",
+    "name": "Bound In Every Rune",
+    "description": "Bind fifty runes to your skills.",
+    "metric": "runes_unlocked",
+    "threshold": 50,
+    "reward": {
+      "kind": "title",
+      "amount": 1,
+      "id": "title_codex_lord"
+    },
+    "icon": "grimoire"
+  },
+  {
+    "id": "ach_grand_collector",
+    "category": "COLLECTION",
+    "name": "Grand Collector",
+    "description": "Bind every rune the pit knows.",
+    "metric": "runes_unlocked",
+    "threshold": 69,
+    "reward": {
+      "kind": "echo",
+      "amount": 5
+    },
+    "icon": "crown"
+  },
+  {
+    "id": "ach_first_ash",
+    "category": "SECRET",
+    "name": "First Ash",
+    "description": "Touch the floor of the pit for the first time.",
+    "metric": "souls_earned",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 50
+    },
+    "icon": "ash",
+    "hidden": true
+  },
+  {
+    "id": "ach_bone_trophy",
+    "category": "SECRET",
+    "name": "Bone Trophy",
+    "description": "Defeat your first boss and keep the tooth.",
+    "metric": "boss_kills",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 100
+    },
+    "icon": "tooth",
+    "hidden": true
+  },
+  {
+    "id": "ach_whisper_in_the_dark",
+    "category": "SECRET",
+    "name": "Whisper in the Dark",
+    "description": "Step into your first node of the pit.",
+    "metric": "nodes_visited",
+    "threshold": 1,
+    "reward": {
+      "kind": "souls",
+      "amount": 75
+    },
+    "icon": "whisper",
+    "hidden": true
+  },
+  {
+    "id": "ach_the_long_quiet",
+    "category": "SECRET",
+    "name": "The Long Quiet",
+    "description": "Stay away for a single second and let the pit breathe.",
+    "metric": "offline_seconds",
+    "threshold": 1,
+    "reward": {
+      "kind": "title",
+      "amount": 1,
+      "id": "title_quiet"
+    },
+    "icon": "quiet",
+    "hidden": true
+  },
+  {
+    "id": "ach_potion_hoarder",
+    "category": "SECRET",
+    "name": "Potion Hoarder",
+    "description": "Reach level 5 in a run without wasting a drop.",
+    "metric": "levels_reached",
+    "threshold": 5,
+    "reward": {
+      "kind": "souls",
+      "amount": 500
+    },
+    "icon": "flask",
+    "hidden": true
+  },
+  {
+    "id": "ach_digging_deep",
+    "category": "SECRET",
+    "name": "Digging Deep",
+    "description": "Reach level 12 in a single run.",
+    "metric": "levels_reached",
+    "threshold": 12,
+    "reward": {
+      "kind": "souls",
+      "amount": 5000
+    },
+    "icon": "shovel",
+    "hidden": true
+  },
+  {
+    "id": "ach_patient_blade",
+    "category": "SECRET",
+    "name": "Patient Blade",
+    "description": "Reach level 20 in a single run and keep your shadow.",
+    "metric": "levels_reached",
+    "threshold": 20,
+    "reward": {
+      "kind": "pet",
+      "amount": 1,
+      "id": "pet_shadowcat"
+    },
+    "icon": "cat",
+    "hidden": true
+  },
+  {
+    "id": "ach_the_long_climb",
+    "category": "SECRET",
+    "name": "The Long Climb",
+    "description": "Visit fifty nodes and never look back down.",
+    "metric": "nodes_visited",
+    "threshold": 50,
+    "reward": {
+      "kind": "echo",
+      "amount": 4
+    },
+    "icon": "climb",
+    "hidden": true
+  },
+  {
+    "id": "ach_curious_hand",
+    "category": "DISCOVERY",
+    "name": "Curious Hand",
+    "description": "Reach level 2 and start asking the pit questions.",
+    "metric": "levels_reached",
+    "threshold": 2,
+    "reward": {
+      "kind": "souls",
+      "amount": 60
+    },
+    "icon": "hand"
+  },
+  {
+    "id": "ach_zone_watcher",
+    "category": "DISCOVERY",
+    "name": "Zone Watcher",
+    "description": "Reach level 10 in a run.",
+    "metric": "levels_reached",
+    "threshold": 10,
+    "reward": {
+      "kind": "souls",
+      "amount": 500
+    },
+    "icon": "eye"
+  },
+  {
+    "id": "ach_contract_clerk",
+    "category": "DISCOVERY",
+    "name": "Contract Clerk",
+    "description": "Earn 10,000 souls and sign your first contracts.",
+    "metric": "souls_earned",
+    "threshold": 10000,
+    "reward": {
+      "kind": "souls",
+      "amount": 1000
+    },
+    "icon": "quill"
+  },
+  {
+    "id": "ach_treasure_hunter",
+    "category": "DISCOVERY",
+    "name": "Treasure Hunter",
+    "description": "Find ten relics and learn where they hide.",
+    "metric": "items_found",
+    "threshold": 10,
+    "reward": {
+      "kind": "inheritance",
+      "amount": 1
+    },
+    "icon": "map"
+  },
+  {
+    "id": "ach_event_explorer",
+    "category": "DISCOVERY",
+    "name": "Event Explorer",
+    "description": "Visit a hundred nodes and take every strange door.",
+    "metric": "nodes_visited",
+    "threshold": 100,
+    "reward": {
+      "kind": "souls",
+      "amount": 2000
+    },
+    "icon": "door"
+  },
+  {
+    "id": "ach_ranger_of_the_pit",
+    "category": "DISCOVERY",
+    "name": "Ranger of the Pit",
+    "description": "Visit a thousand nodes on foot.",
+    "metric": "nodes_visited",
+    "threshold": 1000,
+    "reward": {
+      "kind": "souls",
+      "amount": 12000
+    },
+    "icon": "boot"
+  },
+  {
+    "id": "ach_cartographer_of_ash",
+    "category": "DISCOVERY",
+    "name": "Cartographer of Ash",
+    "description": "Visit five thousand nodes and chart the whole pit.",
+    "metric": "nodes_visited",
+    "threshold": 5000,
+    "reward": {
+      "kind": "title",
+      "amount": 1,
+      "id": "title_ash_cartographer"
+    },
+    "icon": "chart"
+  },
+  {
+    "id": "ach_world_walker",
+    "category": "DISCOVERY",
+    "name": "World Walker",
+    "description": "Find two thousand relics across the ten zones.",
+    "metric": "items_found",
+    "threshold": 2000,
+    "reward": {
+      "kind": "echo",
+      "amount": 3
+    },
+    "icon": "boot"
+  }
+]

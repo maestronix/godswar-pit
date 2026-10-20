@@ -1,0 +1,537 @@
+{
+  "id": "ironpriest_faith",
+  "classId": "ironpriest",
+  "name": "Faith",
+  "description": "The old gods are dead. Their light still works.",
+  "nodes": [
+    {
+      "id": "ironpriest_faith_n00",
+      "treeId": "ironpriest_faith",
+      "parent": null,
+      "depth": 1,
+      "name": "First Prayer",
+      "description": "First Prayer - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_prayer"
+    },
+    {
+      "id": "ironpriest_faith_n01",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n00",
+      "depth": 2,
+      "name": "Devotion",
+      "description": "Devotion - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "devotion"
+    },
+    {
+      "id": "ironpriest_faith_n02",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n00",
+      "depth": 2,
+      "name": "Holy Sigil",
+      "description": "Holy Sigil - While your resource is full: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "holy_sigil"
+    },
+    {
+      "id": "ironpriest_faith_n03",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n01",
+      "depth": 3,
+      "name": "Light of Faith",
+      "description": "Light of Faith - +3% dotPct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "light_of_faith"
+    },
+    {
+      "id": "ironpriest_faith_n04",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n01",
+      "depth": 3,
+      "name": "Zeal",
+      "description": "Zeal - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "zeal"
+    },
+    {
+      "id": "ironpriest_faith_n05",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n02",
+      "depth": 3,
+      "name": "Blessed Edge",
+      "description": "Blessed Edge - Passive \"ip_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p7",
+        "rank": 1
+      },
+      "icon": "blessed_edge"
+    },
+    {
+      "id": "ironpriest_faith_n06",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n02",
+      "depth": 3,
+      "name": "Divine Shield",
+      "description": "Divine Shield - While you are below half health: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "divine_shield"
+    },
+    {
+      "id": "ironpriest_faith_n07",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n03",
+      "depth": 4,
+      "name": "Grace",
+      "description": "Grace - ip_a3: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a3",
+        "ticks": -5
+      },
+      "icon": "grace"
+    },
+    {
+      "id": "ironpriest_faith_n08",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n03",
+      "depth": 4,
+      "name": "Judgment",
+      "description": "Judgment - ip_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "delta": -3
+      },
+      "icon": "judgment"
+    },
+    {
+      "id": "ironpriest_faith_n09",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n04",
+      "depth": 4,
+      "name": "Vow",
+      "description": "Vow - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "vow"
+    },
+    {
+      "id": "ironpriest_faith_n10",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n05",
+      "depth": 4,
+      "name": "Faithful",
+      "description": "Faithful - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "faithful"
+    },
+    {
+      "id": "ironpriest_faith_n11",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n05",
+      "depth": 4,
+      "name": "Consecrated",
+      "description": "Consecrated - ip_a4: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "count": 1
+      },
+      "icon": "consecrated"
+    },
+    {
+      "id": "ironpriest_faith_n12",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n06",
+      "depth": 4,
+      "name": "Smite",
+      "description": "Smite - Passive \"ip_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p3",
+        "rank": 1
+      },
+      "icon": "smite"
+    },
+    {
+      "id": "ironpriest_faith_n13",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n07",
+      "depth": 5,
+      "name": "Atonement",
+      "description": "Atonement - ip_a4: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a4",
+        "flag": "chain"
+      },
+      "icon": "atonement"
+    },
+    {
+      "id": "ironpriest_faith_n14",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n07",
+      "depth": 5,
+      "name": "Radiant Guard",
+      "description": "Radiant Guard - ip_a3: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a3",
+        "count": 1
+      },
+      "icon": "radiant_guard"
+    },
+    {
+      "id": "ironpriest_faith_n15",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n08",
+      "depth": 5,
+      "name": "Angel",
+      "description": "Angel - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "angel"
+    },
+    {
+      "id": "ironpriest_faith_n16",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n09",
+      "depth": 5,
+      "name": "Sanctity",
+      "description": "Sanctity - Unlocks rune \"ip_a3_relic\" for ip_a3.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a3",
+        "rune": "ip_a3_relic"
+      },
+      "icon": "sanctity"
+    },
+    {
+      "id": "ironpriest_faith_n17",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n10",
+      "depth": 5,
+      "name": "Ordained",
+      "description": "Ordained - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "ordained"
+    },
+    {
+      "id": "ironpriest_faith_n18",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n10",
+      "depth": 5,
+      "name": "Lightbearer",
+      "description": "Lightbearer - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "lightbearer"
+    },
+    {
+      "id": "ironpriest_faith_n19",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n11",
+      "depth": 5,
+      "name": "The Charge",
+      "description": "The Charge - ip_a4: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "ticks": -5
+      },
+      "icon": "the_charge"
+    },
+    {
+      "id": "ironpriest_faith_n20",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n12",
+      "depth": 5,
+      "name": "Zealot",
+      "description": "Zealot - ip_a4: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "ip_a4",
+        "delta": -3
+      },
+      "icon": "zealot"
+    },
+    {
+      "id": "ironpriest_faith_n21",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n13",
+      "depth": 6,
+      "name": "Risen",
+      "description": "Risen - Unlocks the skill \"ip_a3\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a3",
+        "permanent": false
+      },
+      "icon": "risen"
+    },
+    {
+      "id": "ironpriest_faith_n22",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n13",
+      "depth": 6,
+      "name": "Purifier",
+      "description": "Purifier - Unlocks rune \"ip_a4_ward\" for ip_a4.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a4",
+        "rune": "ip_a4_ward"
+      },
+      "icon": "purifier"
+    },
+    {
+      "id": "ironpriest_faith_n23",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n14",
+      "depth": 6,
+      "name": "Faith Ascendant",
+      "description": "Faith Ascendant - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "faith_ascendant"
+    },
+    {
+      "id": "ironpriest_faith_n24",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n15",
+      "depth": 6,
+      "name": "Empyrean",
+      "description": "Empyrean - +10% damagePct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "empyrean"
+    },
+    {
+      "id": "ironpriest_faith_n25",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n16",
+      "depth": 6,
+      "name": "Crown of Dawn",
+      "description": "Crown of Dawn - Passive \"ip_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "ip_p5",
+        "rank": 1
+      },
+      "icon": "crown_of_dawn"
+    },
+    {
+      "id": "ironpriest_faith_n26",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n17",
+      "depth": 6,
+      "name": "The Beacon",
+      "description": "The Beacon - While a boss stands before you: +4% damagePct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "a boss stands before you"
+      },
+      "icon": "the_beacon"
+    },
+    {
+      "id": "ironpriest_faith_n27",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n18",
+      "depth": 6,
+      "name": "Unblinking",
+      "description": "Unblinking - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "unblinking"
+    },
+    {
+      "id": "ironpriest_faith_n28",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n19",
+      "depth": 6,
+      "name": "Seraph",
+      "description": "Seraph - ip_a4: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a4",
+        "flag": "chain"
+      },
+      "icon": "seraph"
+    },
+    {
+      "id": "ironpriest_faith_n29",
+      "treeId": "ironpriest_faith",
+      "parent": "ironpriest_faith_n20",
+      "depth": 6,
+      "name": "Divine Ascendant",
+      "description": "Divine Ascendant - +3% cooldownReduction.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.03
+      },
+      "icon": "divine_ascendant"
+    }
+  ]
+}

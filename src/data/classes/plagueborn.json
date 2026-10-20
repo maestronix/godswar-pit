@@ -1,0 +1,62 @@
+{
+  "id": "plagueborn",
+  "name": "Plagueborn",
+  "tagline": "What festers in the pit festers in her veins.",
+  "resource": "Venom",
+  "resourceMax": 110,
+  "resourcePerHit": 7,
+  "resourceRegen": 4,
+  "base": {
+    "hp": 125,
+    "armor": 8,
+    "damage": 11,
+    "attackSpeed": 1.7,
+    "critChance": 0.07,
+    "critDamage": 1.55
+  },
+  "weaponBases": [
+    "dagger",
+    "scythe",
+    "wand",
+    "spear",
+    "sword",
+    "axe"
+  ],
+  "aspects": [
+    "venom_lord",
+    "corpse_bloom",
+    "soulthirst",
+    "iron_resolve",
+    "hunters_mark"
+  ],
+  "trees": [
+    "plagueborn_venom",
+    "plagueborn_sickness",
+    "plagueborn_swift"
+  ],
+  "signature": "pb_signature",
+  "actives": [
+    "pb_a1",
+    "pb_a2",
+    "pb_a3",
+    "pb_a4"
+  ],
+  "passives": [
+    "pb_p1",
+    "pb_p2",
+    "pb_p3",
+    "pb_p4",
+    "pb_p5",
+    "pb_p6",
+    "pb_p7",
+    "pb_p8"
+  ],
+  "palette": {
+    "skin": "#c9c2a8",
+    "hair": "#3a2f22",
+    "cloth": "#5b6b3a",
+    "metal": "#8a8f6a",
+    "accent": "#a8d64a",
+    "glow": "#6fe3b0"
+  }
+}

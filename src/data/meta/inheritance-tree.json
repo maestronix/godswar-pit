@@ -1,0 +1,1368 @@
+{
+  "id": "inheritance_tree",
+  "classId": "",
+  "name": "Inheritance Tree",
+  "description": "What a dead god leaves behind: permanent skill unlocks, bound runes and the small permanent boons that survive every death and every incarnation.",
+  "nodes": [
+    {
+      "id": "it_001",
+      "treeId": "inheritance_tree",
+      "parent": null,
+      "depth": 1,
+      "name": "The Envoy's Table",
+      "description": "The first inheritance ever granted: a place at the envoy table where a dead god can still speak.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.02
+      },
+      "icon": "table"
+    },
+    {
+      "id": "it_002",
+      "treeId": "inheritance_tree",
+      "parent": "it_001",
+      "depth": 2,
+      "name": "Bladewalker Doctrine",
+      "description": "Open the Bladewalker branch of the inheritance tree.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.02
+      },
+      "icon": "sword"
+    },
+    {
+      "id": "it_003",
+      "treeId": "inheritance_tree",
+      "parent": "it_001",
+      "depth": 2,
+      "name": "Ashmonk Doctrine",
+      "description": "Open the Ashmonk branch of the inheritance tree.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.015
+      },
+      "icon": "ash"
+    },
+    {
+      "id": "it_004",
+      "treeId": "inheritance_tree",
+      "parent": "it_001",
+      "depth": 2,
+      "name": "Pitsorcer Doctrine",
+      "description": "Open the Pitsorcer branch of the inheritance tree.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "rune"
+    },
+    {
+      "id": "it_005",
+      "treeId": "inheritance_tree",
+      "parent": "it_001",
+      "depth": 2,
+      "name": "Ironpriest Doctrine",
+      "description": "Open the Ironpriest branch of the inheritance tree.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.03
+      },
+      "icon": "shield"
+    },
+    {
+      "id": "it_006",
+      "treeId": "inheritance_tree",
+      "parent": "it_001",
+      "depth": 2,
+      "name": "Plagueborn Doctrine",
+      "description": "Open the Plagueborn branch of the inheritance tree.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "venom"
+    },
+    {
+      "id": "it_007",
+      "treeId": "inheritance_tree",
+      "parent": "it_001",
+      "depth": 2,
+      "name": "Soulbinder Doctrine",
+      "description": "Open the Soulbinder branch of the inheritance tree.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.02
+      },
+      "icon": "soul"
+    },
+    {
+      "id": "it_008",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Cleaving Arc",
+      "description": "Permanently unlock Cleaving Arc for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_signature",
+        "permanent": true
+      },
+      "icon": "sword",
+      "parent": "it_002"
+    },
+    {
+      "id": "it_009",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Wrath of the Pit",
+      "description": "+2% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.02
+      },
+      "icon": "damage",
+      "parent": "it_002"
+    },
+    {
+      "id": "it_010",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Killer Instinct",
+      "description": "+1% critical chance per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "critChance",
+        "value": 0.01
+      },
+      "icon": "crit",
+      "parent": "it_002"
+    },
+    {
+      "id": "it_011",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Whirlwind",
+      "description": "Permanently unlock Whirlwind for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a1",
+        "permanent": true
+      },
+      "icon": "sword",
+      "parent": "it_008"
+    },
+    {
+      "id": "it_012",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Cleaving Arc: flood",
+      "description": "Unlock the flood rune for Cleaving Arc.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_signature",
+        "rune": "bw_signature_flood"
+      },
+      "icon": "rune",
+      "parent": "it_008"
+    },
+    {
+      "id": "it_013",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Riposte",
+      "description": "Permanently unlock Riposte for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a2",
+        "permanent": true
+      },
+      "icon": "sword",
+      "parent": "it_011"
+    },
+    {
+      "id": "it_014",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Whirlwind: storm",
+      "description": "Unlock the storm rune for Whirlwind.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a1",
+        "rune": "bw_a1_storm"
+      },
+      "icon": "rune",
+      "parent": "it_011"
+    },
+    {
+      "id": "it_015",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "War Cry",
+      "description": "Permanently unlock War Cry for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a3",
+        "permanent": true
+      },
+      "icon": "sword",
+      "parent": "it_013"
+    },
+    {
+      "id": "it_016",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Wide Swing",
+      "description": "+2% area damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.02
+      },
+      "icon": "aoe",
+      "parent": "it_013"
+    },
+    {
+      "id": "it_017",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Executioner",
+      "description": "Permanently unlock Executioner for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "bw_a4",
+        "permanent": true
+      },
+      "icon": "sword",
+      "parent": "it_015"
+    },
+    {
+      "id": "it_018",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Quick Hands",
+      "description": "+2% attack speed per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.02
+      },
+      "icon": "haste",
+      "parent": "it_015"
+    },
+    {
+      "id": "it_019",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Executioner",
+      "description": "+3% execute threshold per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "executeThreshold",
+        "value": 0.03
+      },
+      "icon": "execute",
+      "parent": "it_017"
+    },
+    {
+      "id": "it_020",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Bloodied Momentum",
+      "description": "+2% life on hit per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.02
+      },
+      "icon": "leech",
+      "parent": "it_017"
+    },
+    {
+      "id": "it_021",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Cyclone Rush",
+      "description": "Permanently unlock Cyclone Rush for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_signature",
+        "permanent": true
+      },
+      "icon": "ash",
+      "parent": "it_003"
+    },
+    {
+      "id": "it_022",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Breathing Cycle",
+      "description": "+1.5% cooldown reduction per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.015
+      },
+      "icon": "cooldown",
+      "parent": "it_003"
+    },
+    {
+      "id": "it_023",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Palm Burst",
+      "description": "Permanently unlock Palm Burst for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a1",
+        "permanent": true
+      },
+      "icon": "ash",
+      "parent": "it_021"
+    },
+    {
+      "id": "it_024",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Empty Vessel",
+      "description": "+3% resource regeneration per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.03
+      },
+      "icon": "resource",
+      "parent": "it_021"
+    },
+    {
+      "id": "it_025",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Chi Surge",
+      "description": "Permanently unlock Chi Surge for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a2",
+        "permanent": true
+      },
+      "icon": "ash",
+      "parent": "it_023"
+    },
+    {
+      "id": "it_026",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Palm Burst: quake",
+      "description": "Unlock the quake rune for Palm Burst.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a1",
+        "rune": "am_a1_quake"
+      },
+      "icon": "rune",
+      "parent": "it_023"
+    },
+    {
+      "id": "it_027",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Serpent Strike",
+      "description": "Permanently unlock Serpent Strike for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a3",
+        "permanent": true
+      },
+      "icon": "ash",
+      "parent": "it_025"
+    },
+    {
+      "id": "it_028",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Serpent Reflex",
+      "description": "+3% movement speed per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "speed",
+      "parent": "it_025"
+    },
+    {
+      "id": "it_029",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Stillness",
+      "description": "Permanently unlock Stillness for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a4",
+        "permanent": true
+      },
+      "icon": "ash",
+      "parent": "it_027"
+    },
+    {
+      "id": "it_030",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Serpent Strike: venom",
+      "description": "Unlock the venom rune for Serpent Strike.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a3",
+        "rune": "am_a3_venom"
+      },
+      "icon": "rune",
+      "parent": "it_027"
+    },
+    {
+      "id": "it_031",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Cinder Step",
+      "description": "+2% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.02
+      },
+      "icon": "damage",
+      "parent": "it_029"
+    },
+    {
+      "id": "it_032",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Deadly Rhythm",
+      "description": "+2% attack speed per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.02
+      },
+      "icon": "haste",
+      "parent": "it_029"
+    },
+    {
+      "id": "it_033",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Tempest Call",
+      "description": "Permanently unlock Tempest Call for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_signature",
+        "permanent": true
+      },
+      "icon": "rune",
+      "parent": "it_004"
+    },
+    {
+      "id": "it_034",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Arcane Attunement",
+      "description": "+3% critical damage per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "crit",
+      "parent": "it_004"
+    },
+    {
+      "id": "it_035",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Frost Nova",
+      "description": "Permanently unlock Frost Nova for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a1",
+        "permanent": true
+      },
+      "icon": "rune",
+      "parent": "it_033"
+    },
+    {
+      "id": "it_036",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Thin Veil",
+      "description": "+2% cooldown reduction per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.02
+      },
+      "icon": "cooldown",
+      "parent": "it_033"
+    },
+    {
+      "id": "it_037",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Chain Lightning",
+      "description": "Permanently unlock Chain Lightning for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a2",
+        "permanent": true
+      },
+      "icon": "rune",
+      "parent": "it_035"
+    },
+    {
+      "id": "it_038",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Frost Nova: frost",
+      "description": "Unlock the frost rune for Frost Nova.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a1",
+        "rune": "ps_a1_deepfreeze"
+      },
+      "icon": "rune",
+      "parent": "it_035"
+    },
+    {
+      "id": "it_039",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Arcane Blink",
+      "description": "Permanently unlock Arcane Blink for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a3",
+        "permanent": true
+      },
+      "icon": "rune",
+      "parent": "it_037"
+    },
+    {
+      "id": "it_040",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Focused Mind",
+      "description": "+1% critical chance per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "critChance",
+        "value": 0.01
+      },
+      "icon": "crit",
+      "parent": "it_037"
+    },
+    {
+      "id": "it_041",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Sunder",
+      "description": "Permanently unlock Sunder for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ps_a4",
+        "permanent": true
+      },
+      "icon": "rune",
+      "parent": "it_039"
+    },
+    {
+      "id": "it_042",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Frost Affinity",
+      "description": "+3% damage over time per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "dot",
+      "parent": "it_039"
+    },
+    {
+      "id": "it_043",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Void Step",
+      "description": "+3% movement speed per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "speed",
+      "parent": "it_041"
+    },
+    {
+      "id": "it_044",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Deep Reservoir",
+      "description": "+3% resource regeneration per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.03
+      },
+      "icon": "resource",
+      "parent": "it_041"
+    },
+    {
+      "id": "it_045",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Judgment",
+      "description": "Permanently unlock Judgment for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_signature",
+        "permanent": true
+      },
+      "icon": "shield",
+      "parent": "it_005"
+    },
+    {
+      "id": "it_046",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Devoted Heart",
+      "description": "+3% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.03
+      },
+      "icon": "health",
+      "parent": "it_005"
+    },
+    {
+      "id": "it_047",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Bulwark",
+      "description": "Permanently unlock Bulwark for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a1",
+        "permanent": true
+      },
+      "icon": "shield",
+      "parent": "it_045"
+    },
+    {
+      "id": "it_048",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Unyielding Bulwark",
+      "description": "+3% armor per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "armor",
+      "parent": "it_045"
+    },
+    {
+      "id": "it_049",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Radiant Aura",
+      "description": "Permanently unlock Radiant Aura for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a2",
+        "permanent": true
+      },
+      "icon": "shield",
+      "parent": "it_047"
+    },
+    {
+      "id": "it_050",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Blessed Recovery",
+      "description": "+2% life on hit per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.02
+      },
+      "icon": "leech",
+      "parent": "it_047"
+    },
+    {
+      "id": "it_051",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Consecrated Blade",
+      "description": "Permanently unlock Consecrated Blade for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a3",
+        "permanent": true
+      },
+      "icon": "shield",
+      "parent": "it_049"
+    },
+    {
+      "id": "it_052",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Consecrated Fury",
+      "description": "+2% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.02
+      },
+      "icon": "damage",
+      "parent": "it_049"
+    },
+    {
+      "id": "it_053",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Sanctuary",
+      "description": "Permanently unlock Sanctuary for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a4",
+        "permanent": true
+      },
+      "icon": "shield",
+      "parent": "it_051"
+    },
+    {
+      "id": "it_054",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Consecrated Blade: ember",
+      "description": "Unlock the ember rune for Consecrated Blade.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "ip_a3",
+        "rune": "ip_a3_pyre"
+      },
+      "icon": "rune",
+      "parent": "it_051"
+    },
+    {
+      "id": "it_055",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Blessed Ground",
+      "description": "+4% status resistance per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "statusResist",
+        "value": 0.04
+      },
+      "icon": "resist",
+      "parent": "it_053"
+    },
+    {
+      "id": "it_056",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Gilded Light",
+      "description": "+4% maximum health per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.04
+      },
+      "icon": "health",
+      "parent": "it_053"
+    },
+    {
+      "id": "it_057",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Plague Storm",
+      "description": "Permanently unlock Plague Storm for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_signature",
+        "permanent": true
+      },
+      "icon": "venom",
+      "parent": "it_006"
+    },
+    {
+      "id": "it_058",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Toxic Blood",
+      "description": "+3% damage over time per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "dotPct",
+        "value": 0.03
+      },
+      "icon": "dot",
+      "parent": "it_006"
+    },
+    {
+      "id": "it_059",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Toxic Volley",
+      "description": "Permanently unlock Toxic Volley for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a1",
+        "permanent": true
+      },
+      "icon": "venom",
+      "parent": "it_057"
+    },
+    {
+      "id": "it_060",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Swift Feet",
+      "description": "+3% movement speed per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "moveSpeed",
+        "value": 0.03
+      },
+      "icon": "speed",
+      "parent": "it_057"
+    },
+    {
+      "id": "it_061",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Blight Aura",
+      "description": "Permanently unlock Blight Aura for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a2",
+        "permanent": true
+      },
+      "icon": "venom",
+      "parent": "it_059"
+    },
+    {
+      "id": "it_062",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Nimble",
+      "description": "+2% dodge chance per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "dodge",
+        "value": 0.02
+      },
+      "icon": "dodge",
+      "parent": "it_059"
+    },
+    {
+      "id": "it_063",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Twin Fang",
+      "description": "Permanently unlock Twin Fang for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a3",
+        "permanent": true
+      },
+      "icon": "venom",
+      "parent": "it_061"
+    },
+    {
+      "id": "it_064",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Corpse Feeder",
+      "description": "+2% life on hit per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.02
+      },
+      "icon": "leech",
+      "parent": "it_061"
+    },
+    {
+      "id": "it_065",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Corrode",
+      "description": "Permanently unlock Corrode for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a4",
+        "permanent": true
+      },
+      "icon": "venom",
+      "parent": "it_063"
+    },
+    {
+      "id": "it_066",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Twin Fang: shadow",
+      "description": "Unlock the shadow rune for Twin Fang.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a3",
+        "rune": "pb_a3_shadowfang"
+      },
+      "icon": "rune",
+      "parent": "it_063"
+    },
+    {
+      "id": "it_067",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Contagion",
+      "description": "+3% area damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "aoePct",
+        "value": 0.03
+      },
+      "icon": "aoe",
+      "parent": "it_065"
+    },
+    {
+      "id": "it_068",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Hexing Mark",
+      "description": "+3% execute threshold per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "executeThreshold",
+        "value": 0.03
+      },
+      "icon": "execute",
+      "parent": "it_065"
+    },
+    {
+      "id": "it_069",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Soul Harvest",
+      "description": "Permanently unlock Soul Harvest for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_signature",
+        "permanent": true
+      },
+      "icon": "soul",
+      "parent": "it_007"
+    },
+    {
+      "id": "it_070",
+      "treeId": "inheritance_tree",
+      "depth": 3,
+      "name": "Soul Siphon",
+      "description": "+2% soul yield per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.02
+      },
+      "icon": "souls",
+      "parent": "it_007"
+    },
+    {
+      "id": "it_071",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Shadow Wisp",
+      "description": "Permanently unlock Shadow Wisp for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a1",
+        "permanent": true
+      },
+      "icon": "soul",
+      "parent": "it_069"
+    },
+    {
+      "id": "it_072",
+      "treeId": "inheritance_tree",
+      "depth": 4,
+      "name": "Endless Well",
+      "description": "+3% resource regeneration per rank.",
+      "archetype": "VALUE",
+      "cost": 1,
+      "costGrowth": 1.5,
+      "maxRank": 5,
+      "params": {
+        "stat": "resourceRegen",
+        "value": 0.03
+      },
+      "icon": "resource",
+      "parent": "it_069"
+    },
+    {
+      "id": "it_073",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Life Drain",
+      "description": "Permanently unlock Life Drain for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a2",
+        "permanent": true
+      },
+      "icon": "soul",
+      "parent": "it_071"
+    },
+    {
+      "id": "it_074",
+      "treeId": "inheritance_tree",
+      "depth": 5,
+      "name": "Shadow Wisp: chain",
+      "description": "Unlock the chain rune for Shadow Wisp.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a1",
+        "rune": "sb_a1_swarm"
+      },
+      "icon": "rune",
+      "parent": "it_071"
+    },
+    {
+      "id": "it_075",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Cursed Bolt",
+      "description": "Permanently unlock Cursed Bolt for every run.",
+      "archetype": "ACCESS",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a3",
+        "permanent": true
+      },
+      "icon": "soul",
+      "parent": "it_073"
+    },
+    {
+      "id": "it_076",
+      "treeId": "inheritance_tree",
+      "depth": 6,
+      "name": "Grave Cold",
+      "description": "+2% damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 4,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.02
+      },
+      "icon": "damage",
+      "parent": "it_073"
+    },
+    {
+      "id": "it_077",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Grave Call",
+      "description": "Permanently unlock Grave Call for every run.",
+      "archetype": "ACCESS",
+      "cost": 3,
+      "costGrowth": 1.5,
+      "maxRank": 1,
+      "params": {
+        "skill": "sb_a4",
+        "permanent": true
+      },
+      "icon": "soul",
+      "parent": "it_075"
+    },
+    {
+      "id": "it_078",
+      "treeId": "inheritance_tree",
+      "depth": 7,
+      "name": "Harvested Life",
+      "description": "+2% life on hit per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "lifeOnHit",
+        "value": 0.02
+      },
+      "icon": "leech",
+      "parent": "it_075"
+    },
+    {
+      "id": "it_079",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Veil",
+      "description": "+2% dodge chance per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "dodge",
+        "value": 0.02
+      },
+      "icon": "dodge",
+      "parent": "it_077"
+    },
+    {
+      "id": "it_080",
+      "treeId": "inheritance_tree",
+      "depth": 8,
+      "name": "Doom",
+      "description": "+3% critical damage per rank.",
+      "archetype": "VALUE",
+      "cost": 2,
+      "costGrowth": 1.5,
+      "maxRank": 3,
+      "params": {
+        "stat": "critDamage",
+        "value": 0.03
+      },
+      "icon": "crit",
+      "parent": "it_077"
+    }
+  ]
+}

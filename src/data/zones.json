@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "name": "The Choked Stair",
+    "subtitle": "Bones clog the descent",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z1_reaver",
+      "z1_bone_priest",
+      "z1_crawler",
+      "z1_scuttle_hound",
+      "z1_gutter_scavenger"
+    ],
+    "boss": "z1_boss_gravewarden",
+    "palette": "ashvale",
+    "color": "#4a3b52",
+    "threat": 1,
+    "minLevel": 1,
+    "soulMultiplier": 1,
+    "description": "Every step of the Choked Stair was once a pilgrim. The stairs were raised over a burial terrace, and now the dead climb them in slow waves, picking the pockets of the living. Scavengers and bone-pickers swarm the landings, and the Gravewarden below has been counting souls for a very long time."
+  },
+  {
+    "id": 2,
+    "name": "The Mould Warren",
+    "subtitle": "Something breathes in the green",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z2_warrensnout",
+      "z2_pale_stalker",
+      "z2_spore_crawler",
+      "z2_mire_hound",
+      "z2_rot_bloater"
+    ],
+    "boss": "z2_boss_mire_mother",
+    "palette": "verdant",
+    "color": "#43583a",
+    "threat": 1.25,
+    "minLevel": 4,
+    "soulMultiplier": 1.1,
+    "description": "Beneath the stair the tunnels give way to a warm, rotting warren where white fungus coats every wall. Things that were once vermin have grown into something with far too many limbs, and they hunt by sound and by scent alone. At the heart of the bloom the Mire Mother tends her brood and sings them awake."
+  },
+  {
+    "id": 3,
+    "name": "The Whispering Vault",
+    "subtitle": "The dead pay in whispers",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z3_whisperer",
+      "z3_ink_acolyte",
+      "z3_grave_chanter",
+      "z3_pale_adept",
+      "z3_spellwright",
+      "z3_umbral_scribe"
+    ],
+    "boss": "z3_boss_the_quiet_choir",
+    "palette": "void",
+    "color": "#2e2745",
+    "threat": 1.56,
+    "minLevel": 7,
+    "soulMultiplier": 1.21,
+    "description": "A sealed ossuary where the Cult of the Quiet Choir traded secrets for breath. Their voices never stopped, and the vault amplifies every bargain into a chorus that drowns out a waking mind. Scholars who came to silence them now chant along without knowing it."
+  },
+  {
+    "id": 4,
+    "name": "The Emberworks",
+    "subtitle": "The forge never cooled",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z4_cinder_mite",
+      "z4_emberling",
+      "z4_slag_hound",
+      "z4_forge_sprite",
+      "z4_scoria_knight"
+    ],
+    "boss": "z4_boss_forgeheart",
+    "palette": "ember",
+    "color": "#7b3320",
+    "threat": 1.95,
+    "minLevel": 10,
+    "soulMultiplier": 1.33,
+    "description": "The old forges of the Pit never went cold; they simply changed masters. Scoria-clad knights patrol the casting floors while sprites of living flame hunt along the slag channels. Something enormous and molten still works below, hammering out weapons for a war that ended long ago."
+  },
+  {
+    "id": 5,
+    "name": "The Rime Gallery",
+    "subtitle": "Winter sealed in stone",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z5_frost_moth",
+      "z5_rime_wraith",
+      "z5_ice_shard",
+      "z5_frost_hound",
+      "z5_hoar_scribe"
+    ],
+    "boss": "z5_boss_the_long_winter",
+    "palette": "frost",
+    "color": "#37597a",
+    "threat": 2.44,
+    "minLevel": 13,
+    "soulMultiplier": 1.46,
+    "description": "A gallery of frozen saints, preserved in a cold that has no natural source. The cold is alive: it drifts, it hunts, and it leaves frost on the inside of your lungs. Only the Long Winter rules this hall, and it has been holding its breath for centuries."
+  },
+  {
+    "id": 6,
+    "name": "The Scorched Circuit",
+    "subtitle": "Lightning runs on rails",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z6_slag_walker",
+      "z6_arc_sprite",
+      "z6_iron_mite",
+      "z6_static_hound",
+      "z6_magma_drake",
+      "z6_ashen_golem"
+    ],
+    "boss": "z6_boss_thunder_engine",
+    "palette": "rust",
+    "color": "#6b4526",
+    "threat": 3.05,
+    "minLevel": 16,
+    "soulMultiplier": 1.61,
+    "description": "Rusted rails and dead machinery climb the shaft, wired together by a current nobody remembers routing. Stormcallers ride the conductors, and the ore veins below pulse with heat and lightning in equal measure. The Thunder Engine at the summit still believes it is a god of industry."
+  },
+  {
+    "id": 7,
+    "name": "The Gilded Choir",
+    "subtitle": "Gold-robed and singing",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z7_gold_penitent",
+      "z7_chant_thrall",
+      "z7_coin_zealot",
+      "z7_relic_bearer",
+      "z7_gilded_serpent"
+    ],
+    "boss": "z7_boss_the_gilded_choirmaster",
+    "palette": "gold",
+    "color": "#8c6f2c",
+    "threat": 3.81,
+    "minLevel": 19,
+    "soulMultiplier": 1.77,
+    "description": "The Choir built a temple out of the wealth of every city it swallowed, and the money still sings. Penitent thralls haul bullion up the nave while zealots preach a gospel of accumulated souls. The Choirmaster keeps the tempo, and the tempo keeps the dead on their feet."
+  },
+  {
+    "id": 8,
+    "name": "The Iron Pantheon",
+    "subtitle": "Faith forged into metal",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z8_dust_servitor",
+      "z8_iron_moth",
+      "z8_rivet_hound",
+      "z8_bronze_acolyte",
+      "z8_gear_sentinel",
+      "z8_bolt_thrall"
+    ],
+    "boss": "z8_boss_the_iron_deacon",
+    "palette": "obsidian",
+    "color": "#221d24",
+    "threat": 4.77,
+    "minLevel": 22,
+    "soulMultiplier": 1.95,
+    "description": "Where the Choir promised salvation, the Iron Pantheon promised order, and it delivered in brass and iron. Constructs march in endless processions, each one a small saint, and none of them are permitted to stop. The Iron Deacon preaches to the machines, and the machines have begun to answer."
+  },
+  {
+    "id": 9,
+    "name": "The Ossuary Throne",
+    "subtitle": "Bones stacked like courtiers",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z9_bone_scribe",
+      "z9_relic_golem",
+      "z9_funeral_warden",
+      "z9_saint_husk",
+      "z9_antler_revenant"
+    ],
+    "boss": "z9_boss_the_bone_usurper",
+    "palette": "bone",
+    "color": "#5e5140",
+    "threat": 5.96,
+    "minLevel": 25,
+    "soulMultiplier": 2.14,
+    "description": "A throne room built from the remains of every champion the Choir ever burned. Revenants keep court and the seat of the Ossuary Throne stands empty by decree rather than by death. Something wearing a saint's mask has been receiving petitioners in the dark."
+  },
+  {
+    "id": 10,
+    "name": "The Hollow God",
+    "subtitle": "Fragments of something worshipped",
+    "treeId": "pit_tree",
+    "enemies": [
+      "z10_god_fragment",
+      "z10_halo_wretch",
+      "z10_gilded_devotee",
+      "z10_seraph_shard",
+      "z10_voice_of_the_void"
+    ],
+    "boss": "z10_boss_the_hollow_god",
+    "palette": "divine",
+    "color": "#e3c766",
+    "threat": 7.45,
+    "minLevel": 28,
+    "soulMultiplier": 2.36,
+    "description": "Above the throne the shaft opens into a hollow that answers prayer. Shards of a dead deity drift through the light, each one still carrying a fragment of a will that once shaped worlds. The Unmade God drifts at the center, gathering the pieces of itself one supplicant at a time."
+  }
+]

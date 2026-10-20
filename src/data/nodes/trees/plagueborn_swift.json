@@ -1,0 +1,537 @@
+{
+  "id": "plagueborn_swift",
+  "classId": "plagueborn",
+  "name": "Swift",
+  "description": "Never let the blade land twice on the same place.",
+  "nodes": [
+    {
+      "id": "plagueborn_swift_n00",
+      "treeId": "plagueborn_swift",
+      "parent": null,
+      "depth": 1,
+      "name": "First Step",
+      "description": "First Step - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "first_step"
+    },
+    {
+      "id": "plagueborn_swift_n01",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n00",
+      "depth": 2,
+      "name": "Swiftness",
+      "description": "Swiftness - +3% statusResist.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "statusResist",
+        "value": 0.03
+      },
+      "icon": "swiftness"
+    },
+    {
+      "id": "plagueborn_swift_n02",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n00",
+      "depth": 2,
+      "name": "Quick Draw",
+      "description": "Quick Draw - While you are below half health: +4% attackSpeed.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "quick_draw"
+    },
+    {
+      "id": "plagueborn_swift_n03",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n01",
+      "depth": 3,
+      "name": "Nimble",
+      "description": "Nimble - +3% maxHpPct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.03
+      },
+      "icon": "nimble"
+    },
+    {
+      "id": "plagueborn_swift_n04",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n01",
+      "depth": 3,
+      "name": "Quick Recovery",
+      "description": "Quick Recovery - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "quick_recovery"
+    },
+    {
+      "id": "plagueborn_swift_n05",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n02",
+      "depth": 3,
+      "name": "Cat's Grace",
+      "description": "Cat's Grace - Passive \"pb_p4\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "pb_p4",
+        "rank": 1
+      },
+      "icon": "cat_s_grace"
+    },
+    {
+      "id": "plagueborn_swift_n06",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n02",
+      "depth": 3,
+      "name": "Reflex",
+      "description": "Reflex - While fewer than three enemies stand: +4% attackSpeed.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 4
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "reflex"
+    },
+    {
+      "id": "plagueborn_swift_n07",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n03",
+      "depth": 4,
+      "name": "Double Step",
+      "description": "Double Step - pb_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a1",
+        "ticks": -5
+      },
+      "icon": "double_step"
+    },
+    {
+      "id": "plagueborn_swift_n08",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n03",
+      "depth": 4,
+      "name": "Lunge",
+      "description": "Lunge - pb_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a3",
+        "delta": -3
+      },
+      "icon": "lunge"
+    },
+    {
+      "id": "plagueborn_swift_n09",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n04",
+      "depth": 4,
+      "name": "High Step",
+      "description": "High Step - aura: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "aura",
+        "ticks": 10
+      },
+      "icon": "high_step"
+    },
+    {
+      "id": "plagueborn_swift_n10",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n05",
+      "depth": 4,
+      "name": "Wind Step",
+      "description": "Wind Step - +3% maxHpPct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "maxHpPct",
+        "value": 0.03
+      },
+      "icon": "wind_step"
+    },
+    {
+      "id": "plagueborn_swift_n11",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n05",
+      "depth": 4,
+      "name": "Feather Fall",
+      "description": "Feather Fall - pb_a3: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a3",
+        "count": 1
+      },
+      "icon": "feather_fall"
+    },
+    {
+      "id": "plagueborn_swift_n12",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n06",
+      "depth": 4,
+      "name": "Twin Fang Echo",
+      "description": "Twin Fang Echo - Passive \"pb_p8\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "pb_p8",
+        "rank": 1
+      },
+      "icon": "twin_fang_echo"
+    },
+    {
+      "id": "plagueborn_swift_n13",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n07",
+      "depth": 5,
+      "name": "Skirmisher",
+      "description": "Skirmisher - pb_a3: aoe.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a3",
+        "flag": "aoe"
+      },
+      "icon": "skirmisher"
+    },
+    {
+      "id": "plagueborn_swift_n14",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n07",
+      "depth": 5,
+      "name": "Afterimage",
+      "description": "Afterimage - pb_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a1",
+        "count": 1
+      },
+      "icon": "afterimage"
+    },
+    {
+      "id": "plagueborn_swift_n15",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n08",
+      "depth": 5,
+      "name": "Blur",
+      "description": "Blur - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "blur"
+    },
+    {
+      "id": "plagueborn_swift_n16",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n09",
+      "depth": 5,
+      "name": "Quickstrike",
+      "description": "Quickstrike - Unlocks rune \"pb_a1_focus\" for pb_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a1",
+        "rune": "pb_a1_focus"
+      },
+      "icon": "quickstrike"
+    },
+    {
+      "id": "plagueborn_swift_n17",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n10",
+      "depth": 5,
+      "name": "Evasive",
+      "description": "Evasive - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "evasive"
+    },
+    {
+      "id": "plagueborn_swift_n18",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n10",
+      "depth": 5,
+      "name": "Dancer's Step",
+      "description": "Dancer's Step - +3% soulYieldPct.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "soulYieldPct",
+        "value": 0.03
+      },
+      "icon": "dancer_s_step"
+    },
+    {
+      "id": "plagueborn_swift_n19",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n11",
+      "depth": 5,
+      "name": "Fleet",
+      "description": "Fleet - pb_a3: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a3",
+        "ticks": -5
+      },
+      "icon": "fleet"
+    },
+    {
+      "id": "plagueborn_swift_n20",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n12",
+      "depth": 5,
+      "name": "Scrapper",
+      "description": "Scrapper - pb_a3: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "pb_a3",
+        "delta": -3
+      },
+      "icon": "scrapper"
+    },
+    {
+      "id": "plagueborn_swift_n21",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n13",
+      "depth": 6,
+      "name": "Sidestep",
+      "description": "Sidestep - Unlocks the skill \"pb_a1\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a1",
+        "permanent": false
+      },
+      "icon": "sidestep"
+    },
+    {
+      "id": "plagueborn_swift_n22",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n13",
+      "depth": 6,
+      "name": "Razor Reflex",
+      "description": "Razor Reflex - Unlocks rune \"pb_a3_venomfang\" for pb_a3.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a3",
+        "rune": "pb_a3_venomfang"
+      },
+      "icon": "razor_reflex"
+    },
+    {
+      "id": "plagueborn_swift_n23",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n14",
+      "depth": 6,
+      "name": "Swift Echo",
+      "description": "Swift Echo - +3% attackSpeed.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "swift_echo"
+    },
+    {
+      "id": "plagueborn_swift_n24",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n15",
+      "depth": 6,
+      "name": "Phantom Step",
+      "description": "Phantom Step - +10% attackSpeed (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "phantom_step"
+    },
+    {
+      "id": "plagueborn_swift_n25",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n16",
+      "depth": 6,
+      "name": "Storm of Blades",
+      "description": "Storm of Blades - Passive \"pb_p2\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "pb_p2",
+        "rank": 1
+      },
+      "icon": "storm_of_blades"
+    },
+    {
+      "id": "plagueborn_swift_n26",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n17",
+      "depth": 6,
+      "name": "Viper's Rush",
+      "description": "Viper's Rush - While your resource is full: +4% attackSpeed.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "viper_s_rush"
+    },
+    {
+      "id": "plagueborn_swift_n27",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n18",
+      "depth": 6,
+      "name": "Swift Sovereign",
+      "description": "Swift Sovereign - rage: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "rage",
+        "ticks": 10
+      },
+      "icon": "swift_sovereign"
+    },
+    {
+      "id": "plagueborn_swift_n28",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n19",
+      "depth": 6,
+      "name": "The Quick Blade",
+      "description": "The Quick Blade - pb_a3: aoe.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "pb_a3",
+        "flag": "aoe"
+      },
+      "icon": "the_quick_blade"
+    },
+    {
+      "id": "plagueborn_swift_n29",
+      "treeId": "plagueborn_swift",
+      "parent": "plagueborn_swift_n20",
+      "depth": 6,
+      "name": "Second Wind",
+      "description": "Second Wind - +3% attackSpeed.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "attackSpeed",
+        "value": 0.03
+      },
+      "icon": "second_wind"
+    }
+  ]
+}

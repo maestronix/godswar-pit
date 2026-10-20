@@ -1,0 +1,250 @@
+[
+  {
+    "id": "z4_cinder_mite",
+    "name": "Cinder Mite",
+    "hp": 125,
+    "dps": 12.92,
+    "speed": 3,
+    "range": 0.9,
+    "tier": 2,
+    "sprite": "mite",
+    "traits": [
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.2,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1,
+    "size": 0.8
+  },
+  {
+    "id": "z4_emberling",
+    "name": "Emberling",
+    "hp": 125,
+    "dps": 12.92,
+    "speed": 2.8,
+    "range": 1,
+    "tier": 2,
+    "sprite": "emberling",
+    "traits": [
+      "fast",
+      "explosive"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.3,
+        "duration": 20,
+        "stacks": 2
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.2,
+    "size": 0.9
+  },
+  {
+    "id": "z4_slag_hound",
+    "name": "Slag Hound",
+    "hp": 152,
+    "dps": 15.25,
+    "speed": 3.1,
+    "range": 1,
+    "tier": 3,
+    "sprite": "hound",
+    "traits": [
+      "beast",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.22,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 2,
+    "lootBonus": 1.1,
+    "size": 0.9
+  },
+  {
+    "id": "z4_magma_crawler",
+    "name": "Magma Crawler",
+    "hp": 152,
+    "dps": 15.25,
+    "speed": 1.9,
+    "range": 1.1,
+    "tier": 3,
+    "sprite": "crawler",
+    "traits": [
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.25,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1.1
+  },
+  {
+    "id": "z4_forge_sprite",
+    "name": "Forge Sprite",
+    "hp": 152,
+    "dps": 15.25,
+    "speed": 2.6,
+    "range": 2.2,
+    "tier": 3,
+    "sprite": "sprite",
+    "traits": [
+      "caster",
+      "flying"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.18,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.2,
+    "size": 0.8
+  },
+  {
+    "id": "z4_scoria_knight",
+    "name": "Scoria Knight",
+    "hp": 179,
+    "dps": 17.57,
+    "speed": 1.6,
+    "range": 1.4,
+    "tier": 4,
+    "sprite": "knight",
+    "traits": [
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.2,
+        "duration": 25,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.4,
+    "size": 1.2
+  },
+  {
+    "id": "z4_flamewright",
+    "name": "Flamewright",
+    "hp": 179,
+    "dps": 17.57,
+    "speed": 1.7,
+    "range": 2.3,
+    "tier": 4,
+    "sprite": "wright",
+    "traits": [
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.28,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1
+  },
+  {
+    "id": "z4_cinder_salamander",
+    "name": "Cinder Salamander",
+    "hp": 179,
+    "dps": 17.57,
+    "speed": 2.1,
+    "range": 1.2,
+    "tier": 4,
+    "sprite": "salamander",
+    "traits": [
+      "beast",
+      "regenerating"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.25,
+        "duration": 30,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1.2
+  },
+  {
+    "id": "z4_elite_blazebrute",
+    "name": "Blazebrute",
+    "hp": 430,
+    "dps": 28.12,
+    "speed": 1.8,
+    "range": 1.3,
+    "tier": 4,
+    "sprite": "blazebrute",
+    "traits": [
+      "elite",
+      "explosive",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.35,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.7,
+    "size": 1.4
+  },
+  {
+    "id": "z4_boss_forgeheart",
+    "name": "Forgeheart",
+    "hp": 1857,
+    "dps": 43.79,
+    "speed": 1.5,
+    "range": 1.5,
+    "tier": 5,
+    "sprite": "forgeheart",
+    "traits": [
+      "boss",
+      "explosive",
+      "regenerating"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.3,
+        "duration": 40,
+        "stacks": 3
+      }
+    ],
+    "souls": 6,
+    "lootBonus": 2,
+    "size": 1.4
+  }
+]

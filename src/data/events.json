@@ -1,0 +1,707 @@
+[
+  {
+    "id": "event_gilded_mimic",
+    "name": "Gilded Mimic",
+    "description": "A chest of gold plate sits open in the rubble, and something inside it is breathing.",
+    "choices": [
+      {
+        "id": "mimic_take_coins",
+        "label": "Take the loose coins",
+        "description": "Pocket what spilled out and leave the chest alone.",
+        "outcome": "You take 150 souls and walk on.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "souls",
+            "amount": 150
+          }
+        ]
+      },
+      {
+        "id": "mimic_rummage",
+        "label": "Rummage inside",
+        "description": "Dig through the chest for relics; whatever breathes can wait.",
+        "outcome": "Two relics fall out, but teeth find your arm.",
+        "risk": 1,
+        "effects": [
+          {
+            "kind": "loot",
+            "count": 2,
+            "levelBonus": 1
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.1
+          }
+        ]
+      },
+      {
+        "id": "mimic_open",
+        "label": "Open it fully",
+        "description": "Rip the chest wide and meet whatever sleeps inside.",
+        "outcome": "The mimic lunges and you pay for the prize in blood.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 2
+          },
+          {
+            "kind": "loot",
+            "count": 3,
+            "levelBonus": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_bleeding_road",
+    "name": "Bleeding Road",
+    "description": "The tunnel ahead is soaked in blood that is still moving.",
+    "choices": [
+      {
+        "id": "road_bind_wounds",
+        "label": "Bind your wounds",
+        "description": "Stop, wrap the wounds, and let the bleeding stop.",
+        "outcome": "You close your wounds and feel steadier.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "hp",
+            "fraction": 0.3
+          }
+        ]
+      },
+      {
+        "id": "road_run",
+        "label": "Run through it",
+        "description": "Sprint the bloody stretch before it notices you.",
+        "outcome": "You break through the blood, wounded and fast.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "moveSpeed",
+            "value": 0.25,
+            "duration": 300
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.15
+          }
+        ]
+      },
+      {
+        "id": "road_follow",
+        "label": "Follow the blood",
+        "description": "Follow the flow to whatever is feeding on it.",
+        "outcome": "Something is feeding down there, and it has friends.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 3
+          },
+          {
+            "kind": "loot",
+            "count": 3,
+            "levelBonus": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_shrine_of_ash",
+    "name": "Shrine of Ash",
+    "description": "A shrine of grey ash stands open, still warm, with an offering bowl beside it.",
+    "choices": [
+      {
+        "id": "shrine_pray",
+        "label": "Pray quietly",
+        "description": "Leave a little of what you carry and move on.",
+        "outcome": "The ash accepts your offering and your purse feels lighter.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "souls",
+            "amount": 300
+          }
+        ]
+      },
+      {
+        "id": "shrine_demand",
+        "label": "Demand a blessing",
+        "description": "Ask the shrine for more than it offers to give.",
+        "outcome": "The shrine grants you a feverish strength.",
+        "risk": 1,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "damagePct",
+            "value": 0.2,
+            "duration": 600
+          }
+        ]
+      },
+      {
+        "id": "shrine_break",
+        "label": "Break the offering",
+        "description": "Take the bowl, shatter the shrine, and take what it hides.",
+        "outcome": "Something answers the breaking with teeth.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 3
+          },
+          {
+            "kind": "echo",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_drowned_saint",
+    "name": "Drowned Saint",
+    "description": "A saint of the old war lies drowned in the flooded hall, hands still raised.",
+    "choices": [
+      {
+        "id": "saint_respect",
+        "label": "Pay respects",
+        "description": "Say the old words and let the saint rest.",
+        "outcome": "The hall quiets and your wounds close.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "hp",
+            "fraction": 0.5
+          }
+        ]
+      },
+      {
+        "id": "saint_relic",
+        "label": "Take the drowned relic",
+        "description": "The saint wears something that glints in the dark.",
+        "outcome": "You pull a relic free and the water pulls back.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "resource",
+            "fraction": 1
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.25
+          }
+        ]
+      },
+      {
+        "id": "saint_swim",
+        "label": "Swim deeper",
+        "description": "Dive after the saint to see what it guards below.",
+        "outcome": "The deep water holds a guardian.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 4
+          },
+          {
+            "kind": "maxHp",
+            "fraction": -0.1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_twin_mirrors",
+    "name": "Twin Mirrors",
+    "description": "Two black mirrors lean against each other, each showing a different version of you.",
+    "choices": [
+      {
+        "id": "mirrors_one",
+        "label": "Look into one mirror",
+        "description": "Study a single reflection and take nothing else.",
+        "outcome": "You learn a little of the pit and pay a little of your blood.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "souls",
+            "amount": 500
+          },
+          {
+            "kind": "hp",
+            "fraction": 0.2
+          }
+        ]
+      },
+      {
+        "id": "mirrors_both",
+        "label": "Look into both",
+        "description": "Meet both versions of yourself at once.",
+        "outcome": "Both reflections teach you the same lesson, in blood.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "critChance",
+            "value": 0.15,
+            "duration": 400
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.3
+          }
+        ]
+      },
+      {
+        "id": "mirrors_shatter",
+        "label": "Shatter both",
+        "description": "Break the mirrors and take whatever falls out.",
+        "outcome": "Glass, teeth and a fight for what is hidden.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 4
+          },
+          {
+            "kind": "loot",
+            "count": 4,
+            "levelBonus": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_wandering_alchemist",
+    "name": "Wandering Alchemist",
+    "description": "A hooded alchemist sets a small furnace down in the middle of the corridor.",
+    "choices": [
+      {
+        "id": "alchemist_tonic",
+        "label": "Buy a cheap tonic",
+        "description": "Pay for the mildest brew and keep walking.",
+        "outcome": "A weak brew, but it closes your wounds.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "hp",
+            "fraction": 0.25
+          }
+        ]
+      },
+      {
+        "id": "alchemist_strange",
+        "label": "Drink the strange tonic",
+        "description": "Drink whatever the alchemist is smiling about.",
+        "outcome": "Something in you starts mending itself.",
+        "risk": 1,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "hpRegen",
+            "value": 0.5,
+            "duration": 600
+          }
+        ]
+      },
+      {
+        "id": "alchemist_recipes",
+        "label": "Steal the recipes",
+        "description": "Take the alchemist papers and run before the summoning finishes.",
+        "outcome": "The furnace erupts as you run.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 2
+          },
+          {
+            "kind": "echo",
+            "amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_bone_market",
+    "name": "Bone Market",
+    "description": "Reavers trade relic parts in a hollow lined with stacked bones.",
+    "choices": [
+      {
+        "id": "market_charm",
+        "label": "Buy a bone charm",
+        "description": "Pay for a knotted charm and stay out of the trade.",
+        "outcome": "The charm is ugly and it holds.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "armorPct",
+            "value": 0.1,
+            "duration": 300
+          }
+        ]
+      },
+      {
+        "id": "market_haggle",
+        "label": "Haggle for the good stock",
+        "description": "Push your luck on the best relics in the hollow.",
+        "outcome": "You get the good stock and a knife for it.",
+        "risk": 1,
+        "effects": [
+          {
+            "kind": "loot",
+            "count": 2,
+            "levelBonus": 2
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.2
+          }
+        ]
+      },
+      {
+        "id": "market_rob",
+        "label": "Rob the market",
+        "description": "Take everything on the tables and run for the tunnel.",
+        "outcome": "The reavers do not take kindly to theft.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 5
+          },
+          {
+            "kind": "loot",
+            "count": 5,
+            "levelBonus": 4
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_pit_whisper",
+    "name": "Pit Whisper",
+    "description": "A voice from under the stones knows your name and your next move.",
+    "choices": [
+      {
+        "id": "whisper_listen",
+        "label": "Listen quietly",
+        "description": "Listen, say nothing, and gather your strength.",
+        "outcome": "The whisper fades and you feel steadier.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "hp",
+            "fraction": 0.35
+          },
+          {
+            "kind": "resource",
+            "fraction": 1
+          }
+        ]
+      },
+      {
+        "id": "whisper_answer",
+        "label": "Answer the whisper",
+        "description": "Give the voice an answer and take its gift.",
+        "outcome": "Your casts come faster, the voice charges for them.",
+        "risk": 1,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "cooldownReduction",
+            "value": 0.15,
+            "duration": 500
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.15
+          }
+        ]
+      },
+      {
+        "id": "whisper_shout",
+        "label": "Shout back",
+        "description": "Answer loudly enough that the whole wall hears you.",
+        "outcome": "The pit answers louder, and pays you for the volume.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 3
+          },
+          {
+            "kind": "souls",
+            "amount": 1500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_cursed_bargain",
+    "name": "Cursed Bargain",
+    "description": "A hand of bone and gold offers a contract written in your own blood.",
+    "choices": [
+      {
+        "id": "bargain_purse",
+        "label": "Take the purse and go",
+        "description": "Take the dropped purse and leave the contract on the table.",
+        "outcome": "You walk away richer and still whole.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "souls",
+            "amount": 1000
+          }
+        ]
+      },
+      {
+        "id": "bargain_take_deal",
+        "label": "Take the deal",
+        "description": "Sign for the power, whatever it takes from your body.",
+        "outcome": "You are stronger for a while, and weaker for good.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "damagePct",
+            "value": 0.35,
+            "duration": 300
+          },
+          {
+            "kind": "maxHp",
+            "fraction": -0.1
+          }
+        ]
+      },
+      {
+        "id": "bargain_sign",
+        "label": "Sign in blood",
+        "description": "Sign your name in blood and make the contract binding.",
+        "outcome": "The contract seals and the pit comes to collect.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 5
+          },
+          {
+            "kind": "echo",
+            "amount": 3
+          },
+          {
+            "kind": "maxHp",
+            "fraction": -0.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_drowned_merchant",
+    "name": "Drowned Merchant",
+    "description": "A merchant waits in the flooded hall, crates chained to his drowned cart.",
+    "choices": [
+      {
+        "id": "merchant_trade",
+        "label": "Trade fairly",
+        "description": "Pay the asking price and take what you came for.",
+        "outcome": "A fair trade in a place with no fair prices.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "souls",
+            "amount": 250
+          },
+          {
+            "kind": "hp",
+            "fraction": 0.2
+          }
+        ]
+      },
+      {
+        "id": "merchant_haggle",
+        "label": "Haggle hard",
+        "description": "Push the price down and take more for your trouble.",
+        "outcome": "You talk him down and he charges you in blood.",
+        "risk": 1,
+        "effects": [
+          {
+            "kind": "loot",
+            "count": 3,
+            "levelBonus": 2
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.2
+          }
+        ]
+      },
+      {
+        "id": "merchant_smuggle",
+        "label": "Smuggle his crates",
+        "description": "Take the crates and find your own way out of the hall.",
+        "outcome": "The crates are heavy and the hall is not empty.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 4
+          },
+          {
+            "kind": "loot",
+            "count": 6,
+            "levelBonus": 5
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_thousand_eyes",
+    "name": "Thousand Eyes",
+    "description": "The wall of the chamber is made of eyes, and every one of them blinks at you.",
+    "choices": [
+      {
+        "id": "eyes_look_away",
+        "label": "Look away",
+        "description": "Keep your head down and walk past the wall.",
+        "outcome": "The eyes let you pass, this time.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "hp",
+            "fraction": 0.4
+          }
+        ]
+      },
+      {
+        "id": "eyes_stare",
+        "label": "Stare back",
+        "description": "Meet the wall eye for eye and see what it sees.",
+        "outcome": "The wall shows you your own hide, and hardens you.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "buff",
+            "stat": "armorPct",
+            "value": 0.25,
+            "duration": 600
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.2
+          }
+        ]
+      },
+      {
+        "id": "eyes_blind",
+        "label": "Blind them",
+        "description": "Put the wall out for good and take what it was guarding.",
+        "outcome": "The wall fights back, and the room pays for it.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 4
+          },
+          {
+            "kind": "buff",
+            "stat": "soulYieldPct",
+            "value": 0.5,
+            "duration": 900
+          },
+          {
+            "kind": "maxHp",
+            "fraction": -0.1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "event_last_gift",
+    "name": "Last Gift",
+    "description": "A wrapped gift from no one sits in the middle of the road, still warm.",
+    "choices": [
+      {
+        "id": "gift_accept",
+        "label": "Accept the gift",
+        "description": "Take the gift as it is and keep walking.",
+        "outcome": "A kind gift from a kind pit, which is rare.",
+        "risk": 0,
+        "effects": [
+          {
+            "kind": "souls",
+            "amount": 400
+          },
+          {
+            "kind": "hp",
+            "fraction": 0.25
+          }
+        ]
+      },
+      {
+        "id": "gift_open_early",
+        "label": "Open it early",
+        "description": "Rip it open where you stand and take the prize now.",
+        "outcome": "The gift opens early and so does something else.",
+        "risk": 2,
+        "effects": [
+          {
+            "kind": "loot",
+            "count": 3,
+            "levelBonus": 3
+          },
+          {
+            "kind": "damage",
+            "fraction": 0.3
+          }
+        ]
+      },
+      {
+        "id": "gift_everything",
+        "label": "Take everything",
+        "description": "Take the gift, the shrine around it and whatever waits inside.",
+        "outcome": "The hollow throne sends its own collector.",
+        "risk": 3,
+        "effects": [
+          {
+            "kind": "fight",
+            "tier": 6
+          },
+          {
+            "kind": "echo",
+            "amount": 5
+          },
+          {
+            "kind": "buff",
+            "stat": "executeThreshold",
+            "value": 0.1,
+            "duration": 600
+          }
+        ]
+      }
+    ]
+  }
+]

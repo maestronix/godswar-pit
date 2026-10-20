@@ -1,0 +1,271 @@
+[
+  {
+    "id": "sword",
+    "name": "Pit Sword",
+    "slot": "weapon",
+    "classes": ["bladewalker", "ashmonk", "pitsorcer", "ironpriest", "plagueborn", "soulbinder"],
+    "implicit": [
+      { "stat": "flatDamage", "value": 6 },
+      { "stat": "attackSpeed", "value": 0.03 }
+    ],
+    "baseDamage": 6,
+    "icon": "sword",
+    "flavor": "Standard issue for anyone who still trusts the pit to be fair."
+  },
+  {
+    "id": "axe",
+    "name": "Pit Cleaver",
+    "slot": "weapon",
+    "classes": ["bladewalker", "ashmonk", "ironpriest", "plagueborn"],
+    "implicit": [{ "stat": "flatDamage", "value": 8 }],
+    "baseDamage": 8,
+    "icon": "axe",
+    "flavor": "Heavy, blunt and honest about what it is for."
+  },
+  {
+    "id": "greatsword",
+    "name": "Greatsword of the Pit",
+    "slot": "weapon",
+    "classes": ["bladewalker", "ironpriest", "soulbinder"],
+    "implicit": [
+      { "stat": "flatDamage", "value": 12 },
+      { "stat": "attackSpeed", "value": -0.05 }
+    ],
+    "baseDamage": 12,
+    "icon": "greatsword",
+    "flavor": "Two hands of steel and a great deal of stubbornness."
+  },
+  {
+    "id": "spear",
+    "name": "Pit Spear",
+    "slot": "weapon",
+    "classes": ["bladewalker", "ashmonk", "pitsorcer", "ironpriest", "plagueborn"],
+    "implicit": [
+      { "stat": "flatDamage", "value": 7 },
+      { "stat": "attackSpeed", "value": 0.05 }
+    ],
+    "baseDamage": 7,
+    "icon": "spear",
+    "flavor": "Keeps the carrion at a polite distance."
+  },
+  {
+    "id": "staff",
+    "name": "Ashen Staff",
+    "slot": "weapon",
+    "classes": ["pitsorcer", "soulbinder"],
+    "implicit": [{ "stat": "flatDamage", "value": 5 }],
+    "baseDamage": 5,
+    "icon": "staff",
+    "flavor": "The wood never burns, it only smoulders."
+  },
+  {
+    "id": "wand",
+    "name": "Bone Wand",
+    "slot": "weapon",
+    "classes": ["pitsorcer", "plagueborn", "soulbinder"],
+    "implicit": [{ "stat": "flatDamage", "value": 4 }],
+    "baseDamage": 4,
+    "icon": "wand",
+    "flavor": "Whittled from something that used to argue back."
+  },
+  {
+    "id": "gauntlets",
+    "name": "Iron Gauntlets",
+    "slot": "weapon",
+    "classes": ["ashmonk", "ironpriest"],
+    "implicit": [
+      { "stat": "flatDamage", "value": 3 },
+      { "stat": "attackSpeed", "value": 0.08 }
+    ],
+    "baseDamage": 3,
+    "icon": "gauntlets",
+    "flavor": "Your fists are already armed; the pit merely reminds you."
+  },
+  {
+    "id": "dagger",
+    "name": "Pit Dagger",
+    "slot": "weapon",
+    "classes": ["ashmonk", "pitsorcer", "plagueborn", "soulbinder"],
+    "implicit": [
+      { "stat": "flatDamage", "value": 4 },
+      { "stat": "critChance", "value": 0.02 }
+    ],
+    "baseDamage": 4,
+    "icon": "dagger",
+    "flavor": "Small enough to hide, sharp enough to be a promise."
+  },
+  {
+    "id": "scythe",
+    "name": "Gravescythe",
+    "slot": "weapon",
+    "classes": ["ashmonk", "pitsorcer", "plagueborn", "soulbinder"],
+    "implicit": [
+      { "stat": "flatDamage", "value": 6 },
+      { "stat": "attackSpeed", "value": 0.04 }
+    ],
+    "baseDamage": 6,
+    "icon": "scythe",
+    "flavor": "Reaped once a season, and the pit is patient."
+  },
+  {
+    "id": "hammer",
+    "name": "Pit Hammer",
+    "slot": "weapon",
+    "classes": ["bladewalker", "ironpriest"],
+    "implicit": [
+      { "stat": "flatDamage", "value": 10 },
+      { "stat": "attackSpeed", "value": -0.08 }
+    ],
+    "baseDamage": 10,
+    "icon": "hammer",
+    "flavor": "Armour is only a suggestion when the pit is angry."
+  },
+  {
+    "id": "armor_leather",
+    "name": "Leather Harness",
+    "slot": "armor",
+    "classes": [],
+    "implicit": [
+      { "stat": "flatArmor", "value": 6 },
+      { "stat": "maxHpPct", "value": 0.05 }
+    ],
+    "baseArmor": 6,
+    "icon": "armor_leather",
+    "flavor": "Boiled hides smell of smoke and old rain."
+  },
+  {
+    "id": "armor_chain",
+    "name": "Chain Mail",
+    "slot": "armor",
+    "classes": [],
+    "implicit": [
+      { "stat": "flatArmor", "value": 11 },
+      { "stat": "maxHpPct", "value": 0.08 }
+    ],
+    "baseArmor": 11,
+    "icon": "armor_chain",
+    "flavor": "Every ring was forged by someone who did not survive the forging."
+  },
+  {
+    "id": "armor_plate",
+    "name": "Iron Plate",
+    "slot": "armor",
+    "classes": [],
+    "implicit": [
+      { "stat": "flatArmor", "value": 18 },
+      { "stat": "maxHpPct", "value": 0.12 }
+    ],
+    "baseArmor": 18,
+    "icon": "armor_plate",
+    "flavor": "Heavy enough that the pit has to work harder to eat you."
+  },
+  {
+    "id": "armor_robe",
+    "name": "Pit Robes",
+    "slot": "armor",
+    "classes": [],
+    "implicit": [
+      { "stat": "flatArmor", "value": 4 },
+      { "stat": "maxHpPct", "value": 0.1 }
+    ],
+    "baseArmor": 4,
+    "icon": "armor_robe",
+    "flavor": "Woven from grey thread that never frays and never dries."
+  },
+  {
+    "id": "boots_ash",
+    "name": "Ashen Boots",
+    "slot": "boots",
+    "classes": [],
+    "implicit": [
+      { "stat": "moveSpeed", "value": 0.05 },
+      { "stat": "armorPct", "value": 0.04 }
+    ],
+    "icon": "boots_ash",
+    "flavor": "You leave footprints, but nothing follows them."
+  },
+  {
+    "id": "boots_iron",
+    "name": "Iron-Soled Boots",
+    "slot": "boots",
+    "classes": [],
+    "implicit": [
+      { "stat": "moveSpeed", "value": 0.03 },
+      { "stat": "armorPct", "value": 0.09 }
+    ],
+    "icon": "boots_iron",
+    "flavor": "Built for standing still while the world burns."
+  },
+  {
+    "id": "gloves_wrap",
+    "name": "Wrapped Gloves",
+    "slot": "gloves",
+    "classes": [],
+    "implicit": [
+      { "stat": "attackSpeed", "value": 0.04 },
+      { "stat": "critChance", "value": 0.02 }
+    ],
+    "icon": "gloves_wrap",
+    "flavor": "The cloth is bloodied but it fits like it was made for you."
+  },
+  {
+    "id": "gloves_gauntlet",
+    "name": "Heavy Gauntlets",
+    "slot": "gloves",
+    "classes": [],
+    "implicit": [
+      { "stat": "attackSpeed", "value": 0.06 },
+      { "stat": "critChance", "value": 0.01 }
+    ],
+    "icon": "gloves_gauntlet",
+    "flavor": "Plated knuckles that turn a swing into a sentence."
+  },
+  {
+    "id": "amulet_charm",
+    "name": "Bone Charm",
+    "slot": "amulet",
+    "classes": [],
+    "implicit": [
+      { "stat": "maxHpPct", "value": 0.07 },
+      { "stat": "soulYieldPct", "value": 0.08 }
+    ],
+    "icon": "amulet_charm",
+    "flavor": "It hums when something nearby is about to die."
+  },
+  {
+    "id": "amulet_lore",
+    "name": "Loremark Amulet",
+    "slot": "amulet",
+    "classes": [],
+    "implicit": [
+      { "stat": "maxHpPct", "value": 0.05 },
+      { "stat": "soulYieldPct", "value": 0.12 }
+    ],
+    "icon": "amulet_lore",
+    "flavor": "Inscribed with names the pit remembers and you do not."
+  },
+  {
+    "id": "ring_band",
+    "name": "Iron Band",
+    "slot": "ring",
+    "classes": [],
+    "implicit": [
+      { "stat": "critChance", "value": 0.03 },
+      { "stat": "flatSouls", "value": 2 }
+    ],
+    "icon": "ring_band",
+    "flavor": "Cheap iron, worn smooth by thousands of counting fingers."
+  },
+  {
+    "id": "ring_signet",
+    "name": "Pit Signet",
+    "slot": "ring",
+    "classes": [],
+    "implicit": [
+      { "stat": "critChance", "value": 0.02 },
+      { "stat": "flatSouls", "value": 4 }
+    ],
+    "icon": "ring_signet",
+    "flavor": "Stamped with a throne that no longer exists."
+  }
+]

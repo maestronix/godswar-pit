@@ -1,0 +1,251 @@
+[
+  {
+    "id": "z8_dust_servitor",
+    "name": "Dust Servitor",
+    "hp": 617,
+    "dps": 47.7,
+    "speed": 1.9,
+    "range": 1.1,
+    "tier": 3,
+    "sprite": "servitor",
+    "traits": [
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.12,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.1,
+    "size": 0.9
+  },
+  {
+    "id": "z8_iron_moth",
+    "name": "Iron Moth",
+    "hp": 617,
+    "dps": 47.7,
+    "speed": 2.9,
+    "range": 1,
+    "tier": 3,
+    "sprite": "moth",
+    "traits": [
+      "flying",
+      "fast"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.12,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.1,
+    "size": 0.8
+  },
+  {
+    "id": "z8_rivet_hound",
+    "name": "Rivet Hound",
+    "hp": 617,
+    "dps": 47.7,
+    "speed": 3,
+    "range": 1,
+    "tier": 3,
+    "sprite": "hound",
+    "traits": [
+      "fast",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "bleed",
+        "chance": 0.15,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.1,
+    "size": 0.9
+  },
+  {
+    "id": "z8_bronze_acolyte",
+    "name": "Bronze Acolyte",
+    "hp": 728,
+    "dps": 54.99,
+    "speed": 1.8,
+    "range": 2.3,
+    "tier": 4,
+    "sprite": "acolyte",
+    "traits": [
+      "caster"
+    ],
+    "onHit": [
+      {
+        "status": "curse",
+        "chance": 0.18,
+        "duration": 30,
+        "stacks": 1
+      }
+    ],
+    "souls": 3,
+    "lootBonus": 1.3,
+    "size": 1
+  },
+  {
+    "id": "z8_gear_sentinel",
+    "name": "Gear Sentinel",
+    "hp": 728,
+    "dps": 54.99,
+    "speed": 1.5,
+    "range": 1.3,
+    "tier": 4,
+    "sprite": "sentinel",
+    "traits": [
+      "armored",
+      "regenerating"
+    ],
+    "onHit": [
+      {
+        "status": "slow",
+        "chance": 0.15,
+        "duration": 25,
+        "stacks": 1
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.4,
+    "size": 1.2
+  },
+  {
+    "id": "z8_bolt_thrall",
+    "name": "Bolt Thrall",
+    "hp": 728,
+    "dps": 54.99,
+    "speed": 2.7,
+    "range": 1.1,
+    "tier": 4,
+    "sprite": "thrall",
+    "traits": [
+      "fast",
+      "explosive"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.2,
+        "duration": 20,
+        "stacks": 1
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.3,
+    "size": 0.9
+  },
+  {
+    "id": "z8_steel_oracle",
+    "name": "Steel Oracle",
+    "hp": 728,
+    "dps": 54.99,
+    "speed": 1.7,
+    "range": 2.4,
+    "tier": 4,
+    "sprite": "oracle",
+    "traits": [
+      "caster",
+      "shielded"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.2,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.4,
+    "size": 1
+  },
+  {
+    "id": "z8_loom_construct",
+    "name": "Loom Construct",
+    "hp": 839,
+    "dps": 62.28,
+    "speed": 1.5,
+    "range": 1.4,
+    "tier": 5,
+    "sprite": "construct",
+    "traits": [
+      "armored",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "slow",
+        "chance": 0.2,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 4,
+    "lootBonus": 1.5,
+    "size": 1.3
+  },
+  {
+    "id": "z8_elite_brass_colossus",
+    "name": "Brass Colossus",
+    "hp": 2014,
+    "dps": 99.64,
+    "speed": 1.4,
+    "range": 1.4,
+    "tier": 5,
+    "sprite": "brass_colossus",
+    "traits": [
+      "elite",
+      "armored"
+    ],
+    "onHit": [
+      {
+        "status": "burn",
+        "chance": 0.25,
+        "duration": 30,
+        "stacks": 2
+      }
+    ],
+    "souls": 5,
+    "lootBonus": 1.8,
+    "size": 1.4
+  },
+  {
+    "id": "z8_boss_the_iron_deacon",
+    "name": "The Iron Deacon",
+    "hp": 7552,
+    "dps": 137.01,
+    "speed": 1.5,
+    "range": 1.5,
+    "tier": 5,
+    "sprite": "iron_deacon",
+    "traits": [
+      "boss",
+      "armored",
+      "summoner"
+    ],
+    "onHit": [
+      {
+        "status": "weaken",
+        "chance": 0.3,
+        "duration": 40,
+        "stacks": 3
+      }
+    ],
+    "souls": 6,
+    "lootBonus": 2,
+    "size": 1.4
+  }
+]

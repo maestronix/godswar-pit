@@ -1,0 +1,537 @@
+{
+  "id": "ashmonk_iron",
+  "classId": "ashmonk",
+  "name": "Iron",
+  "description": "Stone does not tire. Neither do you.",
+  "nodes": [
+    {
+      "id": "ashmonk_iron_n00",
+      "treeId": "ashmonk_iron",
+      "parent": null,
+      "depth": 1,
+      "name": "Stone Fist",
+      "description": "Stone Fist - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 36,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "stone_fist"
+    },
+    {
+      "id": "ashmonk_iron_n01",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n00",
+      "depth": 2,
+      "name": "Iron Palm",
+      "description": "Iron Palm - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 28,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "iron_palm"
+    },
+    {
+      "id": "ashmonk_iron_n02",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n00",
+      "depth": 2,
+      "name": "Mountain Stance",
+      "description": "Mountain Stance - While you are below half health: +4% armorPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 35,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "you are below half health"
+      },
+      "icon": "mountain_stance"
+    },
+    {
+      "id": "ashmonk_iron_n03",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n01",
+      "depth": 3,
+      "name": "Tempered Nerves",
+      "description": "Tempered Nerves - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 38,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "tempered_nerves"
+    },
+    {
+      "id": "ashmonk_iron_n04",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n01",
+      "depth": 3,
+      "name": "Unbreakable",
+      "description": "Unbreakable - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 76,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "unbreakable"
+    },
+    {
+      "id": "ashmonk_iron_n05",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n02",
+      "depth": 3,
+      "name": "Grounded Root",
+      "description": "Grounded Root - Passive \"am_p7\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 51,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p7",
+        "rank": 1
+      },
+      "icon": "grounded_root"
+    },
+    {
+      "id": "ashmonk_iron_n06",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n02",
+      "depth": 3,
+      "name": "Hardened Bones",
+      "description": "Hardened Bones - While fewer than three enemies stand: +4% armorPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 47,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 3
+        },
+        "conditionText": "fewer than three enemies stand"
+      },
+      "icon": "hardened_bones"
+    },
+    {
+      "id": "ashmonk_iron_n07",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n03",
+      "depth": 4,
+      "name": "Tempered Flesh",
+      "description": "Tempered Flesh - am_a2: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 57,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a2",
+        "ticks": -5
+      },
+      "icon": "tempered_flesh"
+    },
+    {
+      "id": "ashmonk_iron_n08",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n03",
+      "depth": 4,
+      "name": "Granite Will",
+      "description": "Granite Will - am_a1: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a1",
+        "delta": -3
+      },
+      "icon": "granite_will"
+    },
+    {
+      "id": "ashmonk_iron_n09",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n04",
+      "depth": 4,
+      "name": "Iron Blood",
+      "description": "Iron Blood - slow: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 52,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "slow",
+        "ticks": 10
+      },
+      "icon": "iron_blood"
+    },
+    {
+      "id": "ashmonk_iron_n10",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n05",
+      "depth": 4,
+      "name": "Weight of Stone",
+      "description": "Weight of Stone - +3% damagePct.",
+      "archetype": "VALUE",
+      "cost": 48,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "damagePct",
+        "value": 0.03
+      },
+      "icon": "weight_of_stone"
+    },
+    {
+      "id": "ashmonk_iron_n11",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n05",
+      "depth": 4,
+      "name": "Immovable",
+      "description": "Immovable - am_a1: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a1",
+        "count": 1
+      },
+      "icon": "immovable"
+    },
+    {
+      "id": "ashmonk_iron_n12",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n06",
+      "depth": 4,
+      "name": "Bronze Skin",
+      "description": "Bronze Skin - Passive \"am_p3\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 64,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p3",
+        "rank": 1
+      },
+      "icon": "bronze_skin"
+    },
+    {
+      "id": "ashmonk_iron_n13",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n07",
+      "depth": 5,
+      "name": "Shattering Palm",
+      "description": "Shattering Palm - am_a1: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 92,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a1",
+        "flag": "chain"
+      },
+      "icon": "shattering_palm"
+    },
+    {
+      "id": "ashmonk_iron_n14",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n07",
+      "depth": 5,
+      "name": "Earthshaker",
+      "description": "Earthshaker - am_a2: hits 1 more target(s).",
+      "archetype": "PIERCE",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a2",
+        "count": 1
+      },
+      "icon": "earthshaker"
+    },
+    {
+      "id": "ashmonk_iron_n15",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n08",
+      "depth": 5,
+      "name": "Steel Discipline",
+      "description": "Steel Discipline - haste: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "haste",
+        "ticks": 10
+      },
+      "icon": "steel_discipline"
+    },
+    {
+      "id": "ashmonk_iron_n16",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n09",
+      "depth": 5,
+      "name": "Endure",
+      "description": "Endure - Unlocks rune \"am_a2_rush\" for am_a2.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 127,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a2",
+        "rune": "am_a2_rush"
+      },
+      "icon": "endure"
+    },
+    {
+      "id": "ashmonk_iron_n17",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n10",
+      "depth": 5,
+      "name": "Iron Skin",
+      "description": "Iron Skin - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 115,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "iron_skin"
+    },
+    {
+      "id": "ashmonk_iron_n18",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n10",
+      "depth": 5,
+      "name": "Unyielding Mountain",
+      "description": "Unyielding Mountain - +3% armorPct.",
+      "archetype": "VALUE",
+      "cost": 58,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.03
+      },
+      "icon": "unyielding_mountain"
+    },
+    {
+      "id": "ashmonk_iron_n19",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n11",
+      "depth": 5,
+      "name": "Sutra of Stone",
+      "description": "Sutra of Stone - am_a1: +0.5s cooldown.",
+      "archetype": "COOLDOWN",
+      "cost": 69,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a1",
+        "ticks": -5
+      },
+      "icon": "sutra_of_stone"
+    },
+    {
+      "id": "ashmonk_iron_n20",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n12",
+      "depth": 5,
+      "name": "Boundless",
+      "description": "Boundless - am_a1: -3 resource.",
+      "archetype": "RESOURCE",
+      "cost": 63,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "skill": "am_a1",
+        "delta": -3
+      },
+      "icon": "boundless"
+    },
+    {
+      "id": "ashmonk_iron_n21",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n13",
+      "depth": 6,
+      "name": "Stoneheart",
+      "description": "Stoneheart - Unlocks the skill \"am_a2\" (this incarnation).",
+      "archetype": "ACCESS",
+      "cost": 203,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a2",
+        "permanent": false
+      },
+      "icon": "stoneheart"
+    },
+    {
+      "id": "ashmonk_iron_n22",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n13",
+      "depth": 6,
+      "name": "Immortal Stance",
+      "description": "Immortal Stance - Unlocks rune \"am_a1_emptiness\" for am_a1.",
+      "archetype": "RUNE_UNLOCK",
+      "cost": 149,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a1",
+        "rune": "am_a1_emptiness"
+      },
+      "icon": "immortal_stance"
+    },
+    {
+      "id": "ashmonk_iron_n23",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n14",
+      "depth": 6,
+      "name": "Tempered Chi",
+      "description": "Tempered Chi - +3% cooldownReduction.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "cooldownReduction",
+        "value": 0.03
+      },
+      "icon": "tempered_chi"
+    },
+    {
+      "id": "ashmonk_iron_n24",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n15",
+      "depth": 6,
+      "name": "The Weight of Nine",
+      "description": "The Weight of Nine - +10% armorPct (max 3 stacks).",
+      "archetype": "MULTIPLIER",
+      "cost": 135,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "mult": 1.1,
+        "cap": 3
+      },
+      "icon": "the_weight_of_nine"
+    },
+    {
+      "id": "ashmonk_iron_n25",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n16",
+      "depth": 6,
+      "name": "Hard as Pit Stone",
+      "description": "Hard as Pit Stone - Passive \"am_p5\" +1.",
+      "archetype": "PASSIVE",
+      "cost": 91,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "passive": "am_p5",
+        "rank": 1
+      },
+      "icon": "hard_as_pit_stone"
+    },
+    {
+      "id": "ashmonk_iron_n26",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n17",
+      "depth": 6,
+      "name": "Rockfall Strike",
+      "description": "Rockfall Strike - While your resource is full: +4% armorPct.",
+      "archetype": "CONDITIONAL",
+      "cost": 84,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "stat": "armorPct",
+        "value": 0.04,
+        "condition": {
+          "kind": "enemiesAtLeast",
+          "value": 5
+        },
+        "conditionText": "your resource is full"
+      },
+      "icon": "rockfall_strike"
+    },
+    {
+      "id": "ashmonk_iron_n27",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n18",
+      "depth": 6,
+      "name": "Immovable Mind",
+      "description": "Immovable Mind - focus: +1s duration.",
+      "archetype": "DURATION",
+      "cost": 74,
+      "costGrowth": 1.55,
+      "maxRank": 3,
+      "params": {
+        "status": "focus",
+        "ticks": 10
+      },
+      "icon": "immovable_mind"
+    },
+    {
+      "id": "ashmonk_iron_n28",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n19",
+      "depth": 6,
+      "name": "Granite Avatar",
+      "description": "Granite Avatar - am_a1: chain.",
+      "archetype": "TRANSFORM",
+      "cost": 108,
+      "costGrowth": 1.55,
+      "maxRank": 1,
+      "params": {
+        "skill": "am_a1",
+        "flag": "chain"
+      },
+      "icon": "granite_avatar"
+    },
+    {
+      "id": "ashmonk_iron_n29",
+      "treeId": "ashmonk_iron",
+      "parent": "ashmonk_iron_n20",
+      "depth": 6,
+      "name": "The Unyielding",
+      "description": "The Unyielding - +3% hpRegen.",
+      "archetype": "VALUE",
+      "cost": 68,
+      "costGrowth": 1.55,
+      "maxRank": 5,
+      "params": {
+        "stat": "hpRegen",
+        "value": 0.03
+      },
+      "icon": "the_unyielding"
+    }
+  ]
+}

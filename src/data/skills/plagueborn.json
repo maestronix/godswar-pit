@@ -1,0 +1,188 @@
+[
+  {
+    "id": "pb_signature",
+    "name": "Plague Storm",
+    "classId": "plagueborn",
+    "kind": "signature",
+    "description": "The Plagueborn opens a blooming cloud of pestilence over a wide stretch of ground.",
+    "cost": 30,
+    "cooldown": 160,
+    "castTime": 4,
+    "range": 5.0,
+    "targeting": "aoe",
+    "aoeRadius": 3.6,
+    "power": 1.8,
+    "scaling": [
+      { "stat": "aoePct", "mult": 0.8 },
+      { "stat": "dotPct", "mult": 0.8 }
+    ],
+    "effects": [
+      { "kind": "damage", "power": 1.8, "damageType": "poison", "text": "Plague Storm bursts over every foe in the cloud." },
+      { "kind": "dot", "status": "poison", "power": 0.06, "duration": 36, "stacks": 2, "text": "The cloud festers inside the wounds." }
+    ],
+    "tags": ["aoe", "ultimate", "dot"],
+    "icon": "plague_storm",
+    "runes": [
+      {
+        "id": "pb_signature_bloom",
+        "name": "Corpse Bloom",
+        "description": "The cloud spreads far wider, but the initial burst is weaker.",
+        "overrides": { "aoeRadius": 4.0, "power": 1.5, "cooldown": 170 }
+      },
+      {
+        "id": "pb_signature_famine",
+        "name": "Famine",
+        "description": "A denser cloud that bursts hard and costs less Venom.",
+        "overrides": { "power": 2.4, "cost": 26 }
+      },
+      {
+        "id": "pb_signature_rot",
+        "name": "Total Rot",
+        "description": "The plague never leaves the lungs it enters.",
+        "overrides": { "cost": 34 },
+        "effectOverrides": { "kind": "dot", "status": "poison", "power": 0.1, "duration": 50, "stacks": 3 }
+      }
+    ]
+  },
+  {
+    "id": "pb_a1",
+    "name": "Toxic Volley",
+    "classId": "plagueborn",
+    "kind": "active",
+    "description": "A spray of tainted daggers that poisons everything it spares.",
+    "cost": 16,
+    "cooldown": 70,
+    "castTime": 2,
+    "range": 4.5,
+    "targeting": "aoe",
+    "aoeRadius": 2.8,
+    "power": 1.2,
+    "scaling": [{ "stat": "dotPct", "mult": 0.5 }],
+    "effects": [
+      { "kind": "damage", "power": 1.2, "damageType": "poison", "text": "The volley wounds every foe in its path." },
+      { "kind": "dot", "status": "poison", "power": 0.04, "duration": 24, "stacks": 2, "text": "Each wound carries the venom." }
+    ],
+    "tags": ["aoe", "dot"],
+    "icon": "toxic_volley",
+    "runes": [
+      {
+        "id": "pb_a1_rain",
+        "name": "Acid Rain",
+        "description": "The volley falls like rain over a much wider patch of the pit.",
+        "overrides": { "aoeRadius": 3.4, "power": 1.5, "cooldown": 85 }
+      },
+      {
+        "id": "pb_a1_focus",
+        "name": "Focused Volley",
+        "description": "A tighter volley that hits far harder and returns to the hand sooner.",
+        "overrides": { "power": 1.9, "cooldown": 60 }
+      }
+    ]
+  },
+  {
+    "id": "pb_a2",
+    "name": "Blight Aura",
+    "classId": "plagueborn",
+    "kind": "active",
+    "description": "A miasma of sickness surrounds the Plagueborn and rots anything that comes close.",
+    "cost": 14,
+    "cooldown": 90,
+    "castTime": 1,
+    "range": 3.0,
+    "targeting": "aoe",
+    "aoeRadius": 3.2,
+    "power": 1.0,
+    "scaling": [{ "stat": "dotPct", "mult": 0.6 }],
+    "effects": [
+      { "kind": "damage", "power": 1.0, "damageType": "poison", "text": "The aura sickens every foe in the miasma." },
+      { "kind": "dot", "status": "poison", "power": 0.04, "duration": 26, "stacks": 2, "text": "The sickness festers inside them." },
+      { "kind": "debuff", "status": "slow", "amount": 0.2, "duration": 20, "stacks": 1, "text": "The reek drags the living to a crawl." }
+    ],
+    "tags": ["aoe", "dot"],
+    "icon": "blight_aura",
+    "runes": [
+      {
+        "id": "pb_a2_pestilence",
+        "name": "Pestilence",
+        "description": "The miasma rolls outward to swallow a much larger stretch of ground.",
+        "overrides": { "aoeRadius": 3.8, "power": 1.2, "cooldown": 100 }
+      },
+      {
+        "id": "pb_a2_wither",
+        "name": "Wither",
+        "description": "A denser cloud that rots faster but does not spread as far.",
+        "overrides": { "power": 1.6, "cooldown": 80 }
+      }
+    ]
+  },
+  {
+    "id": "pb_a3",
+    "name": "Twin Fang",
+    "classId": "plagueborn",
+    "kind": "active",
+    "description": "Two quick fangs of a tainted blade puncture the target and leave venom behind.",
+    "cost": 12,
+    "cooldown": 55,
+    "castTime": 1,
+    "range": 1.5,
+    "targeting": "single",
+    "power": 1.0,
+    "scaling": [{ "stat": "attackSpeed", "mult": 0.3 }],
+    "effects": [
+      { "kind": "damage", "power": 1.0, "damageType": "physical", "text": "The first fang opens the wound." },
+      { "kind": "dot", "status": "poison", "power": 0.05, "duration": 24, "stacks": 2, "text": "The second fang empties its venom." }
+    ],
+    "tags": ["multi", "dot"],
+    "icon": "twin_fang",
+    "runes": [
+      {
+        "id": "pb_a3_venomfang",
+        "name": "Venom Fang",
+        "description": "The fangs carry far more venom and take far longer to work out.",
+        "overrides": { "cost": 14 },
+        "effectOverrides": { "kind": "dot", "status": "poison", "power": 0.09, "duration": 36, "stacks": 3 }
+      },
+      {
+        "id": "pb_a3_shadowfang",
+        "name": "Shadow Fang",
+        "description": "A quicker, sharper bite that comes back for more.",
+        "overrides": { "power": 1.6, "cooldown": 45 }
+      }
+    ]
+  },
+  {
+    "id": "pb_a4",
+    "name": "Corrode",
+    "classId": "plagueborn",
+    "kind": "active",
+    "description": "A dripping strike that eats through armour and leaves the foe crippled.",
+    "cost": 20,
+    "cooldown": 90,
+    "castTime": 2,
+    "range": 3.5,
+    "targeting": "single",
+    "power": 1.6,
+    "scaling": [{ "stat": "damagePct", "mult": 0.5 }],
+    "effects": [
+      { "kind": "damage", "power": 1.6, "damageType": "poison", "text": "Corrode melts through the target's guard." },
+      { "kind": "debuff", "status": "weaken", "amount": 0.25, "duration": 30, "stacks": 1, "text": "The corroded foe strikes far weaker." }
+    ],
+    "tags": ["single"],
+    "icon": "corrode",
+    "runes": [
+      {
+        "id": "pb_a4_dissolve",
+        "name": "Dissolve",
+        "description": "A heavier dose that melts the target down for a price of Venom.",
+        "overrides": { "power": 2.2, "cost": 26 }
+      },
+      {
+        "id": "pb_a4_rust",
+        "name": "Rust",
+        "description": "A quicker dose whose corroded wound keeps the target crippled.",
+        "overrides": { "power": 1.8, "cooldown": 75 },
+        "effectOverrides": { "kind": "debuff", "status": "weaken", "amount": 0.25, "duration": 50, "stacks": 1 }
+      }
+    ]
+  }
+]
